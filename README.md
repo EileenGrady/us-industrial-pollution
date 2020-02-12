@@ -18,6 +18,11 @@ This idea is an offshoot of the Superfund Site Proximity map I created in MAP 67
 
 The goal of this map is to provide some context around Superfund sites. I want to do some analysis with Census data, providing a visual representation of the demographics around each site to show who is impacted the most. I could also include data released by the US Government Accountability Office last year showing which Superfund sites are most vulnerable to climate change (flooding, storm surge, wildfires, and sea level rise). I am also interested in doing some watershed analysis to show how toxins can travel hydrologically, or what watersheds might be most at risk if a Superfund site was compromised by climate change.
 
+### Further Notes
+- Superfund site redevelopment?
+- search specific chemical?
+- [TOXMAP: A GIS-Based Gateway to Environmental Health Resources](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2703818/)
+
 ### Map Design
 
 - Superfund sites would likely by symbolized in clusters, but I also like the idea of showing sites symbolized by the number of people living within a certain radius.
