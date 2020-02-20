@@ -10,17 +10,19 @@ I also want to do some analysis with Census data, providing a visual representat
 
 According to [Factors to Consider when using Toxic Release Inventory Data](https://www.epa.gov/sites/production/files/2019-03/documents/factors_to_consider_march_2019.pdf), there are factors to consider when assessing a site's environmental hazard risk. Once I dig into the TRI data some more, I think I can isolate the sites that pose the most risk to groundwater contamination, and then do some watershed analysis on these risks.
 
-### Data Sources
-This project will pull in data from multiple sources. The Superfund and TRI sites will be the primary data source, and then others such as Census data and watershed boundaries will be pulled in to provide context around these sites.
+## State of the Data
 
-After showing general distribution of superfund sites and TRI sites, there will likely be some concentrations of these sites that I can dig into.
+This project will pull in data from multiple sources. The Superfund and TRI sites will be the primary data source, and then others such as Census data and watershed boundaries will be pulled in to provide context around these sites. After showing general distribution of superfund sites and TRI sites, there will likely be some concentrations of these sites that I can dig into. 
+
+The Superfund data is prettu straight forward. It is mostly just the facility locations and names. The data does contain an ID field though that can be linked back to that sites page on the EPA website. The TRI data contains a row for each chemical being released by each facility. I need to wrangle this data so that there is a row for each facility, with a field that lists each type of chemical it releases. Then I would like to narrow down to facilites that have a greater chance of groundwater contamination based on the type of chemical and method it is released by. The Census data contains a lot of extra information and needs to be wrangled quite a bit to narrow it down just to what I need, and then join the data to a US county shapefile or geojson. Once the Census data is wrangled, I can analyze it based on buffers around each Superfund and TRI site, and hopefully pull out some significant areas or clusters to focus on.
 
 The superfund sites and TRI facilities will likely be loaded in as geojsons. I will use Jupyter notebooks or node.js to perfom the Census data analysis and exploration, and then load the appropriate data in as either geojsons or csv.
+
+### Data Sources
 
 - [Superfund Sites](https://catalog.data.gov/dataset/superfund-sites1e8f4)
 - [TRI facilities](https://www.epa.gov/toxics-release-inventory-tri-program/tri-basic-data-files-calendar-years-1987-2018)
 - [Census Data](https://data.census.gov/cedsci/)
-    - [2017 income data](https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=ACS_17_5YR_S1901&prodType=table)
     - [2018 population estimates](https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=PEP_2018_PEPANNRES&prodType=table)
     - [2018 population estimates by age group](https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=PEP_2018_PEPAGESEX&prodType=table)
     - [2018 health insurance](https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=ACS_17_5YR_B27001&prodType=table)
