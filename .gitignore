@@ -102,3 +102,6 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# original county shapefile
+tl_2019_us_county.shp
