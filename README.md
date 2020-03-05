@@ -6,7 +6,7 @@ This idea is an offshoot of the Superfund Site Proximity map I created in MAP 67
 
 The goal of this map is to explore some effects that Superfund Sites, and facilities involved in the TRI inventory, have on their surroundings. I am thinking of adopting a storymap format for this report, to provide the user with a directed narrative. I would like to include some interacitivy as well as narrative. First I can show general distribution of both Superfund sites and TRI facilties. 
 
-I also want to do some analysis with Census data, providing a visual representation of the demographics around each site to show who is impacted the most. Some factors to look at include total population around each site, age groups, income level, and insurance coverage.
+I also want to do some analysis with Census data, providing a visual representation of the demographics around each site to show who is impacted the most. Some factors to look at include total population around each site, age groups, income level, and insurance coverage. 
 
 According to [Factors to Consider when using Toxic Release Inventory Data](https://www.epa.gov/sites/production/files/2019-03/documents/factors_to_consider_march_2019.pdf), there are factors to consider when assessing a site's environmental hazard risk. Once I dig into the TRI data some more, I think I can isolate the sites that pose the most risk to groundwater contamination, and then do some watershed analysis on these risks.
 
@@ -27,4 +27,4 @@ The superfund sites and TRI facilities will likely be loaded in as geojsons. I w
     - [2018 population estimates by age group](https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=PEP_2018_PEPAGESEX&prodType=table)
     - [2018 health insurance](https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=ACS_17_5YR_B27001&prodType=table)
     - [2017 household income](https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=ACS_17_5YR_S1901&prodType=table)
-- [Watershed Boundaries](https://nrcs.app.box.com/v/gateway/folder/39640323180)
+- [Great Lakes Watershed Boundaries](https://www.glahf.org/watersheds/)
