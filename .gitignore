@@ -106,5 +106,4 @@ venv.bak/
 # large files
 county-shapefile/
 /counties.geojson
-/great-lakes-hydrography.gdb
-*.gdbtable
+great-lakes-hydrography.gdb
