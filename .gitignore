@@ -104,5 +104,7 @@ venv.bak/
 .mypy_cache/
 
 # large files
-tl_2019_us_county.shp
-counties-joined.geojson
+county-shapefile/
+/counties.geojson
+/great-lakes-hydrography.gdb
+*.gdbtable
