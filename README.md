@@ -36,15 +36,4 @@ In order to add some context to these sites, I pulled in several other data sour
 
 ## Map Design Outline
 
-Below is a series of "slides" that I mocked up to help organize my thoughts and illustrate the ideas I have for presenting my exploration. This will be a storymap format, scrolling side panels with a map that updates in the background.
-
-![slide 1](/images/slide-1.jpg)
-![slide 2](/images/slide-2.jpg)
-![slide 3](/images/slide-3.jpg)
-![slide 4](/images/slide-4.jpg)
-![slide 5](/images/slide-5.jpg)
-![slide 6](/images/slide-6.jpg)
-![slide 7](/images/slide-7.jpg)
-![slide 8](/images/slide-8.jpg)
-![slide 9](/images/slide-9.jpg)
-![slide 10](/images/slide-10.jpg)
+I created a series of "slides" that I mocked up to help organize my thoughts and illustrate the ideas I have for presenting my exploration. The outline is included in this repo, 'map-design-outline.docx'. This will be a storymap format, scrolling side panels with a map that updates in the background.
