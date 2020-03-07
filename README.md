@@ -1,30 +1,50 @@
 # Exploring Toxic Pollution in the US
 
-_I want to map sites of environmental contaminants because I want to find out how these toxins impact their surroundings, in order to help the user visualize these effects._
+This idea is an offshoot of the Superfund Site Proximity map I created in MAP 675. The Superfund program was established by the Comprehensive Environmental Response, Compensation, and Liability Act (CERCLA) of 1980. The program operates under the EPA and is responsible for the investigation and clean-up of contaminated sites in the US. The most highly contaminated sites requiring longer-term remedial action are placed on the National Priority List (NPL). These sites pose grave risk to human health and the environment, and the US is seeing the [largest backlog of Superfund remediation projects](https://www.latimes.com/world-nation/story/2020-01-04/backlog-of-toxic-superfund-clean-ups-grows-under-trump) in at least 15 years.
 
-This idea is an offshoot of the Superfund Site Proximity map I created in MAP 675. I was also inspired after hearing a podcast about Robert Bilott and how he took on DuPont chemical company in a class action lawsuit. Bilott was initially contacted by a farmer whose cows had been mysteriously dying in Parkersburg, West Virginia. Eventually Bilott discovered that the massive DuPont factory that had been operating in the area until recently had been dumping chemicals called PFOs and PFOAs, poisoning the drinking water for the surrounding towns. While this DuPont facility is not classified as a Superfund site, it got me thinking about the effects that Superfund sites might have on their surroundings, both on humans and the environment.
+While the Superfund program focuses on cleaning up toxins leftover from defunct industrial activities, active facilities all over the country are currently releasing toxic chemicals into our air, water, and land. These releases are regulated and monitored through the EPA's toxic release inventory (TRI), established under the 1986 Superfund Amendments and Reauthorization Act. 
 
-The goal of this map is to explore some effects that Superfund Sites, and facilities involved in the TRI inventory, have on their surroundings. I am thinking of adopting a storymap format for this report, to provide the user with a directed narrative. I would like to include some interacitivy as well as narrative. First I can show general distribution of both Superfund sites and TRI facilties. 
-
-I also want to do some analysis with Census data, providing a visual representation of the demographics around each site to show who is impacted the most. Some factors to look at include total population around each site, age groups, income level, and insurance coverage. 
-
-According to [Factors to Consider when using Toxic Release Inventory Data](https://www.epa.gov/sites/production/files/2019-03/documents/factors_to_consider_march_2019.pdf), there are factors to consider when assessing a site's environmental hazard risk. Once I dig into the TRI data some more, I think I can isolate the sites that pose the most risk to groundwater contamination, and then do some watershed analysis on these risks.
+The goal of this map is to geographically investigate Superfund sites and TRI reporting facilities. I will use a storymap format to first provide a general overview/distribution of both Superfund sites and TRI facilities, and then dive deeper into various aspects. I would like to include some interactivity as well as directed narrative.
 
 ## State of the Data
 
-This project will pull in data from multiple sources. The Superfund and TRI sites will be the primary data source, and then others such as Census data and watershed boundaries will be pulled in to provide context around these sites. After showing general distribution of superfund sites and TRI sites, there will likely be some concentrations of these sites that I can dig into. 
+My approach for this project began by looking at Superfund sites and TRI reporting facility locations. I wanted to look at their nation-wide distribution, and then pull out some interesting cases/stories and pull in other data sources. I initially got caught up in wrangling the data into a format I thought I could use to tease out some stories, and then realized I had been doing a lot of work without really getting anywhere. I think I have finally found some direction after taking a step back and assessing the situation. Once I looked at where these sites were concentrated, I found some leads to follow.
 
-The Superfund data is prettu straight forward. It is mostly just the facility locations and names. The data does contain an ID field though that can be linked back to that sites page on the EPA website. The TRI data contains a row for each chemical being released by each facility. I need to wrangle this data so that there is a row for each facility, with a field that lists each type of chemical it releases. Then I would like to narrow down to facilites that have a greater chance of groundwater contamination based on the type of chemical and method it is released by. The Census data contains a lot of extra information and needs to be wrangled quite a bit to narrow it down just to what I need, and then join the data to a US county shapefile or geojson. Once the Census data is wrangled, I can analyze it based on buffers around each Superfund and TRI site, and hopefully pull out some significant areas or clusters to focus on.
+The primary data sources are of course, the Superfund sites and TRI facility locations. 
 
-The superfund sites and TRI facilities will likely be loaded in as geojsons. I will use Jupyter notebooks or node.js to perfom the Census data analysis and exploration, and then load the appropriate data in as either geojsons or csv.
+- [Superfund Sites](https://catalog.data.gov/dataset/superfund-sites1e8f4) are pretty straightforward. The data was downloaded in a file geodatabase format, and converted to geojson using the command line.
+- [TRI facilities](https://www.epa.gov/toxics-release-inventory-tri-program/tri-basic-data-files-calendar-years-1987-2018) for 2018 was downloaded in an excel workbook. I spent a lot of time exploring this dataset. There was one record with characteristics for each chemical reported, as well as facility information (including lat/long values). I had to wrangle the data into one record per facility, and exported to geojson.
 
-### Data Sources
+In order to add some context to these sites, I pulled in several other data sources.
 
-- [Superfund Sites](https://catalog.data.gov/dataset/superfund-sites1e8f4)
-- [TRI facilities](https://www.epa.gov/toxics-release-inventory-tri-program/tri-basic-data-files-calendar-years-1987-2018)
-- [Census Data](https://data.census.gov/cedsci/)
-    - [2018 population estimates](https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=PEP_2018_PEPANNRES&prodType=table)
-    - [2018 population estimates by age group](https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=PEP_2018_PEPAGESEX&prodType=table)
-    - [2018 health insurance](https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=ACS_17_5YR_B27001&prodType=table)
-    - [2017 household income](https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=ACS_17_5YR_S1901&prodType=table)
-- [Great Lakes Watershed Boundaries](https://www.glahf.org/watersheds/)
+- The [Risk-Screening Environmental Indicators](https://edap.epa.gov/public/extensions/EasyRSEI/EasyRSEI.html) (RSEI) model incorporates info from the TRI on the amount of toxic chemical released, with factors such as the chemical's fate and transport through the environment, each chemical's relative toxicity, and potential human exposure.
+    - I downloaded excel workbooks for the five RSEI value options for all TRI facilities in 2018. Each record represents one facility and reports its RSEI value, it also links to that facility's RSEI report which further details the score. There is a TRIFID column that I used to join to my existing TRI geojson.
+    - I plan to visualize facilities that have higher scores using graduated circles.
+- State and County polygon shapefiles downloaded from the Census Bureau.
+- [Census Data](https://data.census.gov/cedsci/): wrangled and joined to state and county polygons
+    - population estimates-used to caluclate population density
+    - age group under 5
+    - health inusrance coverage
+    - poverty level
+    - limited english
+    - education level (less than high school)
+- [Great Lakes Watershed Boundaries](https://www.glahf.org/watersheds/) downloaded as a large geodatabase. I viewed the data in QGIS and exported the necessary file to geojson format.
+- American Indian Land shapefile downloaded from the Census Bureau. I brought the file into QGIS, and performed a 'point-in-polygon' count, to explore any concentrations worth exploring. I found that both the highest number and highest density of Superfund sites was in the Puyallup Reservation (25 sites!) near Puget Sound in Washington State.
+- Top 10 Parent Companies: I explore some of the companies that own TRI facilities in one of my Jupyter notebooks. I found 10 companies that stand out as owning more than others.
+    - I created a csv with the name of each company and the address of their headquarters, then geocoded the addresses, created a geodataframe from the results, and exported to geojson
+    - I thought I could have the user choose a company from a dropdown, and the map would show that headquarters location. All the facilities it owns would show as smaller symbols, maybe connected to the headquarters with a line. 
+
+## Map Design Outline
+
+Below is a series of "slides" that I mocked up to help organize my thoughts and illustrate the ideas I have for presenting my exploration. This will be a storymap format, scrolling side panels with a map that updates in the background.
+
+![slide 1](images/slide-1.jpg)
+![slide 2](images/slide-2.jpg)
+![slide 3](images/slide-3.jpg)
+![slide 4](images/slide-4.jpg)
+![slide 5](images/slide-5.jpg)
+![slide 6](images/slide-6.jpg)
+![slide 7](images/slide-7.jpg)
+![slide 8](images/slide-8.jpg)
+![slide 9](images/slide-9.jpg)
+![slide 10](images/slide-10.jpg)
