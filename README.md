@@ -29,6 +29,7 @@ In order to add some context to these sites, I pulled in several other data sour
     - limited english
     - education level (less than high school)
 - [Great Lakes Watershed Boundaries](https://www.glahf.org/watersheds/) downloaded as a large geodatabase. I viewed the data in QGIS and exported the necessary file to geojson format.
+- [National Watershed Boundary Dataset](https://www.sciencebase.gov/catalog/item/51361e87e4b03b8ec4025c22)
 - American Indian Land shapefile downloaded from the Census Bureau. I brought the file into QGIS, and performed a 'point-in-polygon' count, to explore any concentrations worth exploring. I found that both the highest number and highest density of Superfund sites was in the Puyallup Reservation (25 sites!) near Puget Sound in Washington State.
 - Top 10 Parent Companies: I explore some of the companies that own TRI facilities in one of my Jupyter notebooks. I found 10 companies that stand out as owning more than others.
     - I created a csv with the name of each company and the address of their headquarters, then geocoded the addresses, created a geodataframe from the results, and exported to geojson
