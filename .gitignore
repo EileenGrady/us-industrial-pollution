@@ -107,3 +107,6 @@ venv.bak/
 county-shapefile/
 /counties.geojson
 great-lakes-hydrography.gdb
+
+# Dependency directories
+node_modules/
