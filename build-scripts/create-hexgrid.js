@@ -57,12 +57,20 @@ const sumPoints = (firstFeatures, secondFeatures, hexgrid) => {
     // set a counter variable
     let firstCount;
     let secondCount;
+    let rseiScore;
+    let cancerScore;
+    let nonCancerScore;
     
     // loop through each hex in hexgrid
     turf.featureEach(hexgrid, (hex, i) => {
         // reset counter to zero for each hex
         firstCount = 0
         secondCount = 0
+
+        // reset RSEI total score to 0 for each hex
+        rseiScore = 0
+        cancerScore = 0
+        nonCancerScore = 0
 
         // loop through each first feature
         turf.featureEach(firstFeatures, point => {
@@ -77,6 +85,9 @@ const sumPoints = (firstFeatures, secondFeatures, hexgrid) => {
             // if the secondFeature is inside hex
             if (turf.booleanPointInPolygon(point, hex, options)) {
                 secondCount++ // increase second count by 1
+                rseiScore = rseiScore + point.properties.RSEI_Score
+                cancerScore = cancerScore + point.properties.RSEI_Score_Cancer
+                nonCancerScore = nonCancerScore + point.properties.RSEI_Score_Noncancer
             }
         })
 
@@ -94,7 +105,10 @@ const sumPoints = (firstFeatures, secondFeatures, hexgrid) => {
         // update hex properties with both dataset counts
         hex.properties = Object.assign({}, hex.properties, {
             superfundCount: firstCount,
-            triCount: secondCount
+            triCount: secondCount,
+            rseiScore: rseiScore,
+            cancerScore: cancerScore,
+            nonCancerScore: nonCancerScore
         });
 
         // define both counts as integers
