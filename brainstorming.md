@@ -16,6 +16,10 @@ _I want to map sites of environmental contaminants because I want to find out ho
 
 This idea is an offshoot of the Superfund Site Proximity map I created in MAP 675. I was also inspired after hearing a podcast about Robert Bilott and how he took on DuPont chemical company in a class action lawsuit. Bilott was initially contacted by a farmer whose cows had been mysteriously dying in Parkersburg, West Virginia. Eventually Bilott discovered that the massive DuPont factory that had been operating in the area until recently had been dumping chemicals called PFOs and PFOAs, poisoning the drinking water for the surrounding towns. While this DuPont facility is not classified as a Superfund site, it got me thinking about the effects that Superfund sites might have on their surroundings, both on humans and the environment.
 
+The Superfund program was established by the Comprehensive Environmental Response, Compensation, and Liability Act (CERCLA) of 1980. The program operates under the EPA and is responsible for the investigation and clean-up of contaminated sites in the US. The most highly contaminated sites requiring longer-term remedial action are placed on the National Priority List (NPL). These sites pose grave risk to human health and the environment, and the US is seeing the [largest backlog of Superfund remediation projects](https://www.latimes.com/world-nation/story/2020-01-04/backlog-of-toxic-superfund-clean-ups-grows-under-trump) in at least 15 years.
+
+While the Superfund program focuses on cleaning up toxins leftover from defunct industrial activities, active facilities all over the country are currently releasing toxic chemicals into our air, water, and land. These releases are regulated and monitored through the toxic release inventory (TRI), established under the 1986 Superfund Amendments and Reauthorization Act. The law was pushed through after "a cloud of extremely toxic methyl isocyanate gas escaped from a Union Carbide Chemical plant in Bhopal, India. Thousands of people died that night in what is widely considered to be the worst industrial disaster in history. Thousands more died later as a result of their exposure, and survivors continue to suffer with permanent disabilities" [EPA.gov](https://www.epa.gov/toxics-release-inventory-tri-program/timeline-toxics-release-inventory-milestones)
+
 The goal of this map is to provide some context around Superfund sites. I want to do some analysis with Census data, providing a visual representation of the demographics around each site to show who is impacted the most. I could also include data released by the US Government Accountability Office last year showing which Superfund sites are most vulnerable to climate change (flooding, storm surge, wildfires, and sea level rise). I am also interested in doing some watershed analysis to show how toxins can travel hydrologically, or what watersheds might be most at risk if a Superfund site was compromised by climate change.
 
 ### Further Notes
@@ -40,6 +44,13 @@ The goal of this map is to provide some context around Superfund sites. I want t
 - US Government Accountability Office [report](https://www.gao.gov/products/GAO-20-73) on Superfund Site vulnerability to climate change
 - [Watershed Boundaries](https://nrcs.app.box.com/v/gateway/folder/39640323180)
 - [EPA Superfund Website](https://www.epa.gov/superfund)
+
+
+The Superfund and TRI sites will be the primary data source, and then others such as Census data and watershed boundaries will be pulled in to provide context around these sites. After showing general distribution of superfund sites and TRI sites, there will likely be some concentrations of these sites that I can dig into. 
+
+The Superfund data is pretty straight forward. It is mostly just the facility locations and names. The data does contain an ID field though that can be linked back to that sites page on the EPA website. The TRI data contains a row for each chemical being released by each facility. I need to wrangle this data so that there is a row for each facility, with a field that lists each type of chemical it releases. Then I would like to narrow down to facilites that have a greater chance of groundwater contamination based on the type of chemical and method it is released by. The Census data contains a lot of extra information and needs to be wrangled quite a bit to narrow it down just to what I need, and then join the data to a US county shapefile or geojson. Once the Census data is wrangled, I can analyze it based on buffers around each Superfund and TRI site, and hopefully pull out some significant areas or clusters to focus on.
+
+The superfund sites and TRI facilities will likely be loaded in as geojsons. I will use Jupyter notebooks or node.js to perfom the Census data analysis and exploration, and then load the appropriate data in as either geojsons or csv.
 
 ## 2. Mapping Toxic Release Inventory
 
