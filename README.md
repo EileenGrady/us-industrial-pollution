@@ -1,5 +1,4 @@
 # Exploring Industrial Pollution in the US
-### Subtitle
 
 ## I. Introduction
 
