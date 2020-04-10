@@ -47,7 +47,7 @@ Storymap format, scrolling side panels with a map that updates in the background
 1.	Intro about pollution in general: different types, the EPA—map shows EPA regions, introduce the TRI and Superfund Program
 2.	TRI inventory introduction- show general location of all TRI sites (clustered)
 3.	Superfund sites- show general location and info about program (clustered) The sites shown are on the NPL, with a hazard ranking score above 28.5
-4.	Where are all these sites concentrated? hexgrid choropleth showing total site density
+4.	Where are all these sites concentrated? hexgrid choropleth showing total site density--created with node.js script
 5.	What does the TRI monitor? Look at total lbs released vs risk score. How risk assessment has to take other factors than just amount into consideration- RSEI scores, graduated circles, dropdown between total release in pounds and RSEI scores to show how total release doesn’t necessarily convey the total risk or hazard
 6.	For example, Harris County Texas has the highest total RSEI score
     - Show all TRI facilities in the county, graduated circles based on score

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Industrial Pollution</title>
+
+    <!-- title bar -->
+    <nav class="navbar navbar-dark bg-dark">
+        <span class="navbar-brand mb-0 h1">Exploring Industrial Pollution in the US</span>
+    </nav>
+
+    <div class="container-fluid">
+        <div id="map"></div>
+    </div>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor\bootstrap\css\bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+    <!-- Custom styles for this template -->
+    <link href='css/style.css' rel='stylesheet' />
+  </head>
+
+  <body>
+
+ 
+    
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://d3js.org/d3-fetch.v1.min.js"></script>
+    <!-- <script src='js/app.js'></script> -->
+
+    <script>
+        var map = L.map('map', {
+            center: [36.686041276581925, -99.42626953125001],
+            zoom: 5,
+            zoomControl: false
+        });
+
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+            subdomains: 'abcd',
+            maxZoom: 19
+        }).addTo(map);
+
+        const superfund = d3.json('data/superfund-sites-new.geojson');
+
+        Promise.all([superfund]).then(dataReady)
+
+        function dataReady(data) {
+
+            // assign data to variables
+            const superfund = data[0];
+
+            // call drawMap function, passing data variables to pull out of function
+            drawMap(superfund)
+        }
+
+        function drawMap(superfund) {
+            var superfundLayer = L.geoJSON(superfund, {
+                pointToLayer: function (feature, latlng) {
+                    return L.circleMarker(latlng, {
+                        weight: 1,
+                        radius: 6,
+                        color: "#404040",
+                        fillColor: "#00FF00",
+                        fillOpacity: .85
+                    })
+                }
+                })
+            }
+    
+        
+
+
+    
+    </script>
+
+    
+  </body>
+</html>
