@@ -20,7 +20,11 @@ Once the Superfund site locations and TRI reporting facilities were wrangled and
 
 ### B. Medium for delivery
 
-This map will be presented as a storytelling map accessible across desktop and larger mobile devices. The basic technology stack includes HTML, CSS, JS, and Leaflet, delivered in a Bootstrap framework. _Storytelling library?_
+This map will be presented as a storytelling map accessible across desktop and larger mobile devices. The basic technology stack includes HTML, CSS, JS, and Leaflet, delivered in a Bootstrap framework, using the [Scrollama](https://github.com/russellgoldenberg/scrollama) JavaScript library to create a storytelling experience.
+
+I used a basic example/template found [here](https://scrollytelling-edu.herokuapp.com/).
+
+
 
 After guiding the user through the storytelling map, the last 'scene' will allow the user to search for an address using the [Leaflet Control Geocoder](https://github.com/perliedman/leaflet-control-geocoder). Then [Turf.js](https://turfjs.org/) will perform buffering, point-in-polygon analysis, and measurement in the browser to find the closest Superfund site and nearby TRI reporting facilities based on the user's search.
 
