@@ -18,37 +18,128 @@
         <section id="intro">
             <p><br></p>
             <h1 style="text-align:center">Exploring Industrial Pollution in the US</h1>
+            <p>In 1969, the burning of the Cuyahoga River in Cleveland, Ohio became a national symbol for the public’s outcry against industrial pollution. The public had been expressing increasing concern throughout the 1950s and 1960s, and the US reached a turning point when the Environmental Protection Agency was established in 1970. The EPA began to monitor and enforce the increasing number of environmental laws passed by Congress aimed at reducing industrial pollution. Today there are two main programs in place that monitor industrial pollution in the United States.</p>
             <p><br></p>
           </section>    
 
     <!-- Main Scrollytelling Section -->
     <section id="scrollytelling">
 
-        <!-- Figure sticks in place and updates as the user scrolls -->
+        <!-- Map  -->
         <figure>
-            <div class='chart' id="map"></div>
+            <div id="map"></div>
         </figure>
   
-        <!-- Prose for the story. Each div contains the text to show about the different versions of the figure -->
+        <!-- Prose for the project, additional info describing each scene. -->
         <article>
           <!-- Each div must have the class that you specify in the myScrollama.setup() -->
   
-          <!-- Message #1 -->
+          <!-- Scene 1 -->
           <div class="step">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </div>
-          
-          <!-- Message #2 -->
-          <div class="step">
-            <p>Vivamus rhoncus ut dolor vitae euismod.</p>
-          </div>
-  
-          <!-- Message #3 -->
-          <div class="step">
-            <p>Aliquam sodales felis sed nisl porta sodales.</p>
+            <p>The Superfund program is responsible for the investigation and clean-up of contaminated sites left over from decades of unregulated industrial manufacturing and other activities. The most highly contaminated sites which require longer-term remedial action take precedence and are placed on the National Priority List (NPL).</p>
           </div>
 
+          <!-- Scene 1a -->
+          <div class="step">
+            <p>Describe HRS--show top sites symbolozed by HRS</p>
+          </div>
+
+          <!-- Scene 1b -->
+          <div class="step">
+            <p>Briefly discuss clean-up efforts--show sites that do not have human exposure under control yet, leading into next two case studies.</p>
+          </div>
+          
+          <!-- Scene 2 -->
+          <div class="step">
+            <p>GE Pittsfield Housatonic River Superfund Site</p>
+            <p>From 1932 through 1977 at this site, General Electric manufactured and serviced electrical transformers containing PCBs. Years of PCB and industrial chemical use, and improper disposal, led to extensive contamination around Pittsfield, MA as well as down the entire length of the Housatonic River through Connecticut to the Long Island Sound.</p>
+          </div>
   
+          <!-- Scene 2a -->
+          <div class="step">
+            <p>zoom to georeferenced site map showing actual extent of site</p>
+          </div>
+
+          <!-- Scene 2b -->
+          <div class="step">
+            <p>then describe how pollution traveled all the way down Housatonic River--zoom out to entire river to show full extent of pollution.</p>
+          </div>
+
+          <!-- Scene 3 -->
+          <div class="step">
+            <p>Missouri's Old Lead Belt--show the seven specific sites</p>
+          </div>
+
+          <!-- Scene 3a -->
+          <div class="step">
+            <p>Zoom out to show all 4 county outlines and describe how the entire area is contaminated as a result of these 7 sites.</p>
+          </div>
+
+          <!-- Scene 4 -->
+          <div class="step">
+            <p>Toxic Release Inventory--show clusters of sites</p>
+          </div>
+
+         <!-- Scene 4a -->
+          <div class="step">
+            <p>Discuss complexity of system, determining hazard depends on toxicity weights and fate of chemical in environment, among other things--show top sites by RSEI score.</p>
+          </div>
+
+          <!-- Scene 5 -->
+          <div class="step">
+            <p>For example, an investigation into RSEI scores by direct water release, the Upper Tennessee watershed stands out with the second highest score of 1,138,280.</p>
+          </div>
+
+          <!-- Scene 5a -->
+          <div class="step">
+            <p>Upon further investigation, the largest share of this score can be traced back to one facility, the Eastman Chemical Co Tennessee Operations on the South Fork Holston River with a total RSEI score of 802,241 by direct water release, primarily from arsenic and dioxane. But what about facilities who don't report their releases properly?</p>
+          </div>
+
+          <!-- Scene 6 -->
+          <div class="step">
+            <p>Chemical Valley in West Virginia has a long history of industrial pollution.</p>
+          </div>
+
+          <!-- Scene 6a -->
+          <div class="step">
+            <p>2014 Elk River chemical spill. This site is not even on the TRI because it did not properly report or have permits to discharge into the river.</p>
+          </div>
+
+          <!-- Scene 6b -->
+          <div class="step">
+            <p>As a result, the water supply was poisoned for over 300,000 residents in nine counties.</p>
+          </div>
+
+          <!-- Scene 7 -->
+          <div class="step">
+            <p>Maybe show all facilities along waterways in the US here?</p>
+          </div>
+
+          <!-- Scene 8 -->
+          <div class="step">
+            <p>Look at CDC vulnerability index and find an area or two that would be most vulnerable in case of chemical spill?</p>
+          </div>
+
+          <!-- Scene 9 -->
+          <div class="step">
+            <p>Pollution on tribal lands--I found some discrepancies in reporting data and then the spatial analysis that I performed in QGIS that may be worth highlighting. First show all TRI facilities and Superfund sites that affect Native Americans according to the reported data.</p>
+          </div>
+
+          <!-- Scene 9a -->
+          <div class="step">
+            <p>Now show those sites plus the ones that actually fall on tribal lands in a QGIS count points in polygon analysis.</p>
+          </div>
+
+          <!-- Scene 10 -->
+          <div class="step">
+            <p>Looking at the maps in the previous two sections, maybe look at Oklahoma for a case study.</p>
+          </div>
+
+          <!-- Scene 11 -->
+          <div class="step">
+            <p>geocode option to find sites close to you?</p>
+          </div>
+
         </article>
   
       </section>
@@ -70,6 +161,8 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
     <!-- Custom styles for this template -->
     <link href='css/style.css' rel='stylesheet' />
+    <link rel="stylesheet" href="libs/Leaflet.markercluster/MarkerCluster.Default.css"> />
+    <link rel="stylesheet" href="libs/Leaflet.markercluster/MarkerCluster.css"> />
   </head>
 
   <body>
@@ -88,70 +181,222 @@
     <script src="https://unpkg.com/d3@5.9.1/dist/d3.min.js"></script>
     <script src="https://d3js.org/d3-fetch.v1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollama/2.2.1/scrollama.min.js"></script>
-    <!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.14.2/TweenMax.min.js"></script> -->
+    <script src="libs/Leaflet.markercluster/leaflet.markercluster.js"></script>
 
 
     <!-- <script src='js/app.js'></script> -->
 
     <script>
 
-    var superfundLayer = []
-    var triLayer = []       
+    // declare all layers to be used in map in order to access outside of drawMap function
+    var superfundMarkers = L.markerClusterGroup();
+    var humanExposureLayer = []
+    var triMarkers = L.markerClusterGroup();
+    var leadBeltLayer = []
+    var housatonicRiverLayer = []
+    var HUC4Layer = []      
+    var HUC10Layer = []
+    var chemicalValleyLayer = []
+    var countySpillLayer = []
+    var naTRILayer = []
+    var naSuperfundLayer = []
+    var actualNaTriLayer = []
+    var acutalNaSuperfundLayer = []
 
+    // initalize map
     var map = L.map('map', {
             center: [36.686041276581925, -99.42626953125001],
             zoom: 5,
             scrollWheelZoom: false
         });
 
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-            subdomains: 'abcd',
-            maxZoom: 19
-        }).addTo(map);
+    // add basemap
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+        subdomains: 'abcd',
+        maxZoom: 19
+    }).addTo(map);
 
-        const superfund = d3.json('data/superfund-sites-new.geojson');
-        const tri = d3.json('data/tri-facilities-new.geojson');
+    // load all data
+    const superfundData = d3.json('data/superfund-sites-new.geojson');
+    const triData = d3.json('data/tri-facilities-new.geojson');
+    const leadBeltData = d3.json('data/missouri-lead-belt.geojson');
+    const housatonicRiverData = d3.json('data/housatonic-river.geojson');
+    const HUC4Data = d3.json('data/watersheds/HUC4_simple.geojson');
+    const HUC10Data = d3.json('data/watersheds/HUC10-south-fork-holston.geojson');
+    const chemicalValleyData = d3.json('data/west-virginia-tri.geojson');
+    const countySpillData = d3.json('data/elk-river-spill-counties_WGS84.geojson');
+    const naSuperfundData = d3.json('data/superfund-native-american.geojson');
+    const naTRIData = d3.json('data/tri-native-american.geojson');
 
-        Promise.all([superfund, tri]).then(dataReady)
 
-        function dataReady(data) {
+    Promise.all([superfundData, triData, leadBeltData, housatonicRiverData, HUC4Data, HUC10Data, chemicalValleyData, countySpillData, naSuperfundData, naTRIData]).then(dataReady)
 
-            // assign data to variables
-            const superfund = data[0];
-            const tri = data[1]
+    // wait for all data to load
+    function dataReady(data) {
 
-            // call drawMap function, passing data variables to pull out of function
-            drawMap(superfund, tri)
+        // assign data to variables
+        const superfund = data[0];
+        const tri = data[1];
+        const leadBelt = data[2];
+        const housatonic = data[3];
+        const HUC4 = data[4];
+        const HUC10 = data[5];
+        const chemicalValley = data[6];
+        const countySpill = data[7];
+        const naSuperfund = data[8];
+        const naTRI = data[9];
+
+        // call drawMap function, passing data variables to pull out of function
+        drawMap(superfund, tri, leadBelt, housatonic, HUC4, HUC10, chemicalValley, countySpill, naSuperfund, naTRI);
+        
+        // call function to initiate scrollytelling code
+        init();
+    }
+
+    // define draw map function that creates and styles all data layers
+    function drawMap(superfund, tri, leadBelt, housatonic, HUC4, HUC10, chemicalValley, countySpill, naSuperfund, naTRI) {
+      
+      // create superfund cluster layer
+      superfund.features.forEach(function(feature) {
+        var coords = feature.geometry.coordinates;
+        marker = L.marker([coords[1], coords[0]]);
+        superfundMarkers.addLayer(marker);
+      });
+
+      // create superfund layer only showing sites that do not have human exposure under control
+      humanExposureLayer = L.geoJSON(superfund, {
+        pointToLayer: function (feature, latlng) {
+            return L.circleMarker(latlng, {
+                weight: 1,
+                radius: 3,
+                color: "#c8ffc8",
+                fillColor: "#66FF66",
+                fillOpacity: 1
+            })
+        },
+        filter: function (feature, layer) {
+          return feature.properties.HUMAN_EXPOSURE_UNDER_CONTROL == "No";
         }
+      });          
 
-        function drawMap(superfund, tri) {
-            superfundLayer = L.geoJSON(superfund, {
-                pointToLayer: function (feature, latlng) {
-                    return L.circleMarker(latlng, {
-                        weight: 1,
-                        radius: 3,
-                        color: "#c8ffc8",
-                        fillColor: "#66FF66",
-                        fillOpacity: 1
-                    })
-                }
-                }).addTo(map);
+      // create TRI facility cluster layer
+      tri.features.forEach(function(feature) {
+        var coords = feature.geometry.coordinates;
+        marker = L.marker([coords[1], coords[0]]);
+        triMarkers.addLayer(marker);
+      })
+    
+      // create layer showing counties in Missouri's old lead belt
+      leadBeltLayer = L.geoJSON(leadBelt, {
+          style: function (feature) {
+            return {color: "#FF9933"}
+          }
+        });
 
-                triLayer = L.geoJSON(tri, {
-                pointToLayer: function (feature, latlng) {
-                    return L.circleMarker(latlng, {
-                        weight: 1,
-                        radius: 3,
-                        color: "#ffad5a",
-                        fillColor: "#FF9933",
-                        fillOpacity: 1
-                    })
-                }
-                }).addTo(map);
+        // create Housatonic river layer
+        housatonicRiverLayer = L.geoJSON(housatonic, {
+          style: function (feature) {
+            return {color: "#4666FF", weight: 3}
+          }
+        });
 
+        // create Upper Tennesee HUC4 watershed layer
+        HUC4Layer = L.geoJSON(HUC4, {
+          style: function (feature) {
+            return {color: "#4666FF"}
+          }
+        });
 
-            }
+        // create South Fork Holston HUC10 watershed layer
+        HUC10Layer = L.geoJSON(HUC10, {
+          style: function (feature) {
+            return {color: "#4666FF"}
+          }
+        });
+
+        // create layer showing TRI facilities in West Virginia
+        chemicalValleyLayer = L.geoJSON(chemicalValley, {
+          pointToLayer: function (feature, latlng) {
+              return L.circleMarker(latlng, {
+                  weight: 1,
+                  radius: 3,
+                  color: "#ffad5a",
+                  fillColor: "#FF9933",
+                  fillOpacity: 1
+              })
+          }
+        });
+
+        // create layer showing counties affected by Elk River spill
+        countySpillLayer = L.geoJSON(countySpill, {
+          style: function (feature) {
+            return {color: "#4666FF"}
+          }
+        });
+
+        // create layer showing TRI facilities reported as falling on tribal land
+        naTRILayer = L.geoJSON(tri, {
+          pointToLayer: function (feature, latlng) {
+              return L.circleMarker(latlng, {
+                  weight: 1,
+                  radius: 3,
+                  color: "#c8ffc8",
+                  fillColor: "#66FF66",
+                  fillOpacity: 1
+              })
+          },
+          filter: function (feature, layer) {
+            // filter showing facilities that DO NOT have a blank string in the TRIBE column
+            return feature.properties.TRIBE != ""; 
+          }
+        });
+
+        // create layer showing superfund sites reported as of interest to Native Americans
+        naSuperfundLayer = L.geoJSON(superfund, {
+          pointToLayer: function (feature, latlng) {
+              return L.circleMarker(latlng, {
+                  weight: 1,
+                  radius: 3,
+                  color: "#c8ffc8",
+                  fillColor: "#FF6347",
+                  fillOpacity: 1
+              })
+          },
+          filter: function (feature, layer) {
+            return feature.properties.NATIVE_AMERICAN_INTEREST == "Yes";
+          }
+        }); 
+
+        // create layer of superfund sites reported as of interest to Native Americans
+        // in addition to the ones that actually fall within a Native American reservation
+        acutalNaSuperfundLayer = L.geoJSON(naSuperfund, {
+          pointToLayer: function (feature, latlng) {
+              return L.circleMarker(latlng, {
+                  weight: 1,
+                  radius: 3,
+                  color: "#ffad5a",
+                  fillColor: "#FF6347",
+                  fillOpacity: 1
+              })
+          }
+          });
+
+        // create layer of TRI facilities reported to fall on tribal lands
+        // in addition to the ones that actually fall within a Native American reservation
+        actualNaTriLayer = L.geoJSON(naTRI, {
+          pointToLayer: function (feature, latlng) {
+              return L.circleMarker(latlng, {
+                  weight: 1,
+                  radius: 3,
+                  color: "#ffad5a",
+                  fillColor: "#66FF66",
+                  fillOpacity: 1
+              })
+          }
+          });
+      }
+
 
  // ---------Section 0: Make a scrollama--------------- 
   // Create a scrollama object.
@@ -173,9 +418,6 @@
   // Save different parts of the page as D3.js objects. We'll use these later for easy restyling. D3.js is used for convenience.
   // ---------------------------------------------
   var figure = d3.select('figure');
-  var imgV1 = d3.select('#imgV1');
-  var imgV2 = d3.select('#imgV2');
-  var imgV3 = d3.select('#imgV3');
 
   var article = d3.select('article');
   var steps = d3.selectAll('.step');
@@ -210,39 +452,286 @@
   //#endregion
 
   // ---------Section 4: handleStepChange()---------------
-  // Create a function to update the figure in response to step-triggers.
-  // Again, this function could get more complex as your story gets longer or updates in different ways.
+  // Create a function to update the map in response to step-triggers.
+  // setting map view, and removing and adding layers
+  // this gets a little complicated/clunky and I'm not sure this is the best way to proceed
   // -----------------------------------------------------
   function handleStepChange(response) {
   
     console.log(response)
-    console.log(superfundLayer)
 
     switch(response.index) {
       case 0:
-        // have both layers
-        map.removeLayer(superfundLayer);
-        map.removeLayer(triLayer);
-        map.addLayer(superfundLayer);
-        map.addLayer(triLayer);
+        // Scene 1
+        // Superfund site clusters
+        map.setView([36.686041276581925, -99.42626953125001], 5);
+        map.removeLayer(superfundMarkers);
+        map.removeLayer(triMarkers);
+        map.removeLayer(leadBeltLayer);
+        map.removeLayer(housatonicRiverLayer);
+        map.removeLayer(humanExposureLayer);
+        map.addLayer(superfundMarkers);
         break;
 
       case 1:
-        // remove both and add superfund sites
-        map.removeLayer(superfundLayer);
-        map.removeLayer(triLayer);
-        map.addLayer(superfundLayer);
+        // Scene 1a
+        // Top superfund sites by HRS score
+        map.setView([36.686041276581925, -99.42626953125001], 5);
+        map.removeLayer(superfundMarkers);
+        map.removeLayer(triMarkers);
+        map.removeLayer(leadBeltLayer);
+        map.removeLayer(housatonicRiverLayer);
+        map.removeLayer(humanExposureLayer);
+
         break;
 
       case 2:
-        // remove both and add tri facilities
-        map.removeLayer(superfundLayer);
-        map.removeLayer(triLayer);
-        map.addLayer(triLayer);
+        // Scene 1b
+        // Superfund sites--human exposure not under control
+        map.setView([36.686041276581925, -99.42626953125001], 5);
+        map.removeLayer(superfundMarkers);
+        map.removeLayer(humanExposureLayer);
+        map.removeLayer(triMarkers);
+        map.removeLayer(leadBeltLayer);
+        map.removeLayer(housatonicRiverLayer);
+        map.addLayer(humanExposureLayer);
+        break;
+
+      case 3:
+        // Scene 2
+        // GE Pittsfield Site
+        map.setView([42.449629, -73.247877], 14);
+        map.removeLayer(superfundMarkers);
+        map.removeLayer(triMarkers);
+        map.removeLayer(leadBeltLayer);
+        map.removeLayer(housatonicRiverLayer);
+        map.removeLayer(humanExposureLayer);
+        map.addLayer(superfundMarkers);
+        break;
+      
+      case 4:
+        // Scene 2a
+        // Full GE site extent map
+        map.setView([42.449629, -73.247877], 14);
+        // map.removeLayer(geSiteMap)
+        // map.addLayer(geSiteMap)
+        break;
+
+      case 5:
+        // Scene 2b
+        // Housatonic River extent
+        map.setView([41.81636125072054, -73.63174438476564], 9);
+        map.removeLayer(housatonicRiverLayer);
+        map.removeLayer(humanExposureLayer);
+        map.addLayer(housatonicRiverLayer);
+        break;
+
+      case 6:
+        // Scene 3
+        // Missouri Old Lead Belt sites
+        map.setView([37.88948610493193, -90.81916809082033], 10);
+        map.removeLayer(superfundMarkers);
+        map.removeLayer(triMarkers);
+        map.removeLayer(leadBeltLayer);
+        map.removeLayer(housatonicRiverLayer);
+        map.removeLayer(humanExposureLayer);
+        map.addLayer(superfundMarkers);
+        break;
+
+      case 7:
+        // Scene 3a
+        // Missouri Old Lead Belt counties
+        map.setView([37.88948610493193, -90.81916809082033], 9)
+        map.removeLayer(superfundMarkers);
+        map.removeLayer(triMarkers);
+        map.removeLayer(leadBeltLayer);
+        map.removeLayer(housatonicRiverLayer);
+        map.removeLayer(humanExposureLayer);
+        map.addLayer(superfundMarkers);
+        map.addLayer(leadBeltLayer);
+        break;
+
+      case 8:
+        // Scene 4
+        // TRI facility cluster
+        map.setView([36.686041276581925, -99.42626953125001], 5)
+        map.removeLayer(superfundMarkers);
+        map.removeLayer(triMarkers);
+        map.removeLayer(leadBeltLayer);
+        map.removeLayer(housatonicRiverLayer);
+        map.removeLayer(humanExposureLayer);
+        map.addLayer(triMarkers);
+        break;
+
+      case 9:
+        // Scene 4a
+        // TRI top facilities by RSEI score
+        map.setView([36.686041276581925, -99.42626953125001], 5)
+        map.removeLayer(superfundMarkers);
+        map.removeLayer(triMarkers);
+        map.removeLayer(leadBeltLayer);
+        map.removeLayer(housatonicRiverLayer);
+        map.removeLayer(humanExposureLayer);
+        map.addLayer(triMarkers);
+        break;
+
+      case 10:
+        // Scene 5
+        // Upper Tennessee Watershed
+        map.setView([36.686041276581925, -99.42626953125001], 5)
+        map.removeLayer(superfundMarkers);
+        map.removeLayer(triMarkers);
+        map.removeLayer(leadBeltLayer);
+        map.removeLayer(housatonicRiverLayer);
+        map.removeLayer(humanExposureLayer);
+        map.addLayer(HUC4Layer);
+        break;
+
+        case 11:
+        // Scene 5a
+        // South Fork-Holston Watershed and Eastman Chemical Co Tennessee Operations facility
+        map.setView([36.47982803641967, -82.57152557373048], 11)
+        map.removeLayer(superfundMarkers);
+        map.removeLayer(triMarkers);
+        map.removeLayer(leadBeltLayer);
+        map.removeLayer(housatonicRiverLayer);
+        map.removeLayer(humanExposureLayer);
+        map.addLayer(HUC10Layer);
+        break;
+
+        case 12:
+        // Scene 6
+        // Chemical Valley in West Virginia
+        map.setView([38.41109628993052, -81.81913375854494], 12)
+        map.removeLayer(superfundMarkers);
+        map.removeLayer(triMarkers);
+        map.removeLayer(leadBeltLayer);
+        map.removeLayer(housatonicRiverLayer);
+        map.removeLayer(humanExposureLayer);
+        map.removeLayer(HUC10Layer);
+        map.removeLayer(HUC4Layer);
+        map.addLayer(chemicalValleyLayer);
+        break;
+        
+        case 13:
+        // Scene 6a
+        // Zoom to Freedom Industry facility that had chemical spill
+        map.setView([38.368821, -81.606954], 13)
+        map.removeLayer(superfundMarkers);
+        map.removeLayer(triMarkers);
+        map.removeLayer(leadBeltLayer);
+        map.removeLayer(housatonicRiverLayer);
+        map.removeLayer(humanExposureLayer);
+        map.removeLayer(HUC10Layer);
+        map.removeLayer(HUC4Layer);
+        map.addLayer(chemicalValleyLayer);
+        break;
+
+        case 14:
+        // Scene 6b
+        // show counties affected by spill
+        map.setView([38.268375880204744, -82.23678588867189], 9)
+        map.removeLayer(superfundMarkers);
+        map.removeLayer(triMarkers);
+        map.removeLayer(leadBeltLayer);
+        map.removeLayer(housatonicRiverLayer);
+        map.removeLayer(humanExposureLayer);
+        map.removeLayer(HUC10Layer);
+        map.removeLayer(HUC4Layer);
+        map.removeLayer(chemicalValleyLayer);
+        map.addLayer(countySpillLayer);
+        break;
+
+        case 15:
+        // Scene 7
+        // all facilities along waterways in US?
+        map.setView([38.268375880204744, -82.23678588867189], 9)
+        // map.removeLayer(superfundMarkers);
+        // map.removeLayer(triMarkers);
+        // map.removeLayer(leadBeltLayer);
+        // map.removeLayer(housatonicRiverLayer);
+        // map.removeLayer(humanExposureLayer);
+        // map.removeLayer(HUC10Layer);
+        // map.removeLayer(HUC4Layer);
+        // map.removeLayer(chemicalValleyLayer);
+        // map.addLayer(countySpillLayer);
+        break;
+
+        case 16:
+        // Scene 8
+        // CDC vulnerability index?
+        map.setView([38.268375880204744, -82.23678588867189], 9)
+        // map.removeLayer(superfundMarkers);
+        // map.removeLayer(triMarkers);
+        // map.removeLayer(leadBeltLayer);
+        // map.removeLayer(housatonicRiverLayer);
+        // map.removeLayer(humanExposureLayer);
+        // map.removeLayer(HUC10Layer);
+        // map.removeLayer(HUC4Layer);
+        // map.removeLayer(chemicalValleyLayer);
+        // map.addLayer(countySpillLayer);
+        break;
+
+        case 17:
+        // Scene 9
+        // Pollution on tribal lands--first show everything reported by EPA
+        map.setView([36.686041276581925, -99.42626953125001], 5)
+        map.removeLayer(superfundMarkers);
+        map.removeLayer(triMarkers);
+        map.removeLayer(leadBeltLayer);
+        map.removeLayer(housatonicRiverLayer);
+        map.removeLayer(humanExposureLayer);
+        map.removeLayer(HUC10Layer);
+        map.removeLayer(HUC4Layer);
+        map.removeLayer(chemicalValleyLayer);
+        map.removeLayer(countySpillLayer);
+        map.removeLayer(naTRILayer);
+        map.removeLayer(naSuperfundLayer);
+        map.removeLayer(acutalNaSuperfundLayer);
+        map.removeLayer(actualNaTriLayer);
+        map.addLayer(naTRILayer);
+        map.addLayer(naSuperfundLayer);
+        break;
+
+        case 18:
+        // Scene 9a
+        // then show all sites that actually fall on tribal lands
+        map.setView([36.686041276581925, -99.42626953125001], 5)
+        map.removeLayer(superfundMarkers);
+        map.removeLayer(triMarkers);
+        map.removeLayer(leadBeltLayer);
+        map.removeLayer(housatonicRiverLayer);
+        map.removeLayer(humanExposureLayer);
+        map.removeLayer(HUC10Layer);
+        map.removeLayer(HUC4Layer);
+        map.removeLayer(chemicalValleyLayer);
+        map.removeLayer(countySpillLayer);
+        map.removeLayer(naTRILayer);
+        map.removeLayer(naSuperfundLayer);
+        map.removeLayer(acutalNaSuperfundLayer);
+        map.removeLayer(actualNaTriLayer);
+        map.addLayer(acutalNaSuperfundLayer);
+        map.addLayer(actualNaTriLayer);
+        break;
+
+        case 19:
+        // Scene 9b
+        // a case study?
+        map.setView([36.686041276581925, -99.42626953125001], 5)
+        // map.removeLayer(superfundMarkers);
+        // map.removeLayer(triMarkers);
+        // map.removeLayer(leadBeltLayer);
+        // map.removeLayer(housatonicRiverLayer);
+        // map.removeLayer(humanExposureLayer);
+        // map.removeLayer(HUC10Layer);
+        // map.removeLayer(HUC4Layer);
+        // map.removeLayer(chemicalValleyLayer);
+        // map.addLayer(countySpillLayer);
         break;
 
       default:
         // do nothing
+
     }
 
   }
@@ -272,65 +761,7 @@
   // ---------Section 6: Wrap Up--------------- 
   // This is where you'll want to include any other JavaScript that you've created for the webpage, and to run the init() function. 
   // ------------------------------------------
-  init();
- 
-        
-
-        // var map = L.map('map', {
-        //     center: [36.686041276581925, -99.42626953125001],
-        //     zoom: 5,
-        //     scrollWheelZoom: false
-        // });
-
-        // L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-        //     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-        //     subdomains: 'abcd',
-        //     maxZoom: 19
-        // }).addTo(map);
-
-        // const superfund = d3.json('data/superfund-sites-new.geojson');
-        // const tri = d3.json('data/tri-facilities-new.geojson');
-
-        // Promise.all([superfund, tri]).then(dataReady)
-
-        // function dataReady(data) {
-
-        //     // assign data to variables
-        //     const superfund = data[0];
-        //     const tri = data[1]
-
-        //     // call drawMap function, passing data variables to pull out of function
-        //     drawMap(superfund)
-        // }
-
-        // function drawMap(superfund) {
-        //     var superfundLayer = L.geoJSON(superfund, {
-        //         pointToLayer: function (feature, latlng) {
-        //             return L.circleMarker(latlng, {
-        //                 weight: 1,
-        //                 radius: 3,
-        //                 color: "#c8ffc8",
-        //                 fillColor: "#66FF66",
-        //                 fillOpacity: 1
-        //             })
-        //         }
-        //         }).addTo(map);
-
-        //         var triLayer = L.geoJSON(tri, {
-        //         pointToLayer: function (feature, latlng) {
-        //             return L.circleMarker(latlng, {
-        //                 weight: 1,
-        //                 radius: 3,
-        //                 color: "#ffad5a",
-        //                 fillColor: "#FF9933",
-        //                 fillOpacity: 1
-        //             })
-        //         }
-        //         });
-        //     }
-    
-        
-
+  // init();
 
     
     </script>

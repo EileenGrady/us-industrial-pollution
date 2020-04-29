@@ -78,12 +78,10 @@
   .step p {
     /* 'position relative' allows the steps to positioned in a custom way*/
     position: relative;
-    /*OPTIONAL: centers the text*/
-    text-align: center;
     /*OPTIONAL: creates space around the text*/
     padding: 1rem;
     /*OPTIONAL: can be set based on preferences*/
-    font-size: 1.5rem;
+    font-size: 1rem;
     /*OPTIONAL: can be set based on preferences*/
     background-color: #f3f3f3;
     /*OPTIONAL: creates a solid box around the text*/
