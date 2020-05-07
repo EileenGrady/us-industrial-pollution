@@ -158,11 +158,12 @@
 
     <!-- Bootstrap core CSS -->
     <link href="vendor\bootstrap\css\bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+    <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" /> -->
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.css" rel="stylesheet" />
     <!-- Custom styles for this template -->
     <link href='css/style.css' rel='stylesheet' />
-    <link rel="stylesheet" href="libs/Leaflet.markercluster/MarkerCluster.Default.css"> />
-    <link rel="stylesheet" href="libs/Leaflet.markercluster/MarkerCluster.css"> />
+    <!-- <link rel="stylesheet" href="libs/Leaflet.markercluster/MarkerCluster.Default.css"> />
+    <link rel="stylesheet" href="libs/Leaflet.markercluster/MarkerCluster.css"> /> -->
   </head>
 
   <body>
@@ -175,13 +176,15 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.js"></script>
-    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
-    <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js'></script>
+    <!-- <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script> -->
+    <!-- <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js'></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://unpkg.com/d3@5.9.1/dist/d3.min.js"></script>
     <script src="https://d3js.org/d3-fetch.v1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollama/2.2.1/scrollama.min.js"></script>
-    <script src="libs/Leaflet.markercluster/leaflet.markercluster.js"></script>
+    <!-- <script src="libs/Leaflet.markercluster/leaflet.markercluster.js"></script> -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.js"></script>
+
 
 
     <!-- <script src='js/app.js'></script> -->
@@ -189,213 +192,229 @@
     <script>
 
     // declare all layers to be used in map in order to access outside of drawMap function
-    var superfundMarkers = L.markerClusterGroup();
-    var humanExposureLayer = []
-    var triMarkers = L.markerClusterGroup();
-    var leadBeltLayer = []
-    var housatonicRiverLayer = []
-    var HUC4Layer = []      
-    var HUC10Layer = []
-    var chemicalValleyLayer = []
-    var countySpillLayer = []
-    var naTRILayer = []
-    var naSuperfundLayer = []
-    var actualNaTriLayer = []
-    var acutalNaSuperfundLayer = []
+    // var superfundMarkers = L.markerClusterGroup();
+    // var humanExposureLayer = []
+    // var triMarkers = L.markerClusterGroup();
+    // var leadBeltLayer = []
+    // var housatonicRiverLayer = []
+    // var HUC4Layer = []      
+    // var HUC10Layer = []
+    // var chemicalValleyLayer = []
+    // var countySpillLayer = []
+    // var naTRILayer = []
+    // var naSuperfundLayer = []
+    // var actualNaTriLayer = []
+    // var acutalNaSuperfundLayer = []
 
-    // initalize map
-    var map = L.map('map', {
-            center: [36.686041276581925, -99.42626953125001],
-            zoom: 5,
-            scrollWheelZoom: false
-        });
+    // // add mapbox access token
+    // mapboxgl.accessToken = 'pk.eyJ1IjoiZWlsZWVuZ3JhZHkiLCJhIjoiY2s5dmd5bzJjMDA5ODNrcG9sdzgxY3dxNyJ9.o3V67yz8sFmnDzhGBkBLVg';
+
+    // // initalize map
+    // var map = new mapboxgl.Map({
+    //   container: 'map', // container id
+    //   style: 'mapbox://styles/mapbox/dark-v10', // stylesheet location
+    //   center: [-107.79, 35.08], // starting position [lng, lat]
+    //   zoom: 3.789, // starting zoom
+    //   scrollZoom: false
+    // });
+
+    // call function to initiate scrollytelling code
+    // init();
+    
+    // var map = L.map('map', {
+    //         center: [36.686041276581925, -99.42626953125001],
+    //         zoom: 5,
+    //         scrollWheelZoom: false
+    //     });
+
+
 
     // add basemap
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-        subdomains: 'abcd',
-        maxZoom: 19
-    }).addTo(map);
+    // L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    //     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+    //     subdomains: 'abcd',
+    //     maxZoom: 19
+    // }).addTo(map);
 
     // load all data
-    const superfundData = d3.json('data/superfund-sites-new.geojson');
-    const triData = d3.json('data/tri-facilities.geojson');
-    const leadBeltData = d3.json('data/missouri-lead-belt.geojson');
-    const housatonicRiverData = d3.json('data/housatonic-river.geojson');
-    const HUC4Data = d3.json('data/watersheds/HUC4_simple.geojson');
-    const HUC10Data = d3.json('data/watersheds/HUC10-south-fork-holston.geojson');
-    const chemicalValleyData = d3.json('data/west-virginia-tri.geojson');
-    const countySpillData = d3.json('data/elk-river-spill-counties_WGS84.geojson');
-    const naSuperfundData = d3.json('data/superfund-native-american.geojson');
-    const naTRIData = d3.json('data/tri-native-american.geojson');
+    // const superfundData = d3.json('data/superfund-sites-new.geojson');
+    // const triData = d3.json('data/tri-facilities.geojson');
+    // const leadBeltData = d3.json('data/missouri-lead-belt.geojson');
+    // const housatonicRiverData = d3.json('data/housatonic-river.geojson');
+    // const HUC4Data = d3.json('data/watersheds/HUC4_simple.geojson');
+    // const HUC10Data = d3.json('data/watersheds/HUC10-south-fork-holston.geojson');
+    // const chemicalValleyData = d3.json('data/west-virginia-tri.geojson');
+    // const countySpillData = d3.json('data/elk-river-spill-counties_WGS84.geojson');
+    // const naSuperfundData = d3.json('data/superfund-native-american.geojson');
+    // const naTRIData = d3.json('data/tri-native-american.geojson');
 
 
-    Promise.all([superfundData, triData, leadBeltData, housatonicRiverData, HUC4Data, HUC10Data, chemicalValleyData, countySpillData, naSuperfundData, naTRIData]).then(dataReady)
+    // Promise.all([superfundData, triData, leadBeltData, housatonicRiverData, HUC4Data, HUC10Data, chemicalValleyData, countySpillData, naSuperfundData, naTRIData]).then(dataReady)
 
-    // wait for all data to load
-    function dataReady(data) {
+    // // wait for all data to load
+    // function dataReady(data) {
 
-        // assign data to variables
-        const superfund = data[0];
-        const tri = data[1];
-        const leadBelt = data[2];
-        const housatonic = data[3];
-        const HUC4 = data[4];
-        const HUC10 = data[5];
-        const chemicalValley = data[6];
-        const countySpill = data[7];
-        const naSuperfund = data[8];
-        const naTRI = data[9];
+    //     // assign data to variables
+    //     const superfund = data[0];
+    //     const tri = data[1];
+    //     const leadBelt = data[2];
+    //     const housatonic = data[3];
+    //     const HUC4 = data[4];
+    //     const HUC10 = data[5];
+    //     const chemicalValley = data[6];
+    //     const countySpill = data[7];
+    //     const naSuperfund = data[8];
+    //     const naTRI = data[9];
 
-        // call drawMap function, passing data variables to pull out of function
-        drawMap(superfund, tri, leadBelt, housatonic, HUC4, HUC10, chemicalValley, countySpill, naSuperfund, naTRI);
+    //     // call drawMap function, passing data variables to pull out of function
+    //     drawMap(superfund, tri, leadBelt, housatonic, HUC4, HUC10, chemicalValley, countySpill, naSuperfund, naTRI);
         
-        // call function to initiate scrollytelling code
-        init();
-    }
+    //     // call function to initiate scrollytelling code
+    //     init();
+    // }
 
-    // define draw map function that creates and styles all data layers
-    function drawMap(superfund, tri, leadBelt, housatonic, HUC4, HUC10, chemicalValley, countySpill, naSuperfund, naTRI) {
+    // // define draw map function that creates and styles all data layers
+    // function drawMap(superfund, tri, leadBelt, housatonic, HUC4, HUC10, chemicalValley, countySpill, naSuperfund, naTRI) {
       
-      // create superfund cluster layer
-      superfund.features.forEach(function(feature) {
-        var coords = feature.geometry.coordinates;
-        marker = L.marker([coords[1], coords[0]]);
-        superfundMarkers.addLayer(marker);
-      });
+    //   // create superfund cluster layer
+    //   superfund.features.forEach(function(feature) {
+    //     var coords = feature.geometry.coordinates;
+    //     marker = L.marker([coords[1], coords[0]]);
+    //     superfundMarkers.addLayer(marker);
+    //   });
 
-      // create superfund layer only showing sites that do not have human exposure under control
-      humanExposureLayer = L.geoJSON(superfund, {
-        pointToLayer: function (feature, latlng) {
-            return L.circleMarker(latlng, {
-                weight: 1,
-                radius: 3,
-                color: "#c8ffc8",
-                fillColor: "#66FF66",
-                fillOpacity: 1
-            })
-        },
-        filter: function (feature, layer) {
-          return feature.properties.HUMAN_EXPOSURE_UNDER_CONTROL == "No";
-        }
-      });          
+    //   // create superfund layer only showing sites that do not have human exposure under control
+    //   humanExposureLayer = L.geoJSON(superfund, {
+    //     pointToLayer: function (feature, latlng) {
+    //         return L.circleMarker(latlng, {
+    //             weight: 1,
+    //             radius: 3,
+    //             color: "#c8ffc8",
+    //             fillColor: "#66FF66",
+    //             fillOpacity: 1
+    //         })
+    //     },
+    //     filter: function (feature, layer) {
+    //       return feature.properties.HUMAN_EXPOSURE_UNDER_CONTROL == "No";
+    //     }
+    //   });          
 
-      // create TRI facility cluster layer
-      tri.features.forEach(function(feature) {
-        var coords = feature.geometry.coordinates;
-        marker = L.marker([coords[1], coords[0]]);
-        triMarkers.addLayer(marker);
-      })
+    //   // create TRI facility cluster layer
+    //   tri.features.forEach(function(feature) {
+    //     var coords = feature.geometry.coordinates;
+    //     marker = L.marker([coords[1], coords[0]]);
+    //     triMarkers.addLayer(marker);
+    //   })
     
-      // create layer showing counties in Missouri's old lead belt
-      leadBeltLayer = L.geoJSON(leadBelt, {
-          style: function (feature) {
-            return {color: "#FF9933"}
-          }
-        });
+    //   // create layer showing counties in Missouri's old lead belt
+    //   leadBeltLayer = L.geoJSON(leadBelt, {
+    //       style: function (feature) {
+    //         return {color: "#FF9933"}
+    //       }
+    //     });
 
-        // create Housatonic river layer
-        housatonicRiverLayer = L.geoJSON(housatonic, {
-          style: function (feature) {
-            return {color: "#4666FF", weight: 3}
-          }
-        });
+    //     // create Housatonic river layer
+    //     housatonicRiverLayer = L.geoJSON(housatonic, {
+    //       style: function (feature) {
+    //         return {color: "#4666FF", weight: 3}
+    //       }
+    //     });
 
-        // create Upper Tennesee HUC4 watershed layer
-        HUC4Layer = L.geoJSON(HUC4, {
-          style: function (feature) {
-            return {color: "#4666FF"}
-          }
-        });
+    //     // create Upper Tennesee HUC4 watershed layer
+    //     HUC4Layer = L.geoJSON(HUC4, {
+    //       style: function (feature) {
+    //         return {color: "#4666FF"}
+    //       }
+    //     });
 
-        // create South Fork Holston HUC10 watershed layer
-        HUC10Layer = L.geoJSON(HUC10, {
-          style: function (feature) {
-            return {color: "#4666FF"}
-          }
-        });
+    //     // create South Fork Holston HUC10 watershed layer
+    //     HUC10Layer = L.geoJSON(HUC10, {
+    //       style: function (feature) {
+    //         return {color: "#4666FF"}
+    //       }
+    //     });
 
-        // create layer showing TRI facilities in West Virginia
-        chemicalValleyLayer = L.geoJSON(chemicalValley, {
-          pointToLayer: function (feature, latlng) {
-              return L.circleMarker(latlng, {
-                  weight: 1,
-                  radius: 3,
-                  color: "#ffad5a",
-                  fillColor: "#FF9933",
-                  fillOpacity: 1
-              })
-          }
-        });
+    //     // create layer showing TRI facilities in West Virginia
+    //     chemicalValleyLayer = L.geoJSON(chemicalValley, {
+    //       pointToLayer: function (feature, latlng) {
+    //           return L.circleMarker(latlng, {
+    //               weight: 1,
+    //               radius: 3,
+    //               color: "#ffad5a",
+    //               fillColor: "#FF9933",
+    //               fillOpacity: 1
+    //           })
+    //       }
+    //     });
 
-        // create layer showing counties affected by Elk River spill
-        countySpillLayer = L.geoJSON(countySpill, {
-          style: function (feature) {
-            return {color: "#4666FF"}
-          }
-        });
+    //     // create layer showing counties affected by Elk River spill
+    //     countySpillLayer = L.geoJSON(countySpill, {
+    //       style: function (feature) {
+    //         return {color: "#4666FF"}
+    //       }
+    //     });
 
-        // create layer showing TRI facilities reported as falling on tribal land
-        naTRILayer = L.geoJSON(tri, {
-          pointToLayer: function (feature, latlng) {
-              return L.circleMarker(latlng, {
-                  weight: 1,
-                  radius: 3,
-                  color: "#c8ffc8",
-                  fillColor: "#66FF66",
-                  fillOpacity: 1
-              })
-          },
-          filter: function (feature, layer) {
-            // filter showing facilities that DO NOT have a blank string in the TRIBE column
-            return feature.properties.TRIBE != ""; 
-          }
-        });
+    //     // create layer showing TRI facilities reported as falling on tribal land
+    //     naTRILayer = L.geoJSON(tri, {
+    //       pointToLayer: function (feature, latlng) {
+    //           return L.circleMarker(latlng, {
+    //               weight: 1,
+    //               radius: 3,
+    //               color: "#c8ffc8",
+    //               fillColor: "#66FF66",
+    //               fillOpacity: 1
+    //           })
+    //       },
+    //       filter: function (feature, layer) {
+    //         // filter showing facilities that DO NOT have a blank string in the TRIBE column
+    //         return feature.properties.TRIBE != ""; 
+    //       }
+    //     });
 
-        // create layer showing superfund sites reported as of interest to Native Americans
-        naSuperfundLayer = L.geoJSON(superfund, {
-          pointToLayer: function (feature, latlng) {
-              return L.circleMarker(latlng, {
-                  weight: 1,
-                  radius: 3,
-                  color: "#c8ffc8",
-                  fillColor: "#FF6347",
-                  fillOpacity: 1
-              })
-          },
-          filter: function (feature, layer) {
-            return feature.properties.NATIVE_AMERICAN_INTEREST == "Yes";
-          }
-        }); 
+    //     // create layer showing superfund sites reported as of interest to Native Americans
+    //     naSuperfundLayer = L.geoJSON(superfund, {
+    //       pointToLayer: function (feature, latlng) {
+    //           return L.circleMarker(latlng, {
+    //               weight: 1,
+    //               radius: 3,
+    //               color: "#c8ffc8",
+    //               fillColor: "#FF6347",
+    //               fillOpacity: 1
+    //           })
+    //       },
+    //       filter: function (feature, layer) {
+    //         return feature.properties.NATIVE_AMERICAN_INTEREST == "Yes";
+    //       }
+    //     }); 
 
-        // create layer of superfund sites reported as of interest to Native Americans
-        // in addition to the ones that actually fall within a Native American reservation
-        acutalNaSuperfundLayer = L.geoJSON(naSuperfund, {
-          pointToLayer: function (feature, latlng) {
-              return L.circleMarker(latlng, {
-                  weight: 1,
-                  radius: 3,
-                  color: "#ffad5a",
-                  fillColor: "#FF6347",
-                  fillOpacity: 1
-              })
-          }
-          });
+    //     // create layer of superfund sites reported as of interest to Native Americans
+    //     // in addition to the ones that actually fall within a Native American reservation
+    //     acutalNaSuperfundLayer = L.geoJSON(naSuperfund, {
+    //       pointToLayer: function (feature, latlng) {
+    //           return L.circleMarker(latlng, {
+    //               weight: 1,
+    //               radius: 3,
+    //               color: "#ffad5a",
+    //               fillColor: "#FF6347",
+    //               fillOpacity: 1
+    //           })
+    //       }
+    //       });
 
-        // create layer of TRI facilities reported to fall on tribal lands
-        // in addition to the ones that actually fall within a Native American reservation
-        actualNaTriLayer = L.geoJSON(naTRI, {
-          pointToLayer: function (feature, latlng) {
-              return L.circleMarker(latlng, {
-                  weight: 1,
-                  radius: 3,
-                  color: "#ffad5a",
-                  fillColor: "#66FF66",
-                  fillOpacity: 1
-              })
-          }
-          });
-      }
+    //     // create layer of TRI facilities reported to fall on tribal lands
+    //     // in addition to the ones that actually fall within a Native American reservation
+    //     actualNaTriLayer = L.geoJSON(naTRI, {
+    //       pointToLayer: function (feature, latlng) {
+    //           return L.circleMarker(latlng, {
+    //               weight: 1,
+    //               radius: 3,
+    //               color: "#ffad5a",
+    //               fillColor: "#66FF66",
+    //               fillOpacity: 1
+    //           })
+    //       }
+    //       });
+    //   }
 
 
  // ---------Section 0: Make a scrollama--------------- 
@@ -460,381 +479,176 @@
   
     console.log(response)
 
+    // create array of layers to be turned off in each case before adding back relevant layers
+    const allLayers = ['superfund-sites', 'tri-facilities', 'ge-layer', 'housatonic-layer', 'lead-belt-layer']
+
+    // create array of individual markers to be removed in each case before adding back relevant markers
+    const allMarkers = [geMarker]
+
     switch(response.index) {
       case 0:
         // Scene 1
-        // Superfund site clusters
-        map.setView([36.686041276581925, -99.42626953125001], 5);
-        map.removeLayer(superfundMarkers);
-        map.removeLayer(triMarkers);
-        map.removeLayer(leadBeltLayer);
-        map.removeLayer(housatonicRiverLayer);
-        map.removeLayer(humanExposureLayer);
-        map.removeLayer(HUC10Layer);
-        map.removeLayer(HUC4Layer);
-        map.removeLayer(chemicalValleyLayer);
-        map.removeLayer(countySpillLayer);
-        map.removeLayer(naTRILayer);
-        map.removeLayer(naSuperfundLayer);
-        map.removeLayer(acutalNaSuperfundLayer);
-        map.removeLayer(actualNaTriLayer);
-        map.addLayer(superfundMarkers);
+        // Superfund sites
+        allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
+        allMarkers.forEach(item => item.remove());
+        map.setLayoutProperty('superfund-sites','visibility', 'visible');
         break;
 
       case 1:
         // Scene 1a
         // Top superfund sites by HRS score
-        map.setView([36.686041276581925, -99.42626953125001], 5);
-        map.removeLayer(superfundMarkers);
-        map.removeLayer(triMarkers);
-        map.removeLayer(leadBeltLayer);
-        map.removeLayer(housatonicRiverLayer);
-        map.removeLayer(humanExposureLayer);
-        map.removeLayer(HUC10Layer);
-        map.removeLayer(HUC4Layer);
-        map.removeLayer(chemicalValleyLayer);
-        map.removeLayer(countySpillLayer);
-        map.removeLayer(naTRILayer);
-        map.removeLayer(naSuperfundLayer);
-        map.removeLayer(acutalNaSuperfundLayer);
-        map.removeLayer(actualNaTriLayer);
 
         break;
 
       case 2:
         // Scene 1b
         // Superfund sites--human exposure not under control
-        map.setView([36.686041276581925, -99.42626953125001], 5);
-        map.removeLayer(superfundMarkers);
-        map.removeLayer(triMarkers);
-        map.removeLayer(leadBeltLayer);
-        map.removeLayer(housatonicRiverLayer);
-        map.removeLayer(humanExposureLayer);
-        map.removeLayer(HUC10Layer);
-        map.removeLayer(HUC4Layer);
-        map.removeLayer(chemicalValleyLayer);
-        map.removeLayer(countySpillLayer);
-        map.removeLayer(naTRILayer);
-        map.removeLayer(naSuperfundLayer);
-        map.removeLayer(acutalNaSuperfundLayer);
-        map.removeLayer(actualNaTriLayer);
-        map.addLayer(humanExposureLayer);
         break;
 
       case 3:
         // Scene 2
         // GE Pittsfield Site
-        map.setView([42.449629, -73.247877], 14);
-        map.removeLayer(superfundMarkers);
-        map.removeLayer(triMarkers);
-        map.removeLayer(leadBeltLayer);
-        map.removeLayer(housatonicRiverLayer);
-        map.removeLayer(humanExposureLayer);
-        map.removeLayer(HUC10Layer);
-        map.removeLayer(HUC4Layer);
-        map.removeLayer(chemicalValleyLayer);
-        map.removeLayer(countySpillLayer);
-        map.removeLayer(naTRILayer);
-        map.removeLayer(naSuperfundLayer);
-        map.removeLayer(acutalNaSuperfundLayer);
-        map.removeLayer(actualNaTriLayer);
-        map.addLayer(superfundMarkers);
+        map.flyTo({
+          center: [-73.247877, 42.449629],
+          zoom: 13,
+          pitch: 0,
+          bearing: 0
+        });
+        allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
+        allMarkers.forEach(item => item.remove());
+        map.once('moveend', function(e) {
+          geMarker.addTo(map);
+        });
         break;
       
       case 4:
         // Scene 2a
         // Full GE site extent map
-        map.setView([42.449629, -73.247877], 14);
-        // map.removeLayer(geSiteMap)
-        // map.addLayer(geSiteMap)
+        map.flyTo({
+          center: [-73.2339, 42.453], 
+          zoom: 14,
+          pitch: 31.4999,
+          bearing: 0
+        });
+        allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
+        allMarkers.forEach(item => item.remove());
+        map.setLayoutProperty('ge-layer','visibility', 'visible');
         break;
 
       case 5:
         // Scene 2b
         // Housatonic River extent
-        map.setView([41.81636125072054, -73.63174438476564], 9);
-        map.removeLayer(superfundMarkers);
-        map.removeLayer(triMarkers);
-        map.removeLayer(leadBeltLayer);
-        map.removeLayer(housatonicRiverLayer);
-        map.removeLayer(humanExposureLayer);
-        map.removeLayer(HUC10Layer);
-        map.removeLayer(HUC4Layer);
-        map.removeLayer(chemicalValleyLayer);
-        map.removeLayer(countySpillLayer);
-        map.removeLayer(naTRILayer);
-        map.removeLayer(naSuperfundLayer);
-        map.removeLayer(acutalNaSuperfundLayer);
-        map.removeLayer(actualNaTriLayer);
-        map.addLayer(housatonicRiverLayer);
+        map.flyTo({
+          center: [-73.66980, 41.40002], 
+          zoom: 8.73,
+          pitch: 28,
+          bearing: -33.54
+        });
+        allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
+        allMarkers.forEach(item => item.remove());
+        map.setLayoutProperty('housatonic-layer','visibility', 'visible');
+
         break;
 
       case 6:
         // Scene 3
         // Missouri Old Lead Belt sites
-        map.setView([37.88948610493193, -90.81916809082033], 10);
-        map.removeLayer(superfundMarkers);
-        map.removeLayer(triMarkers);
-        map.removeLayer(leadBeltLayer);
-        map.removeLayer(housatonicRiverLayer);
-        map.removeLayer(humanExposureLayer);
-        map.removeLayer(HUC10Layer);
-        map.removeLayer(HUC4Layer);
-        map.removeLayer(chemicalValleyLayer);
-        map.removeLayer(countySpillLayer);
-        map.removeLayer(naTRILayer);
-        map.removeLayer(naSuperfundLayer);
-        map.removeLayer(acutalNaSuperfundLayer);
-        map.removeLayer(actualNaTriLayer);
-        map.addLayer(superfundMarkers);
+
         break;
 
       case 7:
         // Scene 3a
-        // Missouri Old Lead Belt counties
-        map.setView([37.88948610493193, -90.81916809082033], 9)
-        map.removeLayer(superfundMarkers);
-        map.removeLayer(triMarkers);
-        map.removeLayer(leadBeltLayer);
-        map.removeLayer(housatonicRiverLayer);
-        map.removeLayer(humanExposureLayer);
-        map.removeLayer(HUC10Layer);
-        map.removeLayer(HUC4Layer);
-        map.removeLayer(chemicalValleyLayer);
-        map.removeLayer(countySpillLayer);
-        map.removeLayer(naTRILayer);
-        map.removeLayer(naSuperfundLayer);
-        map.removeLayer(acutalNaSuperfundLayer);
-        map.removeLayer(actualNaTriLayer);
-        map.addLayer(superfundMarkers);
-        map.addLayer(leadBeltLayer);
+        // Missouri Old Lead Belt areas
+        map.flyTo({
+          center: [-90.97511, 37.98508], 
+          zoom: 8,
+          pitch: 0,
+          bearing: 0
+        });
+        allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
+        allMarkers.forEach(item => item.remove());
+        map.setLayoutProperty('lead-belt-layer','visibility', 'visible');
         break;
 
       case 8:
         // Scene 4
         // TRI facility cluster
-        map.setView([36.686041276581925, -99.42626953125001], 5)
-        map.removeLayer(superfundMarkers);
-        map.removeLayer(triMarkers);
-        map.removeLayer(leadBeltLayer);
-        map.removeLayer(housatonicRiverLayer);
-        map.removeLayer(humanExposureLayer);
-        map.removeLayer(HUC10Layer);
-        map.removeLayer(HUC4Layer);
-        map.removeLayer(chemicalValleyLayer);
-        map.removeLayer(countySpillLayer);
-        map.removeLayer(naTRILayer);
-        map.removeLayer(naSuperfundLayer);
-        map.removeLayer(acutalNaSuperfundLayer);
-        map.removeLayer(actualNaTriLayer);
-        map.addLayer(triMarkers);
+        map.flyTo({
+          center: [-107.79, 35.08],
+          zoom: 3.789
+        });
+        allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
+        allMarkers.forEach(item => item.remove());
+        map.setLayoutProperty('tri-facilities','visibility', 'visible');
         break;
 
       case 9:
         // Scene 4a
         // TRI top facilities by RSEI score
-        map.setView([36.686041276581925, -99.42626953125001], 5)
-        map.removeLayer(superfundMarkers);
-        map.removeLayer(triMarkers);
-        map.removeLayer(leadBeltLayer);
-        map.removeLayer(housatonicRiverLayer);
-        map.removeLayer(humanExposureLayer);
-        map.removeLayer(HUC10Layer);
-        map.removeLayer(HUC4Layer);
-        map.removeLayer(chemicalValleyLayer);
-        map.removeLayer(countySpillLayer);
-        map.removeLayer(naTRILayer);
-        map.removeLayer(naSuperfundLayer);
-        map.removeLayer(acutalNaSuperfundLayer);
-        map.removeLayer(actualNaTriLayer);
-        map.addLayer(triMarkers);
+  
         break;
 
       case 10:
         // Scene 5
         // Upper Tennessee Watershed
-        map.setView([36.686041276581925, -99.42626953125001], 5)
-        map.removeLayer(superfundMarkers);
-        map.removeLayer(triMarkers);
-        map.removeLayer(leadBeltLayer);
-        map.removeLayer(housatonicRiverLayer);
-        map.removeLayer(humanExposureLayer);
-        map.removeLayer(HUC10Layer);
-        map.removeLayer(HUC4Layer);
-        map.removeLayer(chemicalValleyLayer);
-        map.removeLayer(countySpillLayer);
-        map.removeLayer(naTRILayer);
-        map.removeLayer(naSuperfundLayer);
-        map.removeLayer(acutalNaSuperfundLayer);
-        map.removeLayer(actualNaTriLayer);
-        map.addLayer(HUC4Layer);
+        // map.setView([36.686041276581925, -99.42626953125001], 5)
+   
         break;
 
         case 11:
         // Scene 5a
         // South Fork-Holston Watershed and Eastman Chemical Co Tennessee Operations facility
-        map.setView([36.47982803641967, -82.57152557373048], 11)
-        map.removeLayer(superfundMarkers);
-        map.removeLayer(triMarkers);
-        map.removeLayer(leadBeltLayer);
-        map.removeLayer(housatonicRiverLayer);
-        map.removeLayer(humanExposureLayer);
-        map.removeLayer(HUC10Layer);
-        map.removeLayer(HUC4Layer);
-        map.removeLayer(chemicalValleyLayer);
-        map.removeLayer(countySpillLayer);
-        map.removeLayer(naTRILayer);
-        map.removeLayer(naSuperfundLayer);
-        map.removeLayer(acutalNaSuperfundLayer);
-        map.removeLayer(actualNaTriLayer);
-        map.addLayer(HUC10Layer);
+        
         break;
 
         case 12:
         // Scene 6
         // Chemical Valley in West Virginia
-        map.setView([38.41109628993052, -81.81913375854494], 12)
-        map.removeLayer(superfundMarkers);
-        map.removeLayer(triMarkers);
-        map.removeLayer(leadBeltLayer);
-        map.removeLayer(housatonicRiverLayer);
-        map.removeLayer(humanExposureLayer);
-        map.removeLayer(HUC10Layer);
-        map.removeLayer(HUC4Layer);
-        map.removeLayer(chemicalValleyLayer);
-        map.removeLayer(countySpillLayer);
-        map.removeLayer(naTRILayer);
-        map.removeLayer(naSuperfundLayer);
-        map.removeLayer(acutalNaSuperfundLayer);
-        map.removeLayer(actualNaTriLayer);
-        map.addLayer(chemicalValleyLayer);
+    
         break;
         
         case 13:
         // Scene 6a
         // Zoom to Freedom Industry facility that had chemical spill
-        map.setView([38.368821, -81.606954], 13)
-        map.removeLayer(superfundMarkers);
-        map.removeLayer(triMarkers);
-        map.removeLayer(leadBeltLayer);
-        map.removeLayer(housatonicRiverLayer);
-        map.removeLayer(humanExposureLayer);
-        map.removeLayer(HUC10Layer);
-        map.removeLayer(HUC4Layer);
-        map.removeLayer(chemicalValleyLayer);
-        map.removeLayer(countySpillLayer);
-        map.removeLayer(naTRILayer);
-        map.removeLayer(naSuperfundLayer);
-        map.removeLayer(acutalNaSuperfundLayer);
-        map.removeLayer(actualNaTriLayer);
-        map.addLayer(chemicalValleyLayer);
+      
         break;
 
         case 14:
         // Scene 6b
         // show counties affected by spill
-        map.setView([38.268375880204744, -82.23678588867189], 9)
-        map.removeLayer(superfundMarkers);
-        map.removeLayer(triMarkers);
-        map.removeLayer(leadBeltLayer);
-        map.removeLayer(housatonicRiverLayer);
-        map.removeLayer(humanExposureLayer);
-        map.removeLayer(HUC10Layer);
-        map.removeLayer(HUC4Layer);
-        map.removeLayer(chemicalValleyLayer);
-        map.removeLayer(countySpillLayer);
-        map.removeLayer(naTRILayer);
-        map.removeLayer(naSuperfundLayer);
-        map.removeLayer(acutalNaSuperfundLayer);
-        map.removeLayer(actualNaTriLayer);
-        map.addLayer(countySpillLayer);
+   
         break;
 
         case 15:
         // Scene 7
         // all facilities along waterways in US?
-        map.setView([38.268375880204744, -82.23678588867189], 9)
-        // map.removeLayer(superfundMarkers);
-        // map.removeLayer(triMarkers);
-        // map.removeLayer(leadBeltLayer);
-        // map.removeLayer(housatonicRiverLayer);
-        // map.removeLayer(humanExposureLayer);
-        // map.removeLayer(HUC10Layer);
-        // map.removeLayer(HUC4Layer);
-        // map.removeLayer(chemicalValleyLayer);
-        // map.addLayer(countySpillLayer);
+      
         break;
 
         case 16:
         // Scene 8
         // CDC vulnerability index?
-        map.setView([38.268375880204744, -82.23678588867189], 9)
-        // map.removeLayer(superfundMarkers);
-        // map.removeLayer(triMarkers);
-        // map.removeLayer(leadBeltLayer);
-        // map.removeLayer(housatonicRiverLayer);
-        // map.removeLayer(humanExposureLayer);
-        // map.removeLayer(HUC10Layer);
-        // map.removeLayer(HUC4Layer);
-        // map.removeLayer(chemicalValleyLayer);
-        // map.addLayer(countySpillLayer);
+   
         break;
 
         case 17:
         // Scene 9
         // Pollution on tribal lands--first show everything reported by EPA
-        map.setView([36.686041276581925, -99.42626953125001], 5)
-        map.removeLayer(superfundMarkers);
-        map.removeLayer(triMarkers);
-        map.removeLayer(leadBeltLayer);
-        map.removeLayer(housatonicRiverLayer);
-        map.removeLayer(humanExposureLayer);
-        map.removeLayer(HUC10Layer);
-        map.removeLayer(HUC4Layer);
-        map.removeLayer(chemicalValleyLayer);
-        map.removeLayer(countySpillLayer);
-        map.removeLayer(naTRILayer);
-        map.removeLayer(naSuperfundLayer);
-        map.removeLayer(acutalNaSuperfundLayer);
-        map.removeLayer(actualNaTriLayer);
-        map.addLayer(naTRILayer);
-        map.addLayer(naSuperfundLayer);
+   
+       
         break;
 
         case 18:
         // Scene 9a
         // then show all sites that actually fall on tribal lands
-        map.setView([36.686041276581925, -99.42626953125001], 5)
-        map.removeLayer(superfundMarkers);
-        map.removeLayer(triMarkers);
-        map.removeLayer(leadBeltLayer);
-        map.removeLayer(housatonicRiverLayer);
-        map.removeLayer(humanExposureLayer);
-        map.removeLayer(HUC10Layer);
-        map.removeLayer(HUC4Layer);
-        map.removeLayer(chemicalValleyLayer);
-        map.removeLayer(countySpillLayer);
-        map.removeLayer(naTRILayer);
-        map.removeLayer(naSuperfundLayer);
-        map.removeLayer(acutalNaSuperfundLayer);
-        map.removeLayer(actualNaTriLayer);
-        map.addLayer(acutalNaSuperfundLayer);
-        map.addLayer(actualNaTriLayer);
+       
+       
         break;
 
         case 19:
         // Scene 9b
         // a case study?
-        map.setView([36.686041276581925, -99.42626953125001], 5)
-        // map.removeLayer(superfundMarkers);
-        // map.removeLayer(triMarkers);
-        // map.removeLayer(leadBeltLayer);
-        // map.removeLayer(housatonicRiverLayer);
-        // map.removeLayer(humanExposureLayer);
-        // map.removeLayer(HUC10Layer);
-        // map.removeLayer(HUC4Layer);
-        // map.removeLayer(chemicalValleyLayer);
-        // map.addLayer(countySpillLayer);
+      
         break;
 
       default:
@@ -870,6 +684,110 @@
   // This is where you'll want to include any other JavaScript that you've created for the webpage, and to run the init() function. 
   // ------------------------------------------
   // init();
+
+  // add mapbox access token
+  mapboxgl.accessToken = 'pk.eyJ1IjoiZWlsZWVuZ3JhZHkiLCJhIjoiY2pvNG00eXVjMDFlcjNxcW1yZ3I2OTJ2ZSJ9.l2EtBykdOJSCNiszd2NbaA';
+
+  // initalize map
+  var map = new mapboxgl.Map({
+    container: 'map', // container id
+    style: 'mapbox://styles/eileengrady/ck9vlhb4417hl1iqmcr1eoyr4', // stylesheet location
+    center: [-107.79, 35.08], // starting position [lng, lat]
+    zoom: 3.789, // starting zoom
+    scrollZoom: false
+  });
+
+      // create marker for GE Pittsfield site
+      var geMarker = new mapboxgl.Marker()
+      .setLngLat([-73.232222, 42.450278])
+
+  map.on('load', function() {
+
+    // // create marker for GE Pittsfield site
+    // var geMarker = new mapboxgl.Marker()
+    //   .setLngLat([-73.232222, 42.450278])
+
+    // add source and layer for GE Pittsfield site map
+    map.addSource('ge-source', {
+      type: 'geojson',
+      data: 'data/ge-site-area.geojson'
+    });
+
+    map.addLayer({
+      'id': 'ge-layer',
+      'type': 'line',
+      'source': 'ge-source',
+      'layout': {
+        'visibility': 'none'
+      },
+      'paint': {
+        'line-color': '#FFCC33',
+        'line-width': 2
+      }
+    });
+
+    // add source and layer for Housatonic River
+    map.addSource('housatonic-source', {
+      type: 'geojson',
+      data: 'data/housatonic-river.geojson'
+    });
+
+    map.addLayer({
+      'id': 'housatonic-layer',
+      'type': 'line',
+      'source': 'housatonic-source',
+      'layout': {
+        'visibility': 'none'
+      },
+      'paint': {
+        'line-color': '#50BFE6',
+        'line-width': 2
+      }
+    });
+
+    // add source and layer for Lead Belt sites
+    map.addSource('lead-belt-source', {
+      type: 'geojson',
+      data: 'data/missouri-lead-belt.geojson'
+    });
+
+    map.addLayer({
+      'id': 'lead-belt-layer',
+      'type': 'line',
+      'source': 'lead-belt-source',
+      'layout': {
+        'visibility': 'none'
+      },
+      'paint': {
+        'line-color': '#50BFE6',
+        'line-width': 2
+      }
+    });
+
+    // // add source and layer for tri facilities
+    // map.addSource('tri-facilities', {
+    //   type: 'geojson',
+    //   data: 'data/tri-facilities.geojson'
+    // });
+
+    // map.addLayer({
+    //   'id': 'tri-layer',
+    //   'type': 'circle',
+    //   'source': 'tri-facilities',
+    //   'layout': {
+    //     'visibility': 'none'
+    //   },
+    //   'paint': {
+    //     'circle-radius': 4,
+    //     'circle-color': '#AAF0D1',
+    //     'circle-opacity': .5
+    //   }
+    // })
+
+    init();
+  })
+
+
 
     
     </script>
