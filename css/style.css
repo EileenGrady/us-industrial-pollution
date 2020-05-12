@@ -1,5 +1,34 @@
+.container {
+  background-image: url("https://cdn.pixabay.com/photo/2016/10/22/21/54/industry-1761801_960_720.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: '#242424';
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
 #map { 
-    height: 100vh; 
+    height: 100vh;
+    z-index: 1;
+}
+
+p {
+  font-family: 'Average', serif;
+}
+
+h1 {
+  font-family: 'Fjalla One', sans-serif;
+  text-align: left;
+  font-weight: bold;
+  font-size: 4em;
+}
+
+h2 {
+  font-family: 'Average', serif;
+  text-align: left;
+  /* font-weight: bold; */
+  font-size: 2em;
 }
 
  /* smooth creates a rewind / speed up effect when jumping between sections of the page */
@@ -28,10 +57,10 @@
     position: relative;
     padding: 0 1rem;
     /* 'max-width' sets how wide each step's the text comes up on the screen */
-    max-width: 20rem;
+    max-width: 25rem;
     /* 'OPTIONAL: margin-top' sets how much space there is between the the figure and the first message.*/
     margin-top: 0;
-    /* 'margin-left:auto' and 'margin-right:auto' centers the article on the page.*/
+    /* 'margins position step on the page*/
     margin-left: 5rem;
     /* 'transform' is included to ensure z-index works properly on all kinds of devices */
     -webkit-transform: translate3d(0, 0, 0);
@@ -55,7 +84,7 @@
     -moz-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
     /* OPTIONAL: you can choose any background color */
-    background-color: white;
+    background-color: '#242424';
   }
 
   figure img {
@@ -67,15 +96,7 @@
     /* 'position relative' allows the steps to positioned in a custom way*/
     position: relative;
     /* margins are set to position step as high as possible, centered, and with a minimum bottom margin*/
-    margin: 0 auto 2rem auto;
-  }
-
-  .step.last-child {
-    /* OPTIONAL: removes extra space at the bottom of the story*/
-    margin-bottom: 0;
-  }
-
-  .step p {
+    margin: 0 auto 20rem auto;
     /* 'position relative' allows the steps to positioned in a custom way*/
     position: relative;
     /*OPTIONAL: creates space around the text*/
@@ -87,5 +108,99 @@
     /*OPTIONAL: creates a solid box around the text*/
     border: 2px solid #282828;
     /*OPTIONAL: makes the text slightly see-through so that the figure is somewhat visible underneath*/
-    opacity: 0.95
+    opacity: 0.8;
   }
+
+  .step.last-child {
+    /* OPTIONAL: removes extra space at the bottom of the story*/
+    /* margin-bottom: 0; */
+  }
+
+  .step h3 {
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 1em;
+  }
+
+  .step p {
+    /* 'position relative' allows the steps to positioned in a custom way*/
+    position: relative;
+    /*OPTIONAL: creates space around the text*/
+    /* padding: 1rem; */
+    /*OPTIONAL: can be set based on preferences*/
+    font-size: 1rem;
+    /*OPTIONAL: can be set based on preferences*/
+    /* background-color: #f3f3f3; */
+    /*OPTIONAL: creates a solid box around the text*/
+    /* border: 2px solid #282828; */
+    /*OPTIONAL: makes the text slightly see-through so that the figure is somewhat visible underneath*/
+    opacity: 0.8;
+    /* text-align: center; */
+    /* padding: 1rem; */
+    /* font-size: 1.5rem; */
+  }
+
+  .step img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    opacity: 1;
+  }
+
+  .chapter {
+    /* 'position relative' allows the steps to positioned in a custom way*/
+    position: relative;
+    /*OPTIONAL: creates space around the text*/
+    padding: 1rem;
+    /*OPTIONAL: can be set based on preferences*/
+    font-size: 1rem;
+    /*OPTIONAL: can be set based on preferences*/
+    background-color: #f3f3f3;
+    /*OPTIONAL: creates a solid box around the text*/
+    border: 2px solid #282828;
+    /*OPTIONAL: makes the text slightly see-through so that the figure is somewhat visible underneath*/
+    opacity: 0.8;
+    text-align: center;
+    padding: 1rem;
+    /* font-size: 1.5rem; */
+  }
+
+  .mapboxgl-popup {
+    /* max-width: 150px; */
+    text-align: center;
+    opacity: 0.8;
+  }
+
+  .mapboxgl-popup h3 {
+    font-family: 'Average', serif;
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  .mapboxgl-popup h4 {
+    font-family: 'Average', serif;
+    font-size: 10px;
+  }
+
+  .legend {
+    background-color: #f3f3f3;
+    border-radius: 3px;
+    bottom: 30px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    padding: 10px;
+    position: absolute;
+    right: 10px;
+    z-index: 4;
+    }
+     
+    .legend h4 {
+    margin: 0 0 10px;
+    }
+     
+    .legend div span {
+    border-radius: 50%;
+    display: inline-block;
+    height: 10px;
+    margin-right: 5px;
+    width: 10px;
+    }
