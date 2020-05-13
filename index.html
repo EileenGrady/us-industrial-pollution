@@ -324,7 +324,7 @@
     console.log(response)
 
     // create array of layers to be turned off in each case before adding back relevant layers
-    const allLayers = ['superfund-layer', 'tri-layer', 'ge-layer', 'river-layer', 'lead-belt-area-layer', 'spill-layer']
+    const allLayers = ['superfund-layer', 'superfund-labels', 'tri-layer', 'ge-layer', 'river-layer', 'lead-belt-area-layer', 'spill-layer']
 
     // create array of individual markers to be removed in each case before adding back relevant markers
     const allMarkers = [freedomMarker]
@@ -406,11 +406,11 @@
         // Scene 2b
         // Housatonic River extent
         map.flyTo({
-          center: [-73.9481, 41.7777], 
-          zoom: 7.25,
-          pitch: 0,
-          bearing: 0,
-          speed: .5
+          center: [-72.87774, 42.18110], 
+          zoom: 8.92,
+          pitch: 37.8,
+          bearing: 129.64,
+          speed: .3
         });
         allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
         allMarkers.forEach(item => item.remove());
@@ -434,6 +434,8 @@
         allMarkers.forEach(item => item.remove());
         map.setLayoutProperty('superfund-layer','visibility', 'visible');
         map.setFilter('superfund-layer', ['in', 'SITE_NAME', 'BIG RIVER MINE TAILINGS/ST. JOE MINERALS CORP.', 'WASHINGTON COUNTY LEAD DISTRICT - FURNACE CREEK', 'WASHINGTON COUNTY LEAD DISTRICT - POTOSI', 'WASHINGTON COUNTY LEAD DISTRICT - OLD MINES', 'WASHINGTON COUNTY LEAD DISTRICT - RICHWOODS', 'SOUTHWEST JEFFERSON COUNTY MINING', 'ANSCHUTZ - MADISON MINE']);
+        map.setLayoutProperty('superfund-labels','visibility', 'visible');
+        map.setFilter('superfund-labels', ['in', 'SITE_NAME', 'BIG RIVER MINE TAILINGS/ST. JOE MINERALS CORP.', 'WASHINGTON COUNTY LEAD DISTRICT - FURNACE CREEK', 'WASHINGTON COUNTY LEAD DISTRICT - POTOSI', 'WASHINGTON COUNTY LEAD DISTRICT - OLD MINES', 'WASHINGTON COUNTY LEAD DISTRICT - RICHWOODS', 'SOUTHWEST JEFFERSON COUNTY MINING', 'ANSCHUTZ - MADISON MINE']);
         map.setPaintProperty('superfund-layer', 'circle-radius', 6)
         break;
 
@@ -451,6 +453,8 @@
         allMarkers.forEach(item => item.remove());
         map.setLayoutProperty('superfund-layer','visibility', 'visible');
         map.setFilter('superfund-layer', ['in', 'SITE_NAME', 'BIG RIVER MINE TAILINGS/ST. JOE MINERALS CORP.', 'WASHINGTON COUNTY LEAD DISTRICT - FURNACE CREEK', 'WASHINGTON COUNTY LEAD DISTRICT - POTOSI', 'WASHINGTON COUNTY LEAD DISTRICT - OLD MINES', 'WASHINGTON COUNTY LEAD DISTRICT - RICHWOODS', 'SOUTHWEST JEFFERSON COUNTY MINING', 'ANSCHUTZ - MADISON MINE']);
+        map.setLayoutProperty('superfund-labels','visibility', 'visible');
+        map.setFilter('superfund-labels', ['in', 'SITE_NAME', 'BIG RIVER MINE TAILINGS/ST. JOE MINERALS CORP.', 'WASHINGTON COUNTY LEAD DISTRICT - FURNACE CREEK', 'WASHINGTON COUNTY LEAD DISTRICT - POTOSI', 'WASHINGTON COUNTY LEAD DISTRICT - OLD MINES', 'WASHINGTON COUNTY LEAD DISTRICT - RICHWOODS', 'SOUTHWEST JEFFERSON COUNTY MINING', 'ANSCHUTZ - MADISON MINE']);
         map.setPaintProperty('superfund-layer', 'circle-radius', 6)
         map.setLayoutProperty('lead-belt-area-layer','visibility', 'visible');
         break;
@@ -459,10 +463,10 @@
       // Scene 3b
       // Big River
         map.flyTo({
-          center: [-90.8029, 37.852], 
-          zoom: 8,
-          pitch: 0,
-          bearing: 0,
+          center: [-90.78435, 38.03558], 
+          zoom: 9.87,
+          pitch: 38.5,
+          bearing: -21.6,
           speed: .5
         });
         allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
@@ -533,7 +537,8 @@
         });
         allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
         allMarkers.forEach(item => item.remove());
-        map.setLayoutProperty('wv-tri-layer','visibility', 'visible');
+        map.setLayoutProperty('tri-layer','visibility', 'visible');
+        map.setPaintProperty('tri-layer', 'circle-radius', 6);
         map.once('moveend', function(e) {
           freedomMarker.addTo(map);
         });
@@ -690,6 +695,34 @@
       popup.remove();
     });
 
+    // add source and layer for Superfund labels to be used in case studies
+    // map.addSource('superfund-source', {
+    //   type: 'geojson',
+    //   data: 'data/superfund-sites.geojson'
+    // });
+
+    // map.addLayer({
+    //   'id': 'superfund-labels',
+    //   'type': 'symbol',
+    //   'source': 'superfund-source',
+    //   'layout': {
+    //     'visibility': 'none',
+    //     'text-field': ['get', 'SITE_NAME'],
+    //     'text-color': '#cfcfcf',
+    //     'text-halo-color': '#000000',
+    //     'text-halo-width': 1,
+    //     'text-halo-blur': 1,
+    //     'text-variable-anchor': ['top', 'bottom'],
+    //     'text-radial-offset': 0.4,
+    //     'text-justify': 'auto',
+    //     'text-size': 12
+    //     'text-color': '#cfcfcf',
+    //     'text-halo-color': '#000000',
+    //     'text-halo-width': 1,
+    //     'text-halo-blur': 1
+    //   }
+    // });
+
     // add source and layer for GE Pittsfield site map
     map.addSource('ge-source', {
       type: 'geojson',
@@ -705,7 +738,7 @@
       },
       'paint': {
         'line-color': '#F9C74F',
-        // 'line-width': 1
+        'line-width': 1
       }
     });
 
@@ -752,24 +785,9 @@
       },
       'paint': {
         'line-color': '#5FAECC',
-        'line-width': 1.5
+        'line-width': 3
       }
     });
-
-    // add source and layer for Lead Belt sites
-    // map.addLayer({
-    //   'id': 'lead-belt-sites-layer',
-    //   'type': 'circle',
-    //   'source': 'superfund-source',
-    //   'layout': {
-    //     'visibility': 'none'
-    //   },
-    //   'filter': ['==', 'MAP_CHAPTER', 'MO lead belt'],
-    //   'paint': {
-    //     'circle-radius': 5,
-    //     'circle-color': '#AAF0D1'
-    //   }
-    // });
 
     // add source and layer for Lead Belt areas
     map.addSource('lead-belt-area-source', {
