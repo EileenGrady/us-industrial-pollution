@@ -108,7 +108,7 @@
 
           <!-- Scene 3 -->
           <div class="step">
-            <h3>The Old Lead Belt</h3>
+            <h3>Southeast Missouri Lead District</h3>
             <p>Missouri is home to the largest lead concentrations in the world, which has been mined for over a century. 
               The seven Superfund sites seen here are defunct lead mines located in the Southeast Missouri Lead District. 
               Mining at these sites left behind hundreds of millions of tons of mining waste contaminated with lead, and other heavy metals and toxic chemicals. 
@@ -125,6 +125,18 @@
             <p>Contaminants from the chat piles has been distributed throughout the area, now encompassing an area much larger than is first suggested by the location of each site. 
               The total area affected by these seven Superfund sites covers four entire counties in Missouri: Washington, Jefferson, St. Francois, and Madison.
             </p>
+          </div>
+
+          <!-- Scene 3b -->
+          <div class="step">
+            <p>Heavy metals and toxic chemicals also leached into groundwater, eventually draining into the Big River, which runs through Washington, Jefferson, and St. Francois counties. 
+              In 1977, heavy rains caused an estimated 50,000 cubic yards of contaminated mining waste to slough into the Big River. 
+              As part of remediation efforts, the EPA conducts soil testing and cleanup for properties along the river and located on its floodplain. 
+              The EPA also recommends that children in the area undergo annual blood testing for lead.
+            </p>
+            <p>Source: <a href='epa.gov/mo/big-river-and-floodplain-st-francois-jefferson-and-washington-counties-missouri-fact-sheet-july' target = '_blank'>EPA</a></p>
+            <img src='images/big-river-warning.jpg'>
+            <p>Photo Credit: <a href='https://www.kbia.org/post/big-river-still-dealing-lead-mining-waste#stream/0'>Kristofor Husted / KBIA</a></p>
           </div>
 
           <!-- Scene 4 -->
@@ -312,7 +324,7 @@
     console.log(response)
 
     // create array of layers to be turned off in each case before adding back relevant layers
-    const allLayers = ['superfund-layer', 'tri-layer', 'ge-layer', 'housatonic-layer', 'lead-belt-area-layer', 'spill-layer']
+    const allLayers = ['superfund-layer', 'tri-layer', 'ge-layer', 'river-layer', 'lead-belt-area-layer', 'spill-layer']
 
     // create array of individual markers to be removed in each case before adding back relevant markers
     const allMarkers = [freedomMarker]
@@ -402,7 +414,8 @@
         });
         allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
         allMarkers.forEach(item => item.remove());
-        map.setLayoutProperty('housatonic-layer','visibility', 'visible');
+        map.setLayoutProperty('river-layer','visibility', 'visible');
+        map.setFilter('river-layer', ['in', 'name', 'Housatonic River', 'East Branch Housatonic River']);
         map.setLayoutProperty('superfund-layer','visibility', 'visible');
         map.setFilter('superfund-layer', ['==', 'SITE_NAME', 'GE PITTSFIELD HOUSATONIC RIVER SUPERFUND SITE']);
         map.setPaintProperty('superfund-layer', 'circle-radius', 6)
@@ -443,6 +456,25 @@
         break;
 
       case 7:
+      // Scene 3b
+      // Big River
+        map.flyTo({
+          center: [-90.8029, 37.852], 
+          zoom: 8,
+          pitch: 0,
+          bearing: 0,
+          speed: .5
+        });
+        allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
+        allMarkers.forEach(item => item.remove());
+        map.setLayoutProperty('superfund-layer','visibility', 'visible');
+        map.setLayoutProperty('river-layer','visibility', 'visible');
+        map.setFilter('river-layer', ['==', 'name', 'Big River']);
+        map.setFilter('superfund-layer', ['in', 'SITE_NAME', 'BIG RIVER MINE TAILINGS/ST. JOE MINERALS CORP.', 'WASHINGTON COUNTY LEAD DISTRICT - FURNACE CREEK', 'WASHINGTON COUNTY LEAD DISTRICT - POTOSI', 'WASHINGTON COUNTY LEAD DISTRICT - OLD MINES', 'WASHINGTON COUNTY LEAD DISTRICT - RICHWOODS', 'SOUTHWEST JEFFERSON COUNTY MINING', 'ANSCHUTZ - MADISON MINE']);
+        map.setPaintProperty('superfund-layer', 'circle-radius', 6);
+        break;
+
+      case 8:
         // Scene 4
         // TRI facility cluster
         map.flyTo({
@@ -456,26 +488,26 @@
         map.setLayoutProperty('tri-layer','visibility', 'visible');
         break;
 
-      case 8:
+      case 9:
         // Scene 4a
         // TRI top facilities by RSEI score
   
         break;
 
-      case 9:
+      case 10:
         // Scene 5
         // Upper Tennessee Watershed
         // map.setView([36.686041276581925, -99.42626953125001], 5)
    
         break;
 
-        case 10:
+        case 11:
         // Scene 5a
         // South Fork-Holston Watershed and Eastman Chemical Co Tennessee Operations facility
         
         break;
 
-        case 11:
+        case 12:
         // Scene 6
         // Chemical Valley in West Virginia
         map.flyTo({
@@ -487,10 +519,10 @@
         allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
         allMarkers.forEach(item => item.remove());
         map.setLayoutProperty('tri-layer','visibility', 'visible');
-        map.setPaintProperty('tri-layer', 'circle-radius', 6)
+        map.setPaintProperty('tri-layer', 'circle-radius', 6);
         break;
         
-        case 12:
+        case 13:
         // Scene 6a
         // Zoom to Freedom Industry facility that had chemical spill
         map.flyTo({
@@ -507,7 +539,7 @@
         });
         break;
 
-        case 13:
+        case 14:
         // Scene 6b
         // show counties affected by spill
         map.flyTo({
@@ -522,33 +554,33 @@
         freedomMarker.addTo(map);
         break;
 
-        case 14:
+        case 15:
         // Scene 7
         // all facilities along waterways in US?
       
         break;
 
-        case 15:
+        case 16:
         // Scene 8
         // CDC vulnerability index?
    
         break;
 
-        case 16:
+        case 17:
         // Scene 9
         // Pollution on tribal lands--first show everything reported by EPA
    
        
         break;
 
-        case 17:
+        case 18:
         // Scene 9a
         // then show all sites that actually fall on tribal lands
        
        
         break;
 
-        case 18:
+        case 19:
         // Scene 9b
         // a case study?
       
@@ -705,16 +737,16 @@
       popup.remove();
     });
 
-    // add source and layer for Housatonic River
-    map.addSource('housatonic-source', {
+    // add source and layer for River layer
+    map.addSource('river-source', {
       type: 'geojson',
-      data: 'data/housatonic-river.geojson'
+      data: 'data/rivers.geojson'
     });
 
     map.addLayer({
-      'id': 'housatonic-layer',
+      'id': 'river-layer',
       'type': 'line',
-      'source': 'housatonic-source',
+      'source': 'river-source',
       'layout': {
         'visibility': 'none'
       },
