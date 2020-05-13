@@ -324,7 +324,7 @@
     console.log(response)
 
     // create array of layers to be turned off in each case before adding back relevant layers
-    const allLayers = ['superfund-layer', 'superfund-labels', 'tri-layer', 'ge-layer', 'river-layer', 'lead-belt-area-layer', 'spill-layer']
+    const allLayers = ['superfund-layer', 'superfund-labels', 'tri-layer', 'ge-layer', 'watershed-layer', 'river-layer', 'lead-belt-area-layer', 'spill-layer']
 
     // create array of individual markers to be removed in each case before adding back relevant markers
     const allMarkers = [freedomMarker]
@@ -416,6 +416,8 @@
         allMarkers.forEach(item => item.remove());
         map.setLayoutProperty('river-layer','visibility', 'visible');
         map.setFilter('river-layer', ['in', 'name', 'Housatonic River', 'East Branch Housatonic River']);
+        map.setLayoutProperty('watershed-layer','visibility', 'visible');
+        map.setFilter('watershed-layer', ['==', 'NAME', 'Housatonic']);
         map.setLayoutProperty('superfund-layer','visibility', 'visible');
         map.setFilter('superfund-layer', ['==', 'SITE_NAME', 'GE PITTSFIELD HOUSATONIC RIVER SUPERFUND SITE']);
         map.setPaintProperty('superfund-layer', 'circle-radius', 6)
@@ -472,6 +474,8 @@
         allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
         allMarkers.forEach(item => item.remove());
         map.setLayoutProperty('superfund-layer','visibility', 'visible');
+        map.setLayoutProperty('watershed-layer','visibility', 'visible');
+        map.setFilter('watershed-layer', ['==', 'NAME', 'Big']);
         map.setLayoutProperty('river-layer','visibility', 'visible');
         map.setFilter('river-layer', ['==', 'name', 'Big River']);
         map.setFilter('superfund-layer', ['in', 'SITE_NAME', 'BIG RIVER MINE TAILINGS/ST. JOE MINERALS CORP.', 'WASHINGTON COUNTY LEAD DISTRICT - FURNACE CREEK', 'WASHINGTON COUNTY LEAD DISTRICT - POTOSI', 'WASHINGTON COUNTY LEAD DISTRICT - OLD MINES', 'WASHINGTON COUNTY LEAD DISTRICT - RICHWOODS', 'SOUTHWEST JEFFERSON COUNTY MINING', 'ANSCHUTZ - MADISON MINE']);
@@ -695,34 +699,6 @@
       popup.remove();
     });
 
-    // add source and layer for Superfund labels to be used in case studies
-    // map.addSource('superfund-source', {
-    //   type: 'geojson',
-    //   data: 'data/superfund-sites.geojson'
-    // });
-
-    // map.addLayer({
-    //   'id': 'superfund-labels',
-    //   'type': 'symbol',
-    //   'source': 'superfund-source',
-    //   'layout': {
-    //     'visibility': 'none',
-    //     'text-field': ['get', 'SITE_NAME'],
-    //     'text-color': '#cfcfcf',
-    //     'text-halo-color': '#000000',
-    //     'text-halo-width': 1,
-    //     'text-halo-blur': 1,
-    //     'text-variable-anchor': ['top', 'bottom'],
-    //     'text-radial-offset': 0.4,
-    //     'text-justify': 'auto',
-    //     'text-size': 12
-    //     'text-color': '#cfcfcf',
-    //     'text-halo-color': '#000000',
-    //     'text-halo-width': 1,
-    //     'text-halo-blur': 1
-    //   }
-    // });
-
     // add source and layer for GE Pittsfield site map
     map.addSource('ge-source', {
       type: 'geojson',
@@ -768,6 +744,26 @@
     map.on('mouseleave', 'ge-layer', function() {
       map.getCanvas().style.cursor = '';
       popup.remove();
+    });
+
+        // add source and layer for watershed layer
+        map.addSource('watershed-source', {
+      type: 'geojson',
+      data: 'data//watersheds/watersheds.geojson'
+    });
+
+    map.addLayer({
+      'id': 'watershed-layer',
+      'type': 'fill',
+      'source': 'watershed-source',
+      'layout': {
+        'visibility': 'none'
+      },
+      'paint': {
+        'fill-color': '#A2D9CE',
+        'fill-opacity': .25,
+        'fill-outline-color': '#A2D9CE'
+      }
     });
 
     // add source and layer for River layer
