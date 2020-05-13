@@ -57,7 +57,7 @@ h2 {
     position: relative;
     padding: 0 1rem;
     /* 'max-width' sets how wide each step's the text comes up on the screen */
-    max-width: 25rem;
+    max-width: 30rem;
     /* 'OPTIONAL: margin-top' sets how much space there is between the the figure and the first message.*/
     margin-top: 0;
     /* 'margins position step on the page*/
@@ -118,7 +118,7 @@ h2 {
 
   .step h3 {
     font-family: 'Fjalla One', sans-serif;
-    font-size: 1em;
+    font-size: 1.2em;
   }
 
   .step p {
@@ -137,6 +137,12 @@ h2 {
     /* text-align: center; */
     /* padding: 1rem; */
     /* font-size: 1.5rem; */
+    font-family: 'Average', serif;
+  }
+
+  .step ul {
+    font-family: 'Average', serif;
+    font-size: 1em;
   }
 
   .step img {
@@ -144,24 +150,6 @@ h2 {
     max-height: 100%;
     display: block;
     opacity: 1;
-  }
-
-  .chapter {
-    /* 'position relative' allows the steps to positioned in a custom way*/
-    position: relative;
-    /*OPTIONAL: creates space around the text*/
-    padding: 1rem;
-    /*OPTIONAL: can be set based on preferences*/
-    font-size: 1rem;
-    /*OPTIONAL: can be set based on preferences*/
-    background-color: #f3f3f3;
-    /*OPTIONAL: creates a solid box around the text*/
-    border: 2px solid #282828;
-    /*OPTIONAL: makes the text slightly see-through so that the figure is somewhat visible underneath*/
-    opacity: 0.8;
-    text-align: center;
-    padding: 1rem;
-    /* font-size: 1.5rem; */
   }
 
   .mapboxgl-popup {
