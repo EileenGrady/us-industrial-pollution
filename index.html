@@ -30,14 +30,6 @@
         <figure>
             <div id="map">
             </div>
-            <!-- <div id="human-exposure-legend" class="legend">
-              <h4>HRS Score</h4>
-              <div><span style="background-color: #707070"></span>Score not available</div>
-              <div><span style="background-color: #ecda9a"></span>30.0-45.0</div>
-              <div><span style="background-color: #f3ad6a"></span>45.1-60.0</div>
-              <div><span style="background-color: #f97b57"></span>60.1-75.0</div>
-              <div><span style="background-color: #ee4d5a"></span>75.1-84.91</div>
-            </div> -->
         </figure>
   
         <!-- Prose for the project, additional info describing each scene. -->
@@ -46,6 +38,7 @@
 
           <!-- Scene 1 -->
           <div class="step">
+            <h3>Superfund Program</h3>
             <p>The Superfund program is responsible for the investigation and clean-up of contaminated sites left over from decades of unregulated industrial manufacturing and other activities. 
               The most highly contaminated sites which require longer-term remedial action take precedence and are placed on the National Priority List (NPL). 
               A site must receive a Hazard Ranking System (HRS) score of 28.5 to be placed on the NPL. 
@@ -54,11 +47,7 @@
               Also included are sites that qualify for the Superfund Alternative Approach (SAA). 
               The Superfund Alternative (SA) approach requires the same qualifying measures and standards as the NPL, but takes less time and resources to do so. 
             </p>
-          </div>
-
-          <!-- Scene 1a -->
-          <div class="step">
-            <p>Briefly discuss clean-up efforts--show sites that do not have human exposure under control yet, leading into next two case studies.</p>
+            <p>But the individual sites you see here are only representative of the true area each encompasses.</p>
           </div>
 
           <!-- Scene 2 -->
@@ -141,68 +130,121 @@
 
           <!-- Scene 4 -->
           <div class="step">
-            <p>Toxic Release Inventory--show clusters of sites</p>
+            <h3>Toxics Release Inventory (TRI) Program</h3>
+            <p>The EPA also monitors active facilities all over the country that are currently releasing toxic chemicals into our air, water, and land through the TRI. 
+              The TRI was established under the Emergency Planning and Community Right-to-Know Act (EPCRA) of 1986 after public concern grew over the 1984 Bhopal, India disaster, in which an American-owned Union Carbide pesticide plant released a cloud of highly toxic methyl isocyanate into the air, killing thousands of people. 
+              Then in 1985, another, although smaller, toxic cloud was released from a Union Carbide plant on the Kanawha River in West Virginia.
+            </p>
+            <p>As of 2018 there are 21,557 facilities that report the release of a toxic chemical as part of the TRI program. 
+              The TRI tracks these releases to provide the public with information and hopefully incentivize companies to improve their environmental performance. 
+            </p>
           </div>
 
          <!-- Scene 4a -->
           <div class="step">
-            <p>Discuss complexity of system, determining hazard depends on toxicity weights and fate of chemical in environment, among other things--show top sites by RSEI score.</p>
+            <div class="tri-time-slider-total">
+              <h3>Top 100 Releasing Facilities (total lbs)</h3>
+              <label id="total-year">1987</label>
+              <input id="total-slider" type="range" min="1987" max="2018" step="1" value="0" />
+              </div>
+            <!-- <div id="timeline"> -->
+              <p>I need to add a legend, and fix the circle radius.</p>
+              <p>I want to create some sort of D3 bar chart that shows total lbs released each year, that highlights the right bar according to the time slider.</p>
+            <!-- </div> -->
           </div>
 
           <!-- Scene 5 -->
           <div class="step">
-            <p>For example, an investigation into RSEI scores by direct water release, the Upper Tennessee watershed stands out with the second highest score of 1,138,280.</p>
+            <p>In 2007 the EPA introduced the Risk-Screening Environmental Indicators (RSEI) model to help provide context to the information collected by the TRI. 
+              RSEI scores consider not only the size of the chemical release, but also the chemical’s toxicity, its fate and transport through the environment, and the size and location of the exposed population. 
+              These scores can be used to help identify facilities or chemicals that may pose greater human health risk. 
+              For 2018 data, chromium and chromium compounds, and ethylene oxide contribute the most to high RSEI scores.
+            </p>
+            <p>I want to change these buttons to switch back and forth instead on toggling on/off.
+              And update info box below about chromium vs ethylene depending on which is selected.
+              map shows circles styled according to total lbs of that chemical released.
+              Need to add a legend.
+            </p>
+            <nav id="menu"></nav>
+            <!-- <div class="tri-time-slider-score">
+              <h3>Top 25 Facilities by RSEI Score</h3>
+              <label id="score-year">2007</label>
+              <input id="score-slider" type="range" min="2007" max="2018" step="1" value="0" />
+            </div>           -->
           </div>
 
           <!-- Scene 5a -->
           <div class="step">
-            <p>Upon further investigation, the largest share of this score can be traced back to one facility, the Eastman Chemical Co Tennessee Operations on the South Fork Holston River with a total RSEI score of 802,241 by direct water release, primarily from arsenic and dioxane. But what about facilities who don't report their releases properly?</p>
+            <p>The EPA classified ethylene oxide as a carcinogen in 2016, stating that it is at least 30 times more carcinogenic than previously understood, and that long-term exposure can cause an increased risk of cancers of the white blood cells and breast cancer in females. 
+            </p>
+            <p>
+              Not long after these findings, a medical sterilizer plant in Willowbrook, Illinois was shut down by a state agency due to concerns over its ethylene oxide emissions. 
+              But the now defunct Illinois plant was not even by far the largest emitter of ethylene oxide. 
+              The largest emissions are occurring along the Gulf, in Texas and Louisiana.
+            </p>
+            <p>While Illinois just passed some of the strictest restrictions on ethylene oxide emissions, Texas is currently looking to increase their limits.   
+            </p>
+          </div>
+
+          <!-- Scene 5b -->
+          <div class="step">
+            <p>Louisiana houses 13 of the 109 emitting ethylene oxide facilities in the US, but is responsible for approximately one-fifth of those total emissions. 
+              This area has become known as “Cancer Alley” due to these facilities and others.
+            </p>
+          </div>
+
+          <!-- Scene 5c -->
+          <div class="step">
+            <p>Residents and environmental activists in St. James parish are currently fighting against the construction of a new plastics facility. 
+              The enormous 2,300 acre facility proposed by Formosa Petrochemical Corporation could double the amount of toxic emissions already being released into the parish’s air.
+            </p>
           </div>
 
           <!-- Scene 6 -->
           <div class="step">
-            <p>Chemical Valley in West Virginia has a long history of industrial pollution.</p>
+            <h3>Chemical Valley, West Virginia</h3>
+            <p>Let’s go back to West Virginia, where a 1985 chemical release along the Kanawha River helped fuel public outcry for the establishment of the TRI program. 
+              Chemical Valley, as the area around Charleston WV has been dubbed, has long been a site of mining and chemical production. 
+              As of 2018, there are still several facilities in the area that report toxic releases to the TRI. 
+            </p>
             <img src='images/wv-monsanto.jpg'>
           </div>
 
           <!-- Scene 6a -->
           <div class="step">
-            <p>2014 Elk River chemical spill. This site is not even on the TRI because it did not properly report or have permits to discharge into the river.</p>
+            <p>On a January morning in 2014, around 7,500 gallons of crude 4-Methylcyclohexanemethanol (MCHM) spilled into the Elk River, a tributary of the Kanawha River. 
+              The spill originated from Freedom Industries, a chemical plant whose permits did not allow for the discharge of MCHM. 
+              MCHM is used as a cleansing agent to remove impurities from coal that contribute to pollution during combustion.
+            </p>
             <img src='images/elk-river.jpg'>
           </div>
 
           <!-- Scene 6b -->
           <div class="step">
-            <p>As a result, the water supply was poisoned for over 300,000 residents in nine counties.</p>
+            <p>The spill occurred upstream from the primary West Virginia American Water intake, treatment, and distribution center. 
+              While it may not pose any proven long-term health effects, over 300,000 residents in nine counties were without drinking water for several days.
+            </p>
           </div>
 
-          <!-- Scene 7 -->
+          <!-- Scene 6c -->
           <div class="step">
-            <p>Maybe show all facilities along waterways in the US here?</p>
+            <p>Of course the same rivers that provide us with drinking water also tend to be perfect locations for industry. 
+              Show TRI facilities with one-mile of a river here.
+            </p>
           </div>
 
           <!-- Scene 8 -->
           <div class="step">
-            <p>Look at CDC vulnerability index and find an area or two that would be most vulnerable in case of chemical spill?</p>
+            <h3>Who profits?</h3>
+            <p>The companies that own and profit from these facilities are often located far from the damage they cause.
+            </p>
+            <p>Show dropdown where user can choose one of the top 10 parent companies, that also filters and shows child companies connected by line.
+            </p>
           </div>
 
           <!-- Scene 9 -->
           <div class="step">
-            <p>Pollution on tribal lands--I found some discrepancies in reporting data and then the spatial analysis that I performed in QGIS that may be worth highlighting. First show all TRI facilities and Superfund sites that affect Native Americans according to the reported data.</p>
-          </div>
-
-          <!-- Scene 9a -->
-          <div class="step">
-            <p>Now show those sites plus the ones that actually fall on tribal lands in a QGIS count points in polygon analysis.</p>
-          </div>
-
-          <!-- Scene 10 -->
-          <div class="step">
-            <p>Looking at the maps in the previous two sections, maybe look at Oklahoma for a case study.</p>
-          </div>
-
-          <!-- Scene 11 -->
-          <div class="step">
+            <h3>How does this affect you?</h3>
             <p>geocode option to find sites close to you?</p>
           </div>
 
@@ -258,9 +300,9 @@
     <script>
 
       // force page to reload at top
-      jQuery(document).ready(function(){
-        jQuery(this).scrollTop(0);
-      });
+      // jQuery(document).ready(function(){
+      //   jQuery(this).scrollTop(0);
+      // });
 
   // ---------Section 0: Make a scrollama--------------- 
   // Create a scrollama object.
@@ -324,7 +366,7 @@
     console.log(response)
 
     // create array of layers to be turned off in each case before adding back relevant layers
-    const allLayers = ['superfund-layer', 'superfund-labels', 'tri-layer', 'ge-layer', 'watershed-layer', 'river-layer', 'lead-belt-area-layer', 'spill-layer']
+    const allLayers = ['superfund-layer', 'superfund-labels', 'tri-layer', 'ge-layer', 'watershed-layer', 'river-layer', 'lead-belt-area-layer', 'tri-release-layer', 'ethylene-layer', 'chromium-layer', 'st-james-layer', 'spill-layer', 'tri-river-layer', 'parent-co-layer']
 
     // create array of individual markers to be removed in each case before adding back relevant markers
     const allMarkers = [freedomMarker]
@@ -351,24 +393,6 @@
         break;
 
       case 1:
-        // Scene 1a
-        // Human exposure sites
-        map.flyTo({
-          center: [-107.79, 35.08],
-          zoom: 3.789,
-          pitch: 0,
-          bearing: 0
-        });
-        allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
-        allMarkers.forEach(item => item.remove());
-        map.setLayoutProperty('superfund-layer','visibility', 'visible');
-        map.setFilter('superfund-layer', ['in', "HUMAN_EXPOSURE_UNDER_CONTROL", 'No', 'Insufficient Data']);
-        map.setPaintProperty('superfund-layer', 'circle-radius', 2.5)
-
-        // humanExposureLegend.style.display = 'block';
-        break;
-  
-      case 2:
         // Scene 2
         // GE Pittsfield Site
         map.flyTo({
@@ -384,11 +408,11 @@
         map.setPaintProperty('superfund-layer', 'circle-radius', 6)
         break;
       
-      case 3:
+      case 2:
         // Scene 2a
         // Full GE site extent map
         map.flyTo({
-          center: [-73.2342, 42.4537], 
+          center: [-73.2519, 42.4488], 
           zoom: 13,
           pitch: 0,
           bearing: 0,
@@ -402,7 +426,7 @@
         map.setLayoutProperty('ge-layer','visibility', 'visible');
         break;
 
-      case 4:
+      case 3:
         // Scene 2b
         // Housatonic River extent
         map.flyTo({
@@ -423,7 +447,7 @@
         map.setPaintProperty('superfund-layer', 'circle-radius', 6)
         break;
 
-      case 5:
+      case 4:
         // Scene 3
         // Missouri Old Lead Belt sites
         map.flyTo({
@@ -441,7 +465,7 @@
         map.setPaintProperty('superfund-layer', 'circle-radius', 6)
         break;
 
-      case 6:
+      case 5:
         // Scene 3a
         // Missouri Old Lead Belt areas
         map.flyTo({
@@ -461,7 +485,7 @@
         map.setLayoutProperty('lead-belt-area-layer','visibility', 'visible');
         break;
 
-      case 7:
+      case 6:
       // Scene 3b
       // Big River
         map.flyTo({
@@ -482,9 +506,9 @@
         map.setPaintProperty('superfund-layer', 'circle-radius', 6);
         break;
 
-      case 8:
+      case 7:
         // Scene 4
-        // TRI facility cluster
+        // overall TRI facility distribution
         map.flyTo({
           center: [-107.79, 35.08],
           zoom: 3.789,
@@ -494,35 +518,97 @@
         allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
         allMarkers.forEach(item => item.remove());
         map.setLayoutProperty('tri-layer','visibility', 'visible');
+        map.setPaintProperty('tri-layer', 'circle-radius', 2);
+        break;
+
+      case 8:
+        // Scene 4a
+        // TRI top releasing facilities--time slider
+        map.flyTo({
+          center: [-107.79, 35.08],
+          zoom: 3.789,
+          pitch: 0,
+          bearing: 0
+        });
+        allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
+        allMarkers.forEach(item => item.remove());
+        map.setLayoutProperty('tri-release-layer','visibility', 'visible');
         break;
 
       case 9:
-        // Scene 4a
-        // TRI top facilities by RSEI score
-  
+        // Scene 5
+        // RSEI scores--chromium and ethylene oxide
+        map.flyTo({
+          center: [-107.79, 35.08],
+          zoom: 3.789,
+          pitch: 0,
+          bearing: 0
+        });
+        allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
+        allMarkers.forEach(item => item.remove());
+        map.setLayoutProperty('ethylene-layer','visibility', 'visible');
+        map.setLayoutProperty('chromium-layer','visibility', 'visible');
         break;
 
-      case 10:
-        // Scene 5
-        // Upper Tennessee Watershed
-        // map.setView([36.686041276581925, -99.42626953125001], 5)
-   
+        case 10:
+        // Scene 5a
+        // ethylene oxide emissions
+        map.flyTo({
+          center: [-97.7543, 28.7720],
+          zoom: 4.789,
+          pitch: 0,
+          bearing: 0,
+          speed: 0.5
+        });
+        allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
+        allMarkers.forEach(item => item.remove());
+        map.setLayoutProperty('ethylene-layer','visibility', 'visible');
         break;
 
         case 11:
-        // Scene 5a
-        // South Fork-Holston Watershed and Eastman Chemical Co Tennessee Operations facility
-        
+        // Scene 5b
+        // ethylene oxide louisiana
+        map.flyTo({
+          center: [-91.5343, 30.1251],
+          zoom: 7.78,
+          pitch: 0,
+          bearing: 0,
+          speed: 0.5
+        });
+        allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
+        allMarkers.forEach(item => item.remove());
+        map.setFilter('ethylene-layer', ['==', 'ST', 'LA']);
+        map.setLayoutProperty('ethylene-layer','visibility', 'visible');
+        map.setPaintProperty('ethylene-layer', 'circle-radius', ['/', ['get', 'ON_SITE_RELEASE_TOTAL'], 500]);
         break;
 
         case 12:
-        // Scene 6
-        // Chemical Valley in West Virginia
+        // Scene 5c
+        // new proposed plant
         map.flyTo({
-          center: [-81.8606, 38.4143],
-          zoom: 10.78,
-          pitch: 48.5,
-          bearing: -7.2
+          center: [-91.1824, 30.1043],
+          zoom: 8.78,
+          pitch: 0,
+          bearing: 0,
+          speed: 0.5
+        });
+        allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
+        allMarkers.forEach(item => item.remove());
+        map.setFilter('ethylene-layer', ['==', 'ST', 'LA']);
+        map.setLayoutProperty('ethylene-layer','visibility', 'visible');
+        map.setLayoutProperty('st-james-layer','visibility', 'visible');
+        map.setPaintProperty('ethylene-layer', 'circle-radius', ['/', ['get', 'ON_SITE_RELEASE_TOTAL'], 500]);
+        break;
+
+        case 13:
+        // Scene 6
+        // Chemical Valley, West Virginia
+        map.flyTo({
+          center: [-81.8162, 38.3771],
+          zoom: 11.115,
+          pitch: 59.5,
+          bearing: 0,
+          speed: 0.75
         });
         allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
         allMarkers.forEach(item => item.remove());
@@ -530,14 +616,15 @@
         map.setPaintProperty('tri-layer', 'circle-radius', 6);
         break;
         
-        case 13:
+        case 14:
         // Scene 6a
         // Zoom to Freedom Industry facility that had chemical spill
         map.flyTo({
-          center: [-81.6153, 38.3681],
-          zoom: 14.78,
+          center: [-81.6713, 38.3618],
+          zoom: 10.78,
           pitch: 0,
-          bearing: 0
+          bearing: 0,
+          speed: 0.25
         });
         allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
         allMarkers.forEach(item => item.remove());
@@ -548,7 +635,7 @@
         });
         break;
 
-        case 14:
+        case 15:
         // Scene 6b
         // show counties affected by spill
         map.flyTo({
@@ -563,38 +650,41 @@
         freedomMarker.addTo(map);
         break;
 
-        case 15:
+        case 16:
         // Scene 7
         // all facilities along waterways in US?
+        map.flyTo({
+          center: [-107.79, 35.08],
+          zoom: 3.789,
+          pitch: 0,
+          bearing: 0
+        });
+        allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
+        allMarkers.forEach(item => item.remove());
+        map.setLayoutProperty('tri-river-layer','visibility', 'visible');
       
-        break;
-
-        case 16:
-        // Scene 8
-        // CDC vulnerability index?
-   
         break;
 
         case 17:
-        // Scene 9
-        // Pollution on tribal lands--first show everything reported by EPA
+        // Scene 8
+        // Parent Companies
+        map.flyTo({
+          center: [-107.79, 35.08],
+          zoom: 3.789,
+          pitch: 0,
+          bearing: 0
+        });
+        allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
+        allMarkers.forEach(item => item.remove());
+        map.setLayoutProperty('parent-co-layer','visibility', 'visible');
    
-       
         break;
 
         case 18:
-        // Scene 9a
-        // then show all sites that actually fall on tribal lands
-       
-       
-        break;
-
-        case 19:
-        // Scene 9b
-        // a case study?
-      
-        break;
-
+        // Scene 9
+        // How does this affect you?
+        // Geocode option to find sites close to you?
+   
       default:
         // do nothing
 
@@ -642,6 +732,8 @@
     scrollZoom: false
   });
 
+  map.addControl(new mapboxgl.NavigationControl());
+
   // // LIGHT BASEMAP
   // mapboxgl.accessToken = 'pk.eyJ1IjoiZWlsZWVuZ3JhZHkiLCJhIjoiY2pvNG00eXVjMDFlcjNxcW1yZ3I2OTJ2ZSJ9.l2EtBykdOJSCNiszd2NbaA';
 
@@ -660,6 +752,194 @@
   // create marker for Freedom Industries in WV
   var freedomMarker = new mapboxgl.Marker()
     .setLngLat([-81.606774, 38.368888])
+
+    var years = [
+      '1987',
+      '1988',
+      '1989',
+      '1990',
+      '1991',
+      '1992',
+      '1993',
+      '1994',
+      '1995',
+      '1996',
+      '1997',
+      '1998',
+      '1999',
+      '2000',
+      '2001',
+      '2002',
+      '2003',
+      '2004',
+      '2005',
+      '2006',
+      '2007',
+      '2008',
+      '2009',
+      '2010',
+      '2011',
+      '2012',
+      '2013',
+      '2014',
+      '2015',
+      '2016',
+      '2017',
+      '2018'
+    ];
+
+    // const triTimelineData = {
+	  //   '1988': {
+    //     'year': 1988,
+    //     'description': 'Responding to petions from industry, the EPA deleted titanium dioxide from the TRI chemical list.'
+    //   },
+	  //   '1989': {
+    //     'year': 1989,
+		//     'description': 'EPA added nine chemicals to the TRI chemical list.'
+    //   },
+    //   '1990': {
+    //     'year': 1990,
+		//     'description': ''
+    //   },
+    //   '1991': {
+    //     'year': 1991,
+		//     'description': ''
+    //   },
+    //   '1992': {
+    //     'year': 1992,
+		//     'description': ''
+    //   },
+    //   '1993': {
+    //     'year': 1993,
+    //     'description': 'Clinton ordered federal agencies to reduce pollution as much as possible, and to report all toxic chemical releases. 21 chemicals added to the TRI chemical list.'
+    //   },
+    //   '1994': {
+    //     'year': 1994,
+		//     'description': '286 new chemicals and chemical categories were added to the TRI, bringing the chemical list to a total of more than 600.'
+    //   },
+    //   '1995': {
+    //     'year': 1995,
+		//     'description': ''
+    //   },
+    //   '1996': {
+    //     'year': 1996,
+		//     'description': ''
+    //   },
+    //   '1997': {
+    //     'year': 1997,
+		//     'description': 'Seven industry groups were added to the list of sectors subject to TRI reporting: metal and coal mining, electric utilities, commercial hazardous waste treatment, solvent recovery facilities, and wholesale chemical distributors.'
+    //   },
+    //   '1998': {
+    //     'year': 1998,
+		//     'description': ''
+    //   },
+    //   '1999': {
+    //     'year': 1999,
+		//     'description': 'Seven Persistant Bioaccumulative Toxic (PBT) chemicals added to chemical list, and reporting thresholds lowered for 18 PBTs already on the list.'
+    //   },
+    //   '2000': {
+    //     'year': 2000,
+		//     'description': ''
+    //   },
+    //   '2001': {
+    //     'year': 2001,
+		//     'description': 'Lead and lead compounds classified as PBTs, which lowered their reporting threshold to 100 pounds.'
+    //   },
+    //   '2002': {
+    //     'year': 2002,
+		//     'description': ''
+    //   },
+    //   '2003': {
+    //     'year': 2003,
+		//     'description': ''
+    //   },
+    //   '2004': {
+    //     'year': 2004,
+		//     'description': ''
+    //   },
+    //   '2005': {
+    //     'year': 2005,
+		//     'description': ''
+    //   },
+    //   '2006': {
+    //     'year': 2006,
+		//     'description': ''
+    //   },
+    //   '2007': {
+    //     'year': 2007,
+		//     'description': ''
+    //   },
+    //   '2008': {
+    //     'year': 2008,
+		//     'description': ''
+    //   },
+    //   '2009': {
+    //     'year': 2009,
+		//     'description': ''
+    //   },
+    //   '2010': {
+    //     'year': 2010,
+		//     'description': '16 chemicals that are reasonably anticipated to be a human carcingogen added to the chemical list.'
+    //   },
+    //   '2011': {
+    //     'year': 2011,
+		//     'description': ''
+    //   },
+    //   '2012': {
+    //     'year': 2012,
+		//     'description': 'Facilities located in Indian country required to report to the EPA and appropriate tribe, instead of the state.'
+    //   },
+    //   '2013': {
+    //     'year': 2013,
+		//     'description': ''
+    //   },
+    //   '2014': {
+    //     'year': 2014,
+		//     'description': ''
+    //   },
+    //   '2015': {
+    //     'year': 2015,
+		//     'description': '1-bromopropane is added to the chemical list because it is reasonably anticipated to cause cancer in humans.'
+    //   },
+    //   '2016': {
+    //     'year': 2016,
+		//     'description': ''
+    //   },
+    //   '2017': {
+    //     'year': 2017,
+		//     'description': ''
+    //   },
+    //   '2018': {
+    //     'year': 2018,
+		//     'description': ''
+    //   },
+    // };
+
+    function filterTotalRelease(totalYear) {
+      var total = 'TOTAL'
+      var totalField = total.concat(totalYear)
+      map.setPaintProperty('tri-release-layer', 'circle-radius', ['/', ['get', totalField], 10000000]);
+      map.setPaintProperty('tri-release-layer', 'circle-color', '#f94144');
+
+      // Set the label to the month
+      document.getElementById('total-year').textContent = totalYear;
+
+      // for (var year in triTimelineData) {
+      //   if (totalYear == triTimelineData[year].year) {
+      //     document.getElementById('timeline').textContent = triTimelineData[totalYear].description;
+      //   }
+      // }
+    }
+
+    // function filterScore(scoreYear) {
+    //   var score = 'SCORE'
+    //   var scoreField = score.concat(scoreYear)
+    //   map.setPaintProperty('tri-score-layer', 'circle-color', ['interpolate', ['linear'], ['get', scoreField], 0, '#fde0c5', 3260766, '#eb4a40']);
+    //   map.setPaintProperty('tri-score-layer', 'circle-radius', 5);
+
+    //   // Set the label to the month
+    //   document.getElementById('score-year').textContent = scoreYear;
+    // }
 
   map.on('load', function() {
 
@@ -746,10 +1026,10 @@
       popup.remove();
     });
 
-        // add source and layer for watershed layer
-        map.addSource('watershed-source', {
+    // add source and layer for watershed layer
+    map.addSource('watershed-source', {
       type: 'geojson',
-      data: 'data//watersheds/watersheds.geojson'
+      data: 'data/watersheds/watersheds.geojson'
     });
 
     map.addLayer({
@@ -804,6 +1084,145 @@
       }
     });
 
+    // add source and layer for top tri sites
+    map.addSource('tri-release-source', {
+      type: 'geojson',
+      data: 'data/top-tri-releases.geojson'
+    });
+
+    map.addLayer({
+      'id': 'tri-release-layer',
+      'type': 'circle',
+      'source': 'tri-release-source',
+      'layout': {
+        'visibility': 'none'
+      },
+      'paint': {
+        'circle-color': '#f94144',
+        'circle-radius': ['/', ['get', 'TOTAL1987'], 10000000],
+        'circle-stroke-color':'#2f2d2d',
+        'circle-stroke-width': 0.5
+      }
+    });
+
+    filterTotalRelease('1987');
+
+    document
+      .getElementById('total-slider')
+      .addEventListener('input', function(e) {
+      var year = parseInt(e.target.value, 10);
+      filterTotalRelease(year);
+      console.log(year)
+    });
+
+    // add sources and layers for chromium and ethylene oxide facilities
+    map.addSource('chromium-source', {
+      type: 'geojson',
+      data: 'data/chromium-facilities.geojson'
+    });
+
+    map.addSource('ethylene-source', {
+      type: 'geojson',
+      data: 'data/ethylene-facilities.geojson'
+    });
+
+    map.addLayer({
+      'id': 'chromium-layer',
+      'type': 'circle',
+      'source': 'chromium-source',
+      'layout': {
+        'visibility': 'none'
+      },
+      'paint': {
+        'circle-color': '#FF9933',
+        'circle-radius': ['/', ['get', 'ON_SITE_RELEASE_TOTAL'], 40000],
+        // 'circle-radius': 3,
+        'circle-opacity': .75,
+        'circle-stroke-color':'#2f2d2d',
+        'circle-stroke-width': 0.5
+      }
+    });
+
+    map.addLayer({
+      'id': 'ethylene-layer',
+      'type': 'circle',
+      'source': 'ethylene-source',
+      'layout': {
+        'visibility': 'none'
+      },
+      'paint': {
+        'circle-color': '#AAF0D1',
+        'circle-radius': ['/', ['get', 'ON_SITE_RELEASE_TOTAL'], 3000],
+        // 'circle-radius': 3,
+        'circle-opacity': .75,
+        'circle-stroke-color':'#2f2d2d',
+        'circle-stroke-width': 0.5
+      }
+    });
+
+    // enumerate ids of the layers
+    var toggleableLayerIds = ['chromium-layer', 'ethylene-layer'];
+    
+    // set up the corresponding toggle button for each layer
+    for (var i = 0; i < toggleableLayerIds.length; i++) {
+      var id = toggleableLayerIds[i];
+        
+      var link = document.createElement('a');
+      link.href = '#';
+      link.className = 'active';
+      link.textContent = id;
+        
+      link.onclick = function(e) {
+      var clickedLayer = this.textContent;
+      e.preventDefault();
+      e.stopPropagation();
+        
+      var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
+        
+      // toggle layer visibility by changing the layout object's visibility property
+      if (visibility === 'visible') {
+        map.setLayoutProperty(clickedLayer, 'visibility', 'none');
+        this.className = '';
+      } else {
+        this.className = 'active';
+        map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
+      }
+      };
+        
+      var layers = document.getElementById('menu');
+      layers.appendChild(link);
+    }
+
+    // filterScore('2007');
+
+
+    // document
+    //   .getElementById('score-slider')
+    //   .addEventListener('input', function(e) {
+    //   var year = parseInt(e.target.value, 10);
+    //   filterScore(year);
+    //   console.log(year)
+    // });
+
+    // add source and layer for St. James Parish
+    map.addSource('st-james-source', {
+      type: 'geojson',
+      data: 'data/st-james-parish.geojson'
+    });
+
+    map.addLayer({
+      'id': 'st-james-layer',
+      'type': 'line',
+      'source': 'st-james-source',
+      'layout': {
+        'visibility': 'none'
+      },
+      'paint': {
+        'line-color': '#43AA8B',
+        'line-width': 2
+      }
+    });
+
     // add source and layer for counties affected by Freedom Industry spill
     map.addSource('spill-source', {
       type: 'geojson',
@@ -820,6 +1239,48 @@
       'paint': {
         'line-color': '#FF9933',
         'line-width': 2
+      }
+    });
+
+    // add source and layer for tri facilities near rivers
+    map.addSource('tri-river-source', {
+      type: 'geojson',
+      data: 'data/tri-near-rivers.geojson'
+    });
+
+    map.addLayer({
+      'id': 'tri-river-layer',
+      'type': 'circle',
+      'source': 'tri-river-source',
+      'layout': {
+        'visibility': 'none'
+      },
+      'paint': {
+        'circle-color': '#f94144',
+        'circle-radius': 3,
+        'circle-stroke-color':'#2f2d2d',
+        'circle-stroke-width': 0.5
+      }
+    });
+
+    // add source and layer for parent companies
+    map.addSource('parent-co-source', {
+      type: 'geojson',
+      data: 'data/parent-companies.geojson'
+    });
+
+    map.addLayer({
+      'id': 'parent-co-layer',
+      'type': 'circle',
+      'source': 'parent-co-source',
+      'layout': {
+        'visibility': 'none'
+      },
+      'paint': {
+        'circle-color': '#f94144',
+        'circle-radius': 6,
+        'circle-stroke-color':'#2f2d2d',
+        'circle-stroke-width': 0.5
       }
     });
 
