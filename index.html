@@ -240,6 +240,17 @@
             </p>
             <p>Show dropdown where user can choose one of the top 10 parent companies, that also filters and shows child companies connected by line.
             </p>
+            <div class="dropdown show">
+              <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown link
+              </a>
+            
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </div>
           </div>
 
           <!-- Scene 9 -->
@@ -918,7 +929,7 @@
     function filterTotalRelease(totalYear) {
       var total = 'TOTAL'
       var totalField = total.concat(totalYear)
-      map.setPaintProperty('tri-release-layer', 'circle-radius', ['/', ['get', totalField], 10000000]);
+      map.setPaintProperty('tri-release-layer', 'circle-radius', ['sqrt', ['/', ['get', totalField], 100000]]);
       map.setPaintProperty('tri-release-layer', 'circle-color', '#f94144');
 
       // Set the label to the month
@@ -1099,7 +1110,9 @@
       },
       'paint': {
         'circle-color': '#f94144',
-        'circle-radius': ['/', ['get', 'TOTAL1987'], 10000000],
+        'circle-radius': [
+          'sqrt', ['/', ['get', 'TOTAL1987'], 100000]
+        ],
         'circle-stroke-color':'#2f2d2d',
         'circle-stroke-width': 0.5
       }
@@ -1287,6 +1300,7 @@
 
     init();
   })
+  
 
 
 
