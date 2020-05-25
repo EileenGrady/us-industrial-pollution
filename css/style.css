@@ -57,11 +57,11 @@ h2 {
     position: relative;
     padding: 0 1rem;
     /* 'max-width' sets how wide each step's the text comes up on the screen */
-    max-width: 30rem;
+    max-width: 35rem;
     /* 'OPTIONAL: margin-top' sets how much space there is between the the figure and the first message.*/
     margin-top: 0;
     /* 'margins position step on the page*/
-    margin-left: 5rem;
+    margin-left: .5rem;
     /* 'transform' is included to ensure z-index works properly on all kinds of devices */
     -webkit-transform: translate3d(0, 0, 0);
     -moz-transform: translate3d(0, 0, 0);
@@ -169,7 +169,7 @@ h2 {
     font-size: 10px;
   }
 
-  .legend {
+  #legend {
     background-color: #f3f3f3;
     border-radius: 3px;
     bottom: 30px;
@@ -181,11 +181,12 @@ h2 {
     z-index: 4;
     }
      
-    .legend h4 {
+    #legend h4 {
     margin: 0 0 10px;
+    font-family: 'Fjalla One', sans-serif;
     }
      
-    .legend div span {
+    #legend span {
     border-radius: 50%;
     display: inline-block;
     height: 10px;
@@ -233,4 +234,23 @@ h2 {
        
       #menu a.active:hover {
       background: #3074a4;
+      }
+
+      svg {
+        width: 100%;
+        /* height: 100%; */
+      }
+      
+      .bar {
+        fill: #80cbc4;
+      }
+
+      text {
+        font-size: 10px;
+        fill:'black';
+      }
+
+      text.label {
+        font-size: 12px;
+        font-weight: 400;
       }

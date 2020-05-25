@@ -28,7 +28,8 @@
 
         <!-- Map  -->
         <figure>
-            <div id="map">
+            <div id="map"></div>
+            <div id='legend'>
             </div>
         </figure>
   
@@ -148,6 +149,7 @@
               <input id="total-slider" type="range" min="1987" max="2018" step="1" value="0" />
               </div>
             <!-- <div id="timeline"> -->
+              <svg width="600" height="500"></svg>
               <p>I need to add a legend, and fix the circle radius.</p>
               <p>I want to create some sort of D3 bar chart that shows total lbs released each year, that highlights the right bar according to the time slider.</p>
             <!-- </div> -->
@@ -166,11 +168,6 @@
               Need to add a legend.
             </p>
             <nav id="menu"></nav>
-            <!-- <div class="tri-time-slider-score">
-              <h3>Top 25 Facilities by RSEI Score</h3>
-              <label id="score-year">2007</label>
-              <input id="score-slider" type="range" min="2007" max="2018" step="1" value="0" />
-            </div>           -->
           </div>
 
           <!-- Scene 5a -->
@@ -306,6 +303,7 @@
 
 
 
+
     <!-- <script src='js/app.js'></script> -->
 
     <script>
@@ -379,10 +377,96 @@
     // create array of layers to be turned off in each case before adding back relevant layers
     const allLayers = ['superfund-layer', 'superfund-labels', 'tri-layer', 'ge-layer', 'watershed-layer', 'river-layer', 'lead-belt-area-layer', 'tri-release-layer', 'ethylene-layer', 'chromium-layer', 'st-james-layer', 'spill-layer', 'tri-river-layer', 'parent-co-layer']
 
+    // create object containing all layer ids and a corresponding label to use in legend
+    // const layerLabels = {
+    //   'superfund-layer': {
+    //     'label': 'Superfund Sites'
+    //   },
+    //   'superfund-labels': {
+    //     'label': ''
+    //   },
+    //   'tri-layer': {
+    //     'label': 'TRI Facilities'
+    //   },
+    //   'ge-layer': {
+    //     'label': 'GE Pittsfield Cleanup Area'
+    //   },
+    //   'watershed-layer': {
+    //     'label': 'watershed'
+    //   },
+    //   'river-layer': {
+    //     'label': 'river'
+    //   },
+    //   'lead-belt-area-layer': {
+    //     'label': 'county outlines'
+    //   },
+    //   'tri-release-layer': {
+    //     'label': ''
+    //   },
+    //   'ethylene-layer': {
+    //     'label': 'ethylene oxide releasing facilities'
+    //   },
+    //   'chromium-layer': {
+    //     'label': 'chromium/chromium compound releasing facilities'
+    //   },
+    //   'st-james-layer': {
+    //     'label': 'St. James Parish'
+    //   },
+    //   'spill-layer': {
+    //     'label': 'county outlines'
+    //   },
+    //   'tri-river-layer': {
+    //     'label': 'TRI facilities'
+    //   },
+    //   'parent-co-layer': {
+    //     'label': 'parent companies'
+    //   }
+    // }
+
+    // convert keys from layer object into an array to be easily looped through during each scene change
+    // const allLayers = Object.keys(layerLabels)
+
     // create array of individual markers to be removed in each case before adding back relevant markers
     const allMarkers = [freedomMarker]
+    
+    function updateLegend(allLayers) {
 
-    // const humanExposureLegend = document.getElementById('human-exposure-legend');
+      // first clear legend
+      document.getElementById('legend').innerHTML = "";
+
+      // then select the legend div element
+      var legend = document.getElementById('legend')
+
+      // loop through each layer
+      allLayers.forEach(function(layer) {
+        console.log(layer)
+
+        layout = map.getLayoutProperty(layer, 'visibility')
+        layerType = map.getLayer(layer).type
+
+        // if layer is visible in the scene
+        if (layout === 'visible') {
+
+          // first define color for legend key based on layer type (circle, line, or fill)
+          if (layerType === 'circle') {
+            var color = map.getPaintProperty(layer, 'circle-color')
+          } else if (layerType === 'line') {
+            var color = map.getPaintProperty(layer, 'line-color')
+          } else if (layerType === 'fill') {
+            var color = map.getPaintProperty(layer, 'fill-color')
+          }
+          console.log(color)
+
+          // // then select the legend div element
+          // var legend = document.getElementById('legend')
+
+          // and append the layer's color and label to the legend element
+          legend.innerHTML +=
+          '<span style="background-color:' + color + '"></span> ' +
+          '<label>' + layer + '</label><br>';;
+        }
+        })
+      } 
 
     switch(response.index) {
       case 0:
@@ -399,6 +483,8 @@
         map.setLayoutProperty('superfund-layer','visibility', 'visible');
         map.setFilter('superfund-layer', null);
         map.setPaintProperty('superfund-layer', 'circle-radius', 2.5)
+        updateLegend(allLayers);
+
 
         // humanExposureLegend.style.display = 'none';
         break;
@@ -416,7 +502,9 @@
         allMarkers.forEach(item => item.remove());
         map.setLayoutProperty('superfund-layer','visibility', 'visible');
         map.setFilter('superfund-layer', ['==', 'SITE_NAME', 'GE PITTSFIELD HOUSATONIC RIVER SUPERFUND SITE']);
-        map.setPaintProperty('superfund-layer', 'circle-radius', 6)
+        map.setPaintProperty('superfund-layer', 'circle-radius', 6);
+        updateLegend(allLayers);
+
         break;
       
       case 2:
@@ -435,6 +523,8 @@
         map.setFilter('superfund-layer', ['==', 'SITE_NAME', 'GE PITTSFIELD HOUSATONIC RIVER SUPERFUND SITE']);
         map.setPaintProperty('superfund-layer', 'circle-radius', 6)
         map.setLayoutProperty('ge-layer','visibility', 'visible');
+        updateLegend(allLayers);
+
         break;
 
       case 3:
@@ -455,7 +545,9 @@
         map.setFilter('watershed-layer', ['==', 'NAME', 'Housatonic']);
         map.setLayoutProperty('superfund-layer','visibility', 'visible');
         map.setFilter('superfund-layer', ['==', 'SITE_NAME', 'GE PITTSFIELD HOUSATONIC RIVER SUPERFUND SITE']);
-        map.setPaintProperty('superfund-layer', 'circle-radius', 6)
+        map.setPaintProperty('superfund-layer', 'circle-radius', 6);
+        updateLegend(allLayers);
+
         break;
 
       case 4:
@@ -473,7 +565,9 @@
         map.setFilter('superfund-layer', ['in', 'SITE_NAME', 'BIG RIVER MINE TAILINGS/ST. JOE MINERALS CORP.', 'WASHINGTON COUNTY LEAD DISTRICT - FURNACE CREEK', 'WASHINGTON COUNTY LEAD DISTRICT - POTOSI', 'WASHINGTON COUNTY LEAD DISTRICT - OLD MINES', 'WASHINGTON COUNTY LEAD DISTRICT - RICHWOODS', 'SOUTHWEST JEFFERSON COUNTY MINING', 'ANSCHUTZ - MADISON MINE']);
         map.setLayoutProperty('superfund-labels','visibility', 'visible');
         map.setFilter('superfund-labels', ['in', 'SITE_NAME', 'BIG RIVER MINE TAILINGS/ST. JOE MINERALS CORP.', 'WASHINGTON COUNTY LEAD DISTRICT - FURNACE CREEK', 'WASHINGTON COUNTY LEAD DISTRICT - POTOSI', 'WASHINGTON COUNTY LEAD DISTRICT - OLD MINES', 'WASHINGTON COUNTY LEAD DISTRICT - RICHWOODS', 'SOUTHWEST JEFFERSON COUNTY MINING', 'ANSCHUTZ - MADISON MINE']);
-        map.setPaintProperty('superfund-layer', 'circle-radius', 6)
+        map.setPaintProperty('superfund-layer', 'circle-radius', 6);
+        updateLegend(allLayers);
+
         break;
 
       case 5:
@@ -494,6 +588,8 @@
         map.setFilter('superfund-labels', ['in', 'SITE_NAME', 'BIG RIVER MINE TAILINGS/ST. JOE MINERALS CORP.', 'WASHINGTON COUNTY LEAD DISTRICT - FURNACE CREEK', 'WASHINGTON COUNTY LEAD DISTRICT - POTOSI', 'WASHINGTON COUNTY LEAD DISTRICT - OLD MINES', 'WASHINGTON COUNTY LEAD DISTRICT - RICHWOODS', 'SOUTHWEST JEFFERSON COUNTY MINING', 'ANSCHUTZ - MADISON MINE']);
         map.setPaintProperty('superfund-layer', 'circle-radius', 6)
         map.setLayoutProperty('lead-belt-area-layer','visibility', 'visible');
+        updateLegend(allLayers);
+
         break;
 
       case 6:
@@ -515,6 +611,8 @@
         map.setFilter('river-layer', ['==', 'name', 'Big River']);
         map.setFilter('superfund-layer', ['in', 'SITE_NAME', 'BIG RIVER MINE TAILINGS/ST. JOE MINERALS CORP.', 'WASHINGTON COUNTY LEAD DISTRICT - FURNACE CREEK', 'WASHINGTON COUNTY LEAD DISTRICT - POTOSI', 'WASHINGTON COUNTY LEAD DISTRICT - OLD MINES', 'WASHINGTON COUNTY LEAD DISTRICT - RICHWOODS', 'SOUTHWEST JEFFERSON COUNTY MINING', 'ANSCHUTZ - MADISON MINE']);
         map.setPaintProperty('superfund-layer', 'circle-radius', 6);
+        updateLegend(allLayers);
+
         break;
 
       case 7:
@@ -530,6 +628,8 @@
         allMarkers.forEach(item => item.remove());
         map.setLayoutProperty('tri-layer','visibility', 'visible');
         map.setPaintProperty('tri-layer', 'circle-radius', 2);
+        updateLegend(allLayers);
+
         break;
 
       case 8:
@@ -544,6 +644,8 @@
         allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
         allMarkers.forEach(item => item.remove());
         map.setLayoutProperty('tri-release-layer','visibility', 'visible');
+        updateLegend(allLayers);
+
         break;
 
       case 9:
@@ -559,6 +661,8 @@
         allMarkers.forEach(item => item.remove());
         map.setLayoutProperty('ethylene-layer','visibility', 'visible');
         map.setLayoutProperty('chromium-layer','visibility', 'visible');
+        updateLegend(allLayers);
+
         break;
 
         case 10:
@@ -574,6 +678,8 @@
         allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
         allMarkers.forEach(item => item.remove());
         map.setLayoutProperty('ethylene-layer','visibility', 'visible');
+        updateLegend(allLayers);
+
         break;
 
         case 11:
@@ -588,9 +694,9 @@
         });
         allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
         allMarkers.forEach(item => item.remove());
-        map.setFilter('ethylene-layer', ['==', 'ST', 'LA']);
         map.setLayoutProperty('ethylene-layer','visibility', 'visible');
-        map.setPaintProperty('ethylene-layer', 'circle-radius', ['/', ['get', 'ON_SITE_RELEASE_TOTAL'], 500]);
+        updateLegend(allLayers);
+
         break;
 
         case 12:
@@ -605,10 +711,10 @@
         });
         allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
         allMarkers.forEach(item => item.remove());
-        map.setFilter('ethylene-layer', ['==', 'ST', 'LA']);
         map.setLayoutProperty('ethylene-layer','visibility', 'visible');
         map.setLayoutProperty('st-james-layer','visibility', 'visible');
-        map.setPaintProperty('ethylene-layer', 'circle-radius', ['/', ['get', 'ON_SITE_RELEASE_TOTAL'], 500]);
+        updateLegend(allLayers);
+
         break;
 
         case 13:
@@ -625,6 +731,8 @@
         allMarkers.forEach(item => item.remove());
         map.setLayoutProperty('tri-layer','visibility', 'visible');
         map.setPaintProperty('tri-layer', 'circle-radius', 6);
+        updateLegend(allLayers);
+
         break;
         
         case 14:
@@ -644,6 +752,8 @@
         map.once('moveend', function(e) {
           freedomMarker.addTo(map);
         });
+        updateLegend(allLayers);
+
         break;
 
         case 15:
@@ -659,6 +769,8 @@
         allMarkers.forEach(item => item.remove());
         map.setLayoutProperty('spill-layer','visibility', 'visible');
         freedomMarker.addTo(map);
+        updateLegend(allLayers);
+
         break;
 
         case 16:
@@ -673,7 +785,8 @@
         allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
         allMarkers.forEach(item => item.remove());
         map.setLayoutProperty('tri-river-layer','visibility', 'visible');
-      
+        updateLegend(allLayers);
+
         break;
 
         case 17:
@@ -688,6 +801,7 @@
         allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
         allMarkers.forEach(item => item.remove());
         map.setLayoutProperty('parent-co-layer','visibility', 'visible');
+        updateLegend(allLayers);
    
         break;
 
@@ -926,7 +1040,7 @@
     //   },
     // };
 
-    function filterTotalRelease(totalYear) {
+    function filterTotalRelease(totalYear, data) {
       var total = 'TOTAL'
       var totalField = total.concat(totalYear)
       map.setPaintProperty('tri-release-layer', 'circle-radius', ['sqrt', ['/', ['get', totalField], 100000]]);
@@ -935,22 +1049,7 @@
       // Set the label to the month
       document.getElementById('total-year').textContent = totalYear;
 
-      // for (var year in triTimelineData) {
-      //   if (totalYear == triTimelineData[year].year) {
-      //     document.getElementById('timeline').textContent = triTimelineData[totalYear].description;
-      //   }
-      // }
     }
-
-    // function filterScore(scoreYear) {
-    //   var score = 'SCORE'
-    //   var scoreField = score.concat(scoreYear)
-    //   map.setPaintProperty('tri-score-layer', 'circle-color', ['interpolate', ['linear'], ['get', scoreField], 0, '#fde0c5', 3260766, '#eb4a40']);
-    //   map.setPaintProperty('tri-score-layer', 'circle-radius', 5);
-
-    //   // Set the label to the month
-    //   document.getElementById('score-year').textContent = scoreYear;
-    // }
 
   map.on('load', function() {
 
@@ -1148,8 +1247,9 @@
       },
       'paint': {
         'circle-color': '#FF9933',
-        'circle-radius': ['/', ['get', 'ON_SITE_RELEASE_TOTAL'], 40000],
-        // 'circle-radius': 3,
+        'circle-radius': [
+          'sqrt', ['/', ['get', 'ON_SITE_RELEASE_TOTAL'], 1000]
+        ],
         'circle-opacity': .75,
         'circle-stroke-color':'#2f2d2d',
         'circle-stroke-width': 0.5
@@ -1165,8 +1265,9 @@
       },
       'paint': {
         'circle-color': '#AAF0D1',
-        'circle-radius': ['/', ['get', 'ON_SITE_RELEASE_TOTAL'], 3000],
-        // 'circle-radius': 3,
+        'circle-radius': [
+          'sqrt', ['/', ['get', 'ON_SITE_RELEASE_TOTAL'], 100]
+        ],
         'circle-opacity': .75,
         'circle-stroke-color':'#2f2d2d',
         'circle-stroke-width': 0.5
@@ -1297,14 +1398,98 @@
       }
     });
 
+    var svg = d3.select("svg"),
+        margin = 130,
+        width = svg.attr("width") - margin,
+        height = svg.attr("height") - margin;
+
+    var xScale = d3.scaleBand().range ([0, width]).padding(0.4),
+        yScale = d3.scaleLinear().range ([height, 0]);
+
+    var g = svg.append("g")
+               .attr("transform", "translate(" + 100 + "," + 100 + ")");
+
+    d3.csv("/data/year-totals.csv").then(function(data) {
+
+        xScale.domain(data.map(function(d) { return d.YEAR; }));
+        yScale.domain([0, d3.max(data, function(d) { return d.TOTAL_RELEASE; })]);
+
+        g.append("g")
+         .attr("transform", "translate(0," + height + ")")
+         .call(d3.axisBottom(xScale))
+        .selectAll("text")
+          .attr("transform", "rotate(45)")
+          .attr("dy", ".35em")
+          .style("text-anchor", "start");
+
+        var formatValue = d3.format("0.2s");
+
+        g.append("g")
+         .call(d3.axisLeft(yScale).tickFormat(function(d){
+             return formatValue(d);
+         }).ticks(20, "~s"))
+         .append("text")
+         .attr("y", 6)
+         .attr("dy", "0.71em")
+         .attr("text-anchor", "end")
+         .text("value");
+
+         g.append('g')
+        .attr('class', 'grid')
+        .call(d3.axisLeft()
+        .scale(yScale)
+        .tickSize(-width, 0, 0)
+        .tickFormat(''))
+
+        svg.append('text')
+        .attr('class', 'label')
+        .attr('x', -(height / 2) - margin)
+        .attr('y', margin / 2.2)
+        .attr('transform', 'rotate(-90)')
+        .attr('text-anchor', 'middle')
+        .text('Total Pounds Released')
+
+         g.selectAll(".bar")
+         .data(data)
+         .enter().append("rect")
+         .attr("class", "bar")
+         .attr("x", function(d) { return xScale(d.YEAR); })
+         .attr("y", function(d) { return yScale(d.TOTAL_RELEASE); })
+         .attr("width", xScale.bandwidth())
+         .attr("height", function(d) { return height - yScale(d.TOTAL_RELEASE); })
+        //  .on('mouseenter', function (actual, i) {
+        //     d3.select(this)
+        //       .transition()
+        //       .duration(300)
+        //       .attr('opacity', 0.6)
+        //       .attr('x', (a) => xScale(d.YEAR) - 5)
+        //       .attr('width', xScale.bandwidth() + 10)
+        //  })
+        // .on("mouseout", function(d, i) {
+        //   d3.select(this).attr("fill", function() {
+        //       return "" + color(this.id) + "";
+        //   });
+        // });
+        });
+
+        // function updateLegend() {
+        //   layers.forEach(function(layerId) {
+        //     console.log(layerId)
+
+        //     // var layer = map.getLayer(layerid);
+        //     // if (layer.type === 'circle') {
+        //     //   layer.paint['circle-fill']
+        //     // } else if (layer.type === 'fill') {
+        //     //   layer.paint['line-color']
+        //     // }
+
+        //   // console.log(layers)
+        //   })
+        // } 
 
     init();
   })
-  
 
-
-
-    
     </script>
 
     
