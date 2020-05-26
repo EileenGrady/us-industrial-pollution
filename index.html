@@ -160,26 +160,27 @@
             <p>In 2007 the EPA introduced the Risk-Screening Environmental Indicators (RSEI) model to help provide context to the information collected by the TRI. 
               RSEI scores consider not only the size of the chemical release, but also the chemical’s toxicity, its fate and transport through the environment, and the size and location of the exposed population. 
               These scores can be used to help identify facilities or chemicals that may pose greater human health risk. 
-              For 2018 data, chromium and chromium compounds, and ethylene oxide contribute the most to high RSEI scores.
+              For 2018 data, some of the highest scores were the result of ethylene oxide emissions..
             </p>
-            <p>I want to change these buttons to switch back and forth instead on toggling on/off.
-              And update info box below about chromium vs ethylene depending on which is selected.
-              map shows circles styled according to total lbs of that chemical released.
-              Need to add a legend.
+            <p>Need to add a legend.
             </p>
-            <nav id="menu"></nav>
+            <p>The EPA classified ethylene oxide as a carcinogen in 2016, stating that it is at least 30 times more carcinogenic than previously understood, and that long-term exposure can cause an increased risk of cancers of the white blood cells and breast cancer in females. 
+            </p>
+            <!-- <div>
+              <input type="radio" id="chromium" name="chemical" value="chromium-layer" checked="checked" onclick="updateMap(value)">
+              <label for="chromium">chromium and chromium compounds</label>
+          
+              <input type="radio" id="ethylene" name="chemical" value="ethylene-layer" onclick="updateMap(value)">
+              <label for="ethylene">ethylene oxide</label>
+            </div> -->
+            <!-- <nav id="menu"></nav> -->
           </div>
 
           <!-- Scene 5a -->
           <div class="step">
-            <p>The EPA classified ethylene oxide as a carcinogen in 2016, stating that it is at least 30 times more carcinogenic than previously understood, and that long-term exposure can cause an increased risk of cancers of the white blood cells and breast cancer in females. 
+            <p>The largest emissions are occurring along the Gulf, in Texas and Louisiana.
             </p>
-            <p>
-              Not long after these findings, a medical sterilizer plant in Willowbrook, Illinois was shut down by a state agency due to concerns over its ethylene oxide emissions. 
-              But the now defunct Illinois plant was not even by far the largest emitter of ethylene oxide. 
-              The largest emissions are occurring along the Gulf, in Texas and Louisiana.
-            </p>
-            <p>While Illinois just passed some of the strictest restrictions on ethylene oxide emissions, Texas is currently looking to increase their limits.   
+            <p>Texas is currently looking to increase their limits.   
             </p>
           </div>
 
@@ -238,15 +239,14 @@
             <p>Show dropdown where user can choose one of the top 10 parent companies, that also filters and shows child companies connected by line.
             </p>
             <div class="dropdown show">
-              <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown link
+              <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="parent-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Choose a company
               </a>
-            
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
+              <div class="dropdown-menu" id="parent-dropdown" aria-labelledby="dropdownMenuLink">
               </div>
+              </div>
+              <div id ="company-name"><h3></h3></div>
+              <div id ="company-details"><p></p></div>
             </div>
           </div>
 
@@ -299,6 +299,7 @@
     <!-- <script src="libs/Leaflet.markercluster/leaflet.markercluster.js"></script> -->
     <script src="https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/1.3.5/chroma.min.js"></script>
+    <script src='https://unpkg.com/@turf/turf/turf.min.js'></script>
 
 
 
@@ -439,34 +440,40 @@
 
       // loop through each layer
       allLayers.forEach(function(layer) {
-        console.log(layer)
-
+        
         layout = map.getLayoutProperty(layer, 'visibility')
-        layerType = map.getLayer(layer).type
 
-        // if layer is visible in the scene
-        if (layout === 'visible') {
+        if (layer === 'tri-release-layer' && layout === 'visible') {
+          drawCircleLegend(layer)
+        } else if (layer === 'ethylene-layer' && layout === 'visible') {
+          drawCircleLegend(layer)
+        } else {
+          layerType = map.getLayer(layer).type
 
-          // first define color for legend key based on layer type (circle, line, or fill)
-          if (layerType === 'circle') {
-            var color = map.getPaintProperty(layer, 'circle-color')
-          } else if (layerType === 'line') {
-            var color = map.getPaintProperty(layer, 'line-color')
-          } else if (layerType === 'fill') {
-            var color = map.getPaintProperty(layer, 'fill-color')
+          // if layer is visible in the scene
+          if (layout === 'visible') {
+
+            // first define color for legend key based on layer type (circle, line, or fill)
+            if (layerType === 'circle') {
+              var color = map.getPaintProperty(layer, 'circle-color')
+            } else if (layerType === 'line') {
+              var color = map.getPaintProperty(layer, 'line-color')
+            } else if (layerType === 'fill') {
+              var color = map.getPaintProperty(layer, 'fill-color')
+            }
+
+            // and append the layer's color and label to the legend element
+            legend.innerHTML +=
+            '<span style="background-color:' + color + '"></span> ' +
+            '<label>' + layer + '</label><br>';
           }
-          console.log(color)
-
-          // // then select the legend div element
-          // var legend = document.getElementById('legend')
-
-          // and append the layer's color and label to the legend element
-          legend.innerHTML +=
-          '<span style="background-color:' + color + '"></span> ' +
-          '<label>' + layer + '</label><br>';;
         }
         })
       } 
+
+      function drawCircleLegend(layer) {
+        mapLayer = map.getLayer(layer)
+      }
 
     switch(response.index) {
       case 0:
@@ -660,7 +667,7 @@
         allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
         allMarkers.forEach(item => item.remove());
         map.setLayoutProperty('ethylene-layer','visibility', 'visible');
-        map.setLayoutProperty('chromium-layer','visibility', 'visible');
+        // map.setLayoutProperty('chromium-layer','visibility', 'visible');
         updateLegend(allLayers);
 
         break;
@@ -784,6 +791,10 @@
         });
         allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
         allMarkers.forEach(item => item.remove());
+        if (map.getSource('company-line-source')) {
+          map.removeLayer('company-line-layer')
+          map.removeSource('company-line-source')
+        };
         map.setLayoutProperty('tri-river-layer','visibility', 'visible');
         updateLegend(allLayers);
 
@@ -801,6 +812,7 @@
         allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
         allMarkers.forEach(item => item.remove());
         map.setLayoutProperty('parent-co-layer','visibility', 'visible');
+        map.setPaintProperty('tri-layer', 'circle-radius', 4)
         updateLegend(allLayers);
    
         break;
@@ -809,6 +821,18 @@
         // Scene 9
         // How does this affect you?
         // Geocode option to find sites close to you?
+        map.flyTo({
+          center: [-107.79, 35.08],
+          zoom: 3.789,
+          pitch: 0,
+          bearing: 0
+        });
+        allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
+        allMarkers.forEach(item => item.remove());
+        if (map.getSource('company-line-source')) {
+          map.removeLayer('company-line-layer')
+          map.removeSource('company-line-source')
+        };
    
       default:
         // do nothing
@@ -913,133 +937,6 @@
       '2018'
     ];
 
-    // const triTimelineData = {
-	  //   '1988': {
-    //     'year': 1988,
-    //     'description': 'Responding to petions from industry, the EPA deleted titanium dioxide from the TRI chemical list.'
-    //   },
-	  //   '1989': {
-    //     'year': 1989,
-		//     'description': 'EPA added nine chemicals to the TRI chemical list.'
-    //   },
-    //   '1990': {
-    //     'year': 1990,
-		//     'description': ''
-    //   },
-    //   '1991': {
-    //     'year': 1991,
-		//     'description': ''
-    //   },
-    //   '1992': {
-    //     'year': 1992,
-		//     'description': ''
-    //   },
-    //   '1993': {
-    //     'year': 1993,
-    //     'description': 'Clinton ordered federal agencies to reduce pollution as much as possible, and to report all toxic chemical releases. 21 chemicals added to the TRI chemical list.'
-    //   },
-    //   '1994': {
-    //     'year': 1994,
-		//     'description': '286 new chemicals and chemical categories were added to the TRI, bringing the chemical list to a total of more than 600.'
-    //   },
-    //   '1995': {
-    //     'year': 1995,
-		//     'description': ''
-    //   },
-    //   '1996': {
-    //     'year': 1996,
-		//     'description': ''
-    //   },
-    //   '1997': {
-    //     'year': 1997,
-		//     'description': 'Seven industry groups were added to the list of sectors subject to TRI reporting: metal and coal mining, electric utilities, commercial hazardous waste treatment, solvent recovery facilities, and wholesale chemical distributors.'
-    //   },
-    //   '1998': {
-    //     'year': 1998,
-		//     'description': ''
-    //   },
-    //   '1999': {
-    //     'year': 1999,
-		//     'description': 'Seven Persistant Bioaccumulative Toxic (PBT) chemicals added to chemical list, and reporting thresholds lowered for 18 PBTs already on the list.'
-    //   },
-    //   '2000': {
-    //     'year': 2000,
-		//     'description': ''
-    //   },
-    //   '2001': {
-    //     'year': 2001,
-		//     'description': 'Lead and lead compounds classified as PBTs, which lowered their reporting threshold to 100 pounds.'
-    //   },
-    //   '2002': {
-    //     'year': 2002,
-		//     'description': ''
-    //   },
-    //   '2003': {
-    //     'year': 2003,
-		//     'description': ''
-    //   },
-    //   '2004': {
-    //     'year': 2004,
-		//     'description': ''
-    //   },
-    //   '2005': {
-    //     'year': 2005,
-		//     'description': ''
-    //   },
-    //   '2006': {
-    //     'year': 2006,
-		//     'description': ''
-    //   },
-    //   '2007': {
-    //     'year': 2007,
-		//     'description': ''
-    //   },
-    //   '2008': {
-    //     'year': 2008,
-		//     'description': ''
-    //   },
-    //   '2009': {
-    //     'year': 2009,
-		//     'description': ''
-    //   },
-    //   '2010': {
-    //     'year': 2010,
-		//     'description': '16 chemicals that are reasonably anticipated to be a human carcingogen added to the chemical list.'
-    //   },
-    //   '2011': {
-    //     'year': 2011,
-		//     'description': ''
-    //   },
-    //   '2012': {
-    //     'year': 2012,
-		//     'description': 'Facilities located in Indian country required to report to the EPA and appropriate tribe, instead of the state.'
-    //   },
-    //   '2013': {
-    //     'year': 2013,
-		//     'description': ''
-    //   },
-    //   '2014': {
-    //     'year': 2014,
-		//     'description': ''
-    //   },
-    //   '2015': {
-    //     'year': 2015,
-		//     'description': '1-bromopropane is added to the chemical list because it is reasonably anticipated to cause cancer in humans.'
-    //   },
-    //   '2016': {
-    //     'year': 2016,
-		//     'description': ''
-    //   },
-    //   '2017': {
-    //     'year': 2017,
-		//     'description': ''
-    //   },
-    //   '2018': {
-    //     'year': 2018,
-		//     'description': ''
-    //   },
-    // };
-
     function filterTotalRelease(totalYear, data) {
       var total = 'TOTAL'
       var totalField = total.concat(totalYear)
@@ -1050,6 +947,144 @@
       document.getElementById('total-year').textContent = totalYear;
 
     }
+
+  const parentCompanies = ['US DEPARTMENT OF DEFENSE', 'BERKSHIRE HATHAWAY INC', 'CEMEX INC', 'ARGOS USA CORP', 'KOCH INDUSTRIES INC', 'CRH AMERICAS INC', 'CLEAN HARBORS INC', 'TYSON FOODS INC', 'MARATHON PETROLEUM CORP', 'MARTIN MARIETTA MATERIALS INC']
+  
+  function addCompanyFilter(company) {
+
+    // make the selection once
+    var dropdown = $('#parent-dropdown');
+
+    //for each value in parent company array
+    $.each(parentCompanies, function(key, value) {
+      // append a new element
+      dropdown.append("<a class='dropdown-item' value='"+ key +"' href='javascript:return false;''>" + value + "</a>")  //append new dropdown item
+    });
+
+    //assign click event to dropdown filter, call filterMap when dropdown selection made
+    $('.dropdown-menu a').click(function(e) {
+      company = this.innerHTML;
+      filterMap(company);
+      updateDetails(company)
+    });
+    }
+
+    var popup = new mapboxgl.Popup({
+      closeButton: false,
+      closeOnClick: false
+    });
+
+    function filterMap(company) {
+
+      if (map.getSource('company-line-source')) {
+        map.removeLayer('company-line-layer')
+        map.removeSource('company-line-source')
+      };
+      
+      map.setFilter('parent-co-layer', ['==', 'parentCompany', company]);
+      map.setPaintProperty('parent-co-layer', 'circle-radius', 8);
+      map.setLayoutProperty('tri-layer','visibility', 'visible'); 
+      map.setFilter('tri-layer', ['==', 'PARENT_CO_NAME', company]);
+
+      var facilities = map.querySourceFeatures('composite', {
+          sourceLayer: 'tri-facilities-174q3j',
+          filter: ['==', 'PARENT_CO_NAME', company]
+      });
+
+      var parent = map.querySourceFeatures('parent-co-source', {
+          filter: ['==', 'parentCompany', company]
+        });
+      
+      var from = turf.point([parent[0].properties.longitude, parent[0].properties.latitude]).geometry.coordinates;
+
+      var lineData = []
+
+      facilities.forEach(function(feature) {
+        var to = turf.point([feature.properties.LONGITUDE, feature.properties.LATITUDE]).geometry.coordinates;
+        var line = turf.lineString([from, to]);
+        lineData.push(line)
+      })
+
+
+      map.addSource('company-line-source', {
+         type: 'geojson', 
+         data: {
+           'type': 'FeatureCollection',
+           'features': lineData
+         }
+      });
+      
+      map.addLayer({
+        'id': 'company-line-layer',
+        'type': 'line',
+        'source': 'company-line-source',
+        'layout': {
+          'line-join': 'round',
+          'line-cap': 'round'
+        },
+        'paint': {
+          'line-color': '#888',
+          'line-width': 1,
+          'line-opacity': .5
+        }
+      });
+
+
+      
+      // map.on('mouseenter', 'tri-layer', function(e) {
+    
+      //   // var features = map.queryRenderedFeatures(e.point);
+      //   var feature = e.features[0];
+      //   // console.log(features)
+
+      //   map.getCanvas().style.cursor = 'pointer';
+
+      //   var parent = map.querySourceFeatures('parent-co-source', {
+      //     // sourceLayer: 'parent-source-layer',
+      //     filter: ['==', 'parentCompany', feature.properties.PARENT_CO_NAME]
+      //   });
+
+      //   // var parentCo = parent[0].properties.parentCompany
+
+      //   var from = turf.point(e.features[0].geometry.coordinates);
+      //   var to = turf.point([parent[0].properties.longitude, parent[0].properties.latitude]);
+
+      //   var options = {units: 'miles'};
+
+      //   var distance = turf.distance(from, to, options);
+
+      //   // Populate the popup and set its coordinates
+      //   // based on the feature found.
+      //   popup.setLngLat(e.features[0].geometry.coordinates)
+      //       .setHTML('<h3>' + 
+      //         e.features[0].properties.FACILITY_NAME + 
+      //         ' is ' + 
+      //         distance + 
+      //         ' miles from its parent company, ' + 
+      //         parent[0].properties.parentCompany + 
+      //         '.<h/3>')
+      //       .addTo(map);
+
+      // });
+
+      // map.on('mouseleave', 'tri-layer', function() {
+      //   map.getCanvas().style.cursor = '';
+      //   popup.remove();
+      // });
+    }
+
+    // need to access parent company layer data to update info box with description of each company
+    function updateDetails(company) {
+      var parentCompany = map.querySourceFeatures('parent-co-source', {
+          filter: ['==', 'parentCompany', company]
+        });
+      console.log(parentCompany[0].properties.parentCompany)
+      $('#company-name').text(parentCompany[0].properties.name)
+      $('#company-details').text(parentCompany[0].properties.industry)
+    }
+
+
+    addCompanyFilter()
 
   map.on('load', function() {
 
@@ -1274,50 +1309,6 @@
       }
     });
 
-    // enumerate ids of the layers
-    var toggleableLayerIds = ['chromium-layer', 'ethylene-layer'];
-    
-    // set up the corresponding toggle button for each layer
-    for (var i = 0; i < toggleableLayerIds.length; i++) {
-      var id = toggleableLayerIds[i];
-        
-      var link = document.createElement('a');
-      link.href = '#';
-      link.className = 'active';
-      link.textContent = id;
-        
-      link.onclick = function(e) {
-      var clickedLayer = this.textContent;
-      e.preventDefault();
-      e.stopPropagation();
-        
-      var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
-        
-      // toggle layer visibility by changing the layout object's visibility property
-      if (visibility === 'visible') {
-        map.setLayoutProperty(clickedLayer, 'visibility', 'none');
-        this.className = '';
-      } else {
-        this.className = 'active';
-        map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
-      }
-      };
-        
-      var layers = document.getElementById('menu');
-      layers.appendChild(link);
-    }
-
-    // filterScore('2007');
-
-
-    // document
-    //   .getElementById('score-slider')
-    //   .addEventListener('input', function(e) {
-    //   var year = parseInt(e.target.value, 10);
-    //   filterScore(year);
-    //   console.log(year)
-    // });
-
     // add source and layer for St. James Parish
     map.addSource('st-james-source', {
       type: 'geojson',
@@ -1391,12 +1382,42 @@
         'visibility': 'none'
       },
       'paint': {
-        'circle-color': '#f94144',
+        'circle-color': '#5DADEC',
         'circle-radius': 6,
         'circle-stroke-color':'#2f2d2d',
         'circle-stroke-width': 0.5
       }
     });
+
+    // construct popup for GE site map layer
+    map.on('mouseenter', 'parent-co-layer', function(e) {
+      // Change the cursor style as a UI indicator.
+      map.getCanvas().style.cursor = 'pointer';
+
+      // var coordinates = e.features[0].geometry.coordinates[0];
+      var coordinates = e.lngLat;
+
+      // Ensure that if the map is zoomed out such that multiple
+      // copies of the feature are visible, the popup appears
+      // over the copy being pointed to.
+      while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+      }
+
+      // Populate the popup and set its coordinates
+      // based on the feature found.
+      popup
+        .setLngLat(coordinates)
+        .setHTML('<h3>' + e.features[0].properties.parentCompany + '<h/3>')
+        .addTo(map);
+      });
+
+      map.on('mouseleave', 'parent-co-layer', function() {
+        map.getCanvas().style.cursor = '';
+        popup.remove();
+      });
+
+    // addStyleFilter()
 
     var svg = d3.select("svg"),
         margin = 130,
@@ -1488,6 +1509,7 @@
         // } 
 
     init();
+
   })
 
     </script>
