@@ -149,7 +149,7 @@
               <input id="total-slider" type="range" min="1987" max="2018" step="1" value="0" />
               </div>
             <!-- <div id="timeline"> -->
-              <svg id = 'year-chart' width="650" height="500"></svg>
+              <svg id='year-chart' width="650" height="500"></svg>
               <p>I need to add a legend, and fix the circle radius.</p>
               <p>I want to create some sort of D3 bar chart that shows total lbs released each year, that highlights the right bar according to the time slider.</p>
             <!-- </div> -->
@@ -166,7 +166,7 @@
             </p>
             <p>The EPA classified ethylene oxide as a carcinogen in 2016, stating that it is at least 30 times more carcinogenic than previously understood, and that long-term exposure can cause an increased risk of cancers of the white blood cells and breast cancer in females. 
             </p>
-            <svg id = 'donut-chart' width="600" height="500"></svg>
+            <svg id='donut-chart' width="600" height="500"></svg>
             <!-- <div>
               <input type="radio" id="chromium" name="chemical" value="chromium-layer" checked="checked" onclick="updateMap(value)">
               <label for="chromium">chromium and chromium compounds</label>
@@ -1283,7 +1283,7 @@
         'visibility': 'none'
       },
       'paint': {
-        'circle-color': '#FF9933',
+        'circle-color': '#66C5CC',
         'circle-radius': [
           'sqrt', ['/', ['get', 'ON_SITE_RELEASE_TOTAL'], 1000]
         ],
@@ -1301,7 +1301,7 @@
         'visibility': 'none'
       },
       'paint': {
-        'circle-color': '#AAF0D1',
+        'circle-color': '#F6CF71',
         'circle-radius': [
           'sqrt', ['/', ['get', 'ON_SITE_RELEASE_TOTAL'], 100]
         ],
@@ -1506,80 +1506,97 @@
     }
 
     function drawDonutChart() {
-    // var svg = d3.select("#donut-chart"),
-    //     margin = 130,
-    //     width = svg.attr("width") - margin,
-    //     height = svg.attr("height") - margin;
 
-    // // var xScale = d3.scaleBand().range ([0, width]).padding(0.4),
-    // //     yScale = d3.scaleLinear().range ([height, 0]);
+      const width = 571,
+        chartWidth = 300,
+        chartHeight = 300,
+        height = 378,
+        radius = Math.min(chartWidth, chartHeight) / 2,
+        innerRadius = radius - radius + 40;
 
-    // var g = svg.append("g")
-    //            .attr("transform", "translate(" + 100 + "," + 100 + ")");
+      var svg = d3.select('#donut-chart')
+        .attr('width', width)
+        .attr('height', height);
 
-    // d3.csv("/data/chemical-scores.csv").then(function(data) {
+      var donutColors = ['#66C5CC','#F6CF71','#F89C74','#DCB0F2','#87C55F','#9EB9F3','#FE88B1','#C9DB74','#8BE0A4','#B497E7','#D3B484','#B3B3B3']
 
-    //     // xScale.domain(data.map(function(d) { return d.SortName; }));
-    //     // yScale.domain([0, d3.max(data, function(d) { return d.Score; })]);
+      d3.csv("/data/chemical-scores.csv").then(function(data) {
+ 
+        var pie = d3.pie()
+          .value(function(d) {return +d.Score; })
 
-    //     var arc = d3.svg.arc()
-    //       .outerRadius(r);
+        var arc = d3.arc()
+          .innerRadius(innerRadius)
+          .outerRadius(radius);
 
-    //     var pie = d3.layout.pie()
-    //       .value(function(d) { return d.Score; });
+        var div = d3.select("body").append("div")
+          .attr("class", "tooltip-donut")
+          .style('z-index', '10')
+          .style("opacity", 0);
 
-    //     var arcs = vis.selectAll("g.slice")
-    //       .data(pie)
-    //       .enter()
-    //         .append("svg:g")
-    //           .attr("class", "slice");
+        var arcGroup = svg
+          .append('g')
+          // .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
+          .attr("transform", "translate(425, 175)")
+          .attr('class', 'arc-group'); 
 
-        // g.append("g")
-        //  .attr("transform", "translate(0," + height + ")")
-        //  .call(d3.axisBottom(xScale))
-        // .selectAll("text")
-        //   .attr("transform", "rotate(45)")
-        //   .attr("dy", ".35em")
-        //   .style("text-anchor", "start");
+        arcGroup
+          .selectAll('.arc')
+          .data(pie(data))
+          .enter()
+          .append('g')
+          .attr('class', 'arc-group')
+          .append('path')
+          .attr('class', 'arc')
+          .attr('d', arc)
+          .attr('fill', (d, i) => donutColors[i])
+          .on('mouseenter', function(d) {
+            console.log(d.Score)
+            d3.select(this).transition()
+              .duration('50')
+              .attr('opacity', '.85')
+            div.transition()
+              .duration('50')
+              .style("opacity", 1);
+            let num = (Math.round((d.Score / d.data.all) * 100)).toString() + '%';
+            div.html(d.Score)
+              .style("left", (d3.event.pageX + 10) + "px")
+              .style("top", (d3.event.pageY - 15) + "px");
+          })
+          .on('mouseout', function(d) {
+            d3.select(this).transition()
+              .duration('50')
+              .attr('opacity', '1');
+            div.transition()
+              .duration('50')
+              .style("opacity", 0);
+          })
 
-        // var formatValue = d3.format("0.2s");
+          // add colored dots for legend
+          svg.selectAll("mydots")
+            .data(data)
+            .enter()
+            .append("circle")
+              .attr("cx", 50)
+              .attr("cy", function(d,i){ return 30 + i*25}) // 100 is where the first dot appears. 25 is the distance between dots
+              .attr("r", 7)
+              .style('fill', (d, i) => donutColors[i])
 
-        // g.append("g")
-        //  .call(d3.axisLeft(yScale).tickFormat(function(d){
-        //      return formatValue(d);
-        //  }).ticks(20, "~s"))
-        //  .append("text")
-        //  .attr("y", 6)
-        //  .attr("dy", "0.71em")
-        //  .attr("text-anchor", "end")
-        //  .text("value");
+          // add labels for legend
+          svg.selectAll("mylabels")
+            .data(data)
+            .enter()
+            .append("text")
+              .attr("x", 70)
+              .attr("y", function(d,i){ return 30 + i*25}) // 100 is where the first dot appears. 25 is the distance between dots
+              // .style("fill", function(d){ return color(d)})
+              .text(function(d) {return d.SortName; })
+              .attr("text-anchor", "left")
+              .style("alignment-baseline", "middle")
+        
 
-        //  g.append('g')
-        // .attr('class', 'grid')
-        // .call(d3.axisLeft()
-        // .scale(yScale)
-        // .tickSize(-width, 0, 0)
-        // .tickFormat(''))
+          })
 
-        // svg.append('text')
-        // .attr('class', 'label')
-        // .attr('x', -(height / 2) - margin)
-        // .attr('y', margin / 2.2)
-        // .attr('transform', 'rotate(-90)')
-        // .attr('text-anchor', 'middle')
-        // .text('Total Pounds Released')
-
-        //  g.selectAll(".bar")
-        //  .data(data)
-        //  .enter().append("rect")
-        //  .attr("class", "bar")
-        //  .attr("x", function(d) { return xScale(d.YSortName); })
-        //  .attr("y", function(d) { return yScale(d.Score); })
-        //  .attr("width", xScale.bandwidth())
-        //  .attr("height", function(d) { return height - yScale(d.Score); })
-        // });
-
-    // })
   }
   
 

@@ -240,6 +240,14 @@ h2 {
     border: 2px solid #282828;
   }
 
+  #donut-chart {
+    border: 2px solid #282828;
+  }
+
+  .arc {
+    z-index: 100
+  }
+
   svg {
     width: 100%;
     /* height: 100%; */
@@ -257,4 +265,16 @@ h2 {
   text.label {
     font-size: 12px;
     font-weight: 400;
+  }
+
+  div.tooltip-donut {
+    position: absolute;
+    text-align: center;
+    padding: .5rem;
+    background: #FFFFFF;
+    color: #313639;
+    border: 1px solid #313639;
+    border-radius: 8px;
+    pointer-events: none;
+    font-size: 1rem;
   }
