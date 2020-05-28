@@ -144,14 +144,16 @@
          <!-- Scene 4a -->
           <div class="step">
             <div class="tri-time-slider-total">
-              <h3>Top 100 Releasing Facilities (total lbs)</h3>
+              <h3>Top 500 Releasing Facilities (total lbs)</h3>
+              <p>I still need to add a circle legend, and fix the chart styling and interactivity. 
+                I also would like to stretch the time slider out so that it is not as touchy.
+              </p>
+
               <label id="total-year">1987</label>
               <input id="total-slider" type="range" min="1987" max="2018" step="1" value="0" />
               </div>
             <!-- <div id="timeline"> -->
               <svg id='year-chart' width="650" height="500"></svg>
-              <p>I need to add a legend, and fix the circle radius.</p>
-              <p>I want to create some sort of D3 bar chart that shows total lbs released each year, that highlights the right bar according to the time slider.</p>
             <!-- </div> -->
           </div>
 
@@ -162,7 +164,7 @@
               These scores can be used to help identify facilities or chemicals that may pose greater human health risk. 
               For 2018 data, some of the highest scores were the result of ethylene oxide emissions..
             </p>
-            <p>Need to add a legend.
+            <p>Need to add a circle legend, and fix chart styling and interactivity.
             </p>
             <p>The EPA classified ethylene oxide as a carcinogen in 2016, stating that it is at least 30 times more carcinogenic than previously understood, and that long-term exposure can cause an increased risk of cancers of the white blood cells and breast cancer in females. 
             </p>
@@ -314,6 +316,14 @@
       // jQuery(document).ready(function(){
       //   jQuery(this).scrollTop(0);
       // });
+
+      // code to make intro screen full page on load
+      var introEl = $('div.container'),
+          introHeadingH = introEl.find('h1').height(),
+          windowH = $(window).height();
+
+      introEl.css('padding', (windowH - introHeadingH)/2 + 'px 0');
+      
 
   // ---------Section 0: Make a scrollama--------------- 
   // Create a scrollama object.
@@ -492,9 +502,6 @@
         map.setFilter('superfund-layer', null);
         map.setPaintProperty('superfund-layer', 'circle-radius', 2.5)
         updateLegend(allLayers);
-
-
-        // humanExposureLegend.style.display = 'none';
         break;
 
       case 1:
@@ -512,7 +519,6 @@
         map.setFilter('superfund-layer', ['==', 'SITE_NAME', 'GE PITTSFIELD HOUSATONIC RIVER SUPERFUND SITE']);
         map.setPaintProperty('superfund-layer', 'circle-radius', 6);
         updateLegend(allLayers);
-
         break;
       
       case 2:
@@ -532,7 +538,6 @@
         map.setPaintProperty('superfund-layer', 'circle-radius', 6)
         map.setLayoutProperty('ge-layer','visibility', 'visible');
         updateLegend(allLayers);
-
         break;
 
       case 3:
@@ -555,7 +560,6 @@
         map.setFilter('superfund-layer', ['==', 'SITE_NAME', 'GE PITTSFIELD HOUSATONIC RIVER SUPERFUND SITE']);
         map.setPaintProperty('superfund-layer', 'circle-radius', 6);
         updateLegend(allLayers);
-
         break;
 
       case 4:
@@ -575,7 +579,6 @@
         map.setFilter('superfund-labels', ['in', 'SITE_NAME', 'BIG RIVER MINE TAILINGS/ST. JOE MINERALS CORP.', 'WASHINGTON COUNTY LEAD DISTRICT - FURNACE CREEK', 'WASHINGTON COUNTY LEAD DISTRICT - POTOSI', 'WASHINGTON COUNTY LEAD DISTRICT - OLD MINES', 'WASHINGTON COUNTY LEAD DISTRICT - RICHWOODS', 'SOUTHWEST JEFFERSON COUNTY MINING', 'ANSCHUTZ - MADISON MINE']);
         map.setPaintProperty('superfund-layer', 'circle-radius', 6);
         updateLegend(allLayers);
-
         break;
 
       case 5:
@@ -597,7 +600,6 @@
         map.setPaintProperty('superfund-layer', 'circle-radius', 6)
         map.setLayoutProperty('lead-belt-area-layer','visibility', 'visible');
         updateLegend(allLayers);
-
         break;
 
       case 6:
@@ -620,7 +622,6 @@
         map.setFilter('superfund-layer', ['in', 'SITE_NAME', 'BIG RIVER MINE TAILINGS/ST. JOE MINERALS CORP.', 'WASHINGTON COUNTY LEAD DISTRICT - FURNACE CREEK', 'WASHINGTON COUNTY LEAD DISTRICT - POTOSI', 'WASHINGTON COUNTY LEAD DISTRICT - OLD MINES', 'WASHINGTON COUNTY LEAD DISTRICT - RICHWOODS', 'SOUTHWEST JEFFERSON COUNTY MINING', 'ANSCHUTZ - MADISON MINE']);
         map.setPaintProperty('superfund-layer', 'circle-radius', 6);
         updateLegend(allLayers);
-
         break;
 
       case 7:
@@ -638,7 +639,6 @@
         map.setFilter('tri-layer', null);
         map.setPaintProperty('tri-layer', 'circle-radius', 2);
         updateLegend(allLayers);
-
         break;
 
       case 8:
@@ -655,7 +655,6 @@
         map.setLayoutProperty('tri-release-layer','visibility', 'visible');
         filterTotalRelease('1987');
         updateLegend(allLayers);
-
         break;
 
       case 9:
@@ -672,7 +671,6 @@
         map.setLayoutProperty('ethylene-layer','visibility', 'visible');
         // map.setLayoutProperty('chromium-layer','visibility', 'visible');
         updateLegend(allLayers);
-
         break;
 
         case 10:
@@ -689,7 +687,6 @@
         allMarkers.forEach(item => item.remove());
         map.setLayoutProperty('ethylene-layer','visibility', 'visible');
         updateLegend(allLayers);
-
         break;
 
         case 11:
@@ -706,7 +703,6 @@
         allMarkers.forEach(item => item.remove());
         map.setLayoutProperty('ethylene-layer','visibility', 'visible');
         updateLegend(allLayers);
-
         break;
 
         case 12:
@@ -724,7 +720,6 @@
         map.setLayoutProperty('ethylene-layer','visibility', 'visible');
         map.setLayoutProperty('st-james-layer','visibility', 'visible');
         updateLegend(allLayers);
-
         break;
 
         case 13:
@@ -742,7 +737,6 @@
         map.setLayoutProperty('tri-layer','visibility', 'visible');
         map.setPaintProperty('tri-layer', 'circle-radius', 6);
         updateLegend(allLayers);
-
         break;
         
         case 14:
@@ -763,7 +757,6 @@
           freedomMarker.addTo(map);
         });
         updateLegend(allLayers);
-
         break;
 
         case 15:
@@ -780,7 +773,6 @@
         map.setLayoutProperty('spill-layer','visibility', 'visible');
         freedomMarker.addTo(map);
         updateLegend(allLayers);
-
         break;
 
         case 16:
@@ -800,7 +792,6 @@
         };
         map.setLayoutProperty('tri-river-layer','visibility', 'visible');
         updateLegend(allLayers);
-
         break;
 
         case 17:
@@ -817,7 +808,6 @@
         map.setLayoutProperty('parent-co-layer','visibility', 'visible');
         map.setPaintProperty('tri-layer', 'circle-radius', 4)
         updateLegend(allLayers);
-   
         break;
 
         case 18:
@@ -884,6 +874,7 @@
     scrollZoom: false
   });
 
+  // create zoom control
   map.addControl(new mapboxgl.NavigationControl());
 
   // create marker for Freedom Industries in WV
@@ -925,6 +916,7 @@
       '2018'
     ];
 
+    // declare function to filter facilities by year by time slider
     function filterTotalRelease(totalYear) {
       var total = 'TOTAL'
       var totalField = total.concat(totalYear)
@@ -934,12 +926,14 @@
       // Set the label to the month
       document.getElementById('total-year').textContent = totalYear;
 
+      // select corresponding bar in bar chart to create interaction
       d3.selectAll('.bar')
         .filter(function(d) { return d.YEAR == totalYear; })
         .transition()
         .duration(300)
         .attr('opacity', 0.6)
 
+      // return bar to normal when slider changes to new year
       d3.selectAll('.bar')
         .filter(function(d) { return d.YEAR != totalYear; })
           .transition()
@@ -950,13 +944,16 @@
         // .attr('width', xScale.bandwidth() + 10)
     }
 
+  // create list of parent companies
   const parentCompanies = ['US DEPARTMENT OF DEFENSE', 'BERKSHIRE HATHAWAY INC', 'CEMEX INC', 'ARGOS USA CORP', 'KOCH INDUSTRIES INC', 'CRH AMERICAS INC', 'CLEAN HARBORS INC', 'TYSON FOODS INC', 'MARATHON PETROLEUM CORP', 'MARTIN MARIETTA MATERIALS INC']
   
+  // declare function to populate dropdown menu and call function to filter map
   function addCompanyFilter(company) {
 
     // make the selection once
     var dropdown = $('#parent-dropdown');
 
+    // populate dropdown with company values
     //for each value in parent company array
     $.each(parentCompanies, function(key, value) {
       // append a new element
@@ -976,38 +973,52 @@
       closeOnClick: false
     });
 
+    // filter parent company and its TRI facilities when dropdown chanes
     function filterMap(company) {
 
+      // check if line layer exists and remove it first
       if (map.getSource('company-line-source')) {
         map.removeLayer('company-line-layer')
         map.removeSource('company-line-source')
       };
       
+      // set filters and properties to show chosen parent company and its facilities
       map.setFilter('parent-co-layer', ['==', 'parentCompany', company]);
       map.setPaintProperty('parent-co-layer', 'circle-radius', 8);
       map.setLayoutProperty('tri-layer','visibility', 'visible'); 
       map.setFilter('tri-layer', ['==', 'PARENT_CO_NAME', company]);
 
+      // get the child facility source data
       var facilities = map.querySourceFeatures('composite', {
           sourceLayer: 'tri-facilities-174q3j',
           filter: ['==', 'PARENT_CO_NAME', company]
       });
 
+      // get the parent company source data
       var parent = map.querySourceFeatures('parent-co-source', {
           filter: ['==', 'parentCompany', company]
         });
       
+      // create turf point from coordinates of parent company
       var from = turf.point([parent[0].properties.longitude, parent[0].properties.latitude]).geometry.coordinates;
 
+      // declare empty array to populate line features with
       var lineData = []
 
+      // for each child facility 
       facilities.forEach(function(feature) {
+
+        // create turf point from its coordinates
         var to = turf.point([feature.properties.LONGITUDE, feature.properties.LATITUDE]).geometry.coordinates;
+        
+        // create line string from parent company location to child facility
         var line = turf.lineString([from, to]);
+
+        // push each line string to the lineData array
         lineData.push(line)
       })
 
-
+      // add new source using lineData created above
       map.addSource('company-line-source', {
          type: 'geojson', 
          data: {
@@ -1016,6 +1027,7 @@
          }
       });
       
+      // add layer from the lineData source
       map.addLayer({
         'id': 'company-line-layer',
         'type': 'line',
@@ -1076,6 +1088,7 @@
     }
 
     // need to access parent company layer data to update info box with description of each company
+    // this still needs work
     function updateDetails(company) {
       var parentCompany = map.querySourceFeatures('parent-co-source', {
           filter: ['==', 'parentCompany', company]
@@ -1086,6 +1099,7 @@
     }
 
 
+    // call function to create and populate parent company filter
     addCompanyFilter()
 
   map.on('load', function() {
@@ -1436,11 +1450,16 @@
 
 
     init();
+
+    // draw yearly release total chart
     drawYearChart();
+
+    // draw donut chart for RSEI scores by chemical
     drawDonutChart();
 
   })
 
+  // declare function that draws d3 chart for yearly release totals
   function drawYearChart() {
     var svg = d3.select("#year-chart"),
         margin = 130,
@@ -1505,6 +1524,7 @@
 
     }
 
+    // declare function that draws d3 chart for chemical shares of RSEI scores
     function drawDonutChart() {
 
       const width = 571,
@@ -1599,7 +1619,6 @@
 
   }
   
-
     </script>
 
     

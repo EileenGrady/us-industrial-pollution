@@ -1,11 +1,13 @@
 .container {
-  background-image: url("https://cdn.pixabay.com/photo/2016/10/22/21/54/industry-1761801_960_720.jpg");
+  background: url("https://cdn.pixabay.com/photo/2016/10/22/21/54/industry-1761801_960_720.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   background-color: '#242424';
-  margin-left: 0px;
-  margin-right: 0px;
+  /* object-fit: cover; */
+  /* margin-left: 0px;
+  margin-right: 0px; */
+
 }
 
 #map { 
