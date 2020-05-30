@@ -110,7 +110,7 @@ h2 {
     /*OPTIONAL: creates a solid box around the text*/
     border: 2px solid #282828;
     /*OPTIONAL: makes the text slightly see-through so that the figure is somewhat visible underneath*/
-    opacity: 0.8;
+    opacity: .95;
   }
 
   .step.last-child {
@@ -252,6 +252,8 @@ h2 {
 
   svg {
     width: 100%;
+    background-color: #2e2e2e;
+
     /* height: 100%; */
   }
   
@@ -260,12 +262,14 @@ h2 {
   }
 
   text {
-    font-size: 10px;
-    fill:'black';
+    font-size: 12px;
+    fill: #b0b0b0;
+    text-shadow: -1px 0 #0d0d0d, 0 1px #0d0d0d, 1px 0 #0d0d0d, 0 -1px #0d0d0d;
+    font-family: 'PT Sans', sans-serif;
   }
 
   text.label {
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 400;
   }
 
@@ -279,4 +283,14 @@ h2 {
     border-radius: 8px;
     pointer-events: none;
     font-size: 1rem;
+  }
+
+  #total-slider {
+    width: 100%;
+    /* margin-left: 35px; */
+  }
+
+  #total-year {
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 1.2rem;
   }

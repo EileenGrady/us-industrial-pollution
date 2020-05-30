@@ -137,38 +137,42 @@
               Then in 1985, another, although smaller, toxic cloud was released from a Union Carbide plant on the Kanawha River in West Virginia.
             </p>
             <p>As of 2018 there are 21,557 facilities that report the release of a toxic chemical as part of the TRI program. 
-              The TRI tracks these releases to provide the public with information and hopefully incentivize companies to improve their environmental performance. 
             </p>
           </div>
 
          <!-- Scene 4a -->
           <div class="step">
-            <div class="tri-time-slider-total">
-              <h3>Top 500 Releasing Facilities (total lbs)</h3>
-              <p>I still need to add a circle legend, and fix the chart styling and interactivity. 
-                I also would like to stretch the time slider out so that it is not as touchy.
+            <!-- <div class="tri-time-slider-total"> -->
+              <!-- <h3>Top 500 Releasing Facilities (total lbs)</h3> -->
+              <p>The TRI does not directly regulate these chemical releases, but rather hopes to incentivize companies into improving their environmental performance by tracking and publishing this data. 
+                Use the time slider below to explore total pounds released per year since reporting began in 1987.
               </p>
-
+              <p>Notice the big jump from 1997 to 1998. 
+                Seven industry sectors were added to the TRI in 1997, including metal and coal mining, electric power generators, and commercial hazardous waste treatment operations.
+              </p>
+            <div class="total-release-slider">
               <label id="total-year">1987</label>
               <input id="total-slider" type="range" min="1987" max="2018" step="1" value="0" />
               </div>
             <!-- <div id="timeline"> -->
               <svg id='year-chart' width="650" height="500"></svg>
+              <p>I still need to add a circle legend, and fix the chart styling and interactivity.</p>
             <!-- </div> -->
           </div>
 
           <!-- Scene 5 -->
           <div class="step">
-            <p>In 2007 the EPA introduced the Risk-Screening Environmental Indicators (RSEI) model to help provide context to the information collected by the TRI. 
-              RSEI scores consider not only the size of the chemical release, but also the chemical’s toxicity, its fate and transport through the environment, and the size and location of the exposed population. 
-              These scores can be used to help identify facilities or chemicals that may pose greater human health risk. 
-              For 2018 data, some of the highest scores were the result of ethylene oxide emissions..
+            <h3>But size is not the only determining factor in how dangerous a chemical release is.</h3>
+            <p>The Risk-Screening Environmental Indicators (RSEI) model was introduced in 2007 as a way to help identify specific facilities or chemicals that may pose a greater risk. 
+              RSEI scores also consider a chemical’s toxicity, its fate and transport through the environment, and the size and location of the exposed population.
             </p>
-            <p>Need to add a circle legend, and fix chart styling and interactivity.
+            <p>Explore the most hazardous chemicals according the RSEI scores for 2018 data.
             </p>
-            <p>The EPA classified ethylene oxide as a carcinogen in 2016, stating that it is at least 30 times more carcinogenic than previously understood, and that long-term exposure can cause an increased risk of cancers of the white blood cells and breast cancer in females. 
+            <!-- <p>The EPA classified ethylene oxide as a carcinogen in 2016, stating that it is at least 30 times more carcinogenic than previously understood, and that long-term exposure can cause an increased risk of cancers of the white blood cells and breast cancer in females.  -->
             </p>
             <svg id='donut-chart' width="600" height="500"></svg>
+            <p>Need to add a circle legend, and fix chart styling and interactivity.
+            </p>
             <!-- <div>
               <input type="radio" id="chromium" name="chemical" value="chromium-layer" checked="checked" onclick="updateMap(value)">
               <label for="chromium">chromium and chromium compounds</label>
@@ -242,7 +246,7 @@
             <p>Show dropdown where user can choose one of the top 10 parent companies, that also filters and shows child companies connected by line.
             </p>
             <div class="dropdown show">
-              <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="parent-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="btn btn-secondary dropdown-toggle" href="href=javascript:return false;" role="button" id="parent-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Choose a company
               </a>
               <div class="dropdown-menu" id="parent-dropdown" aria-labelledby="dropdownMenuLink">
@@ -285,6 +289,7 @@
     <link rel="stylesheet" href="libs/Leaflet.markercluster/MarkerCluster.css"> /> -->
     <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Average&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
 <body>
 
     <!-- Bootstrap core JavaScript
@@ -1098,10 +1103,6 @@
       $('#company-details').text(parentCompany[0].properties.industry)
     }
 
-
-    // call function to create and populate parent company filter
-    addCompanyFilter()
-
   map.on('load', function() {
 
     var popup = new mapboxgl.Popup({
@@ -1457,20 +1458,23 @@
     // draw donut chart for RSEI scores by chemical
     drawDonutChart();
 
+    // call function to create and populate parent company filter
+    addCompanyFilter()
+
   })
 
   // declare function that draws d3 chart for yearly release totals
   function drawYearChart() {
     var svg = d3.select("#year-chart"),
-        margin = 130,
-        width = svg.attr("width") - margin,
-        height = svg.attr("height") - margin;
+        margin = {top: 30, right: 20, bottom: 50, left: 70},
+        width = svg.attr("width") - margin.left - margin.right,
+        height = svg.attr("height") - margin.top - margin.bottom;
 
-    var xScale = d3.scaleBand().range ([0, width]).padding(0.4),
-        yScale = d3.scaleLinear().range ([height, 0]);
+    var xScale = d3.scaleBand().range ([0, width]).padding(0.2),
+        yScale = d3.scaleLinear().range ([height, 0]).clamp(true);;
 
     var g = svg.append("g")
-               .attr("transform", "translate(" + 100 + "," + 100 + ")");
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     d3.csv("/data/year-totals.csv").then(function(data) {
 
@@ -1482,7 +1486,7 @@
          .call(d3.axisBottom(xScale))
         .selectAll("text")
           .attr("transform", "rotate(45)")
-          .attr("dy", ".35em")
+          .attr("dy", ".55em")
           .style("text-anchor", "start");
 
         var formatValue = d3.format("0.2s");
@@ -1506,8 +1510,8 @@
 
         svg.append('text')
         .attr('class', 'label')
-        .attr('x', -(height / 2) - margin)
-        .attr('y', margin / 2.2)
+        .attr('x', -(height / 2.5) - margin.left)
+        .attr('y', margin.bottom / 1.8)
         .attr('transform', 'rotate(-90)')
         .attr('text-anchor', 'middle')
         .text('Total Pounds Released')
