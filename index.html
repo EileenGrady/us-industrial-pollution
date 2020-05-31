@@ -166,12 +166,14 @@
             <p>The Risk-Screening Environmental Indicators (RSEI) model was introduced in 2007 as a way to help identify specific facilities or chemicals that may pose a greater risk. 
               RSEI scores also consider a chemical’s toxicity, its fate and transport through the environment, and the size and location of the exposed population.
             </p>
-            <p>Explore the most hazardous chemicals according the RSEI scores for 2018 data.
-            </p>
-            <!-- <p>The EPA classified ethylene oxide as a carcinogen in 2016, stating that it is at least 30 times more carcinogenic than previously understood, and that long-term exposure can cause an increased risk of cancers of the white blood cells and breast cancer in females.  -->
-            </p>
+            <p>Chromium and chromium compounds posed the greatest risk in 2018, composing 39.1% of the country's total RSEI score.</p>
+            <!-- <p>The chart below shows the most hazardous chemicals released in 2018, according to their share of RSEI score.</p> -->
+            <!-- <p>
+              *Right now map only shows ethylene oxide releasing facilities. 
+              Thinking about radio buttons where user can view facilities that release each chemical?*
+            </p> -->
             <svg id='donut-chart' width="600" height="500"></svg>
-            <p>Need to add a circle legend, and fix chart styling and interactivity.
+            <p>Need to add a circle legend?, and fix chart styling and interactivity.
             </p>
             <!-- <div>
               <input type="radio" id="chromium" name="chemical" value="chromium-layer" checked="checked" onclick="updateMap(value)">
@@ -185,24 +187,28 @@
 
           <!-- Scene 5a -->
           <div class="step">
-            <p>The largest emissions are occurring along the Gulf, in Texas and Louisiana.
-            </p>
-            <p>Texas is currently looking to increase their limits.   
-            </p>
+            <h3>Ethylene oxide comes in at a close second, composing 30.5% of the country's total RSEI score. 
+              Long term exposure to ethylene oxide can increase risk of lymphatic and breast cancers.</p>
+            </h3>
           </div>
 
           <!-- Scene 5b -->
           <div class="step">
-            <p>Louisiana houses 13 of the 109 emitting ethylene oxide facilities in the US, but is responsible for approximately one-fifth of those total emissions. 
-              This area has become known as “Cancer Alley” due to these facilities and others.
-            </p>
+            <h3>“Cancer Alley” in Louisiana
+            </h3>
           </div>
 
           <!-- Scene 5c -->
           <div class="step">
-            <p>Residents and environmental activists in St. James parish are currently fighting against the construction of a new plastics facility. 
-              The enormous 2,300 acre facility proposed by Formosa Petrochemical Corporation could double the amount of toxic emissions already being released into the parish’s air.
-            </p>
+            <h3>St. James Parish is currently the only parish in this corridor between Baton Rouge and New Orleans that does not have an ethylene oxide emitting facility. 
+            </h3>
+          </div>
+
+          <!-- Scene 5d -->
+          <div class="step">
+            <h3>This will change if Formosa Petrochemical Corporation wins the fight to construct their new plastics complex near Sunshine Bridge in St. James Parish. 
+              The proposed 2,300 acre complex would be permitted to release up to 15,400 pounds of ethylene oxide annually.
+            </h3>
           </div>
 
           <!-- Scene 6 -->
@@ -365,7 +371,7 @@
     console.log("handling resize")
 
     // 1. update height of step elements
-    steps.style('height', stepH + 'px');
+    // steps.style('height', stepH + 'px');
 
     // 2. update height, margin, and layering of the figure
     figure
@@ -444,7 +450,7 @@
     // const allLayers = Object.keys(layerLabels)
 
     // create array of individual markers to be removed in each case before adding back relevant markers
-    const allMarkers = [freedomMarker]
+    const allMarkers = [freedomMarker, sunshineMarker]
     
     function updateLegend(allLayers) {
 
@@ -658,35 +664,41 @@
         allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
         allMarkers.forEach(item => item.remove());
         map.setLayoutProperty('tri-release-layer','visibility', 'visible');
-        filterTotalRelease('1987');
+        document
+          .getElementById('total-slider')
+          .addEventListener('input', function(e) {
+          var year = parseInt(e.target.value, 10);
+          filterTotalRelease(year);
+        });
         updateLegend(allLayers);
         break;
 
       case 9:
         // Scene 5
-        // RSEI scores--chromium and ethylene oxide
+        // RSEI scores--chromium layer
         map.flyTo({
           center: [-107.79, 35.08],
           zoom: 3.789,
           pitch: 0,
-          bearing: 0
+          bearing: 0,
+          speed: 0.25
         });
         allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
         allMarkers.forEach(item => item.remove());
-        map.setLayoutProperty('ethylene-layer','visibility', 'visible');
-        // map.setLayoutProperty('chromium-layer','visibility', 'visible');
+        // map.setLayoutProperty('ethylene-layer','visibility', 'visible');
+        map.setLayoutProperty('chromium-layer','visibility', 'visible');
         updateLegend(allLayers);
         break;
 
         case 10:
         // Scene 5a
-        // ethylene oxide emissions
+        // ethylene oxide layer
         map.flyTo({
-          center: [-97.7543, 28.7720],
-          zoom: 4.789,
+          center: [-107.79, 35.08],
+          zoom: 3.789,
           pitch: 0,
           bearing: 0,
-          speed: 0.5
+          speed: 0.25
         });
         allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
         allMarkers.forEach(item => item.remove());
@@ -698,11 +710,11 @@
         // Scene 5b
         // ethylene oxide louisiana
         map.flyTo({
-          center: [-91.5343, 30.1251],
-          zoom: 7.78,
+          center: [-91.3093, 30.1610],
+          zoom: 8.9478,
           pitch: 0,
           bearing: 0,
-          speed: 0.5
+          speed: 0.25
         });
         allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
         allMarkers.forEach(item => item.remove());
@@ -712,13 +724,13 @@
 
         case 12:
         // Scene 5c
-        // new proposed plant
+        // St. James Parish
         map.flyTo({
-          center: [-91.1824, 30.1043],
+          center: [-91.0835, 30.0772],
           zoom: 8.78,
           pitch: 0,
           bearing: 0,
-          speed: 0.5
+          speed: 0.25
         });
         allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
         allMarkers.forEach(item => item.remove());
@@ -728,6 +740,26 @@
         break;
 
         case 13:
+        // Scene 5c
+        // new proposed plant
+        map.flyTo({
+          center: [-91.0835, 30.0772],
+          zoom: 9.78,
+          pitch: 057,
+          bearing: 0,
+          speed: 0.25
+        });
+        allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
+        allMarkers.forEach(item => item.remove());
+        map.setLayoutProperty('ethylene-layer','visibility', 'visible');
+        map.setLayoutProperty('st-james-layer','visibility', 'visible');
+        map.once('moveend', function(e) {
+          sunshineMarker.addTo(map);
+        });
+        updateLegend(allLayers);
+        break;
+
+        case 14:
         // Scene 6
         // Chemical Valley, West Virginia
         map.flyTo({
@@ -744,7 +776,7 @@
         updateLegend(allLayers);
         break;
         
-        case 14:
+        case 15:
         // Scene 6a
         // Zoom to Freedom Industry facility that had chemical spill
         map.flyTo({
@@ -764,7 +796,7 @@
         updateLegend(allLayers);
         break;
 
-        case 15:
+        case 16:
         // Scene 6b
         // show counties affected by spill
         map.flyTo({
@@ -780,7 +812,7 @@
         updateLegend(allLayers);
         break;
 
-        case 16:
+        case 17:
         // Scene 7
         // all facilities along waterways in US?
         map.flyTo({
@@ -799,7 +831,7 @@
         updateLegend(allLayers);
         break;
 
-        case 17:
+        case 18:
         // Scene 8
         // Parent Companies
         map.flyTo({
@@ -815,7 +847,7 @@
         updateLegend(allLayers);
         break;
 
-        case 18:
+        case 19:
         // Scene 9
         // How does this affect you?
         // Geocode option to find sites close to you?
@@ -885,6 +917,10 @@
   // create marker for Freedom Industries in WV
   var freedomMarker = new mapboxgl.Marker()
     .setLngLat([-81.606774, 38.368888])
+
+  // create marker for Formosa Chemical plant near Sunshine bridge
+  var sunshineMarker = new mapboxgl.Marker()
+    .setLngLat([-90.910054, 30.057623])
 
     var years = [
       '1987',
@@ -1241,8 +1277,8 @@
         'visibility': 'none'
       },
       'paint': {
-        'line-color': '#43AA8B',
-        'line-width': 2
+        'line-color': '#696969',
+        'line-width': 3
       }
     });
 
@@ -1261,11 +1297,13 @@
       },
       'paint': {
         'circle-color': '#f94144',
+        'circle-opacity': 0.65,
         'circle-radius': [
           'sqrt', ['/', ['get', 'TOTAL1987'], 100000]
         ],
         'circle-stroke-color':'#2f2d2d',
-        'circle-stroke-width': 0.5
+        'circle-stroke-width': 0.5,
+        'circle-stroke-opacity': 0.65
       }
     });
 
@@ -1276,7 +1314,6 @@
       .addEventListener('input', function(e) {
       var year = parseInt(e.target.value, 10);
       filterTotalRelease(year);
-      console.log(year)
     });
 
     // add sources and layers for chromium and ethylene oxide facilities
@@ -1340,8 +1377,8 @@
         'visibility': 'none'
       },
       'paint': {
-        'line-color': '#43AA8B',
-        'line-width': 2
+        'line-color': '#696969',
+        'line-width': 3
       }
     });
 
@@ -1494,7 +1531,7 @@
         g.append("g")
          .call(d3.axisLeft(yScale).tickFormat(function(d){
              return formatValue(d);
-         }).ticks(20, "~s"))
+         }).ticks(10, "~s"))
          .append("text")
          .attr("y", 6)
          .attr("dy", "0.71em")

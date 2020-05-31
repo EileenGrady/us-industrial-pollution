@@ -98,9 +98,7 @@ h2 {
     /* 'position relative' allows the steps to positioned in a custom way*/
     position: relative;
     /* margins are set to position step as high as possible, centered, and with a minimum bottom margin*/
-    margin: 0 auto 20rem auto;
-    /* 'position relative' allows the steps to positioned in a custom way*/
-    position: relative;
+    margin: 0 auto 40rem auto;
     /*OPTIONAL: creates space around the text*/
     padding: 1rem;
     /*OPTIONAL: can be set based on preferences*/
@@ -258,7 +256,7 @@ h2 {
   }
   
   .bar {
-    fill: #80cbc4;
+    fill: #f94144;
   }
 
   text {
