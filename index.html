@@ -187,41 +187,82 @@
 
           <!-- Scene 5a -->
           <div class="step">
-            <h3>Ethylene oxide comes in at a close second, composing 30.5% of the country's total RSEI score. 
+            <p>Ethylene oxide comes in at a close second, composing 30.5% of the country's total RSEI score. 
               Long term exposure to ethylene oxide can increase risk of lymphatic and breast cancers.</p>
-            </h3>
+            </p>
           </div>
 
           <!-- Scene 5b -->
           <div class="step">
-            <h3>“Cancer Alley” in Louisiana
-            </h3>
+            <p>“Cancer Alley” in Louisiana
+            </p>
           </div>
 
           <!-- Scene 5c -->
           <div class="step">
-            <h3>St. James Parish is currently the only parish in this corridor between Baton Rouge and New Orleans that does not have an ethylene oxide emitting facility. 
-            </h3>
+            <p>St. James Parish is currently the only parish in this corridor between Baton Rouge and New Orleans that does not have an ethylene oxide emitting facility. 
+            </p>
           </div>
 
           <!-- Scene 5d -->
           <div class="step">
-            <h3>This will change if Formosa Petrochemical Corporation wins the fight to construct their new plastics complex near Sunshine Bridge in St. James Parish. 
+            <p>This will change if Formosa Chemicals wins the fight to construct a new complex near Sunshine Bridge in St. James Parish. 
               The proposed 2,300 acre complex would be permitted to release up to 15,400 pounds of ethylene oxide annually.
-            </h3>
+            </p>
+          </div>
+
+          <!-- Scene 5e -->
+          <div class="step">
+            <p>Reassurances over the plant's safety do not ease residents who are concerned over Formosa's disreputable history.
+            </p>
           </div>
 
           <!-- Scene 6 -->
           <div class="step">
-            <h3>Chemical Valley, West Virginia</h3>
-            <p>Let’s go back to West Virginia, where a 1985 chemical release along the Kanawha River helped fuel public outcry for the establishment of the TRI program. 
-              Chemical Valley, as the area around Charleston WV has been dubbed, has long been a site of mining and chemical production. 
-              As of 2018, there are still several facilities in the area that report toxic releases to the TRI. 
+            <p>An explosion in 2005 at Formosa's Point Comfort, Texas plant resulted in a fire that burned for 5 days and forced the community of Point Comfort into a shelter-in-place order.
+            And in 2019 the company was ordered to pay a $50 million settlement to clean up plastic pellets and other pollutants they had been illegally dumping into Lavaca Bay and surrounding waterways.</p>
+          </div>
+
+          <!-- Scene 6 -->
+          <div class="step">
+            <p>Formosa currently operates three plastics facilities in the US. 
+              All three are ultimately owned by Formosa Plastics Corporation, headquarted in Taiwan.
+            </p>
+          </div>
+
+          <!-- Scene 6 -->
+          <div class="step">
+            <p>Companies responsible for industrial pollution are often located far from the damage they inflict on communities.
+            The locations seen here represent the top 10 parent companies who own at least 90 facilities who report to the TRI.</p>
+          </div>
+
+          <!-- Scene 6a -->
+          <div class="step">
+            <h3>Select a company from the dropdown to explore parent company headquarters in relation to the facilities they own.</h3>
+            <div class="dropdown show"></div>
+              <a class="btn btn-secondary dropdown-toggle" href="href=javascript:return false;" role="button" id="parent-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Choose a company
+              </a>
+              <div class="dropdown-menu" id="parent-dropdown" aria-labelledby="dropdownMenuLink">
+              </div>
+              <div id ="company-header"></div>
+              <div id ="company-details"></div>
+            </div>
+
+          <!-- Scene 6 -->
+          <div class="step">
+            <p>Let’s go back to West Virginia, where a 1985 chemical release along the Kanawha River helped fuel public outcry for the establishment of the TRI program.
+            </p>
+          </div>
+
+          <!-- Scene 7 -->
+          <div class="step">
+            <p>The Kanawha River Valley, or “Chemical Valley” as it is known to some, has long been a site of mining and chemical production.
             </p>
             <img src='images/wv-monsanto.jpg'>
           </div>
 
-          <!-- Scene 6a -->
+          <!-- Scene 7a -->
           <div class="step">
             <p>On a January morning in 2014, around 7,500 gallons of crude 4-Methylcyclohexanemethanol (MCHM) spilled into the Elk River, a tributary of the Kanawha River. 
               The spill originated from Freedom Industries, a chemical plant whose permits did not allow for the discharge of MCHM. 
@@ -230,14 +271,13 @@
             <img src='images/elk-river.jpg'>
           </div>
 
-          <!-- Scene 6b -->
+          <!-- Scene 7b -->
           <div class="step">
-            <p>The spill occurred upstream from the primary West Virginia American Water intake, treatment, and distribution center. 
-              While it may not pose any proven long-term health effects, over 300,000 residents in nine counties were without drinking water for several days.
+            <p>The spill occurred upstream from the primary West Virginia American Water intake center, leaving 300,000 residents in nine counties without drinking water for several days. 
             </p>
           </div>
 
-          <!-- Scene 6c -->
+          <!-- Scene 7c -->
           <div class="step">
             <p>Of course the same rivers that provide us with drinking water also tend to be perfect locations for industry. 
               Show TRI facilities with one-mile of a river here.
@@ -245,25 +285,6 @@
           </div>
 
           <!-- Scene 8 -->
-          <div class="step">
-            <h3>Who profits?</h3>
-            <p>The companies that own and profit from these facilities are often located far from the damage they cause.
-            </p>
-            <p>Show dropdown where user can choose one of the top 10 parent companies, that also filters and shows child companies connected by line.
-            </p>
-            <div class="dropdown show">
-              <a class="btn btn-secondary dropdown-toggle" href="href=javascript:return false;" role="button" id="parent-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Choose a company
-              </a>
-              <div class="dropdown-menu" id="parent-dropdown" aria-labelledby="dropdownMenuLink">
-              </div>
-              </div>
-              <div id ="company-name"><h3></h3></div>
-              <div id ="company-details"><p></p></div>
-            </div>
-          </div>
-
-          <!-- Scene 9 -->
           <div class="step">
             <h3>How does this affect you?</h3>
             <p>geocode option to find sites close to you?</p>
@@ -760,8 +781,126 @@
         break;
 
         case 14:
+        // Scene 5c
+        // new proposed plant--repeat
+        map.flyTo({
+          center: [-91.0835, 30.0772],
+          zoom: 9.78,
+          pitch: 057,
+          bearing: 0,
+          speed: 0.25
+        });
+        allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
+        allMarkers.forEach(item => item.remove());
+        map.setLayoutProperty('ethylene-layer','visibility', 'visible');
+        map.setLayoutProperty('st-james-layer','visibility', 'visible');
+        sunshineMarker.addTo(map);
+        updateLegend(allLayers);
+        break;
+
+        case 15:
+        // Scene 5d
+        // Texas Formosa plant
+        map.flyTo({
+          center: [-96.6307, 28.6309],
+          zoom: 11.97,
+          pitch: 56.6538,
+          bearing: 20,
+          speed: 0.5
+        });
+        allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
+        allMarkers.forEach(item => item.remove());
+        map.setLayoutProperty('tri-layer','visibility', 'visible');
+        map.setFilter('tri-layer', ['==', 'FACILITY_NAME', 'FORMOSA PLASTICS CORP TEXAS']);
+        map.setPaintProperty('tri-layer', 'circle-radius', 8);
+        updateLegend(allLayers);
+        break;
+
+        case 16:
+        // Scene 5d
+        // US Formosa plants
+        map.flyTo({
+          center: [-107.79, 35.08],
+          zoom: 3.789,
+          pitch: 0,
+          bearing: 0,
+          speed: 0.5
+        });
+        allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
+        allMarkers.forEach(item => item.remove());
+        map.setLayoutProperty('tri-layer','visibility', 'visible');
+        map.setFilter('tri-layer', ['==', 'PARENT_CO_NAME', 'FORMOSA PLASTICS CORP USA']);
+        map.setPaintProperty('tri-layer', 'circle-radius', 6);
+        updateLegend(allLayers);
+        break;
+
+        case 17:
+        // Scene 8
+        // Parent Companies
+        map.flyTo({
+          center: [-107.79, 35.08],
+          zoom: 3.789,
+          pitch: 0,
+          bearing: 0
+        });
+        allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
+        allMarkers.forEach(item => item.remove());
+        map.setLayoutProperty('parent-co-layer','visibility', 'visible');
+        map.setFilter('parent-co-layer', null);
+        updateLegend(allLayers);
+        if (map.getSource('company-line-layer')) {
+          map.removeLayer('company-line-layer')
+        };
+        break;
+
+        case 18:
+        // Scene 8
+        // Parent Companies interactive scene
+        map.flyTo({
+          center: [-107.79, 35.08],
+          zoom: 3.789,
+          pitch: 0,
+          bearing: 0
+        });
+        allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
+        allMarkers.forEach(item => item.remove());
+        map.setLayoutProperty('parent-co-layer','visibility', 'visible');
+        map.setPaintProperty('tri-layer', 'circle-radius', 4)
+        map.setFilter('parent-co-layer', null);
+        $('#company-header').text('')
+        $('#company-details').text('')
+        updateLegend(allLayers);
+        if (map.getSource('company-line-source')) {
+          map.removeLayer('company-line-layer')
+          map.removeSource('company-line-source')
+        };
+        break;
+
+        case 19:
         // Scene 6
         // Chemical Valley, West Virginia
+        map.flyTo({
+          center: [-81.8162, 38.3771],
+          zoom: 11.115,
+          pitch: 59.5,
+          bearing: 0,
+          speed: 0.75
+        });
+        allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
+        allMarkers.forEach(item => item.remove());
+        map.setLayoutProperty('tri-layer','visibility', 'visible');
+        map.setFilter('tri-layer', null);
+        map.setPaintProperty('tri-layer', 'circle-radius', 6);
+        if (map.getSource('company-line-source')) {
+          map.removeLayer('company-line-layer')
+          map.removeSource('company-line-source')
+        };
+        updateLegend(allLayers);
+        break;
+
+        case 20:
+        // Scene 6
+        // Chemical Valley, West Virginia--repeat
         map.flyTo({
           center: [-81.8162, 38.3771],
           zoom: 11.115,
@@ -776,7 +915,7 @@
         updateLegend(allLayers);
         break;
         
-        case 15:
+        case 21:
         // Scene 6a
         // Zoom to Freedom Industry facility that had chemical spill
         map.flyTo({
@@ -796,14 +935,15 @@
         updateLegend(allLayers);
         break;
 
-        case 16:
+        case 22:
         // Scene 6b
         // show counties affected by spill
         map.flyTo({
-          center: [-81.6153, 38.3681],
+          center: [-82.3395, 38.4080],
           zoom: 8,
           pitch: 0,
-          bearing: 0
+          bearing: 0,
+          speed: 0.5
         });
         allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
         allMarkers.forEach(item => item.remove());
@@ -812,7 +952,7 @@
         updateLegend(allLayers);
         break;
 
-        case 17:
+        case 23:
         // Scene 7
         // all facilities along waterways in US?
         map.flyTo({
@@ -823,31 +963,11 @@
         });
         allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
         allMarkers.forEach(item => item.remove());
-        if (map.getSource('company-line-source')) {
-          map.removeLayer('company-line-layer')
-          map.removeSource('company-line-source')
-        };
         map.setLayoutProperty('tri-river-layer','visibility', 'visible');
         updateLegend(allLayers);
         break;
 
-        case 18:
-        // Scene 8
-        // Parent Companies
-        map.flyTo({
-          center: [-107.79, 35.08],
-          zoom: 3.789,
-          pitch: 0,
-          bearing: 0
-        });
-        allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
-        allMarkers.forEach(item => item.remove());
-        map.setLayoutProperty('parent-co-layer','visibility', 'visible');
-        map.setPaintProperty('tri-layer', 'circle-radius', 4)
-        updateLegend(allLayers);
-        break;
-
-        case 19:
+        case 24:
         // Scene 9
         // How does this affect you?
         // Geocode option to find sites close to you?
@@ -1135,7 +1255,7 @@
           filter: ['==', 'parentCompany', company]
         });
       console.log(parentCompany[0].properties.parentCompany)
-      $('#company-name').text(parentCompany[0].properties.name)
+      $('#company-header').text(parentCompany[0].properties.name)
       $('#company-details').text(parentCompany[0].properties.industry)
     }
 
@@ -1355,7 +1475,7 @@
       'paint': {
         'circle-color': '#F6CF71',
         'circle-radius': [
-          'sqrt', ['/', ['get', 'ON_SITE_RELEASE_TOTAL'], 100]
+          'sqrt', ['/', ['get', 'ON_SITE_RELEASE_TOTAL'], 25]
         ],
         'circle-opacity': .75,
         'circle-stroke-color':'#2f2d2d',
@@ -1396,8 +1516,8 @@
         'visibility': 'none'
       },
       'paint': {
-        'line-color': '#FF9933',
-        'line-width': 2
+        'line-color': '#696969',
+        'line-width': 3
       }
     });
 
