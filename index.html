@@ -188,15 +188,42 @@
           <!-- Scene 5a -->
           <div class="step">
             <p>Ethylene oxide comes in at a close second, composing 30.5% of the country's total RSEI score. 
-              Long term exposure to ethylene oxide can increase risk of lymphatic and breast cancers.</p>
+              Long term exposure to ethylene oxide can increase risk of lymphatic and breast cancers.
+            </p>
+            <p>A medical sterilizer plant in the Chicago suburb of Willowbrook, Illinois was recently shut down after an EPA report found that ethylene oxide air emissions from the Sterigenics plant were increasing long-term cancer risks for people living up to 25 miles away from the facility. 
+              Sterigenics released 4,205 of ethylene oxide in 2016. 
+              In response to public pressure, Illinois just passed legislation to phase out the use of ethylene oxide by 2022.</p>
+            </p>
+          </div>
+
+          <!-- Scene 5b -->
+          <!-- <div class="step">
+            <p>A medical sterilizer plant in the Chicago suburb of Willowbrook, Illinois was recently shut down after an EPA report found that ethylene oxide air emissions from the Sterigenics plant increased long-term cancer risks for people living up to 25 miles away. 
+              Sterigenics released 4,205 of ethylene oxide in 2016. 
+              In response to public pressure, Illinois just passed legislation to phase out the use of ethylene oxide by 2022.
+            </p>
+          </div> -->
+
+          <!-- Scene 5b -->
+          <div class="step">
+            <p>There are 109 ethylene oxide releasing facilities in the US. 
+              38 of these are concentrated in Texas and Louisiana.
             </p>
           </div>
 
           <!-- Scene 5b -->
           <div class="step">
-            <p>concentration in Louisiana
+            <p>Texas houses the two highest emitters of ethylene oxide, and releases are expected to increase in the wake of findings by the Texas Commission on Environmental Quality that increase safe exposure levels. 
+              These findings are in direct contradiction with the EPA, who recently found ethylene oxide to be far more hazardous than previously thought.
             </p>
           </div>
+
+          <!-- Scene 5b -->
+          <div class="step">
+          <p>Louisiana has 13 ethylene oxide releasing facilities, eleven of which are located along the Mississippi River between Baton Rouge and New Orleans. 
+            The two highest emitters in Louisiana are located here, at 15,100 and 10,413 pounds released annually. 
+          </p>
+        </div>
 
           <!-- Scene 5c -->
           <div class="step">
@@ -207,7 +234,7 @@
           <!-- Scene 5d -->
           <div class="step">
             <p>This will change if Formosa Chemicals wins the fight to construct a new complex near Sunshine Bridge in St. James Parish. 
-              The proposed 2,300 acre complex would be permitted to release up to 15,400 pounds of ethylene oxide annually.
+              The proposed 2,300 acre complex would be permitted to release up to 15,400 pounds of ethylene oxide annually, more than three times what was emitted at the now defunct Sterigenics plant in Illinois.
             </p>
           </div>
 
@@ -729,10 +756,10 @@
 
         case 11:
         // Scene 5b
-        // ethylene oxide louisiana
+        // ethylene oxide along Gulf
         map.flyTo({
-          center: [-91.3093, 30.1610],
-          zoom: 8.9478,
+          center: [-102.3122, 28.6090],
+          zoom: 4.9478,
           pitch: 0,
           bearing: 0,
           speed: 0.25
@@ -744,6 +771,38 @@
         break;
 
         case 12:
+        // Scene 5b
+        // ethylene oxide Texas
+        map.flyTo({
+          center: [-96.9906, 29.4035],
+          zoom: 6.789,
+          pitch: 0,
+          bearing: 0,
+          speed: 0.25
+        });
+        allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
+        allMarkers.forEach(item => item.remove());
+        map.setLayoutProperty('ethylene-layer','visibility', 'visible');
+        updateLegend(allLayers);
+        break;
+
+        case 13:
+        // Scene 5b
+        // ethylene oxide louisiana
+        map.flyTo({
+          center: [-91.8152, 30.1678],
+          zoom: 7.7827,
+          pitch: 0,
+          bearing: 0,
+          speed: 0.25
+        });
+        allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
+        allMarkers.forEach(item => item.remove());
+        map.setLayoutProperty('ethylene-layer','visibility', 'visible');
+        updateLegend(allLayers);
+        break;
+
+        case 14:
         // Scene 5c
         // St. James Parish
         map.flyTo({
@@ -760,7 +819,7 @@
         updateLegend(allLayers);
         break;
 
-        case 13:
+        case 15:
         // Scene 5c
         // new proposed plant
         map.flyTo({
@@ -780,7 +839,7 @@
         updateLegend(allLayers);
         break;
 
-        case 14:
+        case 16:
         // Scene 5c
         // new proposed plant--repeat
         map.flyTo({
@@ -798,7 +857,7 @@
         updateLegend(allLayers);
         break;
 
-        case 15:
+        case 17:
         // Scene 5d
         // Texas Formosa plant
         map.flyTo({
@@ -816,7 +875,7 @@
         updateLegend(allLayers);
         break;
 
-        case 16:
+        case 18:
         // Scene 5d
         // US Formosa plants
         map.flyTo({
@@ -834,7 +893,7 @@
         updateLegend(allLayers);
         break;
 
-        case 17:
+        case 19:
         // Scene 8
         // Parent Companies
         map.flyTo({
@@ -853,7 +912,7 @@
         };
         break;
 
-        case 18:
+        case 20:
         // Scene 8
         // Parent Companies interactive scene
         map.flyTo({
@@ -876,7 +935,7 @@
         };
         break;
 
-        case 19:
+        case 21:
         // Scene 6
         // Chemical Valley, West Virginia
         map.flyTo({
@@ -898,7 +957,7 @@
         updateLegend(allLayers);
         break;
 
-        case 20:
+        case 22:
         // Scene 6
         // Chemical Valley, West Virginia--repeat
         map.flyTo({
@@ -915,7 +974,7 @@
         updateLegend(allLayers);
         break;
         
-        case 21:
+        case 23:
         // Scene 6a
         // Zoom to Freedom Industry facility that had chemical spill
         map.flyTo({
@@ -935,7 +994,7 @@
         updateLegend(allLayers);
         break;
 
-        case 22:
+        case 24:
         // Scene 6b
         // show counties affected by spill
         map.flyTo({
@@ -952,7 +1011,7 @@
         updateLegend(allLayers);
         break;
 
-        case 23:
+        case 25:
         // Scene 7
         // all facilities along waterways in US?
         map.flyTo({
@@ -967,7 +1026,7 @@
         updateLegend(allLayers);
         break;
 
-        case 24:
+        case 26:
         // Scene 9
         // How does this affect you?
         // Geocode option to find sites close to you?
