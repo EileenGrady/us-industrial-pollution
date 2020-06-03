@@ -9,6 +9,21 @@
 
   <title>Industrial Pollution</title>
 
+  <!-- Bootstrap core CSS -->
+  <link href="vendor\bootstrap\css\bootstrap.min.css" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" /> -->
+  <link href="https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.css" rel="stylesheet" />
+  <!-- Custom styles for this template -->
+  <link href='css/style.css' rel='stylesheet' />
+  <!-- <link rel="stylesheet" href="libs/Leaflet.markercluster/MarkerCluster.Default.css"> />
+    <link rel="stylesheet" href="libs/Leaflet.markercluster/MarkerCluster.css"> /> -->
+  <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Average&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
   <!-- title bar -->
   <!-- <nav class="navbar navbar-dark bg-dark navbar-fixed-top">
         <span class="navbar-brand mb-0 h1">Exploring Industrial Pollution in the US</span>
@@ -225,19 +240,19 @@
             RSEI score.</p>
           <!-- <p>The chart below shows the most hazardous chemicals released in 2018, according to their share of RSEI score.</p> -->
           <!-- <p>
-              *Right now map only shows ethylene oxide releasing facilities. 
-              Thinking about radio buttons where user can view facilities that release each chemical?*
-            </p> -->
+                *Right now map only shows ethylene oxide releasing facilities. 
+                Thinking about radio buttons where user can view facilities that release each chemical?*
+              </p> -->
           <svg id='donut-chart' width="600" height="500"></svg>
           <p>Need to add a circle legend?, and fix chart styling and interactivity.
           </p>
           <!-- <div>
-              <input type="radio" id="chromium" name="chemical" value="chromium-layer" checked="checked" onclick="updateMap(value)">
-              <label for="chromium">chromium and chromium compounds</label>
-          
-              <input type="radio" id="ethylene" name="chemical" value="ethylene-layer" onclick="updateMap(value)">
-              <label for="ethylene">ethylene oxide</label>
-            </div> -->
+                <input type="radio" id="chromium" name="chemical" value="chromium-layer" checked="checked" onclick="updateMap(value)">
+                <label for="chromium">chromium and chromium compounds</label>
+            
+                <input type="radio" id="ethylene" name="chemical" value="ethylene-layer" onclick="updateMap(value)">
+                <label for="ethylene">ethylene oxide</label>
+              </div> -->
           <!-- <nav id="menu"></nav> -->
         </div>
 
@@ -257,11 +272,11 @@
 
         <!-- Scene 5b -->
         <!-- <div class="step">
-            <p>A medical sterilizer plant in the Chicago suburb of Willowbrook, Illinois was recently shut down after an EPA report found that ethylene oxide air emissions from the Sterigenics plant increased long-term cancer risks for people living up to 25 miles away. 
-              Sterigenics released 4,205 of ethylene oxide in 2016. 
-              In response to public pressure, Illinois just passed legislation to phase out the use of ethylene oxide by 2022.
-            </p>
-          </div> -->
+              <p>A medical sterilizer plant in the Chicago suburb of Willowbrook, Illinois was recently shut down after an EPA report found that ethylene oxide air emissions from the Sterigenics plant increased long-term cancer risks for people living up to 25 miles away. 
+                Sterigenics released 4,205 of ethylene oxide in 2016. 
+                In response to public pressure, Illinois just passed legislation to phase out the use of ethylene oxide by 2022.
+              </p>
+            </div> -->
 
         <!-- Scene 5b -->
         <div class="step">
@@ -409,22 +424,6 @@
 
 
   </section>
-
-
-
-  <!-- Bootstrap core CSS -->
-  <link href="vendor\bootstrap\css\bootstrap.min.css" rel="stylesheet">
-  <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" /> -->
-  <link href="https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.css" rel="stylesheet" />
-  <!-- Custom styles for this template -->
-  <link href='css/style.css' rel='stylesheet' />
-  <!-- <link rel="stylesheet" href="libs/Leaflet.markercluster/MarkerCluster.Default.css"> />
-    <link rel="stylesheet" href="libs/Leaflet.markercluster/MarkerCluster.css"> /> -->
-  <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Average&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
-
-<body>
 
   <!-- Bootstrap core JavaScript
     ================================================== -->
