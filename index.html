@@ -18,8 +18,10 @@
   <!-- <link rel="stylesheet" href="libs/Leaflet.markercluster/MarkerCluster.Default.css"> />
     <link rel="stylesheet" href="libs/Leaflet.markercluster/MarkerCluster.css"> /> -->
   <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Average&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bitter&display=swap" rel="stylesheet">
+  
+  
 </head>
 
 <body>
@@ -32,14 +34,14 @@
 
     <!-- OPTIONAL: Scrollytelling Intro -->
     <section id="intro">
-      <div class="container">
+      <div id="container">
         <h1>Exploring Industrial Pollution in the US</h1>
         <h2>In 1969, the burning of the Cuyahoga River in Cleveland, Ohio became a national symbol for the public’s
           outcry against industrial pollution. The public had been expressing increasing concern throughout the 1950s
           and 1960s, and the US reached a turning point when the Environmental Protection Agency was established in
           1970. The EPA began to monitor and enforce the increasing number of environmental laws passed by Congress
           aimed at reducing industrial pollution. Today there are two main programs in place that monitor industrial
-          pollution in the United States.</h2>
+          pollution in the United States, the Superfund Program and the Toxics Release Inventory.</h2>
         <!-- <p><br></p> -->
       </div>
     </section>
@@ -49,84 +51,204 @@
 
       <!-- Map  -->
       <figure>
+        <!-- <div class="header"> -->
+          <div class="progress-container">
+            <div class="progress-bar" id="myBar"></div>
+          </div>
+      <!-- </div> -->
         <div id="map"></div>
-        <div id='legend'>
-        </div>
+        <!-- <div id='legend'></div> -->
       </figure>
 
       <!-- Prose for the project, additional info describing each scene. -->
       <article>
         <!-- Each div must have the class that you specify in the myScrollama.setup() -->
+        <div class="step">
+          <div class="header">
+            <h3>Chapter One: The Superfund Program</h3>
+          </div>
+        </div>
 
         <!-- Scene 1 -->
         <div class="step">
-          <h3>Superfund Program</h3>
-          <p>The Superfund program is responsible for the investigation and clean-up of contaminated sites left over
-            from decades of unregulated industrial manufacturing and other activities.
-            The most highly contaminated sites which require longer-term remedial action take precedence and are placed
-            on the National Priority List (NPL).
-            A site must receive a Hazard Ranking System (HRS) score of 28.5 to be placed on the NPL.
+          <div class="step-body">
+          <p><span class='bold'>The Superfund Program is responsible for the investigation and clean-up of contaminated sites left over from decades of unregulated industrial manufacturing and other activities. </span>
+            The most highly contaminated sites which require longer-term remedial action qualify for the National Priority List (NPL).
           </p>
-          <p>These sites displayed here are those currently on the NPL, proposed for the NPL, or that were once on the
-            NPL but have been remedied enough to warrant deletion.
-            Also included are sites that qualify for the Superfund Alternative Approach (SAA).
-            The Superfund Alternative (SA) approach requires the same qualifying measures and standards as the NPL, but
-            takes less time and resources to do so.
+          <p><span class='bold'>In order to qualify for the NPL a site must receive a Hazard Ranking System (HRS) score of 28.5. </span>
+            The sites seen here were extracted from the EPA's Superfund website, and meet the qualifications for the NPL.
           </p>
-          <p>But the individual sites you see here are only representative of the true area each encompasses.</p>
+          <ul>
+            <span style="background:#f89c74"></span><label>Currently on the NPL</label> <br>
+            <span style="background:#f6cf71"></span><label>Deleted from the NPL</label> <br>
+            <span style="background:#9eb9f3"></span><label>Proposed for the NPL</label> <br>
+            <span style="background:#66c5cc"></span><label>Removed from the Proposed the NPL</label> <br>
+            <span style="background:#87c55f"></span><label>Not on the NPL, but qualifies for Superfund Alternative Approach</label>
+          </ul>
+        </div>
         </div>
 
-        <!-- Scene 2 -->
         <div class="step">
-          <h3>GE-Pittsfield/Housatonic River Superfund Site</h3>
-          <p>Between 1907 and 1987, the General Electric transformer plant on the banks of the Housatonic River in
-            Pittsfield MA “was one of the crown jewels of GE’s electrical infrastructure, high voltage testing, and
-            defense contracting businesses."
-            In the 1930’s, the plant began using PCB’s as a coolant to manufacture their transformers.
+          <div class="step-body">
+            <p>But the sites you see here are merely representative points, and <span class='bold'>toxins from many of these sites have spread far beyond their boundaries. </span>
+              Now we will visit two case studies to explore just how far some of these contaminants have dispersed. 
+            </p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="case-study-header">
+            <h3>Case Study #1: Southeast Missouri Lead District</h3>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-body">
+            <p>Missouri is home to the largest lead concentrations in the world, which have been mined for over a century. 
+              <span class='bold'>The Big River Mine Tailings site in Park Hills, Missouri has an HRS score of 84.91, the highest hazard ranking score of any superfund site in the country. </span>
+              This site includes eight enormous piles of mining waste totaling approximately 110 square miles in size. 
+              These piles, like the one seen in the photo below, are heavily contaminated with lead and other heavy metals.
+            </p>
+            <img src='images/park-hills-chat-pile.jpg'>
+            <p class="credit">Photo Credit: <a
+                href='http://www.nbcnews.com/id/8132449/ns/us_news-environment/t/toxic-mound-beloved-ex-mining-town/#.XrttSmhKg2w'>James
+                A. Finley / AP</a></p>
+          </div>
+        </div>
+
+        
+        <!-- Scene 3b -->
+        <div class="step">
+          <div class="step-body">
+            <p><span class='bold'>Over time, heavy metals and toxic chemicals from these waste piles have leached into the groundwater, eventually draining into the Big River. </span>
+              This process escalated in 1977, when approximately 50,000 cubic yards of this toxic waste was washed directly into the river during heavy rains. 
+              Any toxins entering the Big River have been carried downstream, contaminating sediment and floodplains.
+            </p>
+            <ul>
+              <span style="background:#88CCEE"></span><label>Big River</label> <br>
+              <span style="background:#44AA99"></span><label>Big River Watershed</label> <br>
+            </ul>
+          <!-- <p>Source: <a
+              href='epa.gov/mo/big-river-and-floodplain-st-francois-jefferson-and-washington-counties-missouri-fact-sheet-july'
+              target='_blank'>EPA</a></p> -->
+            </div>
+        </div>
+
+        <!-- Scene 3 -->
+        <div class="step">
+          <div class="step-body">
+          <p>But this site is not the only site contributing to pollution in the Big River Watershed and surrounding area. 
+            <span class='bold'>There are five more defunct lead mines within the Big River watershed, and another just south.
+            All of these sites are on the National Priority List, and have an HRS score of at least 50. </span>
           </p>
-          <p>PCBs do not break down in the environment and are now known to cause both cancer and serious non-cancer
-            health effects, including neurological, immune, endocrine and reproductive issues in humans.
-            For decades until they were banned in 1979, PCBs leaked from piping throughout the GE plant into the ground,
-            ultimately making their way into the Housatonic River.
-            PCBs were also dumped directly into the river or other areas around the campus.
+            <ul>
+              <span style="background:#88CCEE"></span><label>Big River</label> <br>
+              <span style="background:#44AA99"></span><label>Big River Watershed</label> <br>
+              <span style="background:#f89c74"></span><label>Southeast Missouri Lead District Superfund Site</label> <br>
+            </ul>
+            <p>The piles of toxic mining waste at each of these sites are susceptible to wind and water erosion. 
+              Remediation efforts in cases like these usually begin by covering the waste piles to prevent any further erosion and subsequent distribution of toxic material. 
+              <span class='bold'>But by the time these sites were identified as Superfund sites and remediation could begin, the damage was already done. </span>
           </p>
-          <p>Source: <a href='https://www.wbur.org/radioboston/2016/06/29/ge-and-pittsfield' target='_blank'>GE Left
+          <p class='credit'>Source: <a href='http://www.msnbc.com/msnbc/life-missouris-fading-old-lead-belt' target='_blank'>Life in
+              Missouri’s Fading Old Lead Belt</a></p>
+            </div>
+        </div>
+
+        <!-- Scene 3a -->
+        <div class="step">
+          <div class="step-body">
+          <p>Carried by wind, rain, human activity, and transported by way of the Big River, <span class='bold'>toxic mine waste has been distributed throughout this entire area, affecting soil, groundwater, and surface water. </span> 
+            It was also not uncommon for homes and developments to be built overtop mine waste before the dangers of lead were documented. 
+            <span class='bold'>The total area affected by these seven Superfund sites covers four entire counties in Missouri. </span>
+          </p>
+          <ul>
+            <span style="background:#88CCEE"></span><label>Big River</label> <br>
+            <span style="background:#44AA99"></span><label>Big River Watershed</label> <br>
+            <span style="background:#f89c74"></span><label>Southeast Missouri Lead District Superfund Site</label> <br>
+            <span style="background:#A5AA99"></span><label>County Outlines</label> <br>
+          </ul>
+        </div>
+        </div>
+
+        <div class="step">
+          <div class="step-body">
+            <p><span class='bold'>Next we will travel east to Massachusetts to investigate the second case study.</span></p>          
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="case-study-header">
+            <h3>Case Study #2: GE-Pittsfield/Housatonic River Superfund Site</h3>          
+          </div>
+        </div>
+
+        <!-- Scene 1 -->
+        <div class="step">
+          <div class="step-body">
+          <p>The <span class='bold'>General Electric transformer plant</span> sitting on the bank of the Housatonic River in Pittsfield, Massachusetts was once known as “one of the crown jewels of GE’s electrical infrastructure, high voltage testing, and defense contracting business.” 
+            <span class='bold'>The defunct plant is now proposed for the Superfund National Priority List, with an HRS score of 70.71. </span>
+          </p>
+          <!-- <ul>
+            <span style="background:#9eb9f3"></span><label>GE-Pittsfield/Housatonic River Superfund Site</label> <br>
+          </ul> -->
+          <p><span class='bold'>The primary concern at this site is the prolonged use of PCBs</span> by the plant as a coolant in the manufacture of transformers. 
+            <span class='bold'>PCBs do not break down in the environment and are now known to cause both cancer and serious non-cancer health effects in humans and animals. </span>
+          </p>
+          <p class='credit'>Source: <a href='https://www.wbur.org/radioboston/2016/06/29/ge-and-pittsfield' target='_blank'>GE Left
               Behind A Complex Legacy In Pittsfield</a></p>
-          <img src='images/ge-warning-sign.png'>
+          <!-- <img src='images/ge-warning-sign.png'>
           <p>Photo Credit: <a href='https://www.masslive.com/politics/2016/01/in_pittsfield_general_electric.html'>Don
-              Treeger</a></p>
+              Treeger</a></p> -->
+        </div>
         </div>
 
         <!-- Scene 2a -->
         <div class="step">
-          <p>The massive plant was integral to life in Pittsfield, employing nearly 13,000 people at its height in the
-            1940s and occupying over 300 acres.
-            The plant began to gradually dismantle in the late 1970’s, closed its transformer division in 1986, and
-            finally shuttered for good in 2007.
-          </p>
-          <p>The enormous footprint left behind by the plant’s closure is now part of the clean-up area designated by
-            this Superfund site.
-            The cleanup areas include various complexes making up the GE campus, in addition to properties located in
-            the Housatonic's floodplain, the Allendale School area, former oxbow areas resulting from rechannelization
-            of the river in the 1940s, and a half-mile reach of contaminated riverbanks and sediments in the East Branch
-            of the Housatonic River.
-          </p>
-          <p>Source: <a href='https://www.masslive.com/politics/2016/01/in_pittsfield_general_electric.html'
-              target='_blank'>In Pittsfield, General Electric plant closures leave bitter memories</a> and <a
-              href='https://www.epa.gov/ge-housatonic' target='_blank'>EPA</a></p>
-          <img src='images/ge-aerial.jpg'>
-          <p>Photo Credit: <a href='https://www.berkshireeagle.com/stories/new-life-for-old-buildings,536027'>Warren
-              Fowler</a></p>
-
-
+          <div class="step-body">
+            <p>
+              <!-- The massive plant was integral to life in Pittsfield, employing nearly 13,000 people at its height in the
+              1940s and occupying over 300 acres. -->
+              <span class='bold'>For decades until they were banned in 1979, PCBs leaked from piping throughout the GE plant into the ground, or were directly dumped into the Housatonic River and other areas around the campus. </span>
+              The enormous footprint left behind by the defunct 300-acre plant is now part of the clean-up area designated by
+              this Superfund site.
+              </p>
+              <!-- The plant began to gradually dismantle in the late 1970’s, closed its transformer division in 1986, and
+              finally shuttered for good in 2007. -->
+              <ul>
+                <!-- <span style="background:#9eb9f3"></span><label>GE-Pittsfield/Housatonic River Superfund Site</label> <br> -->
+                <span style="background:#D3B484"></span><label>GE-Pittsfield/Housatonic River Site clean-up area</label> <br>
+              </ul>
+            <p>The cleanup areas include various complexes making up the GE campus, in addition to properties located in
+              the Housatonic's floodplain, a school, areas where the river was re-routed
+              in the 1940s, and a half-mile reach of contaminated riverbanks and sediments in the East Branch
+              of the Housatonic River.
+            </p>
+            <p>
+              <span class='bold'>But the PCBs that made their way into the Housatonic River did not strictly remain in this area.</span>
+            </p>
+            <p class='credit'>Source: <a href='https://www.masslive.com/politics/2016/01/in_pittsfield_general_electric.html'
+                target='_blank'>In Pittsfield, General Electric plant closures leave bitter memories</a> and <a
+                href='https://www.epa.gov/ge-housatonic' target='_blank'>EPA</a></p>
+            <!-- <img src='images/ge-aerial.jpg'>
+            <p>Photo Credit: <a href='https://www.berkshireeagle.com/stories/new-life-for-old-buildings,536027'>Warren
+                Fowler</a></p> -->
+            </div>
         </div>
 
         <!-- Scene 2b -->
         <div class="step">
+          <div class="step-body">
           <p>Over time, storms and floods have disturbed PCB laden sediment from the river bottom and soil from
-            contaminated river banks, redistributing it further down the river and into floodplains.
-            The “Rest of River” cleanup area included in this Superfund site covers nearly 125 miles from the confluence
-            of the East and West Branches in Pittsfield to just before the Long Island Sound in Connecticut.
+            contaminated river banks, redistributing it further down the river and into floodplains. 
+            <span class='bold'>The “Rest of River” cleanup area included in this Superfund site covers nearly 125 miles from the confluence
+            of the East and West Branches in Pittsfield to just before the Long Island Sound in Connecticut. </span>
+          </p>
+          <ul>
+            <!-- <span style="background:#9eb9f3"></span><label>GE-Pittsfield/Housatonic River Superfund Site</label> <br> -->
+            <span style="background:#88CCEE"></span><label>Housatonic River</label> <br>
+            <span style="background:#44AA99"></span><label>Housatonic Watershed</label> <br>
+          </ul>
           </p>
           <p>PCBs are persistent in the environment, resistant to degradation, and accumulate quickly in the body but
             are very slow to leave.
@@ -134,280 +256,308 @@
             both Massachusetts and Connecticut have issued consumption advisories.
             Humans are also at risk for exposure by direct contact with contaminated soil or sediment, or consumption of
             agricultural products produced in the floodplain.
-            PCBs could remain present in the Housatonic River ecosystem for hundreds of years without intervention.
+            <span class='bold'>Without any clean-up intervention, PCBs could remain present in the Housatonic River ecosystem for hundreds of years. </span>
           </p>
-          <p>Source: <a href='https://www.epa.gov/ge-housatonic' target='_blank'>EPA</a></p>
-          <img src='images/housatonic-warning.jpg'>
+          <p class='credit'>Source: <a href='https://www.epa.gov/ge-housatonic' target='_blank'>EPA</a></p>
+          <!-- <img src='images/housatonic-warning.jpg'>
           <p>Photo Credit: <a
               href='https://www.manchesterjournal.com/stories/think-decades-not-years-to-achieve-one-housatonic-river-health-marker,602748?'>Eagle
-              File Photo</a></p>
+              File Photo</a></p> -->
+        </div>
         </div>
 
-        <!-- Scene 3 -->
         <div class="step">
-          <h3>Southeast Missouri Lead District</h3>
-          <p>Missouri is home to the largest lead concentrations in the world, which has been mined for over a century.
-            The seven Superfund sites seen here are defunct lead mines located in the Southeast Missouri Lead District.
-            Mining at these sites left behind hundreds of millions of tons of mining waste contaminated with lead, and
-            other heavy metals and toxic chemicals.
-            Much of this waste is in the form of enormous chat piles that are susceptible to wind and water erosion.
-            By the time the EPA began remediating sites, covering these piles to prevent erosion, the damage was already
-            done.
-          </p>
-          <p>Source: <a href='http://www.msnbc.com/msnbc/life-missouris-fading-old-lead-belt' target='_blank'>Life in
-              Missouri’s Fading Old Lead Belt</a></p>
-          <img src='images/park-hills-chat-pile.jpg'>
-          <p>Photo Credit: <a
-              href='http://www.nbcnews.com/id/8132449/ns/us_news-environment/t/toxic-mound-beloved-ex-mining-town/#.XrttSmhKg2w'>James
-              A. Finley / AP</a></p>
+          <div class="header">
+            <h3>chapter 1 conclusion</h3>
+          </div>
         </div>
 
-        <!-- Scene 3a -->
-        <div class="step">
-          <p>Contaminants from the chat piles has been distributed throughout the area, now encompassing an area much
-            larger than is first suggested by the location of each site.
-            The total area affected by these seven Superfund sites covers four entire counties in Missouri: Washington,
-            Jefferson, St. Francois, and Madison.
-          </p>
-        </div>
 
-        <!-- Scene 3b -->
         <div class="step">
-          <p>Heavy metals and toxic chemicals also leached into groundwater, eventually draining into the Big River,
-            which runs through Washington, Jefferson, and St. Francois counties.
-            In 1977, heavy rains caused an estimated 50,000 cubic yards of contaminated mining waste to slough into the
-            Big River.
-            As part of remediation efforts, the EPA conducts soil testing and cleanup for properties along the river and
-            located on its floodplain.
-            The EPA also recommends that children in the area undergo annual blood testing for lead.
-          </p>
-          <p>Source: <a
-              href='epa.gov/mo/big-river-and-floodplain-st-francois-jefferson-and-washington-counties-missouri-fact-sheet-july'
-              target='_blank'>EPA</a></p>
-          <img src='images/big-river-warning.jpg'>
-          <p>Photo Credit: <a
-              href='https://www.kbia.org/post/big-river-still-dealing-lead-mining-waste#stream/0'>Kristofor Husted /
-              KBIA</a></p>
+          <div class="header">
+            <h3>Chapter Two: Toxics Release Inventory (TRI) Program</h3>
+          </div>
         </div>
 
         <!-- Scene 4 -->
         <div class="step">
-          <h3>Toxics Release Inventory (TRI) Program</h3>
-          <p>The EPA also monitors active facilities all over the country that are currently releasing toxic chemicals
-            into our air, water, and land through the TRI.
+          <div class="step-body">
+          <p><span class='bold'>The EPA also monitors active facilities all over the country that are currently releasing toxic chemicals
+            into our air, water, and land under the TRI program. </span>
             The TRI was established under the Emergency Planning and Community Right-to-Know Act (EPCRA) of 1986 after
-            public concern grew over the 1984 Bhopal, India disaster, in which an American-owned Union Carbide pesticide
-            plant released a cloud of highly toxic methyl isocyanate into the air, killing thousands of people.
+            public concern grew over <span class='bold'>the 1984 Bhopal, India disaster, in which an American-owned Union Carbide pesticide
+            plant released a cloud of highly toxic methyl isocyanate into the air, killing thousands of people. </span>
             Then in 1985, another, although smaller, toxic cloud was released from a Union Carbide plant on the Kanawha
             River in West Virginia.
           </p>
-          <p>As of 2018 there are 21,557 facilities that report the release of a toxic chemical as part of the TRI
-            program.
+          <p><span class='bold'>As of 2018 there are 21,557 facilities that report the release of a toxic chemical as part of the TRI
+            program. </span>
+            <ul>
+              <span style="background:#cadb75"></span><label>Facilities reporting to TRI in 2018</label> <br>
+            </ul>
           </p>
+        </div>
         </div>
 
         <!-- Scene 4a -->
         <div class="step">
+          <div class="step-body">
           <!-- <div class="tri-time-slider-total"> -->
           <!-- <h3>Top 500 Releasing Facilities (total lbs)</h3> -->
-          <p>The TRI does not directly regulate these chemical releases, but rather hopes to incentivize companies into
-            improving their environmental performance by tracking and publishing this data.
-            Use the time slider below to explore total pounds released per year since reporting began in 1987.
+          <p>The TRI does not directly regulate these chemical releases, but rather hopes to incentivize companies into improving their environmental performance by tracking and publishing this data. 
+           <span class='bold'>Use the time slider below</span> to explore total pounds released per year since reporting began in 1987. 
           </p>
-          <p>Notice the big jump from 1997 to 1998.
+          <!-- <p>Notice the big jump from 1997 to 1998.
             Seven industry sectors were added to the TRI in 1997, including metal and coal mining, electric power
             generators, and commercial hazardous waste treatment operations.
-          </p>
+          </p> -->
           <div class="total-release-slider">
             <label id="total-year">1987</label>
             <input id="total-slider" type="range" min="1987" max="2018" step="1" value="0" />
           </div>
           <!-- <div id="timeline"> -->
           <svg id='year-chart' width="650" height="500"></svg>
-          <p>I still need to add a circle legend, and fix the chart styling and interactivity.</p>
           <!-- </div> -->
+        </div>
+        </div>
+
+        <div class="step">
+          <div class="step-body">
+            <p><span class='bold'>But size is not the only determining factor in how dangerous a chemical release is.</span></p>
+          </div>
         </div>
 
         <!-- Scene 5 -->
         <div class="step">
-          <h3>But size is not the only determining factor in how dangerous a chemical release is.</h3>
-          <p>The Risk-Screening Environmental Indicators (RSEI) model was introduced in 2007 as a way to help identify
-            specific facilities or chemicals that may pose a greater risk.
+          <div class="step-body">
+          <p><span class='bold'>The Risk-Screening Environmental Indicators (RSEI) model was introduced in 2007 as a way to help 
+            identify specific facilities or chemicals that may pose a greater risk. </span>
             RSEI scores also consider a chemical’s toxicity, its fate and transport through the environment, and the
             size and location of the exposed population.
           </p>
-          <p>Chromium and chromium compounds posed the greatest risk in 2018, composing 39.1% of the country's total
-            RSEI score.</p>
-          <!-- <p>The chart below shows the most hazardous chemicals released in 2018, according to their share of RSEI score.</p> -->
-          <!-- <p>
-                *Right now map only shows ethylene oxide releasing facilities. 
-                Thinking about radio buttons where user can view facilities that release each chemical?*
-              </p> -->
+          <p><span class='bold'>Chromium and chromium compounds posed the greatest risk in 2018, composing 39.1% of the country's total
+            RSEI score.</span></p>
           <svg id='donut-chart' width="600" height="500"></svg>
-          <p>Need to add a circle legend?, and fix chart styling and interactivity.
           </p>
-          <!-- <div>
-                <input type="radio" id="chromium" name="chemical" value="chromium-layer" checked="checked" onclick="updateMap(value)">
-                <label for="chromium">chromium and chromium compounds</label>
-            
-                <input type="radio" id="ethylene" name="chemical" value="ethylene-layer" onclick="updateMap(value)">
-                <label for="ethylene">ethylene oxide</label>
-              </div> -->
-          <!-- <nav id="menu"></nav> -->
+        </div>
         </div>
 
         <!-- Scene 5a -->
         <div class="step">
-          <p>Ethylene oxide comes in at a close second, composing 30.5% of the country's total RSEI score.
-            Long term exposure to ethylene oxide can increase risk of lymphatic and breast cancers.
+          <div class="step-body">
+          <p><span class='bold'>Ethylene oxide comes in at a close second, composing 30.5% of the country's total RSEI score. </span>
+            Long term exposure to ethylene oxide can increase risk of lymphatic and breast cancers. 
           </p>
-          <p>A medical sterilizer plant in the Chicago suburb of Willowbrook, Illinois was recently shut down after an
-            EPA report found that ethylene oxide air emissions from the Sterigenics plant were increasing long-term
-            cancer risks for people living up to 25 miles away from the facility.
-            Sterigenics released 4,205 of ethylene oxide in 2016.
-            In response to public pressure, Illinois just passed legislation to phase out the use of ethylene oxide by
-            2022.</p>
-          </p>
+        </div>
         </div>
 
         <!-- Scene 5b -->
         <div class="step">
-          <p>As of 2018 data, there are 109 ethylene oxide releasing facilities in the US. 
-            38 of these are concentrated in Texas and Louisiana.
-          </p>
+          <div class="step-body">
+            <p>A medical sterilizer plant in the Chicago suburb of Willowbrook, Illinois was recently shut down after <span class='bold'>an
+              EPA report found that ethylene oxide air emissions from the plant were increasing long-term
+              cancer risks for people living up to 25 miles away from the facility.
+              Sterigenics released 4,205 of ethylene oxide in 2016. </span>
+              In response to public pressure, Illinois just passed legislation to phase out the use of ethylene oxide by
+              2022.</p>
+        </div>
         </div>
 
         <!-- Scene 5b -->
         <div class="step">
-          <p>There are 109 ethylene oxide releasing facilities in the US.
-            38 of these are concentrated in Texas and Louisiana.
-          </p>
-        </div>
-
-        <!-- Scene 5b -->
-        <div class="step">
-          <p>Texas houses the two highest emitters of ethylene oxide, and releases are expected to increase in the wake
-            of findings by the Texas Commission on Environmental Quality that increase safe exposure levels.
+          <div class="step-body">
+          <p><span class='bold'>Texas houses the two highest emitters of ethylene oxide in 2018, with 57,090 and 42,822 pounds released each year, respectively. 
+            This is more than 10 times the amount released by the Sterigenics plant in Illinois. </span>
+            Releases in Texas are actually expected to increase in the wake of findings by the Texas Commission on Environmental Quality that increase safe exposure levels.
             These findings are in direct contradiction with the EPA, who recently found ethylene oxide to be far more
             hazardous than previously thought.
           </p>
         </div>
+        </div>
 
         <!-- Scene 5b -->
         <div class="step">
+          <div class="step-body">
           <p>Louisiana has 13 ethylene oxide releasing facilities, eleven of which are located along the Mississippi
             River between Baton Rouge and New Orleans.
-            The two highest emitters in Louisiana are located here, at 15,100 and 10,413 pounds released annually.
+            <span class='bold'>The two highest emitters in Louisiana are located here and release 15,100 and 10,413 pounds annually. </span>
           </p>
+        </div>
         </div>
 
         <!-- Scene 5c -->
         <div class="step">
-          <p>St. James Parish is currently the only parish in this corridor between Baton Rouge and New Orleans that
-            does not have an ethylene oxide emitting facility.
+          <div class="step-body">
+          <p><span class='bold'>St. James Parish is currently the only parish in this corridor between Baton Rouge and New Orleans that
+            does not have an ethylene oxide emitting facility.</span>
           </p>
+          <ul>
+            <span style="background:#A5AA99"></span><label>St. James Parish</label> <br>
+          </ul>
+        </div>
         </div>
 
         <!-- Scene 5d -->
         <div class="step">
+          <div class="step-body">
           <p>This will change if Formosa Chemicals wins the fight to construct a new complex near Sunshine Bridge in St.
             James Parish.
-            The proposed 2,300 acre complex would be permitted to release up to 15,400 pounds of ethylene oxide
-            annually, more than three times what was emitted at the now defunct Sterigenics plant in Illinois.
+            <span class='bold'>The proposed 2,300 acre complex would be permitted to release up to 15,400 pounds of ethylene oxide
+            annually, more than three times what was emitted at the now defunct Sterigenics plant in Illinois.</span>
           </p>
+          <ul>
+            <span style="background:#A5AA99"></span><label>St. James Parish</label> <br>
+          </ul>
+        </div>
         </div>
 
         <!-- Scene 5e -->
         <div class="step">
-          <p>Reassurances over the plant's safety do not ease residents who are concerned over Formosa's disreputable
-            history.
+          <div class="step-body">
+          <p><span class='bold'>Reassurances over the plant's safety do not ease residents who are concerned over Formosa's disreputable
+            history.</span>
           </p>
+        </div>
         </div>
 
         <!-- Scene 6 -->
         <div class="step">
+          <div class="step-body">
           <p>An explosion in 2005 at Formosa's Point Comfort, Texas plant resulted in a fire that burned for 5 days and
             forced the community of Point Comfort into a shelter-in-place order.
             And in 2019 the company was ordered to pay a $50 million settlement to clean up plastic pellets and other
             pollutants they had been illegally dumping into Lavaca Bay and surrounding waterways.</p>
+            <ul>
+              <span style="background:#cadb75"></span><label>Formosa Point Comfort Facility</label> <br>
+            </ul>
+          </div>
         </div>
 
         <!-- Scene 6 -->
         <div class="step">
+          <div class="step-body">
           <p>Formosa currently operates three plastics facilities in the US.
             All three are ultimately owned by Formosa Plastics Corporation, headquarted in Taiwan.
           </p>
+          <ul>
+            <span style="background:#cadb75"></span><label>Formosa Plastics Plants in the US</label> <br>
+          </ul>
         </div>
-
-        <!-- Scene 6 -->
-        <div class="step">
-          <p>Companies responsible for industrial pollution are often located far from the damage they inflict on
-            communities.
-            The locations seen here represent the top 10 parent companies who own at least 90 facilities who report to
-            the TRI.</p>
         </div>
 
         <!-- Scene 6a -->
         <div class="step">
-          <h3>Select a company from the dropdown to explore parent company headquarters in relation to the facilities
-            they own.</h3>
+          <div class="step-body">
+          <p>Companies responsible for industrial pollution are often located far from the damage they inflict on
+            communities.
+            <span class='bold'>The locations seen here represent the top 10 parent companies who own at least 90 facilities who report to
+            the TRI.</span>
+          </p>
+          <ul>
+            <span style="background:#6699CC"></span><label>Parent Companies</label> <br>
+          </ul>
+          <p><span class='bold'>Select a company from the dropdown to explore parent company headquarters in relation to the facilities
+            they own.</span></p>
           <div class="dropdown show"></div>
-          <a class="btn btn-secondary dropdown-toggle" href="href=javascript:return false;" role="button"
+          <a class="btn btn-secondary btn-lg dropdown-toggle" href="href=javascript:return false;" role="button"
             id="parent-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Choose a company
           </a>
           <div class="dropdown-menu" id="parent-dropdown" aria-labelledby="dropdownMenuLink">
           </div>
-          <div id="company-header"></div>
-          <div id="company-details"></div>
+          <div id="company-header">Parent Company</div>
+          <div id="company-details">Industry</div>
+        </div>
+        </div>
+
+        <div class="step">
+          <div class="header">
+            <h3>chapter 2 conclusion</h3>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="header">
+            <h3>Epilogue</h3>
+          </div>
         </div>
 
         <!-- Scene 6 -->
         <div class="step">
-          <p>Let’s go back to West Virginia, where a 1985 chemical release along the Kanawha River helped fuel public
-            outcry for the establishment of the TRI program.
+          <div class="step-body">
+          <p><span class='bold'>We end in West Virginia, where a chemical release in 1985 first helped fuel public
+            outcry for the establishment of the TRI program. </span>
+            The Kanawha River Valley, or “Chemical Valley” as it is known to some, has long been a site of mining and
+            chemical production.
           </p>
+          <ul>
+            <span style="background:#cadb75"></span><label>TRI Reporting Facilities</label> <br>
+          </ul>
+          <!-- <img src='images/wv-monsanto.jpg'> -->
+        </div>
         </div>
 
-        <!-- Scene 7 -->
+        <!-- Scene 7
         <div class="step">
+          <div class="step-body">
           <p>The Kanawha River Valley, or “Chemical Valley” as it is known to some, has long been a site of mining and
             chemical production.
           </p>
+          <ul>
+            <span style="background:#cadb75"></span><label>TRI Reporting Facilities</label> <br>
+          </ul>
           <img src='images/wv-monsanto.jpg'>
         </div>
+        </div> -->
 
         <!-- Scene 7a -->
         <div class="step">
-          <p>On a January morning in 2014, around 7,500 gallons of crude 4-Methylcyclohexanemethanol (MCHM) spilled into
+          <div class="step-body">
+          <p>The latest disaster in West Virginia's history in terms of industrial pollution occurred on a January morning in 2014. 
+            Around 7,500 gallons of crude 4-Methylcyclohexanemethanol (MCHM) spilled into
             the Elk River, a tributary of the Kanawha River.
             The spill originated from Freedom Industries, a chemical plant whose permits did not allow for the discharge
             of MCHM.
             MCHM is used as a cleansing agent to remove impurities from coal that contribute to pollution during
             combustion.
           </p>
+          <ul>
+            <span style="background:#cadb75"></span><label>TRI Reporting Facilities</label> <br>
+          </ul>
           <img src='images/elk-river.jpg'>
+        </div>
         </div>
 
         <!-- Scene 7b -->
         <div class="step">
-          <p>The spill occurred upstream from the primary West Virginia American Water intake center, leaving 300,000
-            residents in nine counties without drinking water for several days.
+          <div class="step-body">
+          <p>The spill occurred upstream from the primary West Virginia American Water intake center, <span class='bold'>leaving 300,000
+            residents in nine counties without drinking water for several days. </span>
           </p>
+          <ul>
+            <span style="background:#cadb75"></span><label>TRI Reporting Facilities</label> <br>
+            <span style="background:#A5AA99"></span><label>County outlines</label> <br>
+          </ul>
         </div>
+        </div>
+
 
         <!-- Scene 7c -->
         <div class="step">
+          <div class="step-body">
           <p>Of course the same rivers that provide us with drinking water also tend to be perfect locations for
             industry.
             Show TRI facilities with one-mile of a river here.
           </p>
         </div>
+        </div>
 
         <!-- Scene 8 -->
         <div class="step">
+          <div class="step-body">
           <h3>How does this affect you?</h3>
           <p>geocode option to find sites close to you?</p>
+        </div>
         </div>
 
       </article>
@@ -418,6 +568,8 @@
     <section id="outro">
       <p style="text-align : center"><br><a href="#top">Jump to top of page</a><br></p>
     </section>
+
+    
 
   </main>
 
@@ -464,6 +616,17 @@
 
     introEl.css('padding', (windowH - introHeadingH) / 2 + 'px 0');
 
+    // When the user scrolls the page, execute myFunction
+    window.onscroll = function() {myFunction()};
+
+    function myFunction() {
+      var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var scrolled = (winScroll / height) * 100;
+      document.getElementById("myBar").style.width = scrolled + "%";
+    }
+
+
 
     // ---------Section 0: Make a scrollama--------------- 
     // Create a scrollama object.
@@ -476,7 +639,8 @@
     // These are set to constants to improve performance on mobile devices, while keeping the code relatively simple.
     // ----------------------------------------------
     const figureHeight = window.innerHeight * 0.8
-    const figureMarginTop = (window.innerHeight - figureHeight) / 2
+    const figureMarginTop = 0
+    // const figureMarginTop = (window.innerHeight - figureHeight) / 2
     const stepH = Math.floor(window.innerHeight * 1.8);
     //#endregion
 
@@ -532,109 +696,16 @@
         'st-james-layer', 'spill-layer', 'tri-river-layer', 'parent-co-layer'
       ]
 
-      // create object containing all layer ids and a corresponding label to use in legend
-      // const layerLabels = {
-      //   'superfund-layer': {
-      //     'label': 'Superfund Sites'
-      //   },
-      //   'superfund-labels': {
-      //     'label': ''
-      //   },
-      //   'tri-layer': {
-      //     'label': 'TRI Facilities'
-      //   },
-      //   'ge-layer': {
-      //     'label': 'GE Pittsfield Cleanup Area'
-      //   },
-      //   'watershed-layer': {
-      //     'label': 'watershed'
-      //   },
-      //   'river-layer': {
-      //     'label': 'river'
-      //   },
-      //   'lead-belt-area-layer': {
-      //     'label': 'county outlines'
-      //   },
-      //   'tri-release-layer': {
-      //     'label': ''
-      //   },
-      //   'ethylene-layer': {
-      //     'label': 'ethylene oxide releasing facilities'
-      //   },
-      //   'chromium-layer': {
-      //     'label': 'chromium/chromium compound releasing facilities'
-      //   },
-      //   'st-james-layer': {
-      //     'label': 'St. James Parish'
-      //   },
-      //   'spill-layer': {
-      //     'label': 'county outlines'
-      //   },
-      //   'tri-river-layer': {
-      //     'label': 'TRI facilities'
-      //   },
-      //   'parent-co-layer': {
-      //     'label': 'parent companies'
-      //   }
-      // }
-
-      // convert keys from layer object into an array to be easily looped through during each scene change
-      // const allLayers = Object.keys(layerLabels)
 
       // create array of individual markers to be removed in each case before adding back relevant markers
       const allMarkers = [freedomMarker, sunshineMarker]
-
-      function updateLegend(allLayers) {
-
-        // first clear legend
-        document.getElementById('legend').innerHTML = "";
-
-        // then select the legend div element
-        var legend = document.getElementById('legend')
-
-        // loop through each layer
-        allLayers.forEach(function (layer) {
-
-          layout = map.getLayoutProperty(layer, 'visibility')
-
-          if (layer === 'tri-release-layer' && layout === 'visible') {
-            drawCircleLegend(layer)
-          } else if (layer === 'ethylene-layer' && layout === 'visible') {
-            drawCircleLegend(layer)
-          } else {
-            layerType = map.getLayer(layer).type
-
-            // if layer is visible in the scene
-            if (layout === 'visible') {
-
-              // first define color for legend key based on layer type (circle, line, or fill)
-              if (layerType === 'circle') {
-                var color = map.getPaintProperty(layer, 'circle-color')
-              } else if (layerType === 'line') {
-                var color = map.getPaintProperty(layer, 'line-color')
-              } else if (layerType === 'fill') {
-                var color = map.getPaintProperty(layer, 'fill-color')
-              }
-
-              // and append the layer's color and label to the legend element
-              legend.innerHTML +=
-                '<span style="background-color:' + color + '"></span> ' +
-                '<label>' + layer + '</label><br>';
-            }
-          }
-        })
-      }
-
-      function drawCircleLegend(layer) {
-        mapLayer = map.getLayer(layer)
-      }
 
       switch (response.index) {
         case 0:
           // Scene 1
           // Superfund sites
           map.flyTo({
-            center: [-107.79, 35.08],
+            center: [-114.92164, 40.1301],
             zoom: 3.789,
             pitch: 0,
             bearing: 0
@@ -644,10 +715,227 @@
           map.setLayoutProperty('superfund-layer', 'visibility', 'visible');
           map.setFilter('superfund-layer', null);
           map.setPaintProperty('superfund-layer', 'circle-radius', 2.5)
-          updateLegend(allLayers);
+          document.getElementById('map').style.opacity = '0.25';
+
           break;
 
-        case 1:
+          case 1:
+          // Scene 1
+          // Superfund sites
+          map.flyTo({
+            center: [-114.92164, 40.1301],
+            zoom: 3.789,
+            pitch: 0,
+            bearing: 0
+          });
+          allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
+          allMarkers.forEach(item => item.remove());
+          map.setLayoutProperty('superfund-layer', 'visibility', 'visible');
+          map.setFilter('superfund-layer', null);
+          map.setPaintProperty('superfund-layer', 'circle-radius', 2.5)
+          document.getElementById('map').style.opacity = '1';
+          break;
+
+        case 2:
+          // Scene 1
+          // Superfund sites
+          map.flyTo({
+            center: [-114.92164, 40.1301],
+            zoom: 3.789,
+            pitch: 0,
+            bearing: 0
+          });
+          allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
+          allMarkers.forEach(item => item.remove());
+          map.setLayoutProperty('superfund-layer', 'visibility', 'visible');
+          map.setFilter('superfund-layer', null);
+          map.setPaintProperty('superfund-layer', 'circle-radius', 2.5)
+          break;
+
+          case 3:
+          // Scene 3b
+          // Big River mine site
+          map.flyTo({
+            center: [-90.58447, 37.8685],
+            zoom: 12.008,
+            pitch: 0,
+            bearing: 0,
+            speed: .5
+          });
+          allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
+          allMarkers.forEach(item => item.remove());
+          map.setLayoutProperty('superfund-layer', 'visibility', 'visible');
+          // map.setLayoutProperty('watershed-layer', 'visibility', 'visible');
+          // map.setFilter('watershed-layer', ['==', 'NAME', 'Big']);
+          // map.setLayoutProperty('river-layer', 'visibility', 'visible');
+          // map.setFilter('river-layer', ['==', 'name', 'Big River']);
+          // map.setLayoutProperty('superfund-labels', 'visibility', 'visible');
+          // map.setFilter('superfund-labels', ['==', 'SITE_NAME', 'BIG RIVER MINE TAILINGS/ST. JOE MINERALS CORP.']);
+          map.setFilter('superfund-layer', ['==', 'SITE_NAME', 'BIG RIVER MINE TAILINGS/ST. JOE MINERALS CORP.']);
+          map.setPaintProperty('superfund-layer', 'circle-radius', 6);
+          break;
+
+          case 4:
+          // Scene 3b
+          // Big River mine site--repeat
+          map.flyTo({
+            center: [-90.58447, 37.8685],
+            zoom: 12.008,
+            pitch: 0,
+            bearing: 0,
+            speed: .5
+          });
+          allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
+          allMarkers.forEach(item => item.remove());
+          map.setLayoutProperty('superfund-layer', 'visibility', 'visible');
+          // map.setLayoutProperty('watershed-layer', 'visibility', 'visible');
+          // map.setFilter('watershed-layer', ['==', 'NAME', 'Big']);
+          // map.setLayoutProperty('river-layer', 'visibility', 'visible');
+          map.setFilter('superfund-labels', ['==', 'SITE_NAME', 'BIG RIVER MINE TAILINGS/ST. JOE MINERALS CORP.']);
+          map.setLayoutProperty('superfund-labels', 'visibility', 'visible');
+          map.setFilter('superfund-layer', ['==', 'SITE_NAME', 'BIG RIVER MINE TAILINGS/ST. JOE MINERALS CORP.']);
+          map.setPaintProperty('superfund-layer', 'circle-radius', 6);
+          break;
+
+          case 5:
+          // Scene 3b
+          // Big River
+          map.flyTo({
+            center: [-91.02393, 37.8891],
+            zoom: 9.431,
+            pitch: 52.5,
+            bearing: -17.599,
+            speed: 0.25
+          });
+          allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
+          allMarkers.forEach(item => item.remove());
+          map.setLayoutProperty('superfund-layer', 'visibility', 'visible');
+          map.setLayoutProperty('watershed-layer', 'visibility', 'visible');
+          map.setFilter('watershed-layer', ['==', 'NAME', 'Big']);
+          map.setFilter('superfund-labels', ['==', 'SITE_NAME', 'BIG RIVER MINE TAILINGS/ST. JOE MINERALS CORP.']);
+          map.setLayoutProperty('superfund-labels', 'visibility', 'visible');
+          map.setLayoutProperty('river-layer', 'visibility', 'visible');
+          map.setFilter('river-layer', ['==', 'name', 'Big River']);
+          map.setFilter('superfund-layer', ['in', 'SITE_NAME', 'BIG RIVER MINE TAILINGS/ST. JOE MINERALS CORP.']);
+          map.setPaintProperty('superfund-layer', 'circle-radius', 6);
+          document.getElementById('map').style.opacity = '1';
+          break;
+
+          case 6:
+          // Scene 3
+          // Bring in other Missouri lead mine superfund sites
+          map.flyTo({
+            center: [-91.0032, 37.7808],
+            zoom: 8.88,
+            pitch: 0,
+            bearing: 0,
+            speed: 0.1
+          });
+          allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
+          allMarkers.forEach(item => item.remove());
+          map.setLayoutProperty('superfund-layer', 'visibility', 'visible');
+          map.setFilter('superfund-layer', ['in', 'SITE_NAME', 'BIG RIVER MINE TAILINGS/ST. JOE MINERALS CORP.',
+            'WASHINGTON COUNTY LEAD DISTRICT - FURNACE CREEK', 'WASHINGTON COUNTY LEAD DISTRICT - POTOSI',
+            'WASHINGTON COUNTY LEAD DISTRICT - OLD MINES', 'WASHINGTON COUNTY LEAD DISTRICT - RICHWOODS',
+            'SOUTHWEST JEFFERSON COUNTY MINING', 'ANSCHUTZ - MADISON MINE'
+          ]);
+          map.setLayoutProperty('superfund-labels', 'visibility', 'visible');
+          map.setFilter('superfund-labels', ['in', 'SITE_NAME', 'BIG RIVER MINE TAILINGS/ST. JOE MINERALS CORP.',
+            'WASHINGTON COUNTY LEAD DISTRICT - FURNACE CREEK', 'WASHINGTON COUNTY LEAD DISTRICT - POTOSI',
+            'WASHINGTON COUNTY LEAD DISTRICT - OLD MINES', 'WASHINGTON COUNTY LEAD DISTRICT - RICHWOODS',
+            'SOUTHWEST JEFFERSON COUNTY MINING', 'ANSCHUTZ - MADISON MINE'
+          ]);
+          map.setPaintProperty('superfund-layer', 'circle-radius', 6);
+          map.setLayoutProperty('watershed-layer', 'visibility', 'visible');
+          map.setFilter('watershed-layer', ['==', 'NAME', 'Big']);
+          map.setLayoutProperty('river-layer', 'visibility', 'visible');
+          map.setFilter('river-layer', ['==', 'name', 'Big River']);
+          break;
+
+        case 7:
+          // Scene 3a
+          // counties affected
+          map.flyTo({
+            center: [-91.198498, 37.83657],
+            zoom: 8.3,
+            pitch: 0,
+            bearing: 0,
+            speed: .25
+          });
+          allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
+          allMarkers.forEach(item => item.remove());
+          map.setLayoutProperty('superfund-layer', 'visibility', 'visible');
+          map.setLayoutProperty('watershed-layer', 'visibility', 'visible');
+          map.setFilter('watershed-layer', ['==', 'NAME', 'Big']);
+          map.setFilter('superfund-layer', ['in', 'SITE_NAME', 'BIG RIVER MINE TAILINGS/ST. JOE MINERALS CORP.',
+            'WASHINGTON COUNTY LEAD DISTRICT - FURNACE CREEK', 'WASHINGTON COUNTY LEAD DISTRICT - POTOSI',
+            'WASHINGTON COUNTY LEAD DISTRICT - OLD MINES', 'WASHINGTON COUNTY LEAD DISTRICT - RICHWOODS',
+            'SOUTHWEST JEFFERSON COUNTY MINING', 'ANSCHUTZ - MADISON MINE'
+          ]);
+          // map.setLayoutProperty('superfund-labels', 'visibility', 'visible');
+          // map.setFilter('superfund-labels', ['in', 'SITE_NAME', 'BIG RIVER MINE TAILINGS/ST. JOE MINERALS CORP.',
+          //   'WASHINGTON COUNTY LEAD DISTRICT - FURNACE CREEK', 'WASHINGTON COUNTY LEAD DISTRICT - POTOSI',
+          //   'WASHINGTON COUNTY LEAD DISTRICT - OLD MINES', 'WASHINGTON COUNTY LEAD DISTRICT - RICHWOODS',
+          //   'SOUTHWEST JEFFERSON COUNTY MINING', 'ANSCHUTZ - MADISON MINE'
+          // ]);
+          map.setPaintProperty('superfund-layer', 'circle-radius', 6)
+          map.setLayoutProperty('lead-belt-area-layer', 'visibility', 'visible');
+          map.setLayoutProperty('river-layer', 'visibility', 'visible');
+          map.setFilter('river-layer', ['==', 'name', 'Big River']);
+          break;
+
+          case 8:
+          // Scene 3a
+          // counties affected--repeat before transition to next case study
+          map.flyTo({
+            center: [-91.198498, 37.83657],
+            zoom: 8.3,
+            pitch: 0,
+            bearing: 0,
+            speed: .25
+          });
+          allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
+          allMarkers.forEach(item => item.remove());
+          map.setLayoutProperty('superfund-layer', 'visibility', 'visible');
+          map.setLayoutProperty('watershed-layer', 'visibility', 'visible');
+          map.setFilter('watershed-layer', ['==', 'NAME', 'Big']);
+          map.setFilter('superfund-layer', ['in', 'SITE_NAME', 'BIG RIVER MINE TAILINGS/ST. JOE MINERALS CORP.',
+            'WASHINGTON COUNTY LEAD DISTRICT - FURNACE CREEK', 'WASHINGTON COUNTY LEAD DISTRICT - POTOSI',
+            'WASHINGTON COUNTY LEAD DISTRICT - OLD MINES', 'WASHINGTON COUNTY LEAD DISTRICT - RICHWOODS',
+            'SOUTHWEST JEFFERSON COUNTY MINING', 'ANSCHUTZ - MADISON MINE'
+          ]);
+          // map.setLayoutProperty('superfund-labels', 'visibility', 'visible');
+          // map.setFilter('superfund-labels', ['in', 'SITE_NAME', 'BIG RIVER MINE TAILINGS/ST. JOE MINERALS CORP.',
+          //   'WASHINGTON COUNTY LEAD DISTRICT - FURNACE CREEK', 'WASHINGTON COUNTY LEAD DISTRICT - POTOSI',
+          //   'WASHINGTON COUNTY LEAD DISTRICT - OLD MINES', 'WASHINGTON COUNTY LEAD DISTRICT - RICHWOODS',
+          //   'SOUTHWEST JEFFERSON COUNTY MINING', 'ANSCHUTZ - MADISON MINE'
+          // ]);
+          map.setPaintProperty('superfund-layer', 'circle-radius', 6)
+          map.setLayoutProperty('lead-belt-area-layer', 'visibility', 'visible');
+          map.setLayoutProperty('river-layer', 'visibility', 'visible');
+          map.setFilter('river-layer', ['==', 'name', 'Big River']);
+          break;
+
+          case 9:
+          // Scene 2
+          // GE Pittsfield Site
+          map.flyTo({
+            center: [-73.2420, 42.4483],
+            zoom: 14,
+            pitch: 0,
+            bearing: 0,
+            speed: 0.5
+          });
+          allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
+          allMarkers.forEach(item => item.remove());
+          map.setLayoutProperty('superfund-layer', 'visibility', 'visible');
+          map.setFilter('superfund-layer', ['==', 'SITE_NAME', 'GE PITTSFIELD HOUSATONIC RIVER SUPERFUND SITE']);
+          map.setPaintProperty('superfund-layer', 'circle-radius', 6);
+          // map.setFilter('superfund-labels', ['==', 'SITE_NAME', 'GE PITTSFIELD HOUSATONIC RIVER SUPERFUND SITE']);
+          // map.setLayoutProperty('superfund-labels', 'visibility', 'visible');
+          break;
+
+        case 10:
           // Scene 2
           // GE Pittsfield Site
           map.flyTo({
@@ -661,18 +949,19 @@
           map.setLayoutProperty('superfund-layer', 'visibility', 'visible');
           map.setFilter('superfund-layer', ['==', 'SITE_NAME', 'GE PITTSFIELD HOUSATONIC RIVER SUPERFUND SITE']);
           map.setPaintProperty('superfund-layer', 'circle-radius', 6);
-          updateLegend(allLayers);
+          map.setFilter('superfund-labels', ['==', 'SITE_NAME', 'GE PITTSFIELD HOUSATONIC RIVER SUPERFUND SITE']);
+          map.setLayoutProperty('superfund-labels', 'visibility', 'visible');
           break;
 
-        case 2:
+        case 11:
           // Scene 2a
           // Full GE site extent map
           map.flyTo({
-            center: [-73.2519, 42.4488],
-            zoom: 13,
+            center: [-73.23815, 42.4546],
+            zoom: 13.5,
             pitch: 0,
             bearing: 0,
-            speed: .25
+            speed: .1
           });
           allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
           allMarkers.forEach(item => item.remove());
@@ -680,14 +969,13 @@
           map.setFilter('superfund-layer', ['==', 'SITE_NAME', 'GE PITTSFIELD HOUSATONIC RIVER SUPERFUND SITE']);
           map.setPaintProperty('superfund-layer', 'circle-radius', 6)
           map.setLayoutProperty('ge-layer', 'visibility', 'visible');
-          updateLegend(allLayers);
           break;
 
-        case 3:
+        case 12:
           // Scene 2b
           // Housatonic River extent
           map.flyTo({
-            center: [-72.87774, 42.18110],
+            center: [-73.00478, 42.36135],
             zoom: 8.92,
             pitch: 37.8,
             bearing: 129.64,
@@ -702,96 +990,32 @@
           map.setLayoutProperty('superfund-layer', 'visibility', 'visible');
           map.setFilter('superfund-layer', ['==', 'SITE_NAME', 'GE PITTSFIELD HOUSATONIC RIVER SUPERFUND SITE']);
           map.setPaintProperty('superfund-layer', 'circle-radius', 6);
-          updateLegend(allLayers);
+          document.getElementById('map').style.opacity = '1';
           break;
 
-        case 4:
-          // Scene 3
-          // Missouri Old Lead Belt sites
+          case 13:
+          // Scene 2b
+          // all sites-chapter 1 conclusion
           map.flyTo({
-            center: [-90.8029, 37.852],
-            zoom: 9,
-            pitch: 0,
-            bearing: 0
-          });
-          allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
-          allMarkers.forEach(item => item.remove());
-          map.setLayoutProperty('superfund-layer', 'visibility', 'visible');
-          map.setFilter('superfund-layer', ['in', 'SITE_NAME', 'BIG RIVER MINE TAILINGS/ST. JOE MINERALS CORP.',
-            'WASHINGTON COUNTY LEAD DISTRICT - FURNACE CREEK', 'WASHINGTON COUNTY LEAD DISTRICT - POTOSI',
-            'WASHINGTON COUNTY LEAD DISTRICT - OLD MINES', 'WASHINGTON COUNTY LEAD DISTRICT - RICHWOODS',
-            'SOUTHWEST JEFFERSON COUNTY MINING', 'ANSCHUTZ - MADISON MINE'
-          ]);
-          map.setLayoutProperty('superfund-labels', 'visibility', 'visible');
-          map.setFilter('superfund-labels', ['in', 'SITE_NAME', 'BIG RIVER MINE TAILINGS/ST. JOE MINERALS CORP.',
-            'WASHINGTON COUNTY LEAD DISTRICT - FURNACE CREEK', 'WASHINGTON COUNTY LEAD DISTRICT - POTOSI',
-            'WASHINGTON COUNTY LEAD DISTRICT - OLD MINES', 'WASHINGTON COUNTY LEAD DISTRICT - RICHWOODS',
-            'SOUTHWEST JEFFERSON COUNTY MINING', 'ANSCHUTZ - MADISON MINE'
-          ]);
-          map.setPaintProperty('superfund-layer', 'circle-radius', 6);
-          updateLegend(allLayers);
-          break;
-
-        case 5:
-          // Scene 3a
-          // Missouri Old Lead Belt areas
-          map.flyTo({
-            center: [-90.97511, 37.98508],
-            zoom: 8,
+            center: [-114.92164, 40.1301],
+            zoom: 3.789,
             pitch: 0,
             bearing: 0,
-            speed: .25
+            speed: 0.5
           });
           allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
           allMarkers.forEach(item => item.remove());
           map.setLayoutProperty('superfund-layer', 'visibility', 'visible');
-          map.setFilter('superfund-layer', ['in', 'SITE_NAME', 'BIG RIVER MINE TAILINGS/ST. JOE MINERALS CORP.',
-            'WASHINGTON COUNTY LEAD DISTRICT - FURNACE CREEK', 'WASHINGTON COUNTY LEAD DISTRICT - POTOSI',
-            'WASHINGTON COUNTY LEAD DISTRICT - OLD MINES', 'WASHINGTON COUNTY LEAD DISTRICT - RICHWOODS',
-            'SOUTHWEST JEFFERSON COUNTY MINING', 'ANSCHUTZ - MADISON MINE'
-          ]);
-          map.setLayoutProperty('superfund-labels', 'visibility', 'visible');
-          map.setFilter('superfund-labels', ['in', 'SITE_NAME', 'BIG RIVER MINE TAILINGS/ST. JOE MINERALS CORP.',
-            'WASHINGTON COUNTY LEAD DISTRICT - FURNACE CREEK', 'WASHINGTON COUNTY LEAD DISTRICT - POTOSI',
-            'WASHINGTON COUNTY LEAD DISTRICT - OLD MINES', 'WASHINGTON COUNTY LEAD DISTRICT - RICHWOODS',
-            'SOUTHWEST JEFFERSON COUNTY MINING', 'ANSCHUTZ - MADISON MINE'
-          ]);
-          map.setPaintProperty('superfund-layer', 'circle-radius', 6)
-          map.setLayoutProperty('lead-belt-area-layer', 'visibility', 'visible');
-          updateLegend(allLayers);
+          map.setFilter('superfund-layer', null);
+          map.setPaintProperty('superfund-layer', 'circle-radius', 2.5)
+          document.getElementById('map').style.opacity = '1';
           break;
 
-        case 6:
-          // Scene 3b
-          // Big River
-          map.flyTo({
-            center: [-90.78435, 38.03558],
-            zoom: 9.87,
-            pitch: 38.5,
-            bearing: -21.6,
-            speed: .5
-          });
-          allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
-          allMarkers.forEach(item => item.remove());
-          map.setLayoutProperty('superfund-layer', 'visibility', 'visible');
-          map.setLayoutProperty('watershed-layer', 'visibility', 'visible');
-          map.setFilter('watershed-layer', ['==', 'NAME', 'Big']);
-          map.setLayoutProperty('river-layer', 'visibility', 'visible');
-          map.setFilter('river-layer', ['==', 'name', 'Big River']);
-          map.setFilter('superfund-layer', ['in', 'SITE_NAME', 'BIG RIVER MINE TAILINGS/ST. JOE MINERALS CORP.',
-            'WASHINGTON COUNTY LEAD DISTRICT - FURNACE CREEK', 'WASHINGTON COUNTY LEAD DISTRICT - POTOSI',
-            'WASHINGTON COUNTY LEAD DISTRICT - OLD MINES', 'WASHINGTON COUNTY LEAD DISTRICT - RICHWOODS',
-            'SOUTHWEST JEFFERSON COUNTY MINING', 'ANSCHUTZ - MADISON MINE'
-          ]);
-          map.setPaintProperty('superfund-layer', 'circle-radius', 6);
-          updateLegend(allLayers);
-          break;
-
-        case 7:
+        case 14:
           // Scene 4
           // overall TRI facility distribution
           map.flyTo({
-            center: [-107.79, 35.08],
+            center: [-114.92164, 40.1301],
             zoom: 3.789,
             pitch: 0,
             bearing: 0
@@ -801,14 +1025,31 @@
           map.setLayoutProperty('tri-layer', 'visibility', 'visible');
           map.setFilter('tri-layer', null);
           map.setPaintProperty('tri-layer', 'circle-radius', 2);
-          updateLegend(allLayers);
+          document.getElementById('map').style.opacity = '0.25';
           break;
 
-        case 8:
+          case 15:
+          // Scene 4
+          // overall TRI facility distribution--repeat
+          map.flyTo({
+            center: [-114.92164, 40.1301],
+            zoom: 3.789,
+            pitch: 0,
+            bearing: 0
+          });
+          allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
+          allMarkers.forEach(item => item.remove());
+          map.setLayoutProperty('tri-layer', 'visibility', 'visible');
+          map.setFilter('tri-layer', null);
+          map.setPaintProperty('tri-layer', 'circle-radius', 2);
+          document.getElementById('map').style.opacity = '1';
+          break;
+
+          case 16:
           // Scene 4a
           // TRI top releasing facilities--time slider
           map.flyTo({
-            center: [-107.79, 35.08],
+            center: [-114.92164, 40.1301],
             zoom: 3.789,
             pitch: 0,
             bearing: 0
@@ -816,20 +1057,41 @@
           allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
           allMarkers.forEach(item => item.remove());
           map.setLayoutProperty('tri-release-layer', 'visibility', 'visible');
+          map.setPaintProperty('tri-release-layer', 'circle-color', '#cadb75');
           document
             .getElementById('total-slider')
             .addEventListener('input', function (e) {
               var year = parseInt(e.target.value, 10);
               filterTotalRelease(year);
             });
-          updateLegend(allLayers);
           break;
 
-        case 9:
+        case 17:
+          // Scene 4a
+          // TRI top releasing facilities--time slider--repeat
+          map.flyTo({
+            center: [-114.92164, 40.1301],
+            zoom: 3.789,
+            pitch: 0,
+            bearing: 0
+          });
+          allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
+          allMarkers.forEach(item => item.remove());
+          map.setLayoutProperty('tri-release-layer', 'visibility', 'visible');
+          map.setPaintProperty('tri-release-layer', 'circle-color', '#cadb75');
+          document
+            .getElementById('total-slider')
+            .addEventListener('input', function (e) {
+              var year = parseInt(e.target.value, 10);
+              filterTotalRelease(year);
+            });
+          break;
+
+        case 18:
           // Scene 5
           // RSEI scores--chromium layer
           map.flyTo({
-            center: [-107.79, 35.08],
+            center: [-114.92164, 40.1301],
             zoom: 3.789,
             pitch: 0,
             bearing: 0,
@@ -839,14 +1101,13 @@
           allMarkers.forEach(item => item.remove());
           // map.setLayoutProperty('ethylene-layer','visibility', 'visible');
           map.setLayoutProperty('chromium-layer', 'visibility', 'visible');
-          updateLegend(allLayers);
           break;
 
-        case 10:
+        case 19:
           // Scene 5a
           // ethylene oxide layer
           map.flyTo({
-            center: [-107.79, 35.08],
+            center: [-114.92164, 40.1301],
             zoom: 3.789,
             pitch: 0,
             bearing: 0,
@@ -855,26 +1116,33 @@
           allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
           allMarkers.forEach(item => item.remove());
           map.setLayoutProperty('ethylene-layer', 'visibility', 'visible');
-          updateLegend(allLayers);
+          map.setFilter('tri-release-layer', null);
+
           break;
 
-        case 11:
+        case 20:
           // Scene 5b
-          // ethylene oxide along Gulf
+          // defunct Illinois plant
           map.flyTo({
-            center: [-102.3122, 28.6090],
-            zoom: 4.9478,
+            center: [-88.34949, 41.82125],
+            zoom: 8.8627,
             pitch: 0,
             bearing: 0,
             speed: 0.25
           });
           allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
           allMarkers.forEach(item => item.remove());
+          map.setLayoutProperty('tri-release-layer', 'visibility', 'visible');
           map.setLayoutProperty('ethylene-layer', 'visibility', 'visible');
-          updateLegend(allLayers);
+          map.setFilter('tri-release-layer', ['==', 'FACILITY_NAME', 'STERIGENICS US LLC-WILLOWBROOK IL FACILITY']);
+          map.setPaintProperty('tri-release-layer', 'circle-radius', ['sqrt', ['/', ['get', 'TOTAL2016'], 25]]);
+          map.setPaintProperty('tri-release-layer', 'circle-color', '#F6CF71');
+
+
+
           break;
 
-        case 12:
+        case 21:
           // Scene 5b
           // ethylene oxide Texas
           map.flyTo({
@@ -887,10 +1155,9 @@
           allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
           allMarkers.forEach(item => item.remove());
           map.setLayoutProperty('ethylene-layer', 'visibility', 'visible');
-          updateLegend(allLayers);
           break;
 
-        case 13:
+        case 22:
           // Scene 5b
           // ethylene oxide louisiana
           map.flyTo({
@@ -903,10 +1170,9 @@
           allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
           allMarkers.forEach(item => item.remove());
           map.setLayoutProperty('ethylene-layer', 'visibility', 'visible');
-          updateLegend(allLayers);
           break;
 
-        case 14:
+        case 23:
           // Scene 5c
           // St. James Parish
           map.flyTo({
@@ -920,10 +1186,9 @@
           allMarkers.forEach(item => item.remove());
           map.setLayoutProperty('ethylene-layer', 'visibility', 'visible');
           map.setLayoutProperty('st-james-layer', 'visibility', 'visible');
-          updateLegend(allLayers);
           break;
 
-        case 15:
+        case 24:
           // Scene 5c
           // new proposed plant
           map.flyTo({
@@ -940,10 +1205,9 @@
           map.once('moveend', function (e) {
             sunshineMarker.addTo(map);
           });
-          updateLegend(allLayers);
           break;
 
-        case 16:
+        case 25:
           // Scene 5c
           // new proposed plant--repeat
           map.flyTo({
@@ -958,10 +1222,9 @@
           map.setLayoutProperty('ethylene-layer', 'visibility', 'visible');
           map.setLayoutProperty('st-james-layer', 'visibility', 'visible');
           sunshineMarker.addTo(map);
-          updateLegend(allLayers);
           break;
 
-        case 17:
+        case 26:
           // Scene 5d
           // Texas Formosa plant
           map.flyTo({
@@ -976,14 +1239,13 @@
           map.setLayoutProperty('tri-layer', 'visibility', 'visible');
           map.setFilter('tri-layer', ['==', 'FACILITY_NAME', 'FORMOSA PLASTICS CORP TEXAS']);
           map.setPaintProperty('tri-layer', 'circle-radius', 8);
-          updateLegend(allLayers);
           break;
 
-        case 18:
+        case 27:
           // Scene 5d
           // US Formosa plants
           map.flyTo({
-            center: [-107.79, 35.08],
+            center: [-114.92164, 40.1301],
             zoom: 3.789,
             pitch: 0,
             bearing: 0,
@@ -994,33 +1256,13 @@
           map.setLayoutProperty('tri-layer', 'visibility', 'visible');
           map.setFilter('tri-layer', ['==', 'PARENT_CO_NAME', 'FORMOSA PLASTICS CORP USA']);
           map.setPaintProperty('tri-layer', 'circle-radius', 6);
-          updateLegend(allLayers);
           break;
 
-        case 19:
+        case 28:
           // Scene 8
           // Parent Companies
           map.flyTo({
-            center: [-107.79, 35.08],
-            zoom: 3.789,
-            pitch: 0,
-            bearing: 0
-          });
-          allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
-          allMarkers.forEach(item => item.remove());
-          map.setLayoutProperty('parent-co-layer', 'visibility', 'visible');
-          map.setFilter('parent-co-layer', null);
-          updateLegend(allLayers);
-          if (map.getSource('company-line-layer')) {
-            map.removeLayer('company-line-layer')
-          };
-          break;
-
-        case 20:
-          // Scene 8
-          // Parent Companies interactive scene
-          map.flyTo({
-            center: [-107.79, 35.08],
+            center: [-114.92164, 40.1301],
             zoom: 3.789,
             pitch: 0,
             bearing: 0
@@ -1030,38 +1272,59 @@
           map.setLayoutProperty('parent-co-layer', 'visibility', 'visible');
           map.setPaintProperty('tri-layer', 'circle-radius', 4)
           map.setFilter('parent-co-layer', null);
-          $('#company-header').text('')
-          $('#company-details').text('')
-          updateLegend(allLayers);
+          $('#company-header').text('Parent Company')
+          $('#company-details').text('Industry')
           if (map.getSource('company-line-source')) {
             map.removeLayer('company-line-layer')
             map.removeSource('company-line-source')
           };
           break;
 
-        case 21:
-          // Scene 6
-          // Chemical Valley, West Virginia
+          case 29:
+          // Scene 8
+          // all TRI facilities--conclusion
           map.flyTo({
-            center: [-81.8162, 38.3771],
-            zoom: 11.115,
-            pitch: 59.5,
+            center: [-114.92164, 40.1301],
+            zoom: 3.789,
+            pitch: 0,
             bearing: 0,
-            speed: 0.75
+            speed: 0.5
           });
           allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
           allMarkers.forEach(item => item.remove());
           map.setLayoutProperty('tri-layer', 'visibility', 'visible');
           map.setFilter('tri-layer', null);
-          map.setPaintProperty('tri-layer', 'circle-radius', 6);
+          map.setPaintProperty('tri-layer', 'circle-radius', 2);
+          document.getElementById('map').style.opacity = '1';
           if (map.getSource('company-line-source')) {
             map.removeLayer('company-line-layer')
             map.removeSource('company-line-source')
           };
-          updateLegend(allLayers);
           break;
 
-        case 22:
+        case 30:
+          // Scene 6
+          // Epilogue scene, all TRI facilities
+          map.flyTo({
+            center: [-114.92164, 40.1301],
+            zoom: 3.789,
+            pitch: 0,
+            bearing: 0,
+            speed: 0.5
+          });
+          allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
+          allMarkers.forEach(item => item.remove());
+          map.setLayoutProperty('tri-layer', 'visibility', 'visible');
+          map.setFilter('tri-layer', null);
+          map.setPaintProperty('tri-layer', 'circle-radius', 2);
+          document.getElementById('map').style.opacity = '0.25';
+          if (map.getSource('company-line-source')) {
+            map.removeLayer('company-line-layer')
+            map.removeSource('company-line-source')
+          };
+          break;
+
+        case 31:
           // Scene 6
           // Chemical Valley, West Virginia--repeat
           map.flyTo({
@@ -1074,11 +1337,11 @@
           allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
           allMarkers.forEach(item => item.remove());
           map.setLayoutProperty('tri-layer', 'visibility', 'visible');
-          map.setPaintProperty('tri-layer', 'circle-radius', 6);
-          updateLegend(allLayers);
+          map.setPaintProperty('tri-layer', 'circle-radius', 4);
+          document.getElementById('map').style.opacity = '1';
           break;
 
-        case 23:
+        case 32:
           // Scene 6a
           // Zoom to Freedom Industry facility that had chemical spill
           map.flyTo({
@@ -1091,14 +1354,13 @@
           allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
           allMarkers.forEach(item => item.remove());
           map.setLayoutProperty('tri-layer', 'visibility', 'visible');
-          map.setPaintProperty('tri-layer', 'circle-radius', 6);
+          // map.setPaintProperty('tri-layer', 'circle-radius', 6);
           map.once('moveend', function (e) {
             freedomMarker.addTo(map);
           });
-          updateLegend(allLayers);
           break;
 
-        case 24:
+        case 33:
           // Scene 6b
           // show counties affected by spill
           map.flyTo({
@@ -1112,14 +1374,13 @@
           allMarkers.forEach(item => item.remove());
           map.setLayoutProperty('spill-layer', 'visibility', 'visible');
           freedomMarker.addTo(map);
-          updateLegend(allLayers);
           break;
 
-        case 25:
+        case 34:
           // Scene 7
           // all facilities along waterways in US?
           map.flyTo({
-            center: [-107.79, 35.08],
+            center: [-114.92164, 40.1301],
             zoom: 3.789,
             pitch: 0,
             bearing: 0
@@ -1127,10 +1388,9 @@
           allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
           allMarkers.forEach(item => item.remove());
           map.setLayoutProperty('tri-river-layer', 'visibility', 'visible');
-          updateLegend(allLayers);
           break;
 
-        case 26:
+        case 35:
           // Scene 9
           // How does this affect you?
           // Geocode option to find sites close to you?
@@ -1190,8 +1450,9 @@
     var map = new mapboxgl.Map({
       container: 'map', // container id
       style: 'mapbox://styles/eileengrady/ck9vlhb4417hl1iqmcr1eoyr4', // stylesheet location
-      center: [-107.79, 35.08], // starting position [lng, lat]
+      center: [-114.92164, 40.1301], // starting position [lng, lat]
       zoom: 3.789, // starting zoom
+      // interactive: true,
       scrollZoom: false
     });
 
@@ -1370,8 +1631,8 @@
           'line-cap': 'round'
         },
         'paint': {
-          'line-color': '#888',
-          'line-width': 1,
+          'line-color': '#B3B3B3',
+          'line-width': .5,
           'line-opacity': .5
         }
       });
@@ -1433,41 +1694,41 @@
 
     map.on('load', function () {
 
-      var popup = new mapboxgl.Popup({
-        closeButton: false,
-        closeOnClick: false
-      });
+      // var popup = new mapboxgl.Popup({
+      //   closeButton: false,
+      //   closeOnClick: false
+      // });
 
-      // construct popup for Superfund sites
-      map.on('mouseenter', 'superfund-layer', function (e) {
-        // Change the cursor style as a UI indicator.
-        map.getCanvas().style.cursor = 'pointer';
+      // // construct popup for Superfund sites
+      // map.on('mouseenter', 'superfund-layer', function (e) {
+      //   // Change the cursor style as a UI indicator.
+      //   map.getCanvas().style.cursor = 'pointer';
 
-        var coordinates = e.features[0].geometry.coordinates.slice();
+      //   var coordinates = e.features[0].geometry.coordinates.slice();
 
-        // Ensure that if the map is zoomed out such that multiple
-        // copies of the feature are visible, the popup appears
-        // over the copy being pointed to.
-        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-          coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-        }
+      //   // Ensure that if the map is zoomed out such that multiple
+      //   // copies of the feature are visible, the popup appears
+      //   // over the copy being pointed to.
+      //   while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+      //     coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+      //   }
 
-        // Populate the popup and set its coordinates
-        // based on the feature found.
-        popup
-          .setLngLat(coordinates)
-          .setHTML('<h3>' + e.features[0].properties.SITE_NAME + '<h/3>' +
-            '<h4>Location: ' + e.features[0].properties.CITY + ' ' + e.features[0].properties.STATE + '<h/4>' +
-            '<h4>Site Type: ' + e.features[0].properties.SITE_TYPE + '<h/4>' +
-            '<h4>Status: ' + e.features[0].properties.NPL_STATUS_x + '<h/4>' +
-            '<h4>HRS score: ' + e.features[0].properties.HRS_SCORE + '<h/4>')
-          .addTo(map);
-      });
+      //   // Populate the popup and set its coordinates
+      //   // based on the feature found.
+      //   popup
+      //     .setLngLat(coordinates)
+      //     .setHTML('<h3>' + e.features[0].properties.SITE_NAME + '<h/3>' +
+      //       '<h4>Location: ' + e.features[0].properties.CITY + ' ' + e.features[0].properties.STATE + '<h/4>' +
+      //       '<h4>Site Type: ' + e.features[0].properties.SITE_TYPE + '<h/4>' +
+      //       '<h4>Status: ' + e.features[0].properties.NPL_STATUS_x + '<h/4>' +
+      //       '<h4>HRS score: ' + e.features[0].properties.HRS_SCORE + '<h/4>')
+      //     .addTo(map);
+      // });
 
-      map.on('mouseleave', 'superfund-layer', function () {
-        map.getCanvas().style.cursor = '';
-        popup.remove();
-      });
+      // map.on('mouseleave', 'superfund-layer', function () {
+      //   map.getCanvas().style.cursor = '';
+      //   popup.remove();
+      // });
 
       // add source and layer for GE Pittsfield site map
       map.addSource('ge-source', {
@@ -1483,38 +1744,38 @@
           'visibility': 'none'
         },
         'paint': {
-          'line-color': '#F9C74F',
-          'line-width': 1
+          'line-color': '#D3B484',
+          'line-width': 1.5
         }
       });
 
-      // construct popup for GE site map layer
-      map.on('mouseenter', 'ge-layer', function (e) {
-        // Change the cursor style as a UI indicator.
-        map.getCanvas().style.cursor = 'pointer';
+      // // construct popup for GE site map layer
+      // map.on('mouseenter', 'ge-layer', function (e) {
+      //   // Change the cursor style as a UI indicator.
+      //   map.getCanvas().style.cursor = 'pointer';
 
-        // var coordinates = e.features[0].geometry.coordinates[0];
-        var coordinates = e.lngLat;
+      //   // var coordinates = e.features[0].geometry.coordinates[0];
+      //   var coordinates = e.lngLat;
 
-        // Ensure that if the map is zoomed out such that multiple
-        // copies of the feature are visible, the popup appears
-        // over the copy being pointed to.
-        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-          coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-        }
+      //   // Ensure that if the map is zoomed out such that multiple
+      //   // copies of the feature are visible, the popup appears
+      //   // over the copy being pointed to.
+      //   while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+      //     coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+      //   }
 
-        // Populate the popup and set its coordinates
-        // based on the feature found.
-        popup
-          .setLngLat(coordinates)
-          .setHTML('<h3>' + e.features[0].properties.name + '<h/3>')
-          .addTo(map);
-      });
+      //   // Populate the popup and set its coordinates
+      //   // based on the feature found.
+      //   popup
+      //     .setLngLat(coordinates)
+      //     .setHTML('<h3>' + e.features[0].properties.name + '<h/3>')
+      //     .addTo(map);
+      // });
 
-      map.on('mouseleave', 'ge-layer', function () {
-        map.getCanvas().style.cursor = '';
-        popup.remove();
-      });
+      // map.on('mouseleave', 'ge-layer', function () {
+      //   map.getCanvas().style.cursor = '';
+      //   popup.remove();
+      // });
 
       // add source and layer for watershed layer
       map.addSource('watershed-source', {
@@ -1530,9 +1791,9 @@
           'visibility': 'none'
         },
         'paint': {
-          'fill-color': '#A2D9CE',
-          'fill-opacity': .25,
-          'fill-outline-color': '#A2D9CE'
+          'fill-color': '#44AA99',
+          'fill-opacity': .4,
+          'fill-outline-color': '#52BCA3',
         }
       });
 
@@ -1550,8 +1811,8 @@
           'visibility': 'none'
         },
         'paint': {
-          'line-color': '#5FAECC',
-          'line-width': 3
+          'line-color': '#88CCEE',
+          'line-width': 2
         }
       });
 
@@ -1569,35 +1830,35 @@
           'visibility': 'none'
         },
         'paint': {
-          'line-color': '#696969',
-          'line-width': 3
+          'line-color': '#A5AA99',
+          'line-width': 1.5
         }
       });
 
       // add source and layer for top tri sites
-      map.addSource('tri-release-source', {
-        type: 'geojson',
-        data: 'data/top-tri-releases.geojson'
-      });
+      // map.addSource('tri-release-source', {
+      //   type: 'geojson',
+      //   data: 'data/top-tri-releases.geojson'
+      // });
 
-      map.addLayer({
-        'id': 'tri-release-layer',
-        'type': 'circle',
-        'source': 'tri-release-source',
-        'layout': {
-          'visibility': 'none'
-        },
-        'paint': {
-          'circle-color': '#f94144',
-          'circle-opacity': 0.65,
-          'circle-radius': [
-            'sqrt', ['/', ['get', 'TOTAL1987'], 100000]
-          ],
-          'circle-stroke-color': '#2f2d2d',
-          'circle-stroke-width': 0.5,
-          'circle-stroke-opacity': 0.65
-        }
-      });
+      // map.addLayer({
+      //   'id': 'tri-release-layer',
+      //   'type': 'circle',
+      //   'source': 'tri-release-source',
+      //   'layout': {
+      //     'visibility': 'none'
+      //   },
+      //   'paint': {
+      //     'circle-color': '#f94144',
+      //     'circle-opacity': 0.65,
+      //     'circle-radius': [
+      //       'sqrt', ['/', ['get', 'TOTAL1987'], 100000]
+      //     ],
+      //     'circle-stroke-color': '#2f2d2d',
+      //     'circle-stroke-width': 0.5,
+      //     'circle-stroke-opacity': 0.65
+      //   }
+      // });
 
       filterTotalRelease('1987');
 
@@ -1669,8 +1930,8 @@
           'visibility': 'none'
         },
         'paint': {
-          'line-color': '#696969',
-          'line-width': 3
+          'line-color': '#A5AA99',
+          'line-width': 1.5
         }
       });
 
@@ -1688,8 +1949,8 @@
           'visibility': 'none'
         },
         'paint': {
-          'line-color': '#696969',
-          'line-width': 3
+          'line-color': '#A5AA99',
+          'line-width': 1.5
         }
       });
 
@@ -1728,40 +1989,41 @@
           'visibility': 'none'
         },
         'paint': {
-          'circle-color': '#5DADEC',
-          'circle-radius': 6,
+          'circle-color': '#6699CC',
+          'circle-radius': 4,
           'circle-stroke-color': '#2f2d2d',
-          'circle-stroke-width': 0.5
+          'circle-stroke-width': .5,
+          'circle-opacity': .9
         }
       });
 
       // construct popup for GE site map layer
-      map.on('mouseenter', 'parent-co-layer', function (e) {
-        // Change the cursor style as a UI indicator.
-        map.getCanvas().style.cursor = 'pointer';
+      // map.on('mouseenter', 'parent-co-layer', function (e) {
+      //   // Change the cursor style as a UI indicator.
+      //   map.getCanvas().style.cursor = 'pointer';
 
-        // var coordinates = e.features[0].geometry.coordinates[0];
-        var coordinates = e.lngLat;
+      //   // var coordinates = e.features[0].geometry.coordinates[0];
+      //   var coordinates = e.lngLat;
 
-        // Ensure that if the map is zoomed out such that multiple
-        // copies of the feature are visible, the popup appears
-        // over the copy being pointed to.
-        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-          coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-        }
+      //   // Ensure that if the map is zoomed out such that multiple
+      //   // copies of the feature are visible, the popup appears
+      //   // over the copy being pointed to.
+      //   while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+      //     coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+      //   }
 
-        // Populate the popup and set its coordinates
-        // based on the feature found.
-        popup
-          .setLngLat(coordinates)
-          .setHTML('<h3>' + e.features[0].properties.parentCompany + '<h/3>')
-          .addTo(map);
-      });
+      //   // Populate the popup and set its coordinates
+      //   // based on the feature found.
+      //   popup
+      //     .setLngLat(coordinates)
+      //     .setHTML('<h3>' + e.features[0].properties.parentCompany + '<h/3>')
+      //     .addTo(map);
+      // });
 
-      map.on('mouseleave', 'parent-co-layer', function () {
-        map.getCanvas().style.cursor = '';
-        popup.remove();
-      });
+      // map.on('mouseleave', 'parent-co-layer', function () {
+      //   map.getCanvas().style.cursor = '';
+      //   popup.remove();
+      // });
 
       // function updateLegend() {
       //   layers.forEach(function(layerId) {
@@ -1922,7 +2184,7 @@
           .attr('class', 'arc')
           .attr('d', arc)
           .attr('fill', (d, i) => donutColors[i])
-          .on('mouseenter', function (d) {
+          .on('mouseenter', function (d, i) {
             console.log(d.Score)
             d3.select(this).transition()
               .duration('50')
@@ -1971,8 +2233,6 @@
           })
           .attr("text-anchor", "left")
           .style("alignment-baseline", "middle")
-
-
       })
 
     }
