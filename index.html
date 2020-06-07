@@ -91,7 +91,7 @@
         <div class="step">
           <div class="step-body">
             <p>But the sites you see here are merely representative points, and <span class='bold'>toxins from many of these sites have spread far beyond their boundaries. </span>
-              Now we will visit two case studies to explore just how far some of these contaminants have dispersed. 
+              Next we will visit two case studies to explore just how far some of these contaminants have dispersed. 
             </p>
           </div>
         </div>
@@ -192,7 +192,7 @@
           <!-- <ul>
             <span style="background:#9eb9f3"></span><label>GE-Pittsfield/Housatonic River Superfund Site</label> <br>
           </ul> -->
-          <p><span class='bold'>The primary concern at this site is the prolonged use of PCBs</span> by the plant as a coolant in the manufacture of transformers. 
+          <p><span class='bold'>The primary concern at this site is the prolonged use of polychlorinated biphenyls (PCBs)</span> by the plant as a coolant in the manufacture of transformers. 
             <span class='bold'>PCBs do not break down in the environment and are now known to cause both cancer and serious non-cancer health effects in humans and animals. </span>
           </p>
           <p class='credit'>Source: <a href='https://www.wbur.org/radioboston/2016/06/29/ge-and-pittsfield' target='_blank'>GE Left
@@ -250,8 +250,7 @@
             <span style="background:#44AA99"></span><label>Housatonic Watershed</label> <br>
           </ul>
           </p>
-          <p>PCBs are persistent in the environment, resistant to degradation, and accumulate quickly in the body but
-            are very slow to leave.
+          <p><span class='bold'>PCBs are persistent in the environment, resistant to degradation, and accumulate quickly in the body. </span>
             Fish and wildlife throughout the Housatonic watershed have tested at very high concentrations of PCBs, and
             both Massachusetts and Connecticut have issued consumption advisories.
             Humans are also at risk for exposure by direct contact with contaminated soil or sediment, or consumption of
@@ -268,7 +267,11 @@
 
         <div class="step">
           <div class="header">
-            <h3>chapter 1 conclusion</h3>
+            <p>We just visited some of the most hazardous Superfund sites in the county. 
+              <span class='bold'>A site must receive a hazard ranking system (HRS) score of at least 28.5 to be placed on the National Priority List, and the sites we just explored had HRS scores between 50 and 84.91. </span>
+              Superfund sites are contaminated places left over from decades of unregulated industrial manufacturing and other activities. 
+              <span class='bold'>Next we will explore the Toxics Release Inventory (TRI), which is responsible for tracking toxic chemicals that are currently being released into the environment. </span>
+            </p>
           </div>
         </div>
 
@@ -305,17 +308,38 @@
           <!-- <div class="tri-time-slider-total"> -->
           <!-- <h3>Top 500 Releasing Facilities (total lbs)</h3> -->
           <p>The TRI does not directly regulate these chemical releases, but rather hopes to incentivize companies into improving their environmental performance by tracking and publishing this data. 
-           <span class='bold'>Use the time slider below</span> to explore total pounds released per year since reporting began in 1987. 
+           <span class='bold'>Use the time slider below to explore total pounds released per year since reporting began in 1987. </span>
           </p>
-          <!-- <p>Notice the big jump from 1997 to 1998.
-            Seven industry sectors were added to the TRI in 1997, including metal and coal mining, electric power
-            generators, and commercial hazardous waste treatment operations.
-          </p> -->
+          <!-- <div class="total-release-slider">
+            <label id="total-year" width="25" height="10">1987</label>
+            <input id="total-slider" type="range" min="1987" max="2018" step="1" value="0" />
+          </div> -->
+          <div class='circle-legend'>
+            <!-- <div class='side-by-side'> -->
+              <svg width="250" height="160"> 
+                <circle fill="#cadb75" cx="65" cy="95" r="60" stroke="#2f2d2d" stroke-width=".5" /> 
+                <circle fill="#cadb75" cx="65" cy="125" r="30" stroke="#2f2d2d" stroke-width=".5" /> 
+                <circle fill="#cadb75" cx="65" cy="140" r="15" stroke="#2f2d2d" stroke-width=".5" /> 
+                <line x1="65" y1="35" x2="150" y2="35" stroke='#2f2d2d' stroke-width=".5" stroke-dasharray="4,4" />
+                <line x1="65" y1="95" x2="150" y2="95" stroke='#2f2d2d' stroke-width=".5" stroke-dasharray="4,4" />
+                <line x1="65" y1="125" x2="150" y2="125" stroke='#2f2d2d' stroke-width=".5" stroke-dasharray="4,4" />
+                <text class ='legend-label' x="152" y="38" class="small">470,000,000</text>
+                <text class ='legend-label' x="152" y="98" class="small">235,000,000</text>
+                <text class ='legend-label' x="152" y="128" class="small">117,500,000</text>
+                <text class ='legend-title' x="15" y="11">Total pounds released annually</text>
+             </svg>
+            </div>
+            <!-- <div class = 'side-by-side'> -->
+             <p>Notice the big jump from 1997 to 1998.
+              Seven industry sectors were added to the TRI in 1997, including metal and coal mining, electric power
+              generators, and commercial hazardous waste treatment operations.
+            </p>
+          <!-- </div> -->
+        <!-- </div> -->
           <div class="total-release-slider">
             <label id="total-year">1987</label>
             <input id="total-slider" type="range" min="1987" max="2018" step="1" value="0" />
           </div>
-          <!-- <div id="timeline"> -->
           <svg id='year-chart' width="650" height="500"></svg>
           <!-- </div> -->
         </div>
@@ -337,7 +361,29 @@
           </p>
           <p><span class='bold'>Chromium and chromium compounds posed the greatest risk in 2018, composing 39.1% of the country's total
             RSEI score.</span></p>
-          <svg id='donut-chart' width="600" height="500"></svg>
+          <div class='chemical-legend'>
+            <!-- <div class='side-by-side'> -->
+              <svg width="600" height="200"> 
+                <circle fill="#66C5CC" cx="75" cy="115" r="70" stroke="#2f2d2d" stroke-width=".5" /> 
+                <circle fill="#66C5CC" cx="75" cy="150" r="35" stroke="#2f2d2d" stroke-width=".5" /> 
+                <circle fill="#66C5CC" cx="75" cy="167" r="17.5" stroke="#2f2d2d" stroke-width=".5" /> 
+                <line x1="75" y1="45" x2="175" y2="45" stroke='#2f2d2d' stroke-width=".5" stroke-dasharray="4,4" />
+                <line x1="75" y1="115" x2="175" y2="115" stroke='#2f2d2d' stroke-width=".5" stroke-dasharray="4,4" />
+                <line x1="75" y1="150" x2="175" y2="150" stroke='#2f2d2d' stroke-width=".5" stroke-dasharray="4,4" />
+                <text class ='legend-label' x="177" y="48">3,500,000 pounds</text>
+                <text class ='legend-label' x="177" y="118">1,750,000 pounds</text>
+                <text class ='legend-label' x="177" y="153">875,000 pounds</text>
+                <text class ='legend-title' x="0" y="15">
+                  <!-- <tspan x="0" dy="1.2em">Total Pounds of Chromium and Chromium Compounds</tspan>
+                  <tspan x="0" dy="1.2em">emitted by facilities in 2018</tspan> -->
+                  Chromium/Chromium Compunds Released in 2018
+                </text>
+
+             </svg>
+            </div>
+          <!-- <p><span class='bold'>Chromium and chromium compounds posed the greatest risk in 2018, composing 39.1% of the country's total
+            RSEI score.</span></p> -->
+          <!-- <svg id='donut-chart' width="600" height="500"></svg> -->
           </p>
         </div>
         </div>
@@ -348,6 +394,33 @@
           <p><span class='bold'>Ethylene oxide comes in at a close second, composing 30.5% of the country's total RSEI score. </span>
             Long term exposure to ethylene oxide can increase risk of lymphatic and breast cancers. 
           </p>
+          <!-- <table>
+            <tr>
+              <th style="vertical-align:bottom; text-align:center;"><div class='ethylene-circle' style='height: 28.75px; width:28.75px'></div></th>
+              <th style="vertical-align:bottom;"><div class='ethylene-circle' style='height: 57.5px; width:57.5px'></div></th>
+              <th style="vertical-align:bottom;"><div class='ethylene-circle' style='height: 115px; width:115px'></div></th>
+            </tr>
+            <tr>
+              <td style='text-align:center;'>57,000</td>
+              <td style='text-align:center;'>28,500</td>
+              <td style='text-align:center;'>14,250</td>
+            </tr>
+          </table> -->
+          <div class='chemical-legend'>
+            <!-- <div class='side-by-side'> -->
+              <svg width="285" height="150"> 
+                <circle fill="#F6CF71" cx="62" cy="90" r="50" stroke="#2f2d2d" stroke-width=".5" /> 
+                <circle fill="#F6CF71" cx="62" cy="115" r="25" stroke="#2f2d2d" stroke-width=".5" /> 
+                <circle fill="#F6CF71" cx="62" cy="127" r="12.5" stroke="#2f2d2d" stroke-width=".5" /> 
+                <line x1="62" y1="40" x2="150" y2="40" stroke='#2f2d2d' stroke-width=".5" stroke-dasharray="4,4" />
+                <line x1="62" y1="90" x2="150" y2="90" stroke='#2f2d2d' stroke-width=".5" stroke-dasharray="4,4" />
+                <line x1="62" y1="115" x2="150" y2="115" stroke='#2f2d2d' stroke-width=".5" stroke-dasharray="4,4" />
+                <text class ='legend-label' x="152" y="43" class="small">57,000 pounds</text>
+                <text class ='legend-label' x="152" y="93" class="small">28,500 pounds</text>
+                <text class ='legend-label' x="152" y="118" class="small">14,250 pounds</text>
+                <text class ='legend-title' x="0" y="15">Ethylene Oxide Released in 2018</text>
+             </svg>
+            </div>
         </div>
         </div>
 
@@ -357,7 +430,7 @@
             <p>A medical sterilizer plant in the Chicago suburb of Willowbrook, Illinois was recently shut down after <span class='bold'>an
               EPA report found that ethylene oxide air emissions from the plant were increasing long-term
               cancer risks for people living up to 25 miles away from the facility.
-              Sterigenics released 4,205 of ethylene oxide in 2016. </span>
+              Sterigenics released 4,205 pounds of ethylene oxide in 2016. </span>
               In response to public pressure, Illinois just passed legislation to phase out the use of ethylene oxide by
               2022.</p>
         </div>
@@ -454,7 +527,7 @@
             the TRI.</span>
           </p>
           <ul>
-            <span style="background:#6699CC"></span><label>Parent Companies</label> <br>
+            <span style="background:#ED645A"></span><label>Parent Companies</label> <br>
           </ul>
           <p><span class='bold'>Select a company from the dropdown to explore parent company headquarters in relation to the facilities
             they own.</span></p>
@@ -465,8 +538,8 @@
           </a>
           <div class="dropdown-menu" id="parent-dropdown" aria-labelledby="dropdownMenuLink">
           </div>
-          <div id="company-header">Parent Company</div>
-          <div id="company-details">Industry</div>
+          <div id="company-header"></div>
+          <div id="company-details"></div>
         </div>
         </div>
 
@@ -497,25 +570,12 @@
         </div>
         </div>
 
-        <!-- Scene 7
-        <div class="step">
-          <div class="step-body">
-          <p>The Kanawha River Valley, or “Chemical Valley” as it is known to some, has long been a site of mining and
-            chemical production.
-          </p>
-          <ul>
-            <span style="background:#cadb75"></span><label>TRI Reporting Facilities</label> <br>
-          </ul>
-          <img src='images/wv-monsanto.jpg'>
-        </div>
-        </div> -->
-
         <!-- Scene 7a -->
         <div class="step">
           <div class="step-body">
           <p>The latest disaster in West Virginia's history in terms of industrial pollution occurred on a January morning in 2014. 
-            Around 7,500 gallons of crude 4-Methylcyclohexanemethanol (MCHM) spilled into
-            the Elk River, a tributary of the Kanawha River.
+            <span class='bold'>Around 7,500 gallons of crude 4-Methylcyclohexanemethanol (MCHM) spilled into
+            the Elk River, a tributary of the Kanawha River. </span>
             The spill originated from Freedom Industries, a chemical plant whose permits did not allow for the discharge
             of MCHM.
             MCHM is used as a cleansing agent to remove impurities from coal that contribute to pollution during
@@ -524,7 +584,7 @@
           <ul>
             <span style="background:#cadb75"></span><label>TRI Reporting Facilities</label> <br>
           </ul>
-          <img src='images/elk-river.jpg'>
+          <!-- <img src='images/elk-river.jpg'> -->
         </div>
         </div>
 
@@ -535,7 +595,7 @@
             residents in nine counties without drinking water for several days. </span>
           </p>
           <ul>
-            <span style="background:#cadb75"></span><label>TRI Reporting Facilities</label> <br>
+            <!-- <span style="background:#cadb75"></span><label>TRI Reporting Facilities</label> <br> -->
             <span style="background:#A5AA99"></span><label>County outlines</label> <br>
           </ul>
         </div>
@@ -552,22 +612,22 @@
         </div>
         </div>
 
-        <!-- Scene 8 -->
+        <!-- Scene 8
         <div class="step">
           <div class="step-body">
           <h3>How does this affect you?</h3>
           <p>geocode option to find sites close to you?</p>
         </div>
-        </div>
+        </div> -->
 
       </article>
 
     </section>
 
     <!-- OPIONAL: Scrollytelling Outro -->
-    <section id="outro">
+    <!-- <section id="outro">
       <p style="text-align : center"><br><a href="#top">Jump to top of page</a><br></p>
-    </section>
+    </section> -->
 
     
 
@@ -693,7 +753,7 @@
       // create array of layers to be turned off in each case before adding back relevant layers
       const allLayers = ['superfund-layer', 'superfund-labels', 'tri-layer', 'ge-layer', 'watershed-layer',
         'river-layer', 'lead-belt-area-layer', 'tri-release-layer', 'ethylene-layer', 'chromium-layer',
-        'st-james-layer', 'spill-layer', 'tri-river-layer', 'parent-co-layer'
+        'st-james-layer', 'spill-layer', 'tri-river-layer', 'parent-co-layer', 'all-rivers-layer'
       ]
 
 
@@ -825,7 +885,7 @@
           // Scene 3
           // Bring in other Missouri lead mine superfund sites
           map.flyTo({
-            center: [-91.0032, 37.7808],
+            center: [-91.02708, 37.97869],
             zoom: 8.88,
             pitch: 0,
             bearing: 0,
@@ -860,7 +920,7 @@
             zoom: 8.3,
             pitch: 0,
             bearing: 0,
-            speed: .25
+            speed: .1
           });
           allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
           allMarkers.forEach(item => item.remove());
@@ -1388,24 +1448,25 @@
           allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
           allMarkers.forEach(item => item.remove());
           map.setLayoutProperty('tri-river-layer', 'visibility', 'visible');
+          map.setLayoutProperty('all-rivers-layer', 'visibility', 'visible');
           break;
 
-        case 35:
-          // Scene 9
-          // How does this affect you?
-          // Geocode option to find sites close to you?
-          map.flyTo({
-            center: [-107.79, 35.08],
-            zoom: 3.789,
-            pitch: 0,
-            bearing: 0
-          });
-          allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
-          allMarkers.forEach(item => item.remove());
-          if (map.getSource('company-line-source')) {
-            map.removeLayer('company-line-layer')
-            map.removeSource('company-line-source')
-          };
+        // case 35:
+        //   // Scene 9
+        //   // How does this affect you?
+        //   // Geocode option to find sites close to you?
+        //   map.flyTo({
+        //     center: [-107.79, 35.08],
+        //     zoom: 3.789,
+        //     pitch: 0,
+        //     bearing: 0
+        //   });
+        //   allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
+        //   allMarkers.forEach(item => item.remove());
+        //   if (map.getSource('company-line-source')) {
+        //     map.removeLayer('company-line-layer')
+        //     map.removeSource('company-line-source')
+        //   };
 
         default:
           // do nothing
@@ -1506,8 +1567,8 @@
     function filterTotalRelease(totalYear) {
       var total = 'TOTAL'
       var totalField = total.concat(totalYear)
-      map.setPaintProperty('tri-release-layer', 'circle-radius', ['sqrt', ['/', ['get', totalField], 100000]]);
-      map.setPaintProperty('tri-release-layer', 'circle-color', '#f94144');
+      map.setPaintProperty('tri-release-layer', 'circle-radius', ['sqrt', ['/', ['get', totalField], 150000]]);
+      map.setPaintProperty('tri-release-layer', 'circle-color', '#cadb75');
 
       // Set the label to the month
       document.getElementById('total-year').textContent = totalYear;
@@ -1519,7 +1580,7 @@
         })
         .transition()
         .duration(300)
-        .attr('opacity', 0.6)
+        .attr('opacity', 1)
 
       // return bar to normal when slider changes to new year
       d3.selectAll('.bar')
@@ -1528,7 +1589,7 @@
         })
         .transition()
         .duration(300)
-        .attr('opacity', 1)
+        .attr('opacity', 0.65)
 
       // .attr('x', (a) => xScale(a.TOTAL_RELEASE) - 5)
       // .attr('width', xScale.bandwidth() + 10)
@@ -1800,7 +1861,7 @@
       // add source and layer for River layer
       map.addSource('river-source', {
         type: 'geojson',
-        data: 'data/rivers.geojson'
+        data: 'data/scene-rivers.geojson'
       });
 
       map.addLayer({
@@ -1894,7 +1955,8 @@
           ],
           'circle-opacity': .75,
           'circle-stroke-color': '#2f2d2d',
-          'circle-stroke-width': 0.5
+          'circle-stroke-width': 0.5,
+          'circle-opacity-transition': {duration:2000}
         }
       });
 
@@ -1954,6 +2016,25 @@
         }
       });
 
+      // add source and layer for River layer
+      map.addSource('all-rivers-source', {
+        type: 'geojson',
+        data: 'data/us-rivers.geojson'
+      });
+
+      map.addLayer({
+        'id': 'all-rivers-layer',
+        'type': 'line',
+        'source': 'all-rivers-source',
+        'layout': {
+          'visibility': 'none'
+        },
+        'paint': {
+          'line-color': '#88CCEE',
+          'line-width': .5
+        }
+      });
+
       // add source and layer for tri facilities near rivers
       map.addSource('tri-river-source', {
         type: 'geojson',
@@ -1968,10 +2049,11 @@
           'visibility': 'none'
         },
         'paint': {
-          'circle-color': '#f94144',
-          'circle-radius': 3,
+          'circle-color': '#cadb75',
+          'circle-radius': 2,
           'circle-stroke-color': '#2f2d2d',
-          'circle-stroke-width': 0.5
+          'circle-stroke-width': 0.5,
+          'circle-opacity': 0.65
         }
       });
 
@@ -1989,8 +2071,8 @@
           'visibility': 'none'
         },
         'paint': {
-          'circle-color': '#6699CC',
-          'circle-radius': 4,
+          'circle-color': '#ED645A',
+          'circle-radius': 5,
           'circle-stroke-color': '#2f2d2d',
           'circle-stroke-width': .5,
           'circle-opacity': .9
@@ -2043,6 +2125,8 @@
 
       init();
 
+      drawCircleLegends();
+
       // draw yearly release total chart
       drawYearChart();
 
@@ -2053,6 +2137,16 @@
       addCompanyFilter()
 
     })
+
+    function drawCircleLegends() {
+      var source = map.queryRenderedFeatures('composite', {
+        sourceLayer: 'top-tri-releases-blxmkr',
+        // filter: ['==', 'PARENT_CO_NAME', company]
+      });
+      // console.log(source)
+      var radius = map.getPaintProperty('tri-release-layer', 'circle-radius')
+      console.log(radius)
+    }
 
     // declare function that draws d3 chart for yearly release totals
     function drawYearChart() {
@@ -2120,6 +2214,7 @@
           .data(data)
           .enter().append("rect")
           .attr("class", "bar")
+          .attr('opacity', 0.65)
           .attr("x", function (d) {
             return xScale(d.YEAR);
           })
@@ -2165,13 +2260,14 @@
 
         var div = d3.select("body").append("div")
           .attr("class", "tooltip-donut")
-          .style('z-index', '10')
+          .style('z-index', '999')
           .style("opacity", 0);
+          // .text("tooltip");
 
         var arcGroup = svg
           .append('g')
           // .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
-          .attr("transform", "translate(425, 175)")
+          .attr("transform", "translate(475, 190)")
           .attr('class', 'arc-group');
 
         arcGroup
@@ -2179,32 +2275,57 @@
           .data(pie(data))
           .enter()
           .append('g')
-          .attr('class', 'arc-group')
-          .append('path')
-          .attr('class', 'arc')
-          .attr('d', arc)
-          .attr('fill', (d, i) => donutColors[i])
-          .on('mouseenter', function (d, i) {
-            console.log(d.Score)
-            d3.select(this).transition()
-              .duration('50')
-              .attr('opacity', '.85')
-            div.transition()
-              .duration('50')
-              .style("opacity", 1);
-            let num = (Math.round((d.Score / d.data.all) * 100)).toString() + '%';
-            div.html(d.Score)
-              .style("left", (d3.event.pageX + 10) + "px")
-              .style("top", (d3.event.pageY - 15) + "px");
-          })
-          .on('mouseout', function (d) {
-            d3.select(this).transition()
-              .duration('50')
-              .attr('opacity', '1');
-            div.transition()
-              .duration('50')
-              .style("opacity", 0);
-          })
+            .attr('class', 'arc-group')
+            .append('path')
+            .attr('class', 'arc')
+            .attr('d', arc)
+            .attr('fill', (d, i) => donutColors[i])
+            .on('mouseover', function (d, i) {
+              d3.select(this).transition()
+                  .duration('50')
+                  .attr('opacity', '.85');
+              //Makes the new div appear on hover:
+              div.transition()
+                  .duration(50)
+                  .style("opacity", 1);
+
+              // calculate percentage to display in tooltip
+              let num = (Math.round((d.Score / d.data.all) * 100)).toString() + '%';
+              div.html(num)
+                  .style("left", (d3.event.pageX + 10) + "px")
+                  .style("top", (d3.event.pageY - 15) + "px");
+            })
+            .on('mouseout', function (d, i) {
+              d3.select(this).transition()
+                  .duration('50')
+                  .attr('opacity', '1');
+              //Makes the new div disappear
+              div.transition()
+                  .duration('50')
+                  .style("opacity", 0);
+            })
+          // .on('mouseenter', function (d) {
+          //   // console.log(div.text(d))
+          //   d3.select(this).transition()
+          //     .duration('50')
+          //     .attr('opacity', '.85')
+          //   div.transition()
+          //     .duration('50')
+          //     .style("opacity", 1);
+          //   let num = (Math.round((d.Score / d.data.all) * 100)).toString() + '%';
+          //   div.text(d.Score)
+          //     .style("left", (d3.event.pageX + 10) + "px")
+          //     .style("top", (d3.event.pageY - 15) + "px");
+          //   return div.style("visibility", "visible");
+          // })
+          // .on('mouseout', function (d) {
+          //   d3.select(this).transition()
+          //     .duration('50')
+          //     .attr('opacity', '1');
+          //   div.transition()
+          //     .duration('50')
+          //     .style("opacity", 0);
+          // })
 
         // add colored dots for legend
         svg.selectAll("mydots")
@@ -2213,8 +2334,8 @@
           .append("circle")
           .attr("cx", 50)
           .attr("cy", function (d, i) {
-            return 30 + i * 25
-          }) // 100 is where the first dot appears. 25 is the distance between dots
+            return 75 + i * 25
+          }) // 75 is where the first dot appears. 25 is the distance between dots
           .attr("r", 7)
           .style('fill', (d, i) => donutColors[i])
 
@@ -2225,15 +2346,23 @@
           .append("text")
           .attr("x", 70)
           .attr("y", function (d, i) {
-            return 30 + i * 25
-          }) // 100 is where the first dot appears. 25 is the distance between dots
+            return 75 + i * 25
+          }) // 75 is where the first dot appears. 25 is the distance between dots
           // .style("fill", function(d){ return color(d)})
           .text(function (d) {
             return d.SortName;
           })
           .attr("text-anchor", "left")
           .style("alignment-baseline", "middle")
-      })
+
+        svg.append('text')
+          .attr('class', 'title')
+          .attr('x', 170 )
+          .attr('y', 50)
+          .attr('text-anchor', 'middle')
+          .text('2018 RSEI Score by Chemical')
+          
+        })
 
     }
   </script>

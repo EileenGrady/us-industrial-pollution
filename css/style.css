@@ -49,7 +49,7 @@
 .progress-container {
   /* position: fixed; */
   width: 100%;
-  height: 10px;
+  height: 12px;
   background: #ccc;
   z-index: 100;
 }
@@ -57,7 +57,7 @@
 /* The progress bar (scroll indicator) */
 .progress-bar {
   /* position: fixed; */
-  height: 10px;
+  height: 12px;
   background: #999933;
   width: 0%;
 }
@@ -126,7 +126,7 @@ h2 {
     /* background-color: white; */
     /* OPTIONAL: padding is used to create space between on the edges of the story*/
     /* padding: 1rem; */
-    background-color: '#2e2e2e';
+    background: #000;
 
   }
 
@@ -407,39 +407,117 @@ ul span {
     background: #3074a4;
   }
 
+  .circle {
+    background: #cadb75;
+    border-radius: 50%;
+    border-color: #2f2d2d;
+    border-width: 0.5;
+    margin-right: 10px;
+    /* display: inline-block; */
+    opacity: 0.65;
+  }
+
+  .ethylene-circle {
+    background: #F6CF71;
+    border-radius: 50%;
+    border-color: #2f2d2d;
+    border-width: 0.5;
+    /* margin-right: 10px; */
+    /* display: inline-block; */
+    /* opacity: 0.65; */
+  }
+
+  /* table {
+    margin:auto;
+  } */
+
+  th, td {
+    padding: 10px;
+  }
+
+  .circle-legend {
+    float: right;
+    margin-left: 20px;
+    border: .5px solid #282828;
+    padding: 15px 15px 5px 15px;
+    margin-bottom: 10px;
+  }
+
+  .chromium-legend {
+    /* float: right; */
+    /* margin-left: 30px; */
+    border: .5px solid #282828;
+    padding: 15px 15px 5px 15px;
+    margin-bottom: 10px;
+  }
+
+  .side-by-side {
+    display: inline-block;
+  }
+
+
   #year-chart {
     border: 2px solid #282828;
+    width: 100%;
+    background-color: #2e2e2e;
   }
 
   #donut-chart {
     border: 2px solid #282828;
+    width: 100%;
+    background-color: #2e2e2e;
   }
 
   .arc {
     z-index: 100
   }
 
-  svg {
+  /* svg.release-chart{
     width: 100%;
-    background-color: #2e2e2e;
+    background-color: #2e2e2e; */
 
     /* height: 100%; */
-  }
+  /* } */
   
   .bar {
     fill: #cadb75;
+    /* opacity: 0.8; */
   }
 
   text {
     font-size: 12px;
-    fill: #b0b0b0;
-    text-shadow: -1px 0 #0d0d0d, 0 1px #0d0d0d, 1px 0 #0d0d0d, 0 -1px #0d0d0d;
+    fill: #f0f0f0;
     font-family: 'PT Sans', sans-serif;
+  }
+
+  text.legend-label {
+    font-family: 'Bitter', serif;
+    fill: #3E3F3A;
+    opacity: 0.9;
+    font-size: 0.8em;
+    text-shadow: 0
+  }
+
+  text.legend-title {
+    font-family: 'Bitter', serif;
+    fill: #3E3F3A;
+    opacity: 0.9;
+    font-size: .9em;
+    text-shadow: 0
   }
 
   text.label {
     font-size: 14px;
     font-weight: 400;
+    text-shadow: -1px 0 #0d0d0d, 0 1px #0d0d0d, 1px 0 #0d0d0d, 0 -1px #0d0d0d;
+
+  }
+
+  text.title {
+    font-size: 20px;
+    font-weight: 400;
+    text-shadow: -1px 0 #0d0d0d, 0 1px #0d0d0d, 1px 0 #0d0d0d, 0 -1px #0d0d0d;
+
   }
 
   div.tooltip-donut {
@@ -449,19 +527,27 @@ ul span {
     background: #FFFFFF;
     color: #313639;
     border: 1px solid #313639;
-    border-radius: 8px;
+    border-radius: 6px;
     pointer-events: none;
     font-size: 1rem;
   }
 
   #total-slider {
     width: 100%;
-    /* margin-left: 35px; */
+    /* float: left; */
+    /* margin-top: 15px;
+    margin-bottom: 25px; */
   }
 
   #total-year {
     font-family: 'Fjalla One', sans-serif;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    /* background: #2e2e2e;
+    color: white;
+    border-radius: 6px; */
+    /* padding: 10px; */
+
+    /* float: left; */
   }
 
   #company-header {
