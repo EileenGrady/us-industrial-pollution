@@ -330,10 +330,10 @@
              </svg>
             </div>
             <!-- <div class = 'side-by-side'> -->
-             <p>Notice the big jump from 1997 to 1998.
+             <div id = 'release-jump'><p>Notice the big jump from 1997 to 1998.
               Seven industry sectors were added to the TRI in 1997, including metal and coal mining, electric power
               generators, and commercial hazardous waste treatment operations.
-            </p>
+            </p></div>
           <!-- </div> -->
         <!-- </div> -->
           <div class="total-release-slider">
@@ -354,7 +354,7 @@
         <!-- Scene 5 -->
         <div class="step">
           <div class="step-body">
-          <p><span class='bold'>The Risk-Screening Environmental Indicators (RSEI) model was introduced in 2007 as a way to help 
+          <p><span class='bold'>The Risk-Screening Environmental Indicators (RSEI) model is used to  
             identify specific facilities or chemicals that may pose a greater risk. </span>
             RSEI scores also consider a chemical’s toxicity, its fate and transport through the environment, and the
             size and location of the exposed population.
@@ -545,7 +545,9 @@
 
         <div class="step">
           <div class="header">
-            <h3>chapter 2 conclusion</h3>
+            <p>We just learned about the Toxics Release Inventory and explored facilities that are currently releasing toxic chemicals into our air, water, and land. 
+              We saw changes in the total amounts of chemicals released each year since the inventory’s inception, explored specific chemicals, and visualized the distance between these facilities and where the profit ends up. 
+            </p>
           </div>
         </div>
 
@@ -564,7 +566,7 @@
             chemical production.
           </p>
           <ul>
-            <span style="background:#cadb75"></span><label>TRI Reporting Facilities</label> <br>
+            <span style="background:#cadb75"></span><label>TRI Reporting Facilities in 2018</label> <br>
           </ul>
           <!-- <img src='images/wv-monsanto.jpg'> -->
         </div>
@@ -582,7 +584,7 @@
             combustion.
           </p>
           <ul>
-            <span style="background:#cadb75"></span><label>TRI Reporting Facilities</label> <br>
+            <span style="background:#cadb75"></span><label>TRI Reporting Facilities in 2018</label> <br>
           </ul>
           <!-- <img src='images/elk-river.jpg'> -->
         </div>
@@ -605,10 +607,13 @@
         <!-- Scene 7c -->
         <div class="step">
           <div class="step-body">
-          <p>Of course the same rivers that provide us with drinking water also tend to be perfect locations for
-            industry.
-            Show TRI facilities with one-mile of a river here.
+          <p>The same rivers that provide us with drinking water are also the perfect locations for industry. 
+            The facilities seen here are located within one-mile of a river.
           </p>
+          <ul>
+            <span style="background:#88CCEE"></span><label>Rivers</label> <br>
+            <span style="background:#cadb75"></span><label>TRI Reporting Facilities in 2018, located with one-mile of a river</label> <br>
+          </ul>
         </div>
         </div>
 
@@ -1572,6 +1577,12 @@
 
       // Set the label to the month
       document.getElementById('total-year').textContent = totalYear;
+
+      if (totalYear == '1998') {
+        // document.getElementById('release-jump').setAttribute('font-weight', 'bold');
+        console.log('hi')
+        document.getElementById("release-jump").style.fontWeight = "bold";
+      }
 
       // select corresponding bar in bar chart to create interaction
       d3.selectAll('.bar')
