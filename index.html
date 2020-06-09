@@ -275,9 +275,9 @@
                 <line x1="65" y1="95" x2="150" y2="95" stroke='#2f2d2d' stroke-width=".5" stroke-dasharray="4,4" />
                 <line x1="65" y1="125" x2="150" y2="125" stroke='#2f2d2d' stroke-width=".5" stroke-dasharray="4,4" />
                 <text class ='legend-label' x="152" y="38" class="small">470 million</text>
-                <text class ='legend-label' x="152" y="98" class="small">235 million</text>
-                <text class ='legend-label' x="152" y="128" class="small">117.5 million</text>
-                <text class ='legend-title' x="15" y="11">Total pounds released annually</text>
+                <text class ='legend-label' x="152" y="98" class="small">128 million</text>
+                <text class ='legend-label' x="152" y="128" class="small">39 million</text>
+                <text class ='legend-title' x="14" y="11">Total pounds released annually</text>
              </svg>
             </div>
              <div id = 'release-jump'><p>Notice the big jump from 1997 to 1998.
@@ -285,7 +285,7 @@
               generators, and commercial hazardous waste treatment operations.
             </p></div>
           <div class="total-release-slider">
-            <label id="total-year">1987</label>
+            <div id = "year-label"><label id="total-year">1987</label> </div>
             <input id="total-slider" type="range" min="1987" max="2018" step="1" value="0" />
           </div>
           <svg id='year-chart' width="650" height="500"></svg>
@@ -305,17 +305,17 @@
           <p><strong>Chromium and chromium compounds posed the greatest risk in 2018, composing 39.1% of the country's total
             RSEI score.</strong></p>
           <div class='chemical-legend'>
-              <svg width="600" height="200"> 
-                <circle fill="#66C5CC" cx="75" cy="115" r="70" stroke="#2f2d2d" stroke-width=".5" /> 
-                <circle fill="#66C5CC" cx="75" cy="150" r="35" stroke="#2f2d2d" stroke-width=".5" /> 
-                <circle fill="#66C5CC" cx="75" cy="167" r="17.5" stroke="#2f2d2d" stroke-width=".5" /> 
-                <line x1="75" y1="45" x2="175" y2="45" stroke='#2f2d2d' stroke-width=".5" stroke-dasharray="4,4" />
-                <line x1="75" y1="115" x2="175" y2="115" stroke='#2f2d2d' stroke-width=".5" stroke-dasharray="4,4" />
-                <line x1="75" y1="150" x2="175" y2="150" stroke='#2f2d2d' stroke-width=".5" stroke-dasharray="4,4" />
-                <text class ='legend-label' x="177" y="48">3.5 million pounds</text>
-                <text class ='legend-label' x="177" y="118">1.75 million pounds</text>
-                <text class ='legend-label' x="177" y="153">875,000 pounds</text>
-                <text class ='legend-title' x="0" y="15">
+              <svg width="600" height="175"> 
+                <circle fill="#66C5CC" cx="75" cy="110" r="60" stroke="#2f2d2d" stroke-width=".5" /> 
+                <circle fill="#66C5CC" cx="75" cy="141" r="30" stroke="#2f2d2d" stroke-width=".5" /> 
+                <circle fill="#66C5CC" cx="75" cy="156" r="15" stroke="#2f2d2d" stroke-width=".5" /> 
+                <line x1="75" y1="50" x2="175" y2="50" stroke='#2f2d2d' stroke-width=".5" stroke-dasharray="4,4" />
+                <line x1="75" y1="111" x2="175" y2="111" stroke='#2f2d2d' stroke-width=".5" stroke-dasharray="4,4" />
+                <line x1="75" y1="142" x2="175" y2="142" stroke='#2f2d2d' stroke-width=".5" stroke-dasharray="4,4" />
+                <text class ='legend-label' x="177" y="53">3.5 million pounds</text>
+                <text class ='legend-label' x="177" y="115">778,000 pounds</text>
+                <text class ='legend-label' x="177" y="147">276,000 pounds</text>
+                <text class ='legend-title' x="0" y="20">
                   Chromium/Chromium Compunds Released in 2018
                 </text>
              </svg>
@@ -337,8 +337,8 @@
                 <line x1="62" y1="90" x2="150" y2="90" stroke='#2f2d2d' stroke-width=".5" stroke-dasharray="4,4" />
                 <line x1="62" y1="115" x2="150" y2="115" stroke='#2f2d2d' stroke-width=".5" stroke-dasharray="4,4" />
                 <text class ='legend-label' x="152" y="43" class="small">57,000 pounds</text>
-                <text class ='legend-label' x="152" y="93" class="small">28,500 pounds</text>
-                <text class ='legend-label' x="152" y="118" class="small">14,250 pounds</text>
+                <text class ='legend-label' x="152" y="93" class="small">15,000 pounds</text>
+                <text class ='legend-label' x="152" y="118" class="small">3,000 pounds</text>
                 <text class ='legend-title' x="0" y="15">Ethylene Oxide Released in 2018</text>
              </svg>
             </div>
@@ -474,6 +474,7 @@
           <ul>
             <span style="background:#cadb75"></span><label>TRI Reporting Facilities in 2018</label> <br>
           </ul>
+          <p><strong>This facility did not qualify for TRI reporting because it did not technically produce or release any chemicals, it only stored them.</strong></p>
           <!-- <img src='images/elk-river.jpg'> -->
         </div>
 
@@ -481,6 +482,7 @@
         <div class="step">
           <p>The spill occurred upstream from the primary West Virginia American Water intake center, <strong>leaving 300,000
             residents in nine counties without drinking water for several days. </strong>
+            The National Guard was called in to help distribute water as hospitals struggled, schools and businesses shut down, and families rushed out only to find empty shelves.
           </p>
           <ul>
             <span style="background:#A5AA99"></span><label>Affected Counties</label> <br>
@@ -489,8 +491,8 @@
 
         <!-- Scene 7b -->
         <div class="step">
-          <p>This incident was a stark reminder of the polluted water that many West Virginian’s deal with on a daily basis. 
-            Loose industry and environmental regulations in the state.  
+          <p>The TRI tracks releases of chemicals into the environment, but how was a 46,000 gallon chemical storage tank sitting 1.5-miles up upstream from a water intake center overlooked? 
+            <strong>This incident emphasizes not only the importance of tracking chemicals being released into the environment, but also exposes flaws in the regulatory system and reminds us that XXXX.</strong>
           </p>
           <ul>
             <span style="background:#A5AA99"></span><label>Affected Counties</label> <br>
@@ -500,13 +502,16 @@
 
         <!-- Scene 7c -->
         <div class="step">
-          <p>The same rivers that provide us with drinking water are also the perfect locations for industry. 
-            The facilities seen here are located within one-mile of a river.
+          <p>In the Superfund site case studies we learned the lasting and widespread damage industrial pollution can cause when left unchecked. 
+            We also learned that the TRI tracks chemical releases but does not always protect communities or the environment from industrial pollution.
           </p>
           <ul>
             <span style="background:#79a7ac"></span><label>Rivers</label> <br>
             <span style="background:#cadb75"></span><label>TRI Reporting Facilities in 2018, located with one-mile of a river</label> <br>
           </ul>
+          <p>The same rivers that provide us with clean drinking water are also ideal locations for many of these industries that are releasing toxic chemicals. 
+            The facilities seen here are located with one mile of a river. 
+          </p>
         </div>
 
         <!-- Scene 8
@@ -1014,6 +1019,8 @@
               var year = parseInt(e.target.value, 10);
               filterTotalRelease(year);
             });
+          document.getElementById("release-jump").style.fontWeight = "normal";
+
           break;
 
         case 17:
@@ -1035,6 +1042,7 @@
               var year = parseInt(e.target.value, 10);
               filterTotalRelease(year);
             });
+          document.getElementById("release-jump").style.fontWeight = "normal";
           break;
 
         case 18:

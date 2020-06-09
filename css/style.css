@@ -173,7 +173,7 @@ article {
   /* 'position:relative' allows the article section to be positioned in a custom way */
   position: relative;
   /* 'max-width' sets how wide each step's the text comes up on the screen */
-  max-width: 50rem;
+  max-width: 45rem;
   height: 100%;
   /* 'OPTIONAL: margin-top' sets how much space there is between the the figure and the first message.*/
   margin-top: 0;
@@ -215,6 +215,7 @@ article {
     margin: 0 auto 40rem auto;
     /*OPTIONAL: creates space around the text*/
     padding: 1.2rem;
+    max-width: 50rem;
     /*OPTIONAL: can be set based on preferences*/
     font-size: 1rem;
     /*OPTIONAL: can be set based on preferences*/
@@ -223,6 +224,7 @@ article {
     border: 2px solid #282828;
     /*OPTIONAL: makes the text slightly see-through so that the figure is somewhat visible underneath*/
     opacity: .9;
+    border-radius: 4px;
     
   }
 
@@ -299,6 +301,7 @@ article {
     float: right;
     margin-left: 20px;
     border: .5px solid #282828;
+    border-radius: 4px;
     padding: 15px 15px 5px 15px;
     margin-bottom: 10px;
   }
@@ -315,6 +318,7 @@ article {
     border: 2px solid #282828;
     width: 100%;
     background-color: #2e2e2e;
+    border-radius: 4px;
   }
 
   #donut-chart {
@@ -386,6 +390,13 @@ article {
   #total-year {
     font-family: 'Fjalla One', sans-serif;
     font-size: 1.5rem;
+    /* background-color: #2e2e2e; */
+    border: .5px solid #282828;
+    /* color: white; */
+    padding: 5px;
+    width: 100px;
+    border-radius: 4px;
+    text-align: center;
   }
 
   #company-header {
