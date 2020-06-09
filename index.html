@@ -266,6 +266,9 @@
           <p>The TRI does not directly regulate these chemical releases, but rather hopes to incentivize companies into improving their environmental performance by tracking and publishing this data. 
            <strong>Use the time slider below to explore total pounds released per year since reporting began in 1987. </strong>
           </p>
+          <svg id='year-chart' width="500" height="250" padding="16"></svg>
+          <div id = "year-label"><label id="total-year">1987</label></div>
+          <div id='sliderdiv'><input id="total-slider" type="range" min="1987" max="2018" step="1" value="0" /></div>
           <div class='circle-legend'>
               <svg width="250" height="160"> 
                 <circle fill="#cadb75" cx="65" cy="95" r="60" stroke="#2f2d2d" stroke-width=".5" /> 
@@ -284,11 +287,14 @@
               Seven industry sectors were added to the TRI in 1997, including metal and coal mining, electric power
               generators, and commercial hazardous waste treatment operations.
             </p></div>
-          <div class="total-release-slider">
+          <!-- <div class="total-release-slider">
             <div id = "year-label"><label id="total-year">1987</label> </div>
             <input id="total-slider" type="range" min="1987" max="2018" step="1" value="0" />
-          </div>
-          <svg id='year-chart' width="650" height="500"></svg>
+          </div> -->
+          <!-- <svg id='year-chart' width="650" height="500"></svg> -->
+          <!-- <svg id='year-chart' width="500" height="250" padding="16"></svg>
+          <div id='sliderdiv'><input id="total-slider" type="range" min="1987" max="2018" step="1" value="0" /></div></div> -->
+
         </div>
 
         <div class="step">
@@ -1539,13 +1545,13 @@
         }
       });
 
-      filterTotalRelease('1987');
-      document
-        .getElementById('total-slider')
-        .addEventListener('input', function (e) {
-          var year = parseInt(e.target.value, 10);
-          filterTotalRelease(year);
-        });
+      // filterTotalRelease('1987');
+      // document
+      //   .getElementById('total-slider')
+      //   .addEventListener('input', function (e) {
+      //     var year = parseInt(e.target.value, 10);
+      //     filterTotalRelease(year);
+      //   });
 
       // add sources and layers for chromium and ethylene oxide facilities
       map.addSource('chromium-source', {
@@ -1702,7 +1708,8 @@
       drawYearChart();
 
       // draw donut chart for RSEI scores by chemical
-      drawDonutChart();
+      // drawDonutChart();
+      
 
       // call function to create and populate parent company filter
       addCompanyFilter()
@@ -1711,67 +1718,133 @@
 
     // declare function that draws d3 chart for yearly release totals
     function drawYearChart() {
-      var svg = d3.select("#year-chart"),
-        margin = {
-          top: 30,
-          right: 20,
-          bottom: 50,
-          left: 70
-        },
-        width = svg.attr("width") - margin.left - margin.right,
-        height = svg.attr("height") - margin.top - margin.bottom;
+
+      // var width = 500,
+      //     height = 180,
+      //     padding = 16;
+
+      // var svg = d3.select("#year-chart")
+      //     .append("svg")
+      //     .attr("width", width)
+      //     .attr("height", height);
+      
+      // d3.csv("data/year-totals.csv").then(function (data) {
+      //   console.log(data)
+
+      //   var xScale = d3.scaleBand()
+      //       .domain(data.map(function (d) {
+      //         return d.YEAR;
+      //        }))
+      //       .range([padding * 2, width - padding])
+      //       .padding(0.2);
+
+      //   var yScale = d3.scaleLinear()
+      //       .domain([0, d3.max(data, function (d) {
+      //          return d.TOTAL_RELEASE;
+      //       })])
+      //       .range([height - padding, padding]);
+
+      //   var bars = svg.selectAll(".bars")
+      //       .data(data)
+      //       .enter()
+      //       .append("rect")
+      //       .attr("x", function (d) {
+      //         return xScale(d.YEAR);
+      //       })
+      //       .attr("width", xScale.bandwidth())
+      //       .attr("y", function (d) {
+      //         return yScale(+d.TOTAL_RELEASE);
+      //       })
+      //       .attr("height", d => height - padding - yScale(d))
+            // .attr("fill", (d => d3.select("#slider").node().value == d ? "firebrick" : "teal"));
+      // })
+
+
+
+      // var svg = d3.select("#year-chart"),
+      //   margin = 
+      //   {
+      //     top: 30,
+      //     right: 20,
+      //     bottom: 20,
+      //     left: 70
+      //   },
+      //   width = svg.attr("width") - margin.left - margin.right,
+      //   height = svg.attr("height") - margin.top - margin.bottom;
+
+      var width = 575,
+          height = 250,
+          padding =  {top:0, right: 5, bottom: 35, left: 40}
+
+      var svg = d3.select("#year-chart")
+          .append("svg")
+          .attr("width", width)
+          .attr("height", height);
 
       var xScale = d3.scaleBand().range([0, width]).padding(0.2),
-        yScale = d3.scaleLinear().range([height, 0]).clamp(true);;
+          yScale = d3.scaleLinear().range([height, 0]).clamp(false);;
 
-      var g = svg.append("g")
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+      // var g = svg.append("g")
+      //   .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
       d3.csv("data/year-totals.csv").then(function (data) {
 
-        xScale.domain(data.map(function (d) {
-          return d.YEAR;
-        }));
-        yScale.domain([0, d3.max(data, function (d) {
-          return d.TOTAL_RELEASE;
-        })]);
+        var xScale = d3.scaleBand()
+            .domain(data.map(function (d) {
+              return d.YEAR;
+            }))
+            .range([padding.left * 2, width - padding.right])
+            .padding(0.2);
 
-        g.append("g")
-          .attr("transform", "translate(0," + height + ")")
-          .call(d3.axisBottom(xScale))
-          .selectAll("text")
-          .attr("transform", "rotate(45)")
-          .attr("dy", ".55em")
-          .style("text-anchor", "start");
+        var yScale = d3.scaleLinear()
+            .domain([0, d3.max(data, function (d) {
+              return d.TOTAL_RELEASE;
+            })])
+            .range([height - padding.top - padding.bottom, padding.right]);
 
-        var formatValue = d3.format("0.2s");
+        // xScale.domain(data.map(function (d) {
+        //   return d.YEAR;
+        // }));
+        // yScale.domain([0, d3.max(data, function (d) {
+        //   return d.TOTAL_RELEASE;
+        // })]);
 
-        g.append("g")
-          .call(d3.axisLeft(yScale).tickFormat(function (d) {
-            return formatValue(d);
-          }).ticks(10, "~s"))
-          .append("text")
-          .attr("y", 6)
-          .attr("dy", "0.71em")
-          .attr("text-anchor", "end")
-          .text("value");
+      //   g.append("g")
+      //     .attr("transform", "translate(0," + height + ")")
+      //     .call(d3.axisBottom(xScale))
+      //     .selectAll("text")
+      //     .attr("transform", "rotate(45)")
+      //     .attr("dy", ".55em")
+      //     .style("text-anchor", "start");
 
-        g.append('g')
-          .attr('class', 'grid')
-          .call(d3.axisLeft()
-            .scale(yScale)
-            .tickSize(-width, 0, 0)
-            .tickFormat(''))
+      //   var formatValue = d3.format("0.2s");
 
-        svg.append('text')
-          .attr('class', 'label')
-          .attr('x', -(height / 2.5) - margin.left)
-          .attr('y', margin.bottom / 1.8)
-          .attr('transform', 'rotate(-90)')
-          .attr('text-anchor', 'middle')
-          .text('Total Pounds Released')
+      //   g.append("g")
+      //     .call(d3.axisLeft(yScale).tickFormat(function (d) {
+      //       return formatValue(d);
+      //     }).ticks(10, "~s"))
+      //     .append("text")
+      //     .attr("y", 6)
+      //     .attr("dy", "0.71em")
+      //     .attr("text-anchor", "end")
+      //     .text("value");
 
-        g.selectAll(".bar")
+      //   g.append('g')
+      //     .attr('class', 'grid')
+      //     .call(d3.axisLeft()
+      //       .scale(yScale)
+      //       .tickSize(-width, 0, 0)
+      //       .tickFormat(''))
+
+      //   svg.append('text')
+      //     .attr('class', 'label')
+      //     .attr('x', -(height / 2.5) - margin.left)
+      //     .attr('y', margin.bottom / 1.8)
+      //     .attr('transform', 'rotate(-90)')
+      //     .attr('text-anchor', 'middle')
+      //     .text('Total Pounds Released')
+
+        var bars = svg.selectAll(".bars")
           .data(data)
           .enter().append("rect")
           .attr("class", "bar")
@@ -1784,8 +1857,45 @@
           })
           .attr("width", xScale.bandwidth())
           .attr("height", function (d) {
-            return height - yScale(d.TOTAL_RELEASE);
+            return height - padding.bottom - yScale(d.TOTAL_RELEASE);
           })
+          .attr("fill", (d => d3.select("#total-slider").node().value == d.YEAR ? "firebrick" : "teal"));
+          
+          var formatValue = d3.format("0.2s");
+
+          var xAxis = d3.axisBottom(xScale);
+          var yAxis = d3.axisLeft(yScale);
+
+          var gX = svg.append("g")
+              .attr("transform", "translate(0," + (height - padding.bottom) + ")")
+              .call(xAxis)
+              .selectAll("text")
+              .attr("transform", "rotate(45)")
+              .attr("dy", ".55em")
+              .style("text-anchor", "start");
+
+          var gY = svg.append("g")
+              .attr("transform", "translate(" + padding.left * 2 + ",0)")
+              .call(d3.axisLeft(yScale).tickFormat(function (d) {
+                return formatValue(d);
+              }));
+
+          svg.append('text')
+              .attr('class', 'bar-chart-label')
+              .attr('x', - (height / 3.8) - padding.left)
+              .attr('y', padding.bottom / 1.25)
+              .attr('transform', 'rotate(-90)')
+              .attr('text-anchor', 'middle')
+              .text('Total Pounds Released')
+
+          // d3.select("#total-slider").on("input", function(d) {
+          //     var currentValue = this.value;
+          //     yScale.domain([0, currentValue * 2])
+          //     bars.attr("y", d => yScale(d))
+          //         .attr("height", d => height - padding - yScale(d))
+          //         .attr("opacity", (d => currentValue == d ? "1" : "0.65"));
+          //     gY.call(yAxis);
+          // })
       });
 
     }
@@ -1951,6 +2061,14 @@
         .duration(300)
         .attr('opacity', 1)
 
+      d3.selectAll('.text')
+        .filter(function (d) {
+          return d.YEAR == totalYear
+        })
+        .transition()
+        .duration(300)
+        .attr('style', 'font-weight: bold');
+
       // return bar to normal when slider changes to new year
       d3.selectAll('.bar')
         .filter(function (d) {
@@ -1958,7 +2076,7 @@
         })
         .transition()
         .duration(300)
-        .attr('opacity', 0.65)
+        .attr('opacity', 0.65);
     }
 
     // create list of parent companies

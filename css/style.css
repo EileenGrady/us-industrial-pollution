@@ -173,12 +173,12 @@ article {
   /* 'position:relative' allows the article section to be positioned in a custom way */
   position: relative;
   /* 'max-width' sets how wide each step's the text comes up on the screen */
-  max-width: 45rem;
+  max-width: 40rem;
   height: 100%;
   /* 'OPTIONAL: margin-top' sets how much space there is between the the figure and the first message.*/
   margin-top: 0;
   /* 'margins position step on the page*/
-  margin-left: 1rem;
+  margin-left: .5rem;
   /* 'transform' is included to ensure z-index works properly on all kinds of devices */
   -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
@@ -212,10 +212,10 @@ article {
     /* 'position relative' allows the steps to positioned in a custom way*/
     position: relative;
     /* margins are set to position step as high as possible, centered, and with a minimum bottom margin*/
-    margin: 0 auto 40rem auto;
+    margin: 0 1rem 40rem auto;
     /*OPTIONAL: creates space around the text*/
     padding: 1.2rem;
-    max-width: 50rem;
+    max-width: 40rem;
     /*OPTIONAL: can be set based on preferences*/
     font-size: 1rem;
     /*OPTIONAL: can be set based on preferences*/
@@ -223,7 +223,7 @@ article {
     /*OPTIONAL: creates a solid box around the text*/
     border: 2px solid #282828;
     /*OPTIONAL: makes the text slightly see-through so that the figure is somewhat visible underneath*/
-    opacity: .9;
+    opacity: .95;
     border-radius: 4px;
     
   }
@@ -315,10 +315,11 @@ article {
   }
 
   #year-chart {
-    border: 2px solid #282828;
+    /* border: .25px solid #282828; */
     width: 100%;
-    background-color: #2e2e2e;
-    border-radius: 4px;
+    /* background-color: #2e2e2e; */
+    /* border-radius: 4px; */
+    /* margin-left: 25px; */
   }
 
   #donut-chart {
@@ -337,39 +338,31 @@ article {
 
   text {
     font-size: 12px;
-    fill: #f0f0f0;
-    font-family: 'PT Sans', sans-serif;
+    font-family: 'Bitter', serif;
+    fill: #3E3F3A;
+    opacity: 0.9;
+  }
+
+  text.bar-chart-label {
+    font-size: 14px;
   }
 
   text.legend-label {
-    font-family: 'Bitter', serif;
-    fill: #3E3F3A;
-    opacity: 0.9;
     font-size: 0.8em;
-    text-shadow: 0
   }
 
   text.legend-title {
-    font-family: 'Bitter', serif;
     fill: #3E3F3A;
-    opacity: 0.9;
     font-size: .9em;
-    text-shadow: 0
   }
 
-  text.label {
-    font-size: 14px;
-    font-weight: 400;
-    text-shadow: -1px 0 #0d0d0d, 0 1px #0d0d0d, 1px 0 #0d0d0d, 0 -1px #0d0d0d;
 
-  }
-
-  text.title {
+  /* text.title {
     font-size: 20px;
     font-weight: 400;
     text-shadow: -1px 0 #0d0d0d, 0 1px #0d0d0d, 1px 0 #0d0d0d, 0 -1px #0d0d0d;
 
-  }
+  } */
 
   /* div.tooltip-donut {
     position: absolute;
@@ -383,20 +376,33 @@ article {
     font-size: 1rem;
   } */
 
-  #total-slider {
+  /* #total-slider {
     width: 100%;
+  } */
+
+  #total-slider {
+    width: 490px;
   }
 
+  #sliderdiv{
+    padding-left: 80px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    /* float: right; */
+   }
+
   #total-year {
-    font-family: 'Fjalla One', sans-serif;
+    font-family: 'Bitter', serif;
     font-size: 1.5rem;
+    font-weight: bold;
     /* background-color: #2e2e2e; */
-    border: .5px solid #282828;
+    /* border: .5px solid #282828; */
     /* color: white; */
     padding: 5px;
-    width: 100px;
-    border-radius: 4px;
+    /* width: 100px; */
+    /* border-radius: 4px; */
     text-align: center;
+    float: left;
   }
 
   #company-header {
