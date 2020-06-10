@@ -230,7 +230,7 @@ article {
 
   .step.last-child {
     /* OPTIONAL: removes extra space at the bottom of the story*/
-    margin-bottom: 0;
+    margin-bottom: 200px;
   }
 
   ul {
@@ -403,6 +403,14 @@ article {
     /* border-radius: 4px; */
     text-align: center;
     float: left;
+  }
+
+  /* #release-note {} */
+
+  #release-note {
+    font-size: .9rem;
+    padding-top: 10px;
+    padding-bottom: 5px;
   }
 
   #company-header {

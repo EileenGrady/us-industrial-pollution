@@ -4,29 +4,49 @@
 
 In 1969, the burning of the Cuyahoga River in Cleveland, Ohio became a national symbol for the public’s outcry against industrial pollution. The public had been expressing increasing concern throughout the 1950s and 1960s, and the US reached a turning point when the Environmental Protection Agency was established in 1970. The EPA began to monitor and enforce the increasing number of environmental laws passed by Congress aimed at reducing industrial pollution.
 
-Today there are two main programs in place that monitor industrial pollution in the United States. The Superfund program is responsible for the investigation and clean-up of contaminated sites left over from decades of unregulated industrial manufacturing and other activities. The most highly contaminated sites which require longer-term remedial action take precedence and are placed on the National Priority List (NPL). The EPA also monitors active facilities all over the country that are currently releasing toxic chemicals into our air, water, and land through the Toxic Release Inventory (TRI).
+Today there are two main programs in place that monitor industrial pollution in the United States. The Superfund program is responsible for the investigation and clean-up of contaminated sites left over from decades of unregulated industrial manufacturing and other activities. The most highly contaminated sites which require longer-term remedial action take precedence and are placed on the National Priority List (NPL). The EPA also monitors active facilities all over the country that are currently releasing toxic chemicals into our air, water, and land through the Toxics Release Inventory (TRI).
 
-It is easy enough to obtain basic location information for both Superfund sites and TRI facilities, but an investigation into industrial pollution quickly reveals more complexity beyond locations on a map. This mapping project will be a directed narrative told through a storytelling map format that begins by visualizing the general location and distribution of Superfund sites and TRI reporting facilities, and guides the user through several interesting case studies augmented with additional data sources that explore the wider reach and effects of these sites. The user will gain a better understanding of industrial pollution and the threat it poses to both humans and the environment. As efforts are underway to [roll back](https://www.vox.com/energy-and-environment/2018/1/26/16936104/epa-trump-toxic-air-pollution) environmental regulations and budget cuts are increasing the [backlog]( https://www.latimes.com/world-nation/story/2020-01-04/backlog-of-toxic-superfund-clean-ups-grows-under-trump) of Superfund remediation projects, this map will emphasize the importance of a framework that regulates and holds industry accountable for the toxic pollution it imposes upon communities.
+It is easy enough to obtain basic location information for both Superfund sites and TRI facilities, but an investigation into industrial pollution quickly reveals more complexity beyond locations on a map. This mapping project is a directed narrative told through a storytelling map format that visualizes the general location and distribution of Superfund sites and TRI reporting facilities, and guides the user through several interesting case studies augmented with additional data sources that explore the wider reach and context of these sites. The user will gain a better understanding of industrial pollution and the threat it poses to both humans and the environment. As efforts are underway to [roll back](https://www.vox.com/energy-and-environment/2018/1/26/16936104/epa-trump-toxic-air-pollution) environmental regulations and budget cuts are increasing the [backlog]( https://www.latimes.com/world-nation/story/2020-01-04/backlog-of-toxic-superfund-clean-ups-grows-under-trump) of Superfund remediation projects, this mapping project emphasizes the importance of a framework that regulates and holds industry accountable for the toxic pollution it imposes upon communities.
 
 ## II. Methodology
 
 ### A. Data
 
-Superfund site locations were initially obtained as a csv file from the EPA's [Superfund Enterprise Management System](https://www.epa.gov/enviro/sems-search) Database. Additional data on each site, including the site's Hazard Ranking System (HRS) score, was obtained through an [advanced search](https://cumulis.epa.gov/supercpad/cursites/srchsites.cfm), downloaded as a csv file, and joined to the initial site locations using python in a Jupyter notebook.
+Superfund site locations were initially obtained as a csv file from the EPA's [Superfund Enterprise Management System](https://www.epa.gov/enviro/sems-search) Database. Additional data on each site, including the site's Hazard Ranking System (HRS) score, was obtained through an [advanced search](https://cumulis.epa.gov/supercpad/cursites/srchsites.cfm), downloaded as a csv file, and joined to the initial site locations using python in a Jupyter notebook. Based on this additional data, I identified two case studies to focus on in the storytelling map. The first case study focuses on the Southeast Missouri Lead district, a cluster of seven defunct lead mines, and the second case study visits an old General Electric facility in Pittsfield Massachusetts. __These case studies were chosen not only because they are some of the highest ranked sites in the country, but also because they illustrate how far toxic chemicals can spread beyond the site itself.__
 
-[Toxic Release Inventory](https://www.epa.gov/toxics-release-inventory-tri-program/tri-basic-data-files-calendar-years-1987-2018) data for 2018 was downloaded in an excel workbook. Data is reported as one record for each chemical released per reporting facility. I used python in a jupyter notebook to wrangle data into one record per reporting facility, with information on total amounts released per facility. RSEI scores were then downloaded from the EPA's [EasyRSEI Dashboard](https://edap.epa.gov/public/extensions/EasyRSEI/EasyRSEI.html) and joined to the facility locations.
+Sample of Superfund site data, showing sites chosen for case studies:
 
-Once the Superfund site locations and TRI reporting facilities were wrangled and joined to their ranking scores used to compare hazard and risk respectively, I used python in a jupyter notebook to pick out some interesting case studies.
+| SITE_NAME | NPL_STATUS | SUPERFUND_ALT | HUMAN_EXPOSURE | GROUNDWATER_MITIGATION | HRS_SCORE| geometry
+| ----- | -----| ----- | ----- | ---- | ---- | ---- | ---- | ---- |
+| GE PITTSFIELD HOUSATONIC RIVER SUPERFUND SITE	| Proposed for NPL| No | No | No | 70.71| POINT (-73.23222 42.45028) 
+| ANSCHUTZ - MADISON MINE | Currently on the Final NPL | No | No | Insufficient Data | 58.41 | POINT (-90.27611 37.54611)
+| SOUTHWEST JEFFERSON COUNTY MINING	| Currently on the Final NPL | No | No | No | 70.71 | POINT (-90.75898 38.18679)
+| WASHINGTON COUNTY LEAD DISTRICT - FURNACE CREEK| Currently on the Final NPL | No | No | Insufficient Data | 50.00| POINT (-90.79956 37.84053)
+| WASHINGTON COUNTY LEAD DISTRICT - OLD MINES | Currently on the Final NPL | No	| No | Insufficient Data | 76.81 | POINT (-90.73833 38.07528)
+| WASHINGTON COUNTY LEAD DISTRICT - POTOSI | Currently on the Final NPL | No | No | Insufficient Data | 50.00	| POINT (-90.77240 37.93990)
+| WASHINGTON COUNTY LEAD DISTRICT - RICHWOODS | Currently on the Final NPL | No | No | Insufficient Data | 76.81 | POINT (-90.81426 38.16615)
+
+Additional data was gleaned from individual [Superfund site profiles](https://www.epa.gov/superfund). I was able to determine rivers and watersheds were affected in each case study, and the counties affected in the lead district case study. Rivers were downloaded from [Natural Earth](https://www.naturalearthdata.com/downloads/10m-physical-vectors/), watersheds from [USGS](https://www.usgs.gov/core-science-systems/ngp/national-hydrography/access-national-hydrography-products), and counties from [the Census Bureau](https://www.census.gov/cgi-bin/geo/shapefiles/index.php?year=2019&layergroup=Counties+%28and+equivalent%29), then brought into QGIS to filter and export the necessary features.
+
+I found an [aerial map](https://www.epa.gov/ge-housatonic) of the GE Pittsfield site, georeferenced the image in QGIS, and traced the outlines to create a geojson.
+
+![Georeferenced GE site map](images/georeferenced-map.png)
+
+[Toxic Release Inventory](https://www.epa.gov/toxics-release-inventory-tri-program/tri-basic-data-files-calendar-years-1987-2018) data is available for download in .xlsx format for individual years. After exploring the dataset from 2018, I decided to proceed in three directions:
+
+1. First I wanted to visualize the general location and distribution of all TRI facilities who reported in 2018. Data is reported as one record for each chemical released per reporting facility. I used a jupyter notebook to wrangle data into one record per reporting facility, and exported to geojson.
+
+2. I also wanted to explore changes over time in total release amounts by looking at all data files available from 1987-2018. After downloading the individual files for each year, I used a jupyter notebook to combine all data sets and create a geojson with one record per facility, and columns for each facility's total on-site release per year.
+
+3. The EPA's Risk-Screening Environmental Indicators (RSEI) model adds context to the data reported to the TRI, and can help isolate facilities or chemicals that warrant further investigation. First I used the [EasyRSEI Dashboard](https://edap.epa.gov/public/extensions/EasyRSEI/EasyRSEI.html) to find scores for all facilities in 2018. I found that ethylene oxide emissions were to blame for the high RSEI score in Texas, and also that ethylene oxide had the second highest share of the country's total RSEI score. I used the TRI data files to create two geojsons: (1) facilities releasing chromium/chromium compunds, and (2) facilities releasing ethylene oxide. I looked for patterns in these facilities in QGIS and a jupyter notebook.
+
+![EasyRSEI dashboard screenshot](images/easy-rsei-dashboard.png)
 
 ### B. Medium for delivery
 
-This map will be presented as a storytelling map accessible across desktop and larger mobile devices. The basic technology stack includes HTML, CSS, JS, and Leaflet, delivered in a Bootstrap framework, using the [Scrollama](https://github.com/russellgoldenberg/scrollama) JavaScript library to create a storytelling experience.
+The mapping project is presented as a storytelling map accessible across desktop and larger mobile devices. The basic technology stack includes HTML, CSS, JS, and [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js/api/),using the [Scrollama](https://github.com/russellgoldenberg/scrollama) JavaScript library to create a storytelling experience. [Turf.js](https://turfjs.org/) was also used to create linestrings.
 
-I used a basic example/template found [here](https://scrollytelling-edu.herokuapp.com/).
-
-
-
-After guiding the user through the storytelling map, the last 'scene' will allow the user to search for an address using the [Leaflet Control Geocoder](https://github.com/perliedman/leaflet-control-geocoder). Then [Turf.js](https://turfjs.org/) will perform buffering, point-in-polygon analysis, and measurement in the browser to find the closest Superfund site and nearby TRI reporting facilities based on the user's search.
+I used a basic example/template to implement the Scrollama library, found [here](https://scrollytelling-edu.herokuapp.com/).
 
 ### C. Application layout
 
@@ -34,14 +54,19 @@ After guiding the user through the storytelling map, the last 'scene' will allow
 
 ### D. Thematic representation
 
-As this is a storytelling map format that will guide the user through several 'scenes', there will be several thematic representations. The primary data sources used are Superfund sites and TRI reporting facilities. These will both be represented as points throughout the storytelling map. As the narrative develops, additional data will be brought in to contextualize the sites.
+As this is a storytelling map format that will guide the user through several 'scenes', there will be several thematic representations. The primary data sources used are Superfund sites and TRI reporting facilities, and are both represented as points throughout the storytelling map Superfund sites are represented as nominal points
+using a qualitative color scheme, and TRI facilities are represented both as nominal points using a single color show general distribution, and then as quantitative ratio points (graduated circles) using qualitative colors.
+
+As the narrative develops, additional line and polygon data is brought in to contextualize the sites.
 
 ### E. User interaction
 
-The user interaction will be a fairly simple scrolling interface. As the user scrolls through panels of descriptive narrative on the left side, the map will move to the relevant location and bring in additional layers that help visualize the narrative.
+The user interaction is a fairly simple scrolling interface. As the user scrolls through panels of descriptive narrative on the left side, the map moves to the relevant location and brings in additional layers to visualize the narrative. Legends are included in the scrolling narrative panels to provide visual continuity between these panels and the map. 
+
+There are two opportunities for the user to interact more deeply with the map, (1) a time slider allows the user to explore changes in the total amount of toxic chemicals released over time, and (2) a dropdown menu allows the user to explore spatial relationships between TRI facilities and their parent company. Both of these UI elements are placed on a scrolling narrative panel and are clearly marked for the user.
 
 ### F. Aesthetics and design considerations
 
-I imagine this mapping project to be relatively clean and simple. It will be a dark basemap with data symbolized in colors that almost seem to glow.
+This mapping project really embraces the 'storytelling' aspect of a storytelling map. Data is presented in two main 'chapters', preceded by an introduction page and followed by an epilogue. The map fades to black to emphasize the start of each section. I used a dark basemap motif and brighter colors to symbolize the data. Given the nature of the topic, I aimed for a clean and moden design that did not come across as too friendly or whimsical.
 
 ## III. Conclusion

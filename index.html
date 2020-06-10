@@ -283,7 +283,7 @@
                 <text class ='legend-title' x="14" y="11">Total pounds released annually</text>
              </svg>
             </div>
-             <div id = 'release-jump'><p>Notice the big jump from 1997 to 1998.
+             <div id='release-note'><p id='release-note'>Notice the big jump from 1997 to 1998.
               Seven industry sectors were added to the TRI in 1997, including metal and coal mining, electric power
               generators, and commercial hazardous waste treatment operations.
             </p></div>
@@ -1025,7 +1025,7 @@
               var year = parseInt(e.target.value, 10);
               filterTotalRelease(year);
             });
-          document.getElementById("release-jump").style.fontWeight = "normal";
+          document.getElementById("release-note").style.fontWeight = "normal";
 
           break;
 
@@ -1048,7 +1048,7 @@
               var year = parseInt(e.target.value, 10);
               filterTotalRelease(year);
             });
-          document.getElementById("release-jump").style.fontWeight = "normal";
+          document.getElementById("release-note").style.fontWeight = "normal";
           break;
 
         case 18:
@@ -2049,7 +2049,7 @@
 
       if (totalYear == '1998') {
         // document.getElementById('release-jump').setAttribute('font-weight', 'bold');
-        document.getElementById("release-jump").style.fontWeight = "bold";
+        document.getElementById("release-note").style.fontWeight = "bold";
       }
 
       // select corresponding bar in bar chart to create interaction
