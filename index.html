@@ -162,7 +162,7 @@
 
         <!-- Scene 1 -->
         <div class="step">
-          <p>The <strong>General Electric transformer plant</strong> sitting on the bank of the Housatonic River in Pittsfield, Massachusetts was once known as “one of the crown jewels of GE’s electrical infrastructure, high voltage testing, and defense contracting business.” 
+          <p>The <strong>General Electric transformer plant</strong> sitting on the banks of the Housatonic River in Pittsfield, Massachusetts was once known as “one of the crown jewels of GE’s electrical infrastructure, high voltage testing, and defense contracting business.” 
             <strong>The defunct plant is now proposed for the Superfund National Priority List, with an HRS score of 70.71. </strong>
           </p>
           <!-- <ul>
@@ -498,7 +498,7 @@
         <!-- Scene 7b -->
         <div class="step">
           <p>The TRI tracks releases of chemicals into the environment, but how was a 46,000 gallon chemical storage tank sitting 1.5-miles up upstream from a water intake center overlooked? 
-            <strong>This incident emphasizes not only the importance of tracking chemicals being released into the environment, but also exposes flaws in the regulatory system and reminds us that XXXX.</strong>
+            <strong>This incident emphasizes not only the importance of tracking chemicals being released into the environment, but also exposes flaws in the regulatory system and reminds us of our vulnerability to disasters such as these.</strong>
           </p>
           <ul>
             <span style="background:#A5AA99"></span><label>Affected Counties</label> <br>
@@ -508,15 +508,14 @@
 
         <!-- Scene 7c -->
         <div class="step">
-          <p>In the Superfund site case studies we learned the lasting and widespread damage industrial pollution can cause when left unchecked. 
-            We also learned that the TRI tracks chemical releases but does not always protect communities or the environment from industrial pollution.
+          <p>The Superfund case studies showed us the lasting and widespread damage industrial pollution can cause when left unchecked. 
+            And while the TRI does track toxic chemical releases, it cannot always protect communities or the environment, especially if regulatory laws are not enforced. 
           </p>
           <ul>
             <span style="background:#79a7ac"></span><label>Rivers</label> <br>
             <span style="background:#cadb75"></span><label>TRI Reporting Facilities in 2018, located with one-mile of a river</label> <br>
           </ul>
-          <p>The same rivers that provide us with clean drinking water are also ideal locations for many of these industries that are releasing toxic chemicals. 
-            The facilities seen here are located with one mile of a river. 
+          <p>The same rivers we depend on for clean drinking water also tend to be ideal locations for many of these industries producing and releasing toxic chemicals. 
           </p>
         </div>
 
@@ -533,9 +532,9 @@
     </section>
 
     <!-- OPIONAL: Scrollytelling Outro -->
-    <!-- <section id="outro">
+    <section id="outro">
       <p style="text-align : center"><br><a href="#top">Jump to top of page</a><br></p>
-    </section> -->
+    </section>
 
     
 
@@ -1363,7 +1362,8 @@
             center: [-114.92164, 40.1301],
             zoom: 3.789,
             pitch: 0,
-            bearing: 0
+            bearing: 0,
+            speed: 0.25
           });
           allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
           allMarkers.forEach(item => item.remove());
@@ -1659,26 +1659,26 @@
       });
 
       // add source and layer for tri facilities near rivers
-      map.addSource('tri-river-source', {
-        type: 'geojson',
-        data: 'data/tri-near-rivers.geojson'
-      });
+      // map.addSource('tri-river-source', {
+      //   type: 'geojson',
+      //   data: 'data/tri-near-rivers.geojson'
+      // });
 
-      map.addLayer({
-        'id': 'tri-river-layer',
-        'type': 'circle',
-        'source': 'tri-river-source',
-        'layout': {
-          'visibility': 'none'
-        },
-        'paint': {
-          'circle-color': '#cadb75',
-          'circle-radius': 2,
-          'circle-stroke-color': '#2f2d2d',
-          'circle-stroke-width': 0.5,
-          'circle-opacity': 0.65
-        }
-      });
+      // map.addLayer({
+      //   'id': 'tri-river-layer',
+      //   'type': 'circle',
+      //   'source': 'tri-river-source',
+      //   'layout': {
+      //     'visibility': 'none'
+      //   },
+      //   'paint': {
+      //     'circle-color': '#cadb75',
+      //     'circle-radius': 2,
+      //     'circle-stroke-color': '#2f2d2d',
+      //     'circle-stroke-width': 0.5,
+      //     'circle-opacity': 0.65
+      //   }
+      // });
 
       // add source and layer for parent companies
       map.addSource('parent-co-source', {

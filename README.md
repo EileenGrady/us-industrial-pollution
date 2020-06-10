@@ -32,7 +32,7 @@ I found an [aerial map](https://www.epa.gov/ge-housatonic) of the GE Pittsfield 
 
 ![Georeferenced GE site map](images/georeferenced-map.png)
 
-[Toxic Release Inventory](https://www.epa.gov/toxics-release-inventory-tri-program/tri-basic-data-files-calendar-years-1987-2018) data is available for download in .xlsx format for individual years. After exploring the dataset from 2018, I decided to proceed in three directions:
+[Toxic Release Inventory](https://www.epa.gov/toxics-release-inventory-tri-program/tri-basic-data-files-calendar-years-1987-2018) data is available for download in .xlsx format for individual years. After exploring the dataset from 2018, I decided to proceed in five steps:
 
 1. First I wanted to visualize the general location and distribution of all TRI facilities who reported in 2018. Data is reported as one record for each chemical released per reporting facility. I used a jupyter notebook to wrangle data into one record per reporting facility, and exported to geojson.
 
@@ -41,6 +41,10 @@ I found an [aerial map](https://www.epa.gov/ge-housatonic) of the GE Pittsfield 
 3. The EPA's Risk-Screening Environmental Indicators (RSEI) model adds context to the data reported to the TRI, and can help isolate facilities or chemicals that warrant further investigation. First I used the [EasyRSEI Dashboard](https://edap.epa.gov/public/extensions/EasyRSEI/EasyRSEI.html) to find scores for all facilities in 2018. I found that ethylene oxide emissions were to blame for the high RSEI score in Texas, and also that ethylene oxide had the second highest share of the country's total RSEI score. I used the TRI data files to create two geojsons: (1) facilities releasing chromium/chromium compunds, and (2) facilities releasing ethylene oxide. I looked for patterns in these facilities in QGIS and a jupyter notebook.
 
 ![EasyRSEI dashboard screenshot](images/easy-rsei-dashboard.png)
+
+4. There are 10 parent companies in the TRI 2018 data that stand out as owning at least 90 facilities. I created  a csv of these companies, through an online search to find each company's headquarters, and geocoded the addresses in a jupyter notebook to create a geojson of parent companies.
+
+5. After outlining the project, I decided I wanted to conclude with an epilogue that showcased TRI facilities within a certain distance of a river. I used a jupyter notebook to find TRI facilities within one-mile of a river, using the geojson created out of 2018 TRI facilities.
 
 ### B. Medium for delivery
 
