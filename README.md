@@ -8,6 +8,8 @@ Today there are two main programs in place that monitor industrial pollution in 
 
 It is easy enough to obtain basic location information for both Superfund sites and TRI facilities, but an investigation into industrial pollution quickly reveals more complexity beyond locations on a map. This mapping project is a directed narrative told through a storytelling map format that visualizes the general location and distribution of Superfund sites and TRI reporting facilities, and guides the user through several interesting case studies augmented with additional data sources that explore the wider reach and context of these sites. The user will gain a better understanding of industrial pollution and the threat it poses to both humans and the environment. As efforts are underway to [roll back](https://www.vox.com/energy-and-environment/2018/1/26/16936104/epa-trump-toxic-air-pollution) environmental regulations and budget cuts are increasing the [backlog]( https://www.latimes.com/world-nation/story/2020-01-04/backlog-of-toxic-superfund-clean-ups-grows-under-trump) of Superfund remediation projects, this mapping project emphasizes the importance of a framework that regulates and holds industry accountable for the toxic pollution it imposes upon communities.
 
+Find the working map [here](https://eileengrady.github.io/us-industrial-pollution/).
+
 ## II. Methodology
 
 ### A. Data
@@ -51,6 +53,8 @@ I found an [aerial map](https://www.epa.gov/ge-housatonic) of the GE Pittsfield 
 The mapping project is presented as a storytelling map accessible across desktop and larger mobile devices. The basic technology stack includes HTML, CSS, JS, and [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js/api/),using the [Scrollama](https://github.com/russellgoldenberg/scrollama) JavaScript library to create a storytelling experience. [Turf.js](https://turfjs.org/) was also used to create linestrings.
 
 I used a basic example/template to implement the Scrollama library, found [here](https://scrollytelling-edu.herokuapp.com/).
+
+One advantage of using Mapbox GL JS was the ability to create tilesets out of my larger datasets to improve map load time.
 
 ### C. Application layout
 

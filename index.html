@@ -39,7 +39,6 @@
           pollution in the United States, the Superfund Program and the Toxics Release Inventory.</h2>
       </div>
       <div id="scroll-icon">
-        <!-- <h1>Scroll Down Button #2</h1> -->
         <a href="#"><span></span>Scroll</a>
       </div>
     </section>
@@ -533,7 +532,9 @@
 
     <!-- OPIONAL: Scrollytelling Outro -->
     <section id="outro">
-      <p style="text-align : center"><br><a href="#top">Jump to top of page</a><br></p>
+      <p class="outro-text" style="text-align : center">Map authored by <a href="https://eileengrady.github.io/" target="_blank">Eileen Grady</a></p>
+      <p class="outro-text" style="text-align : center">Visit the <a href="https://eileengrady.github.io/" target="_blank">project repo.</a></p>
+      <p class="outro-text" style="text-align : center"><a href="https://github.com/EileenGrady/us-industrial-pollution">Jump to top of page</a></p>
     </section>
 
     
@@ -1392,7 +1393,7 @@
         step: '.step',
         offset: Math.floor(window.innerHeight) * 0.95 + "px",
         // set to true to see debug horizontal line
-        debug: true,
+        // debug: true,
       }).onStepEnter(handleStepChange)
 
       // setup resize event
@@ -1784,9 +1785,6 @@
       var xScale = d3.scaleBand().range([0, width]).padding(0.2),
           yScale = d3.scaleLinear().range([height, 0]).clamp(false);;
 
-      // var g = svg.append("g")
-      //   .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
       d3.csv("data/year-totals.csv").then(function (data) {
 
         var xScale = d3.scaleBand()
@@ -1802,49 +1800,7 @@
             })])
             .range([height - padding.top - padding.bottom, padding.right]);
 
-        // xScale.domain(data.map(function (d) {
-        //   return d.YEAR;
-        // }));
-        // yScale.domain([0, d3.max(data, function (d) {
-        //   return d.TOTAL_RELEASE;
-        // })]);
-
-      //   g.append("g")
-      //     .attr("transform", "translate(0," + height + ")")
-      //     .call(d3.axisBottom(xScale))
-      //     .selectAll("text")
-      //     .attr("transform", "rotate(45)")
-      //     .attr("dy", ".55em")
-      //     .style("text-anchor", "start");
-
-      //   var formatValue = d3.format("0.2s");
-
-      //   g.append("g")
-      //     .call(d3.axisLeft(yScale).tickFormat(function (d) {
-      //       return formatValue(d);
-      //     }).ticks(10, "~s"))
-      //     .append("text")
-      //     .attr("y", 6)
-      //     .attr("dy", "0.71em")
-      //     .attr("text-anchor", "end")
-      //     .text("value");
-
-      //   g.append('g')
-      //     .attr('class', 'grid')
-      //     .call(d3.axisLeft()
-      //       .scale(yScale)
-      //       .tickSize(-width, 0, 0)
-      //       .tickFormat(''))
-
-      //   svg.append('text')
-      //     .attr('class', 'label')
-      //     .attr('x', -(height / 2.5) - margin.left)
-      //     .attr('y', margin.bottom / 1.8)
-      //     .attr('transform', 'rotate(-90)')
-      //     .attr('text-anchor', 'middle')
-      //     .text('Total Pounds Released')
-
-        var bars = svg.selectAll(".bars")
+          var bars = svg.selectAll(".bars")
           .data(data)
           .enter().append("rect")
           .attr("class", "bar")
@@ -2120,18 +2076,23 @@
         map.removeLayer('company-line-layer')
         map.removeSource('company-line-source')
       };
+      
+
 
       // set filters and properties to show chosen parent company and its facilities
       map.setFilter('parent-co-layer', ['==', 'parentCompany', company]);
       map.setPaintProperty('parent-co-layer', 'circle-radius', 8);
       map.setLayoutProperty('tri-layer', 'visibility', 'visible');
-      map.setFilter('tri-layer', ['==', 'PARENT_CO_NAME', company]);
+      map.setFilter('tri-layer', ['==', 'PARENT CO NAME', company]);
 
       // get the child facility source data
       var facilities = map.querySourceFeatures('composite', {
-        sourceLayer: 'tri-facilities-174q3j',
-        filter: ['==', 'PARENT_CO_NAME', company]
+        sourceLayer: 'tri-2018-4g0489',
+        filter: ['==', 'PARENT CO NAME', company]
       });
+
+      // console.log(facilities)
+
 
       // get the parent company source data
       var parent = map.querySourceFeatures('parent-co-source', {

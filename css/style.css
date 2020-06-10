@@ -145,7 +145,12 @@ h3 {
 }
 
 a {
-  color:#79a7ac;
+  color:#287274;
+}
+
+a:hover {
+  color:#0d585f;
+  font-style: underline;
 }
 
 /* smooth creates a rewind / speed up effect when jumping between sections of the page */
@@ -228,9 +233,9 @@ article {
     
   }
 
-  .step.last-child {
+  .step:last-child {
     /* OPTIONAL: removes extra space at the bottom of the story*/
-    margin-bottom: 200px;
+    margin-bottom: 10rem;
   }
 
   ul {
@@ -423,4 +428,19 @@ article {
     font-family: 'Bitter', serif;
     font-size: 1em;
     line-height: 1.6;
+  }
+
+  #outro {
+    padding-top: 3rem;
+    background: #f3f3f3;
+  }
+
+  .outro-text {
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 2px;
+  }
+
+  .outro-text:last-child {
+    margin-bottom: 20px;
   }
