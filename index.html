@@ -357,6 +357,9 @@
               Sterigenics released 4,205 pounds of ethylene oxide in 2016. </strong>
               In response to public pressure, Illinois just passed legislation to phase out the use of ethylene oxide by
               2022.</p>
+              <ul>
+                <span style="background:#F89C74"></span><label>Sterigenics Plant</label> <br>
+              </ul>
         </div>
 
         <!-- Scene 5b -->
@@ -408,10 +411,10 @@
 
         <!-- Scene 6 -->
         <div class="step">
-          <p>An explosion in 2005 at Formosa's Point Comfort, Texas plant resulted in a fire that burned for 5 days and
-            forced the community of Point Comfort into a shelter-in-place order.
-            And in 2019 the company was ordered to pay a $50 million settlement to clean up plastic pellets and other
-            pollutants they had been illegally dumping into Lavaca Bay and surrounding waterways.</p>
+          <p>An explosion in 2005 at Formosa's Point Comfort, Texas plant resulted in <strong>a fire that burned for 5 days</strong> and
+            forced the community of Point Comfort into a shelter-in-place order. 
+            And in 2019 the company was ordered to pay a <strong>$50 million settlement to clean up plastic pellets and other
+            pollutants they had been illegally dumping into Lavaca Bay and surrounding waterways.</strong></p>
             <ul>
               <span style="background:#cadb75"></span><label>Formosa Point Comfort Facility</label> <br>
             </ul>
@@ -517,14 +520,6 @@
           <p>The same rivers we depend on for clean drinking water also tend to be ideal locations for many of these industries producing and releasing toxic chemicals. 
           </p>
         </div>
-
-        <!-- Scene 8
-        <div class="step">
-          <div class="step-body">
-          <h3>How does this affect you?</h3>
-          <p>geocode option to find sites close to you?</p>
-        </div>
-        </div> -->
 
       </article>
 
@@ -653,7 +648,7 @@
 
       // create array of layers to be turned off in each case before adding back relevant layers
       const allLayers = ['superfund-layer', 'superfund-labels', 'tri-layer', 'ge-layer', 'watershed-layer',
-        'river-layer', 'lead-belt-area-layer', 'tri-release-layer', 'ethylene-layer', 'chromium-layer',
+        'river-layer', 'lead-belt-area-layer', 'tri-release-layer', 'ethylene-layer', 'sterigenics-layer', 'chromium-layer',
         'st-james-layer', 'spill-layer', 'tri-river-layer', 'parent-co-layer', 'all-rivers-layer'
       ]
 
@@ -1063,7 +1058,6 @@
           });
           allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
           allMarkers.forEach(item => item.remove());
-          // map.setLayoutProperty('ethylene-layer','visibility', 'visible');
           map.setLayoutProperty('chromium-layer', 'visibility', 'visible');
           break;
 
@@ -1080,7 +1074,6 @@
           allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
           allMarkers.forEach(item => item.remove());
           map.setLayoutProperty('ethylene-layer', 'visibility', 'visible');
-          map.setFilter('tri-release-layer', null);
 
           break;
 
@@ -1096,14 +1089,11 @@
           });
           allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
           allMarkers.forEach(item => item.remove());
-          map.setLayoutProperty('tri-release-layer', 'visibility', 'visible');
+          map.setLayoutProperty('sterigenics-layer', 'visibility', 'visible');
           map.setLayoutProperty('ethylene-layer', 'visibility', 'visible');
-          map.setFilter('tri-release-layer', ['==', 'FACILITY_NAME', 'STERIGENICS US LLC-WILLOWBROOK IL FACILITY']);
-          map.setPaintProperty('tri-release-layer', 'circle-radius', ['sqrt', ['/', ['get', 'TOTAL2016'], 25]]);
-          map.setPaintProperty('tri-release-layer', 'circle-color', '#F6CF71');
-
-
-
+          // map.setFilter('tri-release-layer', ['==', 'FACILITY_NAME', 'STERIGENICS US LLC-WILLOWBROOK IL FACILITY']);
+          // map.setPaintProperty('tri-release-layer', 'circle-radius', ['sqrt', ['/', ['get', 'TOTAL2016'], 25]]);
+          // map.setPaintProperty('tri-release-layer', 'circle-color', '#F6CF71');
           break;
 
         case 21:
@@ -1554,15 +1544,10 @@
       //     filterTotalRelease(year);
       //   });
 
-      // add sources and layers for chromium and ethylene oxide facilities
+      // add source and layer for chromium facilities
       map.addSource('chromium-source', {
         type: 'geojson',
         data: 'data/chromium-facilities.geojson'
-      });
-
-      map.addSource('ethylene-source', {
-        type: 'geojson',
-        data: 'data/ethylene-facilities.geojson'
       });
 
       map.addLayer({
@@ -1584,6 +1569,12 @@
         }
       });
 
+      // add source and layer for ethylene oxide facilities
+      map.addSource('ethylene-source', {
+        type: 'geojson',
+        data: 'data/ethylene-facilities.geojson'
+      });
+
       map.addLayer({
         'id': 'ethylene-layer',
         'type': 'circle',
@@ -1591,6 +1582,7 @@
         'layout': {
           'visibility': 'none'
         },
+        'filter': ['!=', 'FACILITY_NAME', 'STERIGENICS US LLC-WILLOWBROOK IL FACILITY'],
         'paint': {
           'circle-color': '#F6CF71',
           'circle-radius': [
@@ -1599,7 +1591,27 @@
           'circle-opacity': .75,
           'circle-stroke-color': '#2f2d2d',
           'circle-stroke-width': 0.5
-        }
+        },
+      });
+
+      // add Sterigenics layer
+      map.addLayer({
+        'id': 'sterigenics-layer',
+        'type': 'circle',
+        'source': 'ethylene-source',
+        'layout': {
+          'visibility': 'none'
+        },
+        'filter': ['==', 'FACILITY_NAME', 'STERIGENICS US LLC-WILLOWBROOK IL FACILITY'],
+        'paint': {
+          'circle-color': '#F89C74',
+          'circle-radius': [
+            'sqrt', ['/', ['get', 'ON_SITE_RELEASE_TOTAL'], 25]
+          ],
+          'circle-opacity': .75,
+          'circle-stroke-color': '#2f2d2d',
+          'circle-stroke-width': 0.5
+        },
       });
 
       // add source and layer for St. James Parish
