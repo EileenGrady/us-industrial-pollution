@@ -452,7 +452,7 @@ article {
   }
 
   #outro {
-    padding-top: 3rem;
+    padding-top: 4rem;
     background: #f3f3f3;
   }
 
@@ -463,5 +463,5 @@ article {
   }
 
   .outro-text:last-child {
-    margin-bottom: 20px;
+    padding-bottom: 1rem;
   }

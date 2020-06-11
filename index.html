@@ -478,8 +478,8 @@
         <!-- Scene 7b -->
         <div class="step">
           <p>The spill occurred upstream from the primary West Virginia American Water intake center, <strong>leaving 300,000
-            residents in nine counties without drinking water for several days. </strong>
-            The National Guard was called in to help distribute water as hospitals struggled, schools and businesses shut down, and families rushed out only to find empty shelves.
+            residents in nine counties without water for several days. </strong>
+            The National Guard was called in to help distribute water as water bottles quickly disappeared from store shelves, schools and businesses shut down, and hospitals struggled.
           </p>
           <ul>
             <span style="background:#A5AA99"></span><label>Affected Counties</label> <br>
@@ -499,14 +499,15 @@
 
         <!-- Scene 7c -->
         <div class="step">
-          <p>The Superfund case studies showed us the lasting and widespread damage industrial pollution can cause when left unchecked. 
-            And while the TRI does track toxic chemical releases, it cannot always protect communities or the environment, especially if regulatory laws are not enforced. 
+          <p>The same rivers we depend on for clean drinking water also tend to be ideal locations for many of these industries producing and releasing toxic chemicals. 
+            <strong>Facilities seen here are located with one-mile of a river. </strong>
           </p>
           <ul>
             <span style="background:#79a7ac"></span><label>Rivers</label> <br>
             <span style="background:#cadb75"></span><label>TRI Reporting Facilities in 2018, located with one-mile of a river</label> <br>
           </ul>
-          <p>The same rivers we depend on for clean drinking water also tend to be ideal locations for many of these industries producing and releasing toxic chemicals. 
+          <p>The Superfund case studies showed us the lasting and widespread damage industrial pollution can cause when left unchecked. 
+            And while the TRI does track toxic chemical releases, it cannot always protect communities or the environment, especially if regulatory laws are not enforced. 
           </p>
         </div>
 
@@ -1173,7 +1174,7 @@
           allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
           allMarkers.forEach(item => item.remove());
           map.setLayoutProperty('tri-layer', 'visibility', 'visible');
-          map.setFilter('tri-layer', ['==', 'FACILITY_NAME', 'FORMOSA PLASTICS CORP TEXAS']);
+          map.setFilter('tri-layer', ['==', 'FACILITY NAME', 'FORMOSA PLASTICS CORP TEXAS']);
           map.setPaintProperty('tri-layer', 'circle-radius', 8);
           break;
 
@@ -1190,7 +1191,7 @@
           allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
           allMarkers.forEach(item => item.remove());
           map.setLayoutProperty('tri-layer', 'visibility', 'visible');
-          map.setFilter('tri-layer', ['==', 'PARENT_CO_NAME', 'FORMOSA PLASTICS CORP USA']);
+          map.setFilter('tri-layer', ['==', 'PARENT CO NAME', 'FORMOSA PLASTICS CORP USA']);
           map.setPaintProperty('tri-layer', 'circle-radius', 6);
           break;
 
