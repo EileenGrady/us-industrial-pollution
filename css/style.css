@@ -9,15 +9,23 @@
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  
 }
 
 #container {
   height: 100vh;
-  width: 100vh;
+  /* width: 100vh; */
   /* margin: auto; */
   padding-left: 30px;
   padding-top: 30px;
-  margin-left: 0;
+  margin: auto;
+}
+
+/* Top left text */
+.top-left {
+  position: absolute;
+  top: 8px;
+  left: 16px;
 }
 
 /* The progress container (grey background) */
@@ -32,7 +40,8 @@
 #scroll-icon a {
   position: absolute;
   bottom: 20px;
-  margin-left: 30px;
+  /* margin-left: 30px; */
+  margin-left: 50%;
   z-index: 2;
   display: inline-block;
   -webkit-transform: translate(0, -50%);
@@ -43,7 +52,6 @@
   text-decoration: none;
   transition: opacity .3s;
   padding-top: 60px;
-
 }
 
 #scroll-icon a span {
@@ -57,6 +65,7 @@
   border-radius: 100%;
   box-sizing: border-box;
 }
+
 #scroll-icon a span::after {
   position: absolute;
   top: 50%;
@@ -236,7 +245,7 @@ article {
 
   .step:last-child {
     /* OPTIONAL: removes extra space at the bottom of the story*/
-    margin-bottom: 10rem;
+    margin-bottom: 7rem;
   }
 
   ul {

@@ -18,15 +18,7 @@ Superfund site locations were initially obtained as a csv file from the EPA's [S
 
 Sample of Superfund site data, showing sites chosen for case studies:
 
-| SITE_NAME | NPL_STATUS | SUPERFUND_ALT | HUMAN_EXPOSURE | GROUNDWATER_MITIGATION | HRS_SCORE| geometry
-| ----- | -----| ----- | ----- | ---- | ---- | ---- | ---- | ---- |
-| GE PITTSFIELD HOUSATONIC RIVER SUPERFUND SITE	| Proposed for NPL| No | No | No | 70.71| POINT (-73.23222 42.45028) 
-| ANSCHUTZ - MADISON MINE | Currently on the Final NPL | No | No | Insufficient Data | 58.41 | POINT (-90.27611 37.54611)
-| SOUTHWEST JEFFERSON COUNTY MINING	| Currently on the Final NPL | No | No | No | 70.71 | POINT (-90.75898 38.18679)
-| WASHINGTON COUNTY LEAD DISTRICT - FURNACE CREEK| Currently on the Final NPL | No | No | Insufficient Data | 50.00| POINT (-90.79956 37.84053)
-| WASHINGTON COUNTY LEAD DISTRICT - OLD MINES | Currently on the Final NPL | No	| No | Insufficient Data | 76.81 | POINT (-90.73833 38.07528)
-| WASHINGTON COUNTY LEAD DISTRICT - POTOSI | Currently on the Final NPL | No | No | Insufficient Data | 50.00	| POINT (-90.77240 37.93990)
-| WASHINGTON COUNTY LEAD DISTRICT - RICHWOODS | Currently on the Final NPL | No | No | Insufficient Data | 76.81 | POINT (-90.81426 38.16615)
+![Superfund sample data](images/superfund-data.png)
 
 Additional data was gleaned from individual [Superfund site profiles](https://www.epa.gov/superfund). I was able to determine rivers and watersheds were affected in each case study, and the counties affected in the lead district case study. Rivers were downloaded from [Natural Earth](https://www.naturalearthdata.com/downloads/10m-physical-vectors/), watersheds from [USGS](https://www.usgs.gov/core-science-systems/ngp/national-hydrography/access-national-hydrography-products), and counties from [the Census Bureau](https://www.census.gov/cgi-bin/geo/shapefiles/index.php?year=2019&layergroup=Counties+%28and+equivalent%29), then brought into QGIS to filter and export the necessary features.
 
@@ -58,7 +50,7 @@ One advantage of using Mapbox GL JS was the ability to create tilesets out of my
 
 ### C. Application layout
 
-![basic wireframe](images/wireframe-1.jpg)
+![basic wireframe](images/wireframe-mockup.png)
 
 ### D. Thematic representation
 

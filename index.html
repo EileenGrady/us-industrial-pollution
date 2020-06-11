@@ -36,12 +36,19 @@
           and 1960s, and the US reached a turning point when the Environmental Protection Agency was established in
           1970. The EPA began to monitor and enforce the increasing number of environmental laws passed by Congress
           aimed at reducing industrial pollution. Today there are two main programs in place that monitor industrial
-          pollution in the United States, the Superfund Program and the Toxics Release Inventory.</h2>
+          pollution in the United States, the Superfund Program and the Toxics Release Inventory.</p>
       </div>
       <div id="scroll-icon">
         <a href="#"><span></span>Scroll</a>
       </div>
     </section>
+
+    <!-- <section id="intro">
+      <div id="intro-container">
+        <img src="https://cdn.pixabay.com/photo/2016/10/22/21/54/industry-1761801_960_720.jpg" alt="" style="width:100%;">
+        <div class="top-left">Top Left</div>
+      </div>
+    </section> -->
 
     <!-- Main Scrollytelling Section -->
     <section id="scrollytelling">
@@ -286,14 +293,6 @@
               Seven industry sectors were added to the TRI in 1997, including metal and coal mining, electric power
               generators, and commercial hazardous waste treatment operations.
             </p></div>
-          <!-- <div class="total-release-slider">
-            <div id = "year-label"><label id="total-year">1987</label> </div>
-            <input id="total-slider" type="range" min="1987" max="2018" step="1" value="0" />
-          </div> -->
-          <!-- <svg id='year-chart' width="650" height="500"></svg> -->
-          <!-- <svg id='year-chart' width="500" height="250" padding="16"></svg>
-          <div id='sliderdiv'><input id="total-slider" type="range" min="1987" max="2018" step="1" value="0" /></div></div> -->
-
         </div>
 
         <div class="step">
@@ -2065,11 +2064,6 @@
           "</a>") //append new dropdown item
       });
 
-      // $('#dropdown-item').click(function(e) {
-      //     doSomething();
-      //     return false;
-      // });
-
       //assign click event to dropdown filter, call filterMap when dropdown selection made
       $('.dropdown-menu a').click(function (e) {
         company = this.innerHTML;
@@ -2105,9 +2099,6 @@
         sourceLayer: 'tri-2018-4g0489',
         filter: ['==', 'PARENT CO NAME', company]
       });
-
-      // console.log(facilities)
-
 
       // get the parent company source data
       var parent = map.querySourceFeatures('parent-co-source', {
