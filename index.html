@@ -447,10 +447,10 @@
             id="parent-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Choose a company
           </a>
-          <div class="dropdown-menu" id="parent-dropdown" aria-labelledby="dropdownMenuLink">
+          <div class="dropdown-menu" id="parent-dropdown" aria-labelledby="parent-button">
           </div>
-          <div id="company-header"></div>
-          <div id="company-details"></div>
+            <div id="company-header"></div>
+            <div id="company-details"></div>
         </div>
 
         <div class="step">
@@ -1037,11 +1037,12 @@
           allMarkers.forEach(item => item.remove());
           map.setLayoutProperty('tri-release-layer', 'visibility', 'visible');
           map.setPaintProperty('tri-release-layer', 'circle-color', '#cadb75');
+          filterTotalRelease(1987);
           document
             .getElementById('total-slider')
             .addEventListener('input', function (e) {
               var year = parseInt(e.target.value, 10);
-              filterTotalRelease(year);
+              // filterTotalRelease(year);
             });
           document.getElementById("release-note").style.fontWeight = "normal";
           break;
@@ -1091,9 +1092,6 @@
           allMarkers.forEach(item => item.remove());
           map.setLayoutProperty('sterigenics-layer', 'visibility', 'visible');
           map.setLayoutProperty('ethylene-layer', 'visibility', 'visible');
-          // map.setFilter('tri-release-layer', ['==', 'FACILITY_NAME', 'STERIGENICS US LLC-WILLOWBROOK IL FACILITY']);
-          // map.setPaintProperty('tri-release-layer', 'circle-radius', ['sqrt', ['/', ['get', 'TOTAL2016'], 25]]);
-          // map.setPaintProperty('tri-release-layer', 'circle-color', '#F6CF71');
           break;
 
         case 21:
@@ -2063,15 +2061,20 @@
       //for each value in parent company array
       $.each(parentCompanies, function (key, value) {
         // append a new element
-        dropdown.append("<a class='dropdown-item' value='" + key + "' href='javascript:return false;''>" + value +
+        dropdown.append("<a class='dropdown-item' value='" + key + "' href='#!''>" + value +
           "</a>") //append new dropdown item
       });
+
+      // $('#dropdown-item').click(function(e) {
+      //     doSomething();
+      //     return false;
+      // });
 
       //assign click event to dropdown filter, call filterMap when dropdown selection made
       $('.dropdown-menu a').click(function (e) {
         company = this.innerHTML;
         filterMap(company);
-        updateDetails(company)
+        updateDetails(company);
       });
     }
 

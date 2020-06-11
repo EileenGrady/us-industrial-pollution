@@ -92,6 +92,7 @@ p {
   font-family: 'Bitter', serif;
   font-size: 1rem;
   line-height: 1.6;
+  color: #3E3F3A;
 }
 
 p.intro {
@@ -183,7 +184,7 @@ article {
   /* 'OPTIONAL: margin-top' sets how much space there is between the the figure and the first message.*/
   margin-top: 0;
   /* 'margins position step on the page*/
-  margin-left: .5rem;
+  margin-left: 1rem;
   /* 'transform' is included to ensure z-index works properly on all kinds of devices */
   -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
@@ -418,10 +419,21 @@ article {
     padding-bottom: 5px;
   }
 
+  #parent-button {
+    background-color: #5f5f5f;
+    /* width: 100%; */
+    float: left;
+    margin-top: .4rem;
+    margin-right: .8rem;
+    font-family: 'Bitter', serif;
+    /* font-size: 0.95em; */
+    /* margin-bottom: 8px; */
+    color: #f3f3f3;
+  }
+
   #company-header {
     font-family: 'Bitter', serif;
     font-size: 1.2rem;
-    margin-top: 20px;
   }
 
   #company-details {
