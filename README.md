@@ -20,25 +20,29 @@ Sample of Superfund site data, showing sites chosen for case studies:
 
 ![Superfund sample data](images/superfund-data.png)
 
-Additional data was gleaned from individual [Superfund site profiles](https://www.epa.gov/superfund). I was able to determine rivers and watersheds were affected in each case study, and the counties affected in the lead district case study. Rivers were downloaded from [Natural Earth](https://www.naturalearthdata.com/downloads/10m-physical-vectors/), watersheds from [USGS](https://www.usgs.gov/core-science-systems/ngp/national-hydrography/access-national-hydrography-products), and counties from [the Census Bureau](https://www.census.gov/cgi-bin/geo/shapefiles/index.php?year=2019&layergroup=Counties+%28and+equivalent%29), then brought into QGIS to filter and export the necessary features.
+Additional data was gathered from individual [Superfund site profiles](https://www.epa.gov/superfund). I was able to determine rivers and watersheds were affected in each case study, and the counties affected in the lead district case study. Rivers were downloaded from [Natural Earth](https://www.naturalearthdata.com/downloads/10m-physical-vectors/), watersheds from [USGS](https://www.usgs.gov/core-science-systems/ngp/national-hydrography/access-national-hydrography-products), and counties from [the Census Bureau](https://www.census.gov/cgi-bin/geo/shapefiles/index.php?year=2019&layergroup=Counties+%28and+equivalent%29), then brought into QGIS to filter and export the necessary features.
 
 I found an [aerial map](https://www.epa.gov/ge-housatonic) of the GE Pittsfield site, georeferenced the image in QGIS, and traced the outlines to create a geojson.
 
 ![Georeferenced GE site map](images/georeferenced-map.png)
 
-[Toxic Release Inventory](https://www.epa.gov/toxics-release-inventory-tri-program/tri-basic-data-files-calendar-years-1987-2018) data is available for download in .xlsx format for individual years. After exploring the dataset from 2018, I decided to proceed in five steps:
+[Toxic Release Inventory](https://www.epa.gov/toxics-release-inventory-tri-program/tri-basic-data-files-calendar-years-1987-2018) data is available for download in .csv format for individual years. After exploring the dataset from 2018, I decided to proceed in four steps:
 
-1. First I wanted to visualize the general location and distribution of all TRI facilities who reported in 2018. Data is reported as one record for each chemical released per reporting facility. I used a jupyter notebook to wrangle data into one record per reporting facility, and exported to geojson.
+1. First I downloaded the individual files from each year available, 1987-2018. Data is reported as one record for each chemical released per reporting facility. I used a jupyter notebook to wrangle data into one record per reporting facility in order to export one geojson for 2018 data and one geojson for facilities from all years with release totals for each year. 
 
-2. I also wanted to explore changes over time in total release amounts by looking at all data files available from 1987-2018. After downloading the individual files for each year, I used a jupyter notebook to combine all data sets and create a geojson with one record per facility, and columns for each facility's total on-site release per year.
+Sample of 2018 TRI data:
+![2018 TRI data](images/tri-2018-data.png)
 
-3. The EPA's Risk-Screening Environmental Indicators (RSEI) model adds context to the data reported to the TRI, and can help isolate facilities or chemicals that warrant further investigation. First I used the [EasyRSEI Dashboard](https://edap.epa.gov/public/extensions/EasyRSEI/EasyRSEI.html) to find scores for all facilities in 2018. I found that ethylene oxide emissions were to blame for the high RSEI score in Texas, and also that ethylene oxide had the second highest share of the country's total RSEI score. I used the TRI data files to create two geojsons: (1) facilities releasing chromium/chromium compunds, and (2) facilities releasing ethylene oxide. I looked for patterns in these facilities in QGIS and a jupyter notebook.
+Sample of TRI data with release totals:
+![TRI release total data](images/tri-release-data.png)
+
+2. The EPA's Risk-Screening Environmental Indicators (RSEI) model adds context to the data reported to the TRI, and can help isolate facilities or chemicals that warrant further investigation. First I used the [EasyRSEI Dashboard](https://edap.epa.gov/public/extensions/EasyRSEI/EasyRSEI.html) to find scores for all facilities in 2018. I found that ethylene oxide emissions were to blame for the high RSEI score in Texas, and also that ethylene oxide had the second highest share of the country's total RSEI score. I used the TRI data files to create two geojsons: (1) facilities releasing chromium/chromium compunds, and (2) facilities releasing ethylene oxide. I looked for patterns in these facilities in QGIS and a jupyter notebook.
 
 ![EasyRSEI dashboard screenshot](images/easy-rsei-dashboard.png)
 
-4. There are 10 parent companies in the TRI 2018 data that stand out as owning at least 90 facilities. I created  a csv of these companies, through an online search to find each company's headquarters, and geocoded the addresses in a jupyter notebook to create a geojson of parent companies.
+3. There are 10 parent companies in the TRI 2018 data that stand out as owning at least 90 facilities. I created  a csv of these companies, through an online search to find each company's headquarters, and geocoded the addresses in a jupyter notebook to create a geojson of parent companies.
 
-5. After outlining the project, I decided I wanted to conclude with an epilogue that showcased TRI facilities within a certain distance of a river. I used a jupyter notebook to find TRI facilities within one-mile of a river, using the geojson created out of 2018 TRI facilities.
+4. After outlining the project, I decided I wanted to conclude with an epilogue that showcased TRI facilities within a certain distance of a river. I used a jupyter notebook to find TRI facilities within one-mile of a river, using the geojson created out of 2018 TRI facilities.
 
 ### B. Medium for delivery
 
