@@ -1479,7 +1479,9 @@
           'fill-opacity': .4,
           'fill-outline-color': '#52BCA3',
         }
-      });
+      }, 'superfund-layer');
+
+      map.moveLayer('watershed-layer', 'superfund-labels');
 
       // add source and layer for river layer used in case studies
       map.addSource('river-source', {
@@ -1498,7 +1500,9 @@
           'line-color': '#88CCEE',
           'line-width': 2
         }
-      });
+      }, 'superfund-layer');
+
+      map.moveLayer('river-layer', 'superfund-labels');
 
       // add source and layer for Lead Belt areas
       map.addSource('lead-belt-area-source', {
