@@ -19,8 +19,6 @@
   <link href='https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css2?family=PT+Sans&display=swap' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css2?family=Bitter&display=swap' rel='stylesheet'>
-  
-  
 </head>
 
 <body>
@@ -116,13 +114,15 @@
         <div class='step'>
           <p>
             <strong>Over time, heavy metals and toxic chemicals from these waste piles have leached into the groundwater, eventually draining into the Big River. </strong>
-            This process escalated in 1977, when approximately 50,000 cubic yards of this toxic waste was washed directly into the river during heavy rains. 
-            Any toxins entering the Big River have been carried downstream, contaminating sediment and floodplains.
           </p>
           <ul>
             <span style='background:#88CCEE'></span><label>Big River</label> <br>
             <span style='background:#44AA99'></span><label>Big River Watershed</label> <br>
           </ul>
+          <p>
+            This process escalated in 1977, when approximately 50,000 cubic yards of this toxic waste was washed directly into the river during heavy rains. 
+            <strong>Any toxins entering the Big River have been carried downstream, contaminating sediment and floodplains.</strong>
+          </p>
           <p class='credit'>Source: <a
               href='https://cumulis.epa.gov/supercpad/cursites/csitinfo.cfm?id=0701639'
               target='_blank'>EPA</a></p>
@@ -583,7 +583,8 @@
             <span style='background:#cadb75'></span><label>TRI Reporting Facilities in 2018, located with one-mile of a river</label> <br>
           </ul>
           <p>The Superfund case studies showed us the lasting and widespread damage industrial pollution can cause when left unchecked. 
-            And while the TRI does track toxic chemical releases, it cannot always protect communities or the environment, especially if regulatory laws are not enforced.
+            And while the TRI does track toxic chemical releases, it cannot always protect communities or the environment, especially if regulatory laws are not enforced. 
+            <strong>Industrial pollution is an issue that affects everyone, and it is up to us to continue advocating for environmental protections to ensure that everyone has access to clean air and safe drinking water.</strong>
           </p>
           <p>
             <strong>Explore further:</strong>
@@ -594,6 +595,8 @@
             <li><a href='https://www.epa.gov/toxics-release-inventory-tri-program' target='_blank'>Toxics Release Inventory (TRI) Program</a></li>
             <li><a href='https://www.propublica.org/series/polluters-paradise' target='_blank'>Polluter's Paradise: Environmental Impact in Louisiana</a></li>
             <li><a href='https://www.wvpublic.org/term/elk-river-chemical-spill#stream/0' target='_blank'>Elk River Chemical Spill</a></li>
+            <li><a href='https://projects.propublica.org/represent/bills/category/environmental-protection' target='_blank'>Bills on Environmental Protection in the 116th Congress</a></li>
+
           </ul>
         </div>
 
@@ -648,8 +651,6 @@
       document.getElementById('myBar').style.width = scrolled + '%';
     }
 
-
-
     // Create a scrollama object.
     var myScrollama = scrollama();
 
@@ -678,11 +679,10 @@
 
       // tell scrollama to update new element dimensions. Not always necessary, but included just to be safe.
       myScrollama.resize();
-
     }
 
     // Create a function to update the map in response to step-triggers
-    // setting map view, and removing and adding layers
+    // set map view, remove/add layers, set filters, etc.
     function handleStepChange(response) {
 
       // create array of layers to be turned off in each case before adding back relevant layers
@@ -1621,23 +1621,23 @@
       });
 
       // add source and layer for US River layer
-      map.addSource('all-rivers-source', {
-        type: 'geojson',
-        data: 'data/map-data/us-rivers.geojson'
-      });
+      // map.addSource('all-rivers-source', {
+      //   type: 'geojson',
+      //   data: 'data/map-data/us-rivers.geojson'
+      // });
 
-      map.addLayer({
-        'id': 'all-rivers-layer',
-        'type': 'line',
-        'source': 'all-rivers-source',
-        'layout': {
-          'visibility': 'none'
-        },
-        'paint': {
-          'line-color': '#79a7ac',
-          'line-width': .5
-        }
-      });
+      // map.addLayer({
+      //   'id': 'all-rivers-layer',
+      //   'type': 'line',
+      //   'source': 'all-rivers-source',
+      //   'layout': {
+      //     'visibility': 'none'
+      //   },
+      //   'paint': {
+      //     'line-color': '#79a7ac',
+      //     'line-width': .5
+      //   }
+      // });
 
       // add source and layer for parent companies
       map.addSource('parent-co-source', {
