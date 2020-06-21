@@ -11,9 +11,11 @@
 
   <!-- Bootstrap core CSS, used for dropdown menu -->
   <link href='vendor/bootstrap/css/bootstrap.min.css' rel='stylesheet'>
+  <!-- Mapbox CSS -->
   <link href='https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.css' rel='stylesheet' />
   <!-- Custom styles for this template -->
   <link href='css/style.css' rel='stylesheet' />
+  <!-- Google font styles -->
   <link href='https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css2?family=PT+Sans&display=swap' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css2?family=Bitter&display=swap' rel='stylesheet'>
@@ -24,16 +26,18 @@
 <body>
   <main>
 
-    <!-- OPTIONAL: Scrollytelling Intro -->
+    <!-- Scrollytelling Intro -->
     <section id='intro'>
       <div id='container'>
         <h1 class='intro'>Exploring Industrial Pollution in the US</h1>
-        <p class='intro'>In 1969, the burning of the Cuyahoga River in Cleveland, Ohio became a national symbol for the public’s
+        <p class='intro'>
+          In 1969, the burning of the Cuyahoga River in Cleveland, Ohio became a national symbol for the public’s
           outcry against industrial pollution. The public had been expressing increasing concern throughout the 1950s
           and 1960s, and the US reached a turning point when the Environmental Protection Agency was established in
           1970. The EPA began to monitor and enforce the increasing number of environmental laws passed by Congress
           aimed at reducing industrial pollution. Today there are two main programs in place that monitor industrial
-          pollution in the United States, the Superfund Program and the Toxics Release Inventory.</p>
+          pollution in the United States, the Superfund Program and the Toxics Release Inventory.
+        </p>
       </div>
       <div id='scroll-icon'>
         <a href='#'><span></span>Scroll</a>
@@ -45,27 +49,28 @@
 
       <!-- Map  -->
       <figure>
-        <!-- <div class='header'> -->
           <div class='progress-container'>
             <div class='progress-bar' id='myBar'></div>
           </div>
-      <!-- </div> -->
         <div id='map'></div>
       </figure>
 
       <!-- Prose for the project, additional info describing each scene. -->
       <article>
-        <!-- Each div must have the class that you specify in the myScrollama.setup() -->
+
+        <!-- Scene 1 -->
         <div class='step'>
             <h2>Chapter One: The Superfund Program</h2>
         </div>
 
-        <!-- Scene 1 -->
+        <!-- Scene 1a -->
         <div class='step'>
-          <p><strong>The Superfund Program is responsible for the investigation and clean-up of contaminated sites left over from decades of unregulated industrial manufacturing and other activities. </strong>
+          <p>
+            <strong>The Superfund Program is responsible for the investigation and clean-up of contaminated sites left over from decades of unregulated industrial manufacturing and other activities. </strong>
             The most highly contaminated sites which require longer-term remedial action qualify for the National Priority List (NPL).
           </p>
-          <p><strong>In order to qualify for the NPL a site must receive a Hazard Ranking System (HRS) score of 28.5. </strong>
+          <p>
+            <strong>In order to qualify for the NPL a site must receive a Hazard Ranking System (HRS) score of 28.5. </strong>
             The sites seen here were extracted from the EPA's Superfund website, and meet the qualifications for the NPL.
           </p>
           <ul>
@@ -77,49 +82,56 @@
           </ul>
         </div>
 
+        <!-- Scene 1b -->
         <div class='step'>
-            <p>But the sites you see here are merely representative points, and <strong>toxins from many of these sites have spread far beyond their boundaries. </strong>
-              Next we will visit two case studies to explore just how far some of these contaminants have dispersed. 
-            </p>
+          <p>
+            But the sites you see here are merely representative points, and <strong>toxins from many of these sites have spread far beyond their boundaries. </strong>
+            Next we will visit two case studies to explore just how far some of these contaminants have dispersed. 
+          </p>
         </div>
 
+        <!-- Scene 2 -->
         <div class='step'>
-            <h2>Case Study #1: Southeast Missouri Lead District</h2>
+          <h2>Case Study #1: Southeast Missouri Lead District</h2>
         </div>
 
+        <!-- Scene 2a -->    
         <div class='step'>
-            <p>Missouri is home to the largest lead concentrations in the world, which have been mined for over a century. 
-              <strong>The Big River Mine Tailings site in Park Hills, Missouri has an HRS score of 84.91, the highest hazard ranking score of any superfund site in the country. </strong>
-              This site includes eight enormous piles of mining waste totaling approximately 110 square miles in size. 
-              These piles, like the one seen in the photo below, are heavily contaminated with lead and other heavy metals.
-            </p>
-            <img src='images/park-hills-chat-pile.jpg'>
-            <p class='credit'>Photo Credit: <a
-                href='http://www.nbcnews.com/id/8132449/ns/us_news-environment/t/toxic-mound-beloved-ex-mining-town/#.XrttSmhKg2w'>James
-                A. Finley / AP</a></p>
-            <p class='credit'>Source: <a
-              href='https://cumulis.epa.gov/supercpad/cursites/csitinfo.cfm?id=0701639' target='_blank'>EPA</a></p>
+          <p>
+            Missouri is home to the largest lead concentrations in the world, which have been mined for over a century. 
+            <strong>The Big River Mine Tailings site in Park Hills, Missouri has an HRS score of 84.91, the highest hazard ranking score of any superfund site in the country. </strong>
+            This site includes eight enormous piles of mining waste totaling approximately 110 square miles in size. 
+            These piles, like the one seen in the photo below, are heavily contaminated with lead and other heavy metals.
+          </p>
+          <img src='images/park-hills-chat-pile.jpg'>
+          <p class='credit'>Photo Credit: <a
+              href='http://www.nbcnews.com/id/8132449/ns/us_news-environment/t/toxic-mound-beloved-ex-mining-town/#.XrttSmhKg2w'>James
+              A. Finley / AP</a></p>
+          <p class='credit'>Source: <a
+            href='https://cumulis.epa.gov/supercpad/cursites/csitinfo.cfm?id=0701639' target='_blank'>EPA</a></p>
         </div>
 
         
-        <!-- Scene 3b -->
+        <!-- Scene 2b -->
         <div class='step'>
-            <p><strong>Over time, heavy metals and toxic chemicals from these waste piles have leached into the groundwater, eventually draining into the Big River. </strong>
-              This process escalated in 1977, when approximately 50,000 cubic yards of this toxic waste was washed directly into the river during heavy rains. 
-              Any toxins entering the Big River have been carried downstream, contaminating sediment and floodplains.
-            </p>
-            <ul>
-              <span style='background:#88CCEE'></span><label>Big River</label> <br>
-              <span style='background:#44AA99'></span><label>Big River Watershed</label> <br>
-            </ul>
+          <p>
+            <strong>Over time, heavy metals and toxic chemicals from these waste piles have leached into the groundwater, eventually draining into the Big River. </strong>
+            This process escalated in 1977, when approximately 50,000 cubic yards of this toxic waste was washed directly into the river during heavy rains. 
+            Any toxins entering the Big River have been carried downstream, contaminating sediment and floodplains.
+          </p>
+          <ul>
+            <span style='background:#88CCEE'></span><label>Big River</label> <br>
+            <span style='background:#44AA99'></span><label>Big River Watershed</label> <br>
+          </ul>
           <p class='credit'>Source: <a
               href='https://cumulis.epa.gov/supercpad/cursites/csitinfo.cfm?id=0701639'
               target='_blank'>EPA</a></p>
         </div>
 
-        <!-- Scene 3 -->
+        <!-- Scene 2c -->
         <div class='step'>
-          <p>But this site is not the only site contributing to pollution in the Big River Watershed and surrounding area. 
+          <p>
+            But this site is not the only site contributing to pollution in the Big River Watershed and surrounding area. 
             <strong>There are five more defunct lead mines within the Big River watershed, and another just south.
             All of these sites are on the National Priority List, and have an HRS score of at least 50. </strong>
           </p>
@@ -128,17 +140,19 @@
               <span style='background:#44AA99'></span><label>Big River Watershed</label> <br>
               <span style='background:#f89c74'></span><label>Southeast Missouri Lead District Superfund Site</label> <br>
             </ul>
-            <p>The piles of toxic mining waste at each of these sites are susceptible to wind and water erosion. 
-              Remediation efforts in cases like these usually begin by covering the waste piles to prevent any further erosion and subsequent distribution of toxic material. 
-              <strong>But by the time these sites were identified as Superfund sites and remediation could begin, the damage was already done. </strong>
+          <p>
+            The piles of toxic mining waste at each of these sites are susceptible to wind and water erosion. 
+            Remediation efforts in cases like these usually begin by covering the waste piles to prevent any further erosion and subsequent distribution of toxic material. 
+            <strong>But by the time these sites were identified as Superfund sites and remediation could begin, the damage was already done. </strong>
           </p>
           <p class='credit'>Source: <a href='http://www.msnbc.com/msnbc/life-missouris-fading-old-lead-belt' target='_blank'>Life in
               Missouri’s Fading Old Lead Belt</a></p>
         </div>
 
-        <!-- Scene 3a -->
+        <!-- Scene 2d -->
         <div class='step'>
-          <p>Carried by wind, rain, human activity, and transported by way of the Big River, <strong>toxic mine waste has been distributed throughout this entire area, affecting soil, groundwater, and surface water. </strong> 
+          <p>
+            Carried by wind, rain, human activity, and transported by way of the Big River, <strong>toxic mine waste has been distributed throughout this entire area, affecting soil, groundwater, and surface water. </strong> 
             It was also not uncommon for homes and developments to be built overtop mine waste before the dangers of lead were documented. 
             <strong>The total area affected by these seven Superfund sites covers four entire counties in Missouri. </strong>
           </p>
@@ -153,55 +167,60 @@
             target='_blank'>EPA</a></p>
         </div>
 
+        <!-- Scene 2e -->
         <div class='step'>
-            <p><strong>Next we will travel east to Massachusetts to investigate the second case study.</strong></p>          
+          <p>
+            <strong>Next we will travel east to Massachusetts to investigate the second case study.</strong>
+          </p>          
         </div>
 
+        <!-- Scene 3 -->
         <div class='step'>
-            <h2>Case Study #2: GE-Pittsfield/Housatonic River Superfund Site</h2>          
+          <h2>Case Study #2: GE-Pittsfield/Housatonic River Superfund Site</h2>          
         </div>
 
-        <!-- Scene 1 -->
+        <!-- Scene 3a -->
         <div class='step'>
-          <p>The <strong>General Electric transformer plant</strong> sitting on the banks of the Housatonic River in Pittsfield, Massachusetts was once known as “one of the crown jewels of GE’s electrical infrastructure, high voltage testing, and defense contracting business.” 
+          <p>
+            The <strong>General Electric transformer plant</strong> sitting on the banks of the Housatonic River in Pittsfield, Massachusetts was once known as “one of the crown jewels of GE’s electrical infrastructure, high voltage testing, and defense contracting business.” 
             <strong>The defunct plant is now proposed for the Superfund National Priority List, with an HRS score of 70.71. </strong>
           </p>
-          <p><strong>The primary concern at this site is the prolonged use of polychlorinated biphenyls (PCBs)</strong> by the plant as a coolant in the manufacture of transformers. 
+          <p>
+            <strong>The primary concern at this site is the prolonged use of polychlorinated biphenyls (PCBs)</strong> by the plant as a coolant in the manufacture of transformers. 
             <strong>PCBs do not break down in the environment and are now known to cause both cancer and serious non-cancer health effects in humans and animals. </strong>
           </p>
           <p class='credit'>Source: <a href='https://www.wbur.org/radioboston/2016/06/29/ge-and-pittsfield' target='_blank'>GE Left
               Behind A Complex Legacy In Pittsfield</a></p>
-          <!-- <img src='images/ge-warning-sign.png'>
-          <p>Photo Credit: <a href='https://www.masslive.com/politics/2016/01/in_pittsfield_general_electric.html'>Don
-              Treeger</a></p> -->
         </div>
 
-        <!-- Scene 2a -->
+        <!-- Scene 3b -->
         <div class='step'>
-            <p>
-              <strong>For decades until they were banned in 1979, PCBs leaked from piping throughout the GE plant into the ground, or were directly dumped into the Housatonic River and other areas around the campus. </strong>
-              The enormous footprint left behind by the defunct 300-acre plant is now part of the clean-up area designated by
-              this Superfund site.
-              </p>
-              <ul>
-                <span style='background:#D3B484'></span><label>GE-Pittsfield/Housatonic River Site clean-up area</label> <br>
-              </ul>
-            <p>The cleanup areas include various complexes making up the GE campus, in addition to properties located in
-              the Housatonic's floodplain, a school, areas where the river was re-routed
-              in the 1940s, and a half-mile reach of contaminated riverbanks and sediments in the East Branch
-              of the Housatonic River.
-            </p>
-            <p>
-              <strong>But the PCBs that made their way into the Housatonic River did not strictly remain in this area.</strong>
-            </p>
-            <p class='credit'>Source: <a href='https://www.masslive.com/politics/2016/01/in_pittsfield_general_electric.html'
-                target='_blank'>In Pittsfield, General Electric plant closures leave bitter memories</a> and <a
-                href='https://www.epa.gov/ge-housatonic' target='_blank'>EPA</a></p>
+          <p>
+            <strong>For decades until they were banned in 1979, PCBs leaked from piping throughout the GE plant into the ground, or were directly dumped into the Housatonic River and other areas around the campus. </strong>
+            The enormous footprint left behind by the defunct 300-acre plant is now part of the clean-up area designated by
+            this Superfund site.
+          </p>
+          <ul>
+            <span style='background:#D3B484'></span><label>GE-Pittsfield/Housatonic River Site clean-up area</label> <br>
+          </ul>
+          <p>
+            The cleanup areas include various complexes making up the GE campus, in addition to properties located in
+            the Housatonic's floodplain, a school, areas where the river was re-routed
+            in the 1940s, and a half-mile reach of contaminated riverbanks and sediments in the East Branch
+            of the Housatonic River.
+          </p>
+          <p>
+            <strong>But the PCBs that made their way into the Housatonic River did not strictly remain in this area.</strong>
+          </p>
+          <p class='credit'>Source: <a href='https://www.masslive.com/politics/2016/01/in_pittsfield_general_electric.html'
+              target='_blank'>In Pittsfield, General Electric plant closures leave bitter memories</a> and <a
+              href='https://www.epa.gov/ge-housatonic' target='_blank'>EPA</a></p>
         </div>
 
-        <!-- Scene 2b -->
+        <!-- Scene 3c -->
         <div class='step'>
-          <p>Over time, storms and floods have disturbed PCB laden sediment from the river bottom and soil from
+          <p>
+            Over time, storms and floods have disturbed PCB laden sediment from the river bottom and soil from
             contaminated river banks, redistributing it further down the river and into floodplains. 
             <strong>The “Rest of River” cleanup area included in this Superfund site covers nearly 125 miles from the confluence
             of the East and West Branches in Pittsfield to just before the Long Island Sound in Connecticut. </strong>
@@ -211,32 +230,36 @@
             <span style='background:#44AA99'></span><label>Housatonic Watershed</label> <br>
           </ul>
           </p>
-          <p><strong>PCBs are persistent in the environment, resistant to degradation, and accumulate quickly in the body. </strong>
+          <p>
+            <strong>PCBs are persistent in the environment, resistant to degradation, and accumulate quickly in the body. </strong>
             Fish and wildlife throughout the Housatonic watershed have tested at very high concentrations of PCBs, and
             both Massachusetts and Connecticut have issued consumption advisories.
             Humans are also at risk for exposure by direct contact with contaminated soil or sediment, or consumption of
             agricultural products produced in the floodplain.
-            <strong>Without any clean-up intervention, PCBs could remain present in the Housatonic River ecosystem for hundreds of years. </strong>
+            <strong>Without any clean-up intervention, PCBs could remain present in the Housatonic River ecosystem for hundreds of years.</strong>
           </p>
           <p class='credit'>Source: <a href='https://www.epa.gov/ge-housatonic' target='_blank'>EPA</a></p>
         </div>
 
-        <div class='step'>
-            <p>We just visited some of the most hazardous Superfund sites in the county. 
-              <strong>A site must receive a hazard ranking system (HRS) score of at least 28.5 to be placed on the National Priority List, and the sites we just explored had HRS scores between 50 and 84.91. </strong>
-              Superfund sites are contaminated places left over from decades of unregulated industrial manufacturing and other activities. 
-              <strong>Next we will explore the Toxics Release Inventory (TRI), which is responsible for tracking toxic chemicals that are currently being released into the environment. </strong>
-            </p>
-        </div>
-
-
-        <div class='step'>
-            <h2>Chapter Two: Toxics Release Inventory (TRI) Program</h2>
-        </div>
-
         <!-- Scene 4 -->
         <div class='step'>
-          <p><strong>The EPA also monitors active facilities all over the country that are currently releasing toxic chemicals
+          <p>
+            We just visited some of the most hazardous Superfund sites in the county. 
+            <strong>A site must receive a hazard ranking system (HRS) score of at least 28.5 to be placed on the National Priority List, and the sites we just explored had HRS scores between 50 and 84.91. </strong>
+            Superfund sites are contaminated places left over from decades of unregulated industrial manufacturing and other activities. 
+            <strong>Next we will explore the Toxics Release Inventory (TRI), which is responsible for tracking toxic chemicals that are currently being released into the environment. </strong>
+          </p>
+        </div>
+
+        <!-- Scene 5 -->
+        <div class='step'>
+          <h2>Chapter Two: Toxics Release Inventory (TRI) Program</h2>
+        </div>
+
+        <!-- Scene 5a -->
+        <div class='step'>
+          <p>
+            <strong>The EPA also monitors active facilities all over the country that are currently releasing toxic chemicals
             into our air, water, and land under the TRI program. </strong>
             The TRI was established under the Emergency Planning and Community Right-to-Know Act (EPCRA) of 1986 after
             public concern grew over <strong>the 1984 Bhopal, India disaster, in which an American-owned Union Carbide pesticide
@@ -244,111 +267,136 @@
             Then in 1985, another, although smaller, toxic cloud was released from a Union Carbide plant on the Kanawha
             River in West Virginia.
           </p>
-          <p><strong>As of 2018 there are 21,603 facilities that report the release of a toxic chemical as part of the TRI
-            program. </strong>
-            <ul>
-              <span style='background:#cadb75'></span><label>Facilities reporting to TRI in 2018</label> <br>
-            </ul>
+          <p>
+            <strong>As of 2018 there are 21,603 facilities that report the release of a toxic chemical as part of the TRI
+            program.</strong>
           </p>
+          <ul>
+            <span style='background:#cadb75'></span><label>Facilities reporting to TRI in 2018</label> <br>
+          </ul>
         </div>
 
-        <!-- Scene 4a -->
+        <!-- Scene 6 -->
         <div class='step'>
-          <p>The TRI does not directly regulate these chemical releases, but rather hopes to incentivize companies into improving their environmental performance by tracking and publishing this data. 
+          <p>
+            The TRI does not directly regulate these chemical releases, but rather hopes to incentivize companies into improving their environmental performance by tracking and publishing this data. 
            <strong>Use the time slider below to explore total pounds released per year since reporting began in 1987. </strong>
           </p>
+
+          <!-- total release by year D3 chart -->
           <svg id='year-chart' width='500' height='250' padding='16'></svg>
+
+          <!-- year label and time slider -->
           <div id = 'year-label'><label id='total-year'>1987</label></div>
           <div id='sliderdiv'><input id='total-slider' type='range' min='1987' max='2018' step='1' value='0' /></div>
+          
+          <!-- graduated circle legend -->
           <div class='circle-legend'>
-              <svg width='250' height='160'> 
-                <circle fill='#cadb75' cx='65' cy='95' r='60' stroke='#2f2d2d' stroke-width='.5' /> 
-                <circle fill='#cadb75' cx='65' cy='125' r='30' stroke='#2f2d2d' stroke-width='.5' /> 
-                <circle fill='#cadb75' cx='65' cy='140' r='15' stroke='#2f2d2d' stroke-width='.5' /> 
-                <line x1='65' y1='35' x2='150' y2='35' stroke='#2f2d2d' stroke-width='.5' stroke-dasharray='4,4' />
-                <line x1='65' y1='95' x2='150' y2='95' stroke='#2f2d2d' stroke-width='.5' stroke-dasharray='4,4' />
-                <line x1='65' y1='125' x2='150' y2='125' stroke='#2f2d2d' stroke-width='.5' stroke-dasharray='4,4' />
-                <text class ='legend-label' x='152' y='38' class='small'>470 million</text>
-                <text class ='legend-label' x='152' y='98' class='small'>128 million</text>
-                <text class ='legend-label' x='152' y='128' class='small'>39 million</text>
-                <text class ='legend-title' x='14' y='11'>Total pounds released annually</text>
-             </svg>
-            </div>
-             <div id='release-note'><p id='release-note'>Notice the big jump from 1997 to 1998.
+            <svg width='250' height='160'> 
+              <circle fill='#cadb75' cx='65' cy='95' r='60' stroke='#2f2d2d' stroke-width='.5' /> 
+              <circle fill='#cadb75' cx='65' cy='125' r='30' stroke='#2f2d2d' stroke-width='.5' /> 
+              <circle fill='#cadb75' cx='65' cy='140' r='15' stroke='#2f2d2d' stroke-width='.5' /> 
+              <line x1='65' y1='35' x2='150' y2='35' stroke='#2f2d2d' stroke-width='.5' stroke-dasharray='4,4' />
+              <line x1='65' y1='95' x2='150' y2='95' stroke='#2f2d2d' stroke-width='.5' stroke-dasharray='4,4' />
+              <line x1='65' y1='125' x2='150' y2='125' stroke='#2f2d2d' stroke-width='.5' stroke-dasharray='4,4' />
+              <text class ='legend-label' x='152' y='38' class='small'>470 million</text>
+              <text class ='legend-label' x='152' y='98' class='small'>128 million</text>
+              <text class ='legend-label' x='152' y='128' class='small'>39 million</text>
+              <text class ='legend-title' x='14' y='11'>Total pounds released annually</text>
+            </svg>
+          </div>
+          <div id='release-note'>
+            <p id='release-note'>
+              Notice the big jump from 1997 to 1998.
               Seven industry sectors were added to the TRI in 1997, including metal and coal mining, electric power
               generators, and commercial hazardous waste treatment operations.
-            </p></div>
+            </p>
+          </div>
         </div>
 
+        <!-- Scene 6a -->
         <div class='step'>
-            <p><strong>But size is not the only determining factor in how dangerous a chemical release is.</strong></p>
+          <p>
+            <strong>But size is not the only determining factor in how dangerous a chemical release is.</strong>
+          </p>
         </div>
 
-        <!-- Scene 5 -->
+        <!-- Scene 7 -->
         <div class='step'>
-          <p><strong>The Risk-Screening Environmental Indicators (RSEI) model is used to  
+          <p>
+            <strong>The Risk-Screening Environmental Indicators (RSEI) model is used to  
             identify specific facilities or chemicals that may pose a greater risk. </strong>
             RSEI scores also consider a chemical’s toxicity, its fate and transport through the environment, and the
             size and location of the exposed population.
           </p>
-          <p><strong>Chromium and chromium compounds posed the greatest risk in 2018, composing 39.1% of the country's total
-            RSEI score.</strong></p>
+          <p>
+            <strong>Chromium and chromium compounds posed the greatest risk in 2018, composing 39.1% of the country's total
+            RSEI score.</strong>
+          </p>
+
+          <!-- graduated circle legend for chromium/chromium compounds -->
           <div class='chemical-legend'>
-              <svg width='600' height='175'> 
-                <circle fill='#66C5CC' cx='75' cy='110' r='60' stroke='#2f2d2d' stroke-width='.5' /> 
-                <circle fill='#66C5CC' cx='75' cy='141' r='30' stroke='#2f2d2d' stroke-width='.5' /> 
-                <circle fill='#66C5CC' cx='75' cy='156' r='15' stroke='#2f2d2d' stroke-width='.5' /> 
-                <line x1='75' y1='50' x2='175' y2='50' stroke='#2f2d2d' stroke-width='.5' stroke-dasharray='4,4' />
-                <line x1='75' y1='111' x2='175' y2='111' stroke='#2f2d2d' stroke-width='.5' stroke-dasharray='4,4' />
-                <line x1='75' y1='142' x2='175' y2='142' stroke='#2f2d2d' stroke-width='.5' stroke-dasharray='4,4' />
-                <text class ='legend-label' x='177' y='53'>3.5 million pounds</text>
-                <text class ='legend-label' x='177' y='115'>778,000 pounds</text>
-                <text class ='legend-label' x='177' y='147'>276,000 pounds</text>
-                <text class ='legend-title' x='0' y='20'>
-                  Chromium/Chromium Compunds Released in 2018
-                </text>
-             </svg>
-            </div>
+            <svg width='600' height='175'> 
+              <circle fill='#66C5CC' cx='75' cy='110' r='60' stroke='#2f2d2d' stroke-width='.5' /> 
+              <circle fill='#66C5CC' cx='75' cy='141' r='30' stroke='#2f2d2d' stroke-width='.5' /> 
+              <circle fill='#66C5CC' cx='75' cy='156' r='15' stroke='#2f2d2d' stroke-width='.5' /> 
+              <line x1='75' y1='50' x2='175' y2='50' stroke='#2f2d2d' stroke-width='.5' stroke-dasharray='4,4' />
+              <line x1='75' y1='111' x2='175' y2='111' stroke='#2f2d2d' stroke-width='.5' stroke-dasharray='4,4' />
+              <line x1='75' y1='142' x2='175' y2='142' stroke='#2f2d2d' stroke-width='.5' stroke-dasharray='4,4' />
+              <text class ='legend-label' x='177' y='53'>3.5 million pounds</text>
+              <text class ='legend-label' x='177' y='115'>778,000 pounds</text>
+              <text class ='legend-label' x='177' y='147'>276,000 pounds</text>
+              <text class ='legend-title' x='0' y='20'>
+                Chromium/Chromium Compunds Released in 2018
+              </text>
+            </svg>
+          </div>
           </p>
         </div>
 
-        <!-- Scene 5a -->
+        <!-- Scene 8 -->
         <div class='step'>
-          <p><strong>Ethylene oxide comes in at a close second, composing 30.5% of the country's total RSEI score. </strong>
+          <p>
+            <strong>Ethylene oxide comes in at a close second, composing 30.5% of the country's total RSEI score. </strong>
             Long term exposure to ethylene oxide can increase risk of lymphatic and breast cancers. 
           </p>
+
+          <!-- graduated circle legend for ethylene oxide -->
           <div class='chemical-legend'>
-              <svg width='285' height='150'> 
-                <circle fill='#F6CF71' cx='62' cy='90' r='50' stroke='#2f2d2d' stroke-width='.5' /> 
-                <circle fill='#F6CF71' cx='62' cy='115' r='25' stroke='#2f2d2d' stroke-width='.5' /> 
-                <circle fill='#F6CF71' cx='62' cy='127' r='12.5' stroke='#2f2d2d' stroke-width='.5' /> 
-                <line x1='62' y1='40' x2='150' y2='40' stroke='#2f2d2d' stroke-width='.5' stroke-dasharray='4,4' />
-                <line x1='62' y1='90' x2='150' y2='90' stroke='#2f2d2d' stroke-width='.5' stroke-dasharray='4,4' />
-                <line x1='62' y1='115' x2='150' y2='115' stroke='#2f2d2d' stroke-width='.5' stroke-dasharray='4,4' />
-                <text class ='legend-label' x='152' y='43' class='small'>57,000 pounds</text>
-                <text class ='legend-label' x='152' y='93' class='small'>15,000 pounds</text>
-                <text class ='legend-label' x='152' y='118' class='small'>3,000 pounds</text>
-                <text class ='legend-title' x='0' y='15'>Ethylene Oxide Released in 2018</text>
-             </svg>
-            </div>
+            <svg width='285' height='150'> 
+              <circle fill='#F6CF71' cx='62' cy='90' r='50' stroke='#2f2d2d' stroke-width='.5' /> 
+              <circle fill='#F6CF71' cx='62' cy='115' r='25' stroke='#2f2d2d' stroke-width='.5' /> 
+              <circle fill='#F6CF71' cx='62' cy='127' r='12.5' stroke='#2f2d2d' stroke-width='.5' /> 
+              <line x1='62' y1='40' x2='150' y2='40' stroke='#2f2d2d' stroke-width='.5' stroke-dasharray='4,4' />
+              <line x1='62' y1='90' x2='150' y2='90' stroke='#2f2d2d' stroke-width='.5' stroke-dasharray='4,4' />
+              <line x1='62' y1='115' x2='150' y2='115' stroke='#2f2d2d' stroke-width='.5' stroke-dasharray='4,4' />
+              <text class ='legend-label' x='152' y='43' class='small'>57,000 pounds</text>
+              <text class ='legend-label' x='152' y='93' class='small'>15,000 pounds</text>
+              <text class ='legend-label' x='152' y='118' class='small'>3,000 pounds</text>
+              <text class ='legend-title' x='0' y='15'>Ethylene Oxide Released in 2018</text>
+            </svg>
+          </div>
         </div>
 
-        <!-- Scene 5b -->
+        <!-- Scene 8a -->
         <div class='step'>
-            <p>A medical sterilizer plant in the Chicago suburb of Willowbrook, Illinois was recently shut down after <strong>an
-              EPA report found that ethylene oxide air emissions from the plant were increasing long-term
-              cancer risks for people living up to 25 miles away from the facility.
-              Sterigenics released 4,205 pounds of ethylene oxide in 2016. </strong>
-              In response to public pressure, Illinois just passed legislation to phase out the use of ethylene oxide by
-              2022.</p>
-              <ul>
-                <span style='background:#F89C74'></span><label>Sterigenics Willowbrook Facility</label> <br>
-              </ul>
+          <p>
+            A medical sterilizer plant in the Chicago suburb of Willowbrook, Illinois was recently shut down after <strong>an
+            EPA report found that ethylene oxide air emissions from the plant were increasing long-term
+            cancer risks for people living up to 25 miles away from the facility.
+            Sterigenics released 4,205 pounds of ethylene oxide in 2016. </strong>
+            In response to public pressure, Illinois just passed legislation to phase out the use of ethylene oxide by
+            2022.
+          </p>
+          <ul>
+            <span style='background:#F89C74'></span><label>Sterigenics Willowbrook Facility</label> <br>
+          </ul>
         </div>
 
-        <!-- Scene 5b -->
+        <!-- Scene 8b -->
         <div class='step'>
-          <p><strong>Texas houses the two highest emitters of ethylene oxide in 2018, with 57,090 and 42,822 pounds released each year, respectively. 
+          <p>
+            <strong>Texas houses the two highest emitters of ethylene oxide in 2018, with 57,090 and 42,822 pounds released each year, respectively. 
             This is more than 10 times the amount released by the Sterigenics plant in Illinois. </strong>
             Releases in Texas are actually expected to increase in the wake of findings by the Texas Commission on Environmental Quality that increase safe exposure levels.
             These findings are in direct contradiction with the EPA, who recently found ethylene oxide to be far more
@@ -359,17 +407,19 @@
             target='_blank'>Texas Revision to Ethylene Oxide Carcinogen Draws Concern</a></p>
         </div>
 
-        <!-- Scene 5b -->
+        <!-- Scene 8c -->
         <div class='step'>
-          <p>Louisiana has 13 ethylene oxide releasing facilities, eleven of which are located along the Mississippi
+          <p>
+            Louisiana has 13 ethylene oxide releasing facilities, eleven of which are located along the Mississippi
             River between Baton Rouge and New Orleans.
             <strong>The two highest emitters in Louisiana are located here and release 15,100 and 10,413 pounds annually. </strong>
           </p>
         </div>
 
-        <!-- Scene 5c -->
+        <!-- Scene 8d -->
         <div class='step'>
-          <p><strong>St. James Parish is currently the only parish in this corridor between Baton Rouge and New Orleans that
+          <p>
+            <strong>St. James Parish is currently the only parish in this corridor between Baton Rouge and New Orleans that
             does not have an ethylene oxide emitting facility.</strong>
           </p>
           <ul>
@@ -377,9 +427,10 @@
           </ul>
         </div>
 
-        <!-- Scene 5d -->
+        <!-- Scene 8e -->
         <div class='step'>
-          <p>This will change if Formosa Chemicals wins the fight to construct a new complex near Sunshine Bridge in St.
+          <p>
+            This will change if Formosa Chemicals wins the fight to construct a new complex near Sunshine Bridge in St.
             James Parish.
             <strong>The proposed 2,300 acre complex would be permitted to release up to 15,400 pounds of ethylene oxide
             annually, more than three times what was emitted at the now defunct Sterigenics plant in Illinois.</strong>
@@ -392,70 +443,85 @@
             target='_blank'>The Advocate</a></p>
         </div>
 
-        <!-- Scene 5e -->
+        <!-- Scene 8f -->
         <div class='step'>
-          <p><strong>Reassurances over the plant's safety do not ease residents who are concerned over Formosa's disreputable
+          <p>
+            <strong>Reassurances over the plant's safety do not ease residents who are concerned over Formosa's disreputable
             history.</strong>
           </p>
         </div>
 
-        <!-- Scene 6 -->
+        <!-- Scene 9 -->
         <div class='step'>
-          <p>An explosion in 2005 at Formosa's Point Comfort, Texas plant resulted in <strong>a fire that burned for 5 days</strong> and
+          <p>
+            An explosion in 2005 at Formosa's Point Comfort, Texas plant resulted in <strong>a fire that burned for 5 days</strong> and
             forced the community of Point Comfort into a shelter-in-place order. 
             And in 2019 the company was ordered to pay a <strong>$50 million settlement to clean up plastic pellets and other
-            pollutants they had been illegally dumping into Lavaca Bay and surrounding waterways.</strong></p>
-            <ul>
-              <span style='background:#cadb75'></span><label>Formosa Point Comfort Facility</label> <br>
-            </ul>
-            <p class='credit'>Source: <a
-              href='https://www.ehstoday.com/archive/article/21913736/lawsuit-formosas-negligence-caused-propylene-blast'
-              target='_blank'>Lawsuit: Formosa's Negligence Caused Propylene Blast</a> and <a
-              href='https://www.texastribune.org/2019/10/15/formosa-plastics-pay-50-million-texas-clean-water-act-lawsuit/'
-              target='_blank'>The Texas Tribune</a></p>
+            pollutants they had been illegally dumping into Lavaca Bay and surrounding waterways.</strong>
+          </p>
+          <ul>
+            <span style='background:#cadb75'></span><label>Formosa Point Comfort Facility</label> <br>
+          </ul>
+          <p class='credit'>Source: <a
+            href='https://www.ehstoday.com/archive/article/21913736/lawsuit-formosas-negligence-caused-propylene-blast'
+            target='_blank'>Lawsuit: Formosa's Negligence Caused Propylene Blast</a> and <a
+            href='https://www.texastribune.org/2019/10/15/formosa-plastics-pay-50-million-texas-clean-water-act-lawsuit/'
+            target='_blank'>The Texas Tribune</a></p>
         </div>
 
-        <!-- Scene 6 -->
+        <!-- Scene 9a -->
         <div class='step'>
-          <p>The Formosa Point Comfort Facility is owned by Formosa Plastics Corporation, which is headquarterd in Taiwan. 
+          <p>
+            The Formosa Point Comfort Facility is owned by Formosa Plastics Corporation, which is headquarterd in Taiwan. 
             <strong>Companies responsible for industrial pollution are often located far from the damage they inflict on
             communities.</strong>
           </p>
         </div>
 
-        <!-- Scene 6a -->
+        <!-- Scene 10 -->
         <div class='step'>
-          <p><strong>The locations seen here represent the top 10 parent companies who own at least 90 facilities who report to
+          <p>
+            <strong>The locations seen here represent the top 10 parent companies who own at least 90 facilities who report to
             the TRI.</strong>
           </p>
           <ul>
             <span style='background:#ED645A'></span><label>Parent Companies</label> <br>
           </ul>
-          <p><strong>Select a company from the dropdown to explore parent company headquarters in relation to the facilities
-            they own.</strong></p>
+          <p>
+            <strong>Select a company from the dropdown to explore parent company headquarters in relation to the facilities
+            they own.</strong>
+          </p>
+
+          <!-- parent company dropdown menu -->
           <div class='dropdown show'></div>
           <a class='btn btn-secondary btn-lg dropdown-toggle' href='href=javascript:return false;' role='button'
             id='parent-button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
             Choose a company
           </a>
-          <div class='dropdown-menu' id='parent-dropdown' aria-labelledby='parent-button'>
-          </div>
-            <div id='company-header'></div>
-            <div id='company-details'></div>
+          <div class='dropdown-menu' id='parent-dropdown' aria-labelledby='parent-button'></div>
+
+          <!-- company name and industry that updates according to dropdown selection -->
+          <div id='company-header'></div>
+          <div id='company-details'></div>
         </div>
 
+        <!-- Scene 11 -->
         <div class='step'>
-            <p><strong>We just learned about the Toxics Release Inventory, and explored facilities and the toxic chemicals they release into our air, water, and land. 
-              Next we will wrap up this story by visiting West Virginia, where a chemical release in 1985 first helped fuel public outcry for the establishment of the TRI program.</strong></p>
+          <p>
+            <strong>We just learned about the Toxics Release Inventory, and explored facilities and the toxic chemicals they release into our air, water, and land. 
+            Next we will wrap up this story by visiting West Virginia, where a chemical release in 1985 first helped fuel public outcry for the establishment of the TRI program.</strong>
+          </p>
         </div>
 
+        <!-- Scene 12 -->
         <div class='step'>
-            <h2>Epilogue</h2>
+          <h2>Epilogue</h2>
         </div>
 
-        <!-- Scene 6 -->
+        <!-- Scene 13 -->
         <div class='step'>
-          <p><strong>We end in the Kanawha River Valley of West Virginia, or “Chemical Valley” as it known to some. </strong>
+          <p>
+            <strong>We end in the Kanawha River Valley of West Virginia, or “Chemical Valley” as it known to some. </strong>
             This area has long been a site of mining and chemical production, and the 1985 chemical release that led to the establishment of the TRI was just one of many disasters that have occurred here over the years.
           </p>
           <ul>
@@ -463,25 +529,29 @@
           </ul>
         </div>
 
-        <!-- Scene 7a -->
+        <!-- Scene 13a -->
         <div class='step'>
-          <p><strong>The latest disaster to occur here took place in 2014, when approximately 5,000 gallons of crude 4-Methylcyclohexanemethanol (MCHM) spilled into the Elk River, a tributary of the Kanawha River. </strong>
+          <p>
+            <strong>The latest disaster to occur here took place in 2014, when approximately 5,000 gallons of crude 4-Methylcyclohexanemethanol (MCHM) spilled into the Elk River, a tributary of the Kanawha River. </strong>
             MCHM is used as cleansing agent to remove impurities from coal that contribute to pollution during combustion. 
             The spill originated from a storage tank at Freedom Industries, a chemical storage facility that does not qualify for TRI reporting.
           </p>
           <ul>
             <span style='background:#cadb75'></span><label>TRI Reporting Facilities in 2018</label> <br>
           </ul>
-          <p><strong>This facility did not qualify for TRI reporting because it did not technically produce or release any chemicals, it only stored them.</strong></p>
+          <p>
+            <strong>This facility did not qualify for TRI reporting because it did not technically produce or release any chemicals, it only stored them.</strong>
+          </p>
           <p class='credit'>Source: <a
             href='https://www.cnn.com/2014/01/13/us/west-virigina-chemical-contamination/'
             target='_blank'>West Virginia chemical spill shines spotlight on loose regulation</a></p>
         </div>
 
 
-        <!-- Scene 7b -->
+        <!-- Scene 13b -->
         <div class='step'>
-          <p>The spill occurred upstream from the primary West Virginia American Water intake center, <strong>leaving 300,000
+          <p>
+            The spill occurred upstream from the primary West Virginia American Water intake center, <strong>leaving 300,000
             residents in nine counties without water for several days. </strong>
             The National Guard was called in to help distribute water as water bottles quickly disappeared from store shelves, schools and businesses shut down, and hospitals struggled.
           </p>
@@ -490,9 +560,10 @@
           </ul>
         </div>
 
-        <!-- Scene 7b -->
+        <!-- Scene 13c -->
         <div class='step'>
-          <p>The TRI tracks releases of chemicals into the environment, but how was a 46,000 gallon chemical storage tank sitting 1.5-miles up upstream from a water intake center overlooked? 
+          <p>
+            The TRI tracks releases of chemicals into the environment, but how was a 46,000 gallon chemical storage tank sitting 1.5-miles up upstream from a water intake center overlooked? 
             <strong>This incident emphasizes not only the importance of tracking chemicals being released into the environment, but also exposes flaws in the regulatory system and reminds us of our vulnerability to disasters such as these.</strong>
           </p>
           <ul>
@@ -501,9 +572,10 @@
         </div>
 
 
-        <!-- Scene 7c -->
+        <!-- Scene 14 -->
         <div class='step'>
-          <p>The same rivers we depend on for clean drinking water also tend to be ideal locations for many of these industries producing and releasing toxic chemicals. 
+          <p>
+            The same rivers we depend on for clean drinking water also tend to be ideal locations for many of these industries producing and releasing toxic chemicals. 
             <strong>Facilities seen here are located with one-mile of a river. </strong>
           </p>
           <ul>
@@ -512,9 +584,10 @@
           </ul>
           <p>The Superfund case studies showed us the lasting and widespread damage industrial pollution can cause when left unchecked. 
             And while the TRI does track toxic chemical releases, it cannot always protect communities or the environment, especially if regulatory laws are not enforced.
-             
           </p>
-          <p><strong>Explore further:</strong></p>
+          <p>
+            <strong>Explore further:</strong>
+          </p>
           <ul>
             <li><a href='https://www.epa.gov/superfund' target='_blank'>EPA Superfund</a></li>
             <li><a href='https://www.nytimes.com/topic/subject/superfund' target='_blank'>Superfund Site News from the New York Times</a></li>
@@ -522,14 +595,13 @@
             <li><a href='https://www.propublica.org/series/polluters-paradise' target='_blank'>Polluter's Paradise: Environmental Impact in Louisiana</a></li>
             <li><a href='https://www.wvpublic.org/term/elk-river-chemical-spill#stream/0' target='_blank'>Elk River Chemical Spill</a></li>
           </ul>
-          </p>
         </div>
 
       </article>
 
     </section>
 
-    <!-- OPIONAL: Scrollytelling Outro -->
+    <!-- Scrollytelling Outro -->
     <section id='outro'>
       <p class='outro-text' style='text-align : center'>Map authored by <a href='https://eileengrady.github.io/' target='_blank'>Eileen Grady</a></p>
       <p class='outro-text' style='text-align : center'>Visit the <a href='https://github.com/EileenGrady/us-industrial-pollution' target='_blank'>project repo.</a></p>
@@ -547,16 +619,13 @@
   <script src='https://code.jquery.com/jquery-3.2.1.slim.min.js'
     integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN' crossorigin='anonymous'>
   </script>
-  <!-- <script>
-    window.jQuery || document.write('<script src='../../../../assets/js/vendor/jquery-slim.min.js'><\/script>')
-  </script> -->
   <script src='vendor/bootstrap/js/bootstrap.bundle.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
   <script src='https://unpkg.com/d3@5.9.1/dist/d3.min.js'></script>
   <script src='https://d3js.org/d3-fetch.v1.min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/scrollama/2.2.1/scrollama.min.js'></script>
   <script src='https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.js'></script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/chroma-js/1.3.5/chroma.min.js'></script>
+  <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/chroma-js/1.3.5/chroma.min.js'></script> -->
   <script src='https://unpkg.com/@turf/turf/turf.min.js'></script>
 
   <script>
@@ -571,6 +640,7 @@
     // When the user scrolls the page, execute myFunction
     window.onscroll = function() {myFunction()};
 
+    // function to update progress bar on scroll
     function myFunction() {
       var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
       var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -580,66 +650,40 @@
 
 
 
-    // ---------Section 0: Make a scrollama--------------- 
     // Create a scrollama object.
-    // ---------------------------------------------------
     var myScrollama = scrollama();
 
-    // ---------Section 1: Set Heights---------------
-    //#region
     // Set the size of the figure and the height of the steps
     // These are set to constants to improve performance on mobile devices, while keeping the code relatively simple.
-    // ----------------------------------------------
     const figureHeight = window.innerHeight * 0.8
     const figureMarginTop = 0
-    // const figureMarginTop = (window.innerHeight - figureHeight) / 2
     const stepH = Math.floor(window.innerHeight * 1.8);
-    //#endregion
 
-    // ---------Section 2: HTML -> D3--------------- 
-    //#region
-    // Save different parts of the page as D3.js objects. We'll use these later for easy restyling. D3.js is used for convenience.
-    // ---------------------------------------------
+    // Save different parts of the page as D3.js objects to use later for styling
     var figure = d3.select('figure');
     var article = d3.select('article');
     var steps = d3.selectAll('.step');
-    //#endregion
 
-    // ---------Section 3: handleResize()---------------
-    //#region
-    // Create a function which sets the styling of the various elements exactly as you want it to appear
-    // This function could increase in complexity as you build responsive scrollytelling webpages. Here, this function
-    // is relatively simple.
-    // -------------------------------------------------
+    // Create a function which sets the styling of the various elements
     function handleResize() {
 
-      console.log('handling resize')
-
-      // 1. update height of step elements
-      // steps.style('height', stepH + 'px');
-
-      // 2. update height, margin, and layering of the figure
+      // update height, margin, and layering of the figure
       figure
         .style('height', figureHeight + 'px')
         .style('top', figureMarginTop + 'px')
         .style('z-index', 1);
 
-      // 3. force the article to appear on top of the figure
+      // force the article to appear on top of the figure
       article.style('z-index', 2);
 
-      // 4. tell scrollama to update new element dimensions. Not always necessary, but included just to be safe.
+      // tell scrollama to update new element dimensions. Not always necessary, but included just to be safe.
       myScrollama.resize();
 
     }
-    //#endregion
 
-    // ---------Section 4: handleStepChange()---------------
-    // Create a function to update the map in response to step-triggers.
+    // Create a function to update the map in response to step-triggers
     // setting map view, and removing and adding layers
-    // -----------------------------------------------------
     function handleStepChange(response) {
-
-      console.log(response)
 
       // create array of layers to be turned off in each case before adding back relevant layers
       const allLayers = ['superfund-layer', 'superfund-labels', 'tri-layer', 'ge-layer', 'watershed-layer',
@@ -647,14 +691,13 @@
         'st-james-layer', 'spill-layer', 'tri-river-layer', 'parent-co-layer', 'all-rivers-layer'
       ]
 
-
       // create array of individual markers to be removed in each case before adding back relevant markers
       const allMarkers = [freedomMarker, sunshineMarker]
 
       switch (response.index) {
         case 0:
           // Scene 1
-          // Superfund sites
+          // Country level, superfund sites
           map.flyTo({
             center: [-114.92164, 40.1301],
             zoom: 3.789,
@@ -667,12 +710,11 @@
           map.setFilter('superfund-layer', null);
           map.setPaintProperty('superfund-layer', 'circle-radius', 2.5)
           document.getElementById('map').style.opacity = '0.25';
-
           break;
 
-          case 1:
-          // Scene 1
-          // Superfund sites
+        case 1:
+          // Scene 1a
+          // Country level, superfund sites--repeat
           map.flyTo({
             center: [-114.92164, 40.1301],
             zoom: 3.789,
@@ -688,8 +730,8 @@
           break;
 
         case 2:
-          // Scene 1
-          // Superfund sites
+          // Scene 1b
+          // Country level, superfund sites--repeat
           map.flyTo({
             center: [-114.92164, 40.1301],
             zoom: 3.789,
@@ -703,9 +745,9 @@
           map.setPaintProperty('superfund-layer', 'circle-radius', 2.5)
           break;
 
-          case 3:
-          // Scene 3b
-          // Big River mine site
+        case 3:
+          // Scene 2
+          // Zoom to Big River Mine site
           map.flyTo({
             center: [-90.58447, 37.8685],
             zoom: 12.008,
@@ -720,9 +762,9 @@
           map.setPaintProperty('superfund-layer', 'circle-radius', 6);
           break;
 
-          case 4:
-          // Scene 3b
-          // Big River mine site--repeat
+        case 4:
+          // Scene 2a
+          // Big River mine site--repeat, bring in label
           map.flyTo({
             center: [-90.58447, 37.8685],
             zoom: 12.008,
@@ -739,9 +781,9 @@
           map.setPaintProperty('superfund-layer', 'circle-radius', 6);
           break;
 
-          case 5:
-          // Scene 3b
-          // Big River
+        case 5:
+          // Scene 2b
+          // Big River and watershed
           map.flyTo({
             center: [-91.02393, 37.8891],
             zoom: 9.431,
@@ -763,8 +805,8 @@
           document.getElementById('map').style.opacity = '1';
           break;
 
-          case 6:
-          // Scene 3
+        case 6:
+          // Scene 2c
           // Bring in other Missouri lead mine superfund sites
           map.flyTo({
             center: [-91.02708, 37.97869],
@@ -795,8 +837,8 @@
           break;
 
         case 7:
-          // Scene 3a
-          // counties affected
+          // Scene 2d
+          // Bring in affected county outlines
           map.flyTo({
             center: [-91.198498, 37.83657],
             zoom: 8.3,
@@ -820,8 +862,8 @@
           map.setFilter('river-layer', ['==', 'name', 'Big River']);
           break;
 
-          case 8:
-          // Scene 3a
+        case 8:
+          // Scene 2e
           // counties affected--repeat before transition to next case study
           map.flyTo({
             center: [-91.198498, 37.83657],
@@ -846,9 +888,9 @@
           map.setFilter('river-layer', ['==', 'name', 'Big River']);
           break;
 
-          case 9:
-          // Scene 2
-          // GE Pittsfield Site
+        case 9:
+          // Scene 3
+          // Fly to GE Pittsfield Site
           map.flyTo({
             center: [-73.2420, 42.4483],
             zoom: 14,
@@ -864,8 +906,8 @@
           break;
 
         case 10:
-          // Scene 2
-          // GE Pittsfield Site
+          // Scene 3a
+          // GE Pittsfield Site--repeat, bring in label
           map.flyTo({
             center: [-73.2420, 42.4483],
             zoom: 14,
@@ -882,7 +924,7 @@
           break;
 
         case 11:
-          // Scene 2a
+          // Scene 3b
           // Full GE site extent map
           map.flyTo({
             center: [-73.23815, 42.4546],
@@ -900,8 +942,8 @@
           break;
 
         case 12:
-          // Scene 2b
-          // Housatonic River extent
+          // Scene 3c
+          // Housatonic River and watershed
           map.flyTo({
             center: [-73.00478, 42.36135],
             zoom: 8.92,
@@ -921,9 +963,9 @@
           document.getElementById('map').style.opacity = '1';
           break;
 
-          case 13:
-          // Scene 2b
-          // all sites-chapter 1 conclusion
+        case 13:
+          // Scene 4
+          // Country level, all Superfund sites, conclusion
           map.flyTo({
             center: [-114.92164, 40.1301],
             zoom: 3.789,
@@ -940,8 +982,8 @@
           break;
 
         case 14:
-          // Scene 4
-          // overall TRI facility distribution
+          // Scene 5
+          // country level, overall TRI facility distribution
           map.flyTo({
             center: [-114.92164, 40.1301],
             zoom: 3.789,
@@ -956,9 +998,9 @@
           document.getElementById('map').style.opacity = '0.25';
           break;
 
-          case 15:
-          // Scene 4
-          // overall TRI facility distribution--repeat
+        case 15:
+          // Scene 5a
+          // country level, overall TRI facility distribution--repeat
           map.flyTo({
             center: [-114.92164, 40.1301],
             zoom: 3.789,
@@ -973,9 +1015,9 @@
           document.getElementById('map').style.opacity = '1';
           break;
 
-          case 16:
-          // Scene 4a
-          // TRI top releasing facilities--time slider
+        case 16:
+          // Scene 6
+          // TRI top releasing facilities with time slider
           map.flyTo({
             center: [-114.92164, 40.1301],
             zoom: 3.789,
@@ -994,11 +1036,18 @@
             });
           document.getElementById('release-note').style.fontWeight = 'normal';
 
+          // set bar chart to highlight first bar at start
+          d3.selectAll('.bar')
+            .filter(function (d) {
+              return d.YEAR == 1987;
+            })
+            .attr('opacity', 1)
+            .attr('fill', '#A1AF5D');
           break;
 
         case 17:
-          // Scene 4a
-          // TRI top releasing facilities--time slider--repeat
+          // Scene 6a
+          // TRI top releasing facilities with time slider--repeat for transition
           map.flyTo({
             center: [-114.92164, 40.1301],
             zoom: 3.789,
@@ -1014,14 +1063,13 @@
             .getElementById('total-slider')
             .addEventListener('input', function (e) {
               var year = parseInt(e.target.value, 10);
-              // filterTotalRelease(year);
             });
           document.getElementById('release-note').style.fontWeight = 'normal';
           break;
 
         case 18:
-          // Scene 5
-          // RSEI scores--chromium layer
+          // Scene 7
+          // country level, chromium facilities
           map.flyTo({
             center: [-114.92164, 40.1301],
             zoom: 3.789,
@@ -1035,8 +1083,8 @@
           break;
 
         case 19:
-          // Scene 5a
-          // ethylene oxide layer
+          // Scene 8
+          // country level, ethylene oxide facilitiies
           map.flyTo({
             center: [-114.92164, 40.1301],
             zoom: 3.789,
@@ -1047,12 +1095,11 @@
           allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
           allMarkers.forEach(item => item.remove());
           map.setLayoutProperty('ethylene-layer', 'visibility', 'visible');
-
           break;
 
         case 20:
-          // Scene 5b
-          // defunct Illinois plant
+          // Scene 8a
+          // Fly to Willowbrook, Illinois, defunct Sterigenics Facility
           map.flyTo({
             center: [-88.34949, 41.82125],
             zoom: 8.8627,
@@ -1067,8 +1114,8 @@
           break;
 
         case 21:
-          // Scene 5b
-          // ethylene oxide Texas
+          // Scene 8b
+          // Fly to Texas, ethylene oxide facilities
           map.flyTo({
             center: [-96.9906, 29.4035],
             zoom: 6.789,
@@ -1082,8 +1129,8 @@
           break;
 
         case 22:
-          // Scene 5b
-          // ethylene oxide louisiana
+          // Scene 8c
+          // Fly to Louisiana, ethylene oxide facilities
           map.flyTo({
             center: [-91.8152, 30.1678],
             zoom: 7.7827,
@@ -1097,8 +1144,8 @@
           break;
 
         case 23:
-          // Scene 5c
-          // St. James Parish
+          // Scene 8d
+          // Bring in St. James Parish
           map.flyTo({
             center: [-91.0835, 30.0772],
             zoom: 8.78,
@@ -1113,8 +1160,8 @@
           break;
 
         case 24:
-          // Scene 5c
-          // new proposed plant
+          // Scene 8e
+          // add marker showing proposed Formosa facility
           map.flyTo({
             center: [-91.0835, 30.0772],
             zoom: 9.78,
@@ -1132,8 +1179,8 @@
           break;
 
         case 25:
-          // Scene 5c
-          // new proposed plant--repeat
+          // Scene 8f
+          // add marker showing proposed Formosa facility--repeat for transition
           map.flyTo({
             center: [-91.0835, 30.0772],
             zoom: 9.78,
@@ -1149,8 +1196,8 @@
           break;
 
         case 26:
-          // Scene 5d
-          // Texas Formosa plant
+          // Scene 9
+          // Fly to Formosa Point Comfort Facility
           map.flyTo({
             center: [-96.6307, 28.6309],
             zoom: 11.97,
@@ -1166,8 +1213,8 @@
           break;
 
         case 27:
-          // Scene 5d
-          // Texas Formosa Plant--repeat
+          // Scene 9a
+          // Formosa Point Comfort Facility--repeat for transition
           map.flyTo({
             center: [-96.6307, 28.6309],
             zoom: 11.97,
@@ -1183,8 +1230,8 @@
           break;
 
         case 28:
-          // Scene 8
-          // Parent Companies
+          // Scene 10
+          // Country level, parent companies with dropdown selection menu
           map.flyTo({
             center: [-114.92164, 40.1301],
             zoom: 3.789,
@@ -1204,9 +1251,9 @@
           };
           break;
 
-          case 29:
-          // Scene 8
-          // all TRI facilities--conclusion
+        case 29:
+          // Scene 11
+          // Country level, all TRI facilities, conclusion
           map.flyTo({
             center: [-114.92164, 40.1301],
             zoom: 3.789,
@@ -1227,8 +1274,8 @@
           break;
 
         case 30:
-          // Scene 6
-          // Epilogue scene, all TRI facilities
+          // Scene 12
+          // Epilogue introduction, all TRI facilities
           map.flyTo({
             center: [-114.92164, 40.1301],
             zoom: 3.789,
@@ -1249,8 +1296,8 @@
           break;
 
         case 31:
-          // Scene 6
-          // Chemical Valley, West Virginia--repeat
+          // Scene 13
+          // Fly to Chemical Valley, West Virginia
           map.flyTo({
             center: [-81.8162, 38.3771],
             zoom: 11.115,
@@ -1266,8 +1313,8 @@
           break;
 
         case 32:
-          // Scene 6a
-          // Zoom to Freedom Industry facility that had chemical spill
+          // Scene 13a
+          // Zoom to Freedom Industries facility, location of 2014 chemical spill
           map.flyTo({
             center: [-81.6713, 38.3618],
             zoom: 10.78,
@@ -1284,7 +1331,7 @@
           break;
 
         case 33:
-          // Scene 6b
+          // Scene 13b
           // show counties affected by spill
           map.flyTo({
             center: [-82.3395, 38.4080],
@@ -1299,9 +1346,9 @@
           freedomMarker.addTo(map);
           break;
 
-          case 34:
-          // Scene 6b
-          // show counties affected by spill--repeat
+        case 34:
+          // Scene 13c
+          // show counties affected by spill--repeat for transition
           map.flyTo({
             center: [-82.3395, 38.4080],
             zoom: 8,
@@ -1316,8 +1363,8 @@
           break;
 
         case 35:
-          // Scene 7
-          // all facilities along waterways in US?
+          // Scene 14
+          // country level, facilities within one mile of a river
           map.flyTo({
             center: [-114.92164, 40.1301],
             zoom: 3.789,
@@ -1338,16 +1385,14 @@
 
     }
 
-    // ---------Section 5: init()--------------- 
     // Create a function that will run just once that first makes sure all the elements are sized like you want them,
     // and then sets up the scrollama. Finally, add an event listener to detect if the screen size has changed.
-    // -----------------------------------------
     function init() {
 
-      // 1. force a resize on load to ensure proper dimensions are sent to scrollama
+      // force a resize on load to ensure proper dimensions are sent to scrollama
       handleResize();
 
-      // 2. Setup the scrollama
+      // Setup the scrollama
       myScrollama.setup({
         step: '.step',
         offset: Math.floor(window.innerHeight) * 0.95 + 'px',
@@ -1359,13 +1404,6 @@
       window.addEventListener('resize', handleResize);
     }
 
-
-    // ---------Section 6: Wrap Up--------------- 
-    // This is where you'll want to include any other JavaScript that you've created for the webpage, and to run the init() function. 
-    // ------------------------------------------
-    // init();
-
-    // DARK BASEMAP
     // add mapbox access token
     mapboxgl.accessToken =
       'pk.eyJ1IjoiZWlsZWVuZ3JhZHkiLCJhIjoiY2pvNG00eXVjMDFlcjNxcW1yZ3I2OTJ2ZSJ9.l2EtBykdOJSCNiszd2NbaA';
@@ -1376,7 +1414,6 @@
       style: 'mapbox://styles/eileengrady/ck9vlhb4417hl1iqmcr1eoyr4', // stylesheet location
       center: [-114.92164, 40.1301], // starting position [lng, lat]
       zoom: 3.789, // starting zoom
-      // interactive: true,
       scrollZoom: false
     });
 
@@ -1390,41 +1427,6 @@
     // create marker for Formosa Chemical plant near Sunshine bridge
     var sunshineMarker = new mapboxgl.Marker()
       .setLngLat([-90.910054, 30.057623])
-
-    var years = [
-      '1987',
-      '1988',
-      '1989',
-      '1990',
-      '1991',
-      '1992',
-      '1993',
-      '1994',
-      '1995',
-      '1996',
-      '1997',
-      '1998',
-      '1999',
-      '2000',
-      '2001',
-      '2002',
-      '2003',
-      '2004',
-      '2005',
-      '2006',
-      '2007',
-      '2008',
-      '2009',
-      '2010',
-      '2011',
-      '2012',
-      '2013',
-      '2014',
-      '2015',
-      '2016',
-      '2017',
-      '2018'
-    ];
 
     map.on('load', function () {
 
@@ -1467,6 +1469,7 @@
         }
       }, 'superfund-layer');
 
+      // move watershed layer behind Superfund site labels
       map.moveLayer('watershed-layer', 'superfund-labels');
 
       // add source and layer for river layer used in case studies
@@ -1488,9 +1491,10 @@
         }
       }, 'superfund-layer');
 
+      // move river layer behind Superfund site labels
       map.moveLayer('river-layer', 'superfund-labels');
 
-      // add source and layer for Lead Belt areas
+      // add source and layer for counties affected in Missouri Lead District
       map.addSource('lead-belt-area-source', {
         type: 'geojson',
         data: 'data/map-data/missouri-lead-counties.geojson'
@@ -1530,7 +1534,6 @@
           'circle-opacity': .75,
           'circle-stroke-color': '#2f2d2d',
           'circle-stroke-width': 0.5,
-          'circle-opacity-transition': {duration:2000}
         }
       });
 
@@ -1559,7 +1562,7 @@
         },
       });
 
-      // add Sterigenics layer
+      // add Sterigenics facility layer
       map.addLayer({
         'id': 'sterigenics-layer',
         'type': 'circle',
@@ -1658,6 +1661,7 @@
         }
       });
 
+      // call function to initiate scrollama
       init();
 
       // draw yearly release total chart
@@ -1686,31 +1690,31 @@
       d3.csv('data/map-data/year-totals.csv').then(function (data) {
 
         var xScale = d3.scaleBand()
-            .domain(data.map(function (d) {
-              return d.YEAR;
-            }))
-            .range([padding.left * 2, width - padding.right])
-            .padding(0.2);
+          .domain(data.map(function (d) {
+            return d.YEAR;
+          }))
+          .range([padding.left * 2, width - padding.right])
+          .padding(0.2);
 
         var yScale = d3.scaleLinear()
-            .domain([0, d3.max(data, function (d) {
-              return d.TOTAL_RELEASE;
-            })])
-            .range([height - padding.top - padding.bottom, padding.right]);
+          .domain([0, d3.max(data, function (d) {
+            return d.TOTAL_RELEASE;
+          })])
+          .range([height - padding.top - padding.bottom, padding.right]);
 
         svg.append('g')
-        .attr('class', 'grid')
-        .attr('transform', 'translate(' + padding.left * 2 + ',0)')
-        .call(d3.axisLeft()
-            .scale(yScale)
-            .tickSize(-width, 0, 0)
-            .tickFormat(''))
+          .attr('class', 'grid')
+          .attr('transform', 'translate(' + padding.left * 2 + ',0)')
+          .call(d3.axisLeft()
+              .scale(yScale)
+              .tickSize(-width, 0, 0)
+              .tickFormat(''))
 
-          var bars = svg.selectAll('.bars')
+        var bars = svg.selectAll('.bars')
           .data(data)
           .enter().append('rect')
           .attr('class', 'bar')
-          .attr('opacity', 0.65)
+          .attr('opacity', 0.55)
           .attr('x', function (d) {
             return xScale(d.YEAR);
           })
@@ -1729,30 +1733,65 @@
           var yAxis = d3.axisLeft(yScale);
 
           var gX = svg.append('g')
-              .attr('transform', 'translate(0,' + (height - padding.bottom) + ')')
-              .call(xAxis)
-              .selectAll('text')
-              .attr('transform', 'rotate(45)')
-              .attr('dy', '.55em')
-              .style('text-anchor', 'start');
+            .attr('transform', 'translate(0,' + (height - padding.bottom) + ')')
+            .call(xAxis)
+            .selectAll('text')
+            .attr('transform', 'rotate(45)')
+            .attr('dy', '.55em')
+            .style('text-anchor', 'start');
         
 
           var gY = svg.append('g')
-              .attr('transform', 'translate(' + padding.left * 2 + ',0)')
-              .call(d3.axisLeft(yScale).tickFormat(function (d) {
-                return formatValue(d).replace('G', 'B');
-              }));
+            .attr('transform', 'translate(' + padding.left * 2 + ',0)')
+            .call(d3.axisLeft(yScale).tickFormat(function (d) {
+              return formatValue(d).replace('G', 'B');
+            }));
 
           svg.append('text')
-              .attr('class', 'bar-chart-label')
-              .attr('x', - (height / 3.8) - padding.left)
-              .attr('y', padding.bottom / 1.25)
-              .attr('transform', 'rotate(-90)')
-              .attr('text-anchor', 'middle')
-              .text('Total Pounds Released')
+            .attr('class', 'bar-chart-label')
+            .attr('x', - (height / 3.8) - padding.left)
+            .attr('y', padding.bottom / 1.25)
+            .attr('transform', 'rotate(-90)')
+            .attr('text-anchor', 'middle')
+            .text('Total Pounds Released')
       });
-
     }
+
+    // create array of years to use below in time slider
+    var years = [
+      '1987',
+      '1988',
+      '1989',
+      '1990',
+      '1991',
+      '1992',
+      '1993',
+      '1994',
+      '1995',
+      '1996',
+      '1997',
+      '1998',
+      '1999',
+      '2000',
+      '2001',
+      '2002',
+      '2003',
+      '2004',
+      '2005',
+      '2006',
+      '2007',
+      '2008',
+      '2009',
+      '2010',
+      '2011',
+      '2012',
+      '2013',
+      '2014',
+      '2015',
+      '2016',
+      '2017',
+      '2018'
+    ];
 
      // declare function to filter facilities by year by time slider
      function filterTotalRelease(totalYear) {
@@ -1764,8 +1803,8 @@
       // Set the label to the month
       document.getElementById('total-year').textContent = totalYear;
 
+      // format release note to bold when time slider reaches 1998
       if (totalYear == '1998') {
-        // document.getElementById('release-jump').setAttribute('font-weight', 'bold');
         document.getElementById('release-note').style.fontWeight = 'bold';
       }
 
@@ -1775,17 +1814,9 @@
           return d.YEAR == totalYear;
         })
         .transition()
-        .duration(300)
+        .duration(500)
         .attr('opacity', 1)
-        // .attr('width', xScale.bandwidth() + 10)
-
-      d3.selectAll('.text')
-        .filter(function (d) {
-          return d.YEAR == totalYear
-        })
-        .transition()
-        .duration(300)
-        .attr('style', 'font-weight: bold');
+        .attr('fill', '#A1AF5D');
 
       // return bar to normal when slider changes to new year
       d3.selectAll('.bar')
@@ -1793,8 +1824,9 @@
           return d.YEAR != totalYear;
         })
         .transition()
-        .duration(300)
-        .attr('opacity', 0.65);
+        .duration(500)
+        .attr('opacity', 0.55)
+        .attr('fill', '#cadb75');
     }
 
     // create list of parent companies
@@ -1824,11 +1856,6 @@
         updateDetails(company);
       });
     }
-
-    var popup = new mapboxgl.Popup({
-      closeButton: false,
-      closeOnClick: false
-    });
 
     // filter parent company and its TRI facilities when dropdown chanes
     function filterMap(company) {
