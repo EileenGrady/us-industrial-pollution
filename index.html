@@ -411,19 +411,18 @@
 
         <!-- Scene 6 -->
         <div class="step">
-          <p>Formosa currently operates three plastics facilities in the US.
-            All three are ultimately owned by Formosa Plastics Corporation, headquarted in Taiwan.
+          <p>The Formosa Point Comfort Facility is owned by Formosa Plastics Corporation, which is headquarterd in Taiwan. 
+            <strong>Companies responsible for industrial pollution are often located far from the damage they inflict on
+            communities.</strong>
           </p>
-          <ul>
+          <!-- <ul>
             <span style="background:#cadb75"></span><label>Formosa Plastics Plants in the US</label> <br>
-          </ul>
+          </ul> -->
         </div>
 
         <!-- Scene 6a -->
         <div class="step">
-          <p>Companies responsible for industrial pollution are often located far from the damage they inflict on
-            communities.
-            <strong>The locations seen here represent the top 10 parent companies who own at least 90 facilities who report to
+          <p><strong>The locations seen here represent the top 10 parent companies who own at least 90 facilities who report to
             the TRI.</strong>
           </p>
           <ul>
@@ -1180,19 +1179,19 @@
 
         case 27:
           // Scene 5d
-          // US Formosa plants
+          // Texas Formosa Plant--repeat
           map.flyTo({
-            center: [-114.92164, 40.1301],
-            zoom: 3.789,
-            pitch: 0,
-            bearing: 0,
+            center: [-96.6307, 28.6309],
+            zoom: 11.97,
+            pitch: 56.6538,
+            bearing: 20,
             speed: 0.5
           });
           allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
           allMarkers.forEach(item => item.remove());
           map.setLayoutProperty('tri-layer', 'visibility', 'visible');
-          map.setFilter('tri-layer', ['==', 'PARENT CO NAME', 'FORMOSA PLASTICS CORP USA']);
-          map.setPaintProperty('tri-layer', 'circle-radius', 6);
+          map.setFilter('tri-layer', ['==', 'FACILITY NAME', 'FORMOSA PLASTICS CORP TEXAS']);
+          map.setPaintProperty('tri-layer', 'circle-radius', 8);
           break;
 
         case 28:
@@ -1836,6 +1835,7 @@
               .attr("transform", "rotate(45)")
               .attr("dy", ".55em")
               .style("text-anchor", "start");
+        
 
           var gY = svg.append("g")
               .attr("transform", "translate(" + padding.left * 2 + ",0)")
@@ -2084,8 +2084,6 @@
         map.removeLayer('company-line-layer')
         map.removeSource('company-line-source')
       };
-      
-
 
       // set filters and properties to show chosen parent company and its facilities
       map.setFilter('parent-co-layer', ['==', 'parentCompany', company]);
@@ -2121,6 +2119,7 @@
 
         // push each line string to the lineData array
         lineData.push(line)
+
       })
 
       // add new source using lineData created above
@@ -2146,7 +2145,8 @@
           'line-width': .5,
           'line-opacity': .5
         }
-      });
+      }, 'tri-layer');
+
     }
 
     function updateDetails(company) {
