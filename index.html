@@ -347,7 +347,7 @@
               In response to public pressure, Illinois just passed legislation to phase out the use of ethylene oxide by
               2022.</p>
               <ul>
-                <span style="background:#F89C74"></span><label>Sterigenics Plant</label> <br>
+                <span style="background:#F89C74"></span><label>Sterigenics Willowbrook Facility</label> <br>
               </ul>
         </div>
 
@@ -1799,6 +1799,14 @@
             })])
             .range([height - padding.top - padding.bottom, padding.right]);
 
+        svg.append('g')
+        .attr('class', 'grid')
+        .attr("transform", "translate(" + padding.left * 2 + ",0)")
+        .call(d3.axisLeft()
+            .scale(yScale)
+            .tickSize(-width, 0, 0)
+            .tickFormat(''))
+
           var bars = svg.selectAll(".bars")
           .data(data)
           .enter().append("rect")
@@ -1832,7 +1840,7 @@
           var gY = svg.append("g")
               .attr("transform", "translate(" + padding.left * 2 + ",0)")
               .call(d3.axisLeft(yScale).tickFormat(function (d) {
-                return formatValue(d);
+                return formatValue(d).replace('G', 'B');
               }));
 
           svg.append('text')
@@ -2015,6 +2023,7 @@
         .transition()
         .duration(300)
         .attr('opacity', 1)
+        // .attr('width', xScale.bandwidth() + 10)
 
       d3.selectAll('.text')
         .filter(function (d) {

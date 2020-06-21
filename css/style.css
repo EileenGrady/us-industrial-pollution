@@ -351,6 +351,10 @@ article {
     fill: #cadb75;
   }
 
+  .grid {
+    opacity: 0.25;
+  }
+
   text {
     font-size: 12px;
     font-family: 'Bitter', serif;
