@@ -91,14 +91,14 @@
 
 p {
   font-family: 'Bitter', serif;
-  font-size: 1rem;
+  font-size: 1.2em;
   line-height: 1.6;
   color: #3E3F3A;
 }
 
 p.intro {
   font-family: 'Bitter', serif;
-  font-size: 1.5rem;
+  font-size: 1.5em;
   color: white;
   opacity: .95; 
 }
