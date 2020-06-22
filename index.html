@@ -628,7 +628,6 @@
   <script src='https://d3js.org/d3-fetch.v1.min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/scrollama/2.2.1/scrollama.min.js'></script>
   <script src='https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.js'></script>
-  <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/chroma-js/1.3.5/chroma.min.js'></script> -->
   <script src='https://unpkg.com/@turf/turf/turf.min.js'></script>
 
   <script>
@@ -699,8 +698,8 @@
           // Scene 1
           // Country level, superfund sites
           map.flyTo({
-            center: [-114.92164, 40.1301],
-            zoom: 3.789,
+            center: [-112.275833, 39.504698],
+            zoom: 3.6,
             pitch: 0,
             bearing: 0
           });
@@ -716,8 +715,8 @@
           // Scene 1a
           // Country level, superfund sites--repeat
           map.flyTo({
-            center: [-114.92164, 40.1301],
-            zoom: 3.789,
+            center: [-112.275833, 39.504698],
+            zoom: 3.6,
             pitch: 0,
             bearing: 0
           });
@@ -733,8 +732,8 @@
           // Scene 1b
           // Country level, superfund sites--repeat
           map.flyTo({
-            center: [-114.92164, 40.1301],
-            zoom: 3.789,
+            center: [-112.275833, 39.504698],
+            zoom: 3.6,
             pitch: 0,
             bearing: 0
           });
@@ -743,14 +742,15 @@
           map.setLayoutProperty('superfund-layer', 'visibility', 'visible');
           map.setFilter('superfund-layer', null);
           map.setPaintProperty('superfund-layer', 'circle-radius', 2.5)
+          map.setPaintProperty('superfund-layer', 'circle-opacity', 0.7)
           break;
 
         case 3:
           // Scene 2
           // Zoom to Big River Mine site
           map.flyTo({
-            center: [-90.58447, 37.8685],
-            zoom: 12.008,
+            center: [-90.56398, 37.878471],
+            zoom: 13.008,
             pitch: 0,
             bearing: 0,
             speed: .5
@@ -760,14 +760,15 @@
           map.setLayoutProperty('superfund-layer', 'visibility', 'visible');
           map.setFilter('superfund-layer', ['==', 'SITE_NAME', 'BIG RIVER MINE TAILINGS/ST. JOE MINERALS CORP.']);
           map.setPaintProperty('superfund-layer', 'circle-radius', 6);
+          map.setPaintProperty('superfund-layer', 'circle-opacity', 0.9)
           break;
 
         case 4:
           // Scene 2a
           // Big River mine site--repeat, bring in label
           map.flyTo({
-            center: [-90.58447, 37.8685],
-            zoom: 12.008,
+            center: [-90.56398, 37.878471],
+            zoom: 13.008,
             pitch: 0,
             bearing: 0,
             speed: .5
@@ -777,18 +778,16 @@
           map.setLayoutProperty('superfund-layer', 'visibility', 'visible');
           map.setFilter('superfund-labels', ['==', 'SITE_NAME', 'BIG RIVER MINE TAILINGS/ST. JOE MINERALS CORP.']);
           map.setLayoutProperty('superfund-labels', 'visibility', 'visible');
-          map.setFilter('superfund-layer', ['==', 'SITE_NAME', 'BIG RIVER MINE TAILINGS/ST. JOE MINERALS CORP.']);
-          map.setPaintProperty('superfund-layer', 'circle-radius', 6);
           break;
 
         case 5:
           // Scene 2b
           // Big River and watershed
           map.flyTo({
-            center: [-91.02393, 37.8891],
-            zoom: 9.431,
-            pitch: 52.5,
-            bearing: -17.599,
+            center: [-90.443955, 37.9462768],
+            zoom: 9.4,
+            pitch: 38.7622,
+            bearing: -130.9851,
             speed: 0.25
           });
           allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
@@ -801,15 +800,13 @@
           map.setLayoutProperty('river-layer', 'visibility', 'visible');
           map.setFilter('river-layer', ['==', 'name', 'Big River']);
           map.setFilter('superfund-layer', ['in', 'SITE_NAME', 'BIG RIVER MINE TAILINGS/ST. JOE MINERALS CORP.']);
-          map.setPaintProperty('superfund-layer', 'circle-radius', 6);
-          document.getElementById('map').style.opacity = '1';
           break;
 
         case 6:
           // Scene 2c
           // Bring in other Missouri lead mine superfund sites
           map.flyTo({
-            center: [-91.02708, 37.97869],
+            center: [-91.05669, 38.042382],
             zoom: 8.88,
             pitch: 0,
             bearing: 0,
@@ -829,18 +826,15 @@
             'WASHINGTON COUNTY LEAD DISTRICT - OLD MINES', 'WASHINGTON COUNTY LEAD DISTRICT - RICHWOODS',
             'SOUTHWEST JEFFERSON COUNTY MINING', 'ANSCHUTZ - MADISON MINE'
           ]);
-          map.setPaintProperty('superfund-layer', 'circle-radius', 6);
           map.setLayoutProperty('watershed-layer', 'visibility', 'visible');
-          map.setFilter('watershed-layer', ['==', 'NAME', 'Big']);
           map.setLayoutProperty('river-layer', 'visibility', 'visible');
-          map.setFilter('river-layer', ['==', 'name', 'Big River']);
           break;
 
         case 7:
           // Scene 2d
           // Bring in affected county outlines
           map.flyTo({
-            center: [-91.198498, 37.83657],
+            center: [-91.19849, 37.889413],
             zoom: 8.3,
             pitch: 0,
             bearing: 0,
@@ -850,23 +844,15 @@
           allMarkers.forEach(item => item.remove());
           map.setLayoutProperty('superfund-layer', 'visibility', 'visible');
           map.setLayoutProperty('watershed-layer', 'visibility', 'visible');
-          map.setFilter('watershed-layer', ['==', 'NAME', 'Big']);
-          map.setFilter('superfund-layer', ['in', 'SITE_NAME', 'BIG RIVER MINE TAILINGS/ST. JOE MINERALS CORP.',
-            'WASHINGTON COUNTY LEAD DISTRICT - FURNACE CREEK', 'WASHINGTON COUNTY LEAD DISTRICT - POTOSI',
-            'WASHINGTON COUNTY LEAD DISTRICT - OLD MINES', 'WASHINGTON COUNTY LEAD DISTRICT - RICHWOODS',
-            'SOUTHWEST JEFFERSON COUNTY MINING', 'ANSCHUTZ - MADISON MINE'
-          ]);
-          map.setPaintProperty('superfund-layer', 'circle-radius', 6)
           map.setLayoutProperty('lead-belt-area-layer', 'visibility', 'visible');
           map.setLayoutProperty('river-layer', 'visibility', 'visible');
-          map.setFilter('river-layer', ['==', 'name', 'Big River']);
           break;
 
         case 8:
           // Scene 2e
           // counties affected--repeat before transition to next case study
           map.flyTo({
-            center: [-91.198498, 37.83657],
+            center: [-91.19849, 37.889413],
             zoom: 8.3,
             pitch: 0,
             bearing: 0,
@@ -882,7 +868,6 @@
             'WASHINGTON COUNTY LEAD DISTRICT - OLD MINES', 'WASHINGTON COUNTY LEAD DISTRICT - RICHWOODS',
             'SOUTHWEST JEFFERSON COUNTY MINING', 'ANSCHUTZ - MADISON MINE'
           ]);
-          map.setPaintProperty('superfund-layer', 'circle-radius', 6)
           map.setLayoutProperty('lead-belt-area-layer', 'visibility', 'visible');
           map.setLayoutProperty('river-layer', 'visibility', 'visible');
           map.setFilter('river-layer', ['==', 'name', 'Big River']);
@@ -902,7 +887,6 @@
           allMarkers.forEach(item => item.remove());
           map.setLayoutProperty('superfund-layer', 'visibility', 'visible');
           map.setFilter('superfund-layer', ['==', 'SITE_NAME', 'GE PITTSFIELD HOUSATONIC RIVER SUPERFUND SITE']);
-          map.setPaintProperty('superfund-layer', 'circle-radius', 6);
           break;
 
         case 10:
@@ -917,8 +901,6 @@
           allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
           allMarkers.forEach(item => item.remove());
           map.setLayoutProperty('superfund-layer', 'visibility', 'visible');
-          map.setFilter('superfund-layer', ['==', 'SITE_NAME', 'GE PITTSFIELD HOUSATONIC RIVER SUPERFUND SITE']);
-          map.setPaintProperty('superfund-layer', 'circle-radius', 6);
           map.setFilter('superfund-labels', ['==', 'SITE_NAME', 'GE PITTSFIELD HOUSATONIC RIVER SUPERFUND SITE']);
           map.setLayoutProperty('superfund-labels', 'visibility', 'visible');
           break;
@@ -936,8 +918,6 @@
           allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
           allMarkers.forEach(item => item.remove());
           map.setLayoutProperty('superfund-layer', 'visibility', 'visible');
-          map.setFilter('superfund-layer', ['==', 'SITE_NAME', 'GE PITTSFIELD HOUSATONIC RIVER SUPERFUND SITE']);
-          map.setPaintProperty('superfund-layer', 'circle-radius', 6)
           map.setLayoutProperty('ge-layer', 'visibility', 'visible');
           break;
 
@@ -945,10 +925,10 @@
           // Scene 3c
           // Housatonic River and watershed
           map.flyTo({
-            center: [-73.00478, 42.36135],
-            zoom: 8.92,
-            pitch: 37.8,
-            bearing: 129.64,
+            center: [-73.9485407, 41.80709],
+            zoom: 8.42,
+            pitch: 56.5,
+            bearing: 36.68659,
             speed: .3
           });
           allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
@@ -960,6 +940,7 @@
           map.setLayoutProperty('superfund-layer', 'visibility', 'visible');
           map.setFilter('superfund-layer', ['==', 'SITE_NAME', 'GE PITTSFIELD HOUSATONIC RIVER SUPERFUND SITE']);
           map.setPaintProperty('superfund-layer', 'circle-radius', 6);
+          map.setPaintProperty('superfund-layer', 'circle-opacity', 0.9)
           document.getElementById('map').style.opacity = '1';
           break;
 
@@ -967,8 +948,8 @@
           // Scene 4
           // Country level, all Superfund sites, conclusion
           map.flyTo({
-            center: [-114.92164, 40.1301],
-            zoom: 3.789,
+            center: [-112.275833, 39.504698],
+            zoom: 3.6,
             pitch: 0,
             bearing: 0,
             speed: 0.5
@@ -978,6 +959,7 @@
           map.setLayoutProperty('superfund-layer', 'visibility', 'visible');
           map.setFilter('superfund-layer', null);
           map.setPaintProperty('superfund-layer', 'circle-radius', 2.5)
+          map.setPaintProperty('superfund-layer', 'circle-opacity', 0.7)
           document.getElementById('map').style.opacity = '1';
           break;
 
@@ -985,8 +967,8 @@
           // Scene 5
           // country level, overall TRI facility distribution
           map.flyTo({
-            center: [-114.92164, 40.1301],
-            zoom: 3.789,
+            center: [-112.275833, 39.504698],
+            zoom: 3.6,
             pitch: 0,
             bearing: 0
           });
@@ -1002,8 +984,8 @@
           // Scene 5a
           // country level, overall TRI facility distribution--repeat
           map.flyTo({
-            center: [-114.92164, 40.1301],
-            zoom: 3.789,
+            center: [-112.275833, 39.504698],
+            zoom: 3.6,
             pitch: 0,
             bearing: 0
           });
@@ -1019,8 +1001,8 @@
           // Scene 6
           // TRI top releasing facilities with time slider
           map.flyTo({
-            center: [-114.92164, 40.1301],
-            zoom: 3.789,
+            center: [-112.275833, 39.504698],
+            zoom: 3.6,
             pitch: 0,
             bearing: 0
           });
@@ -1028,12 +1010,10 @@
           allMarkers.forEach(item => item.remove());
           map.setLayoutProperty('tri-release-layer', 'visibility', 'visible');
           map.setPaintProperty('tri-release-layer', 'circle-color', '#cadb75');
-          document
-            .getElementById('total-slider')
-            .addEventListener('input', function (e) {
-              var year = parseInt(e.target.value, 10);
-              filterTotalRelease(year);
-            });
+
+          // reset time slider to beginning
+          document.getElementById('total-slider').value = 0;
+          filterTotalRelease(1987)
           document.getElementById('release-note').style.fontWeight = 'normal';
 
           // set bar chart to highlight first bar at start
@@ -1047,10 +1027,10 @@
 
         case 17:
           // Scene 6a
-          // TRI top releasing facilities with time slider--repeat for transition
+          // TRI top releasing facilities--repeat for transition
           map.flyTo({
-            center: [-114.92164, 40.1301],
-            zoom: 3.789,
+            center: [-112.275833, 39.504698],
+            zoom: 3.6,
             pitch: 0,
             bearing: 0
           });
@@ -1058,12 +1038,6 @@
           allMarkers.forEach(item => item.remove());
           map.setLayoutProperty('tri-release-layer', 'visibility', 'visible');
           map.setPaintProperty('tri-release-layer', 'circle-color', '#cadb75');
-          filterTotalRelease(1987);
-          document
-            .getElementById('total-slider')
-            .addEventListener('input', function (e) {
-              var year = parseInt(e.target.value, 10);
-            });
           document.getElementById('release-note').style.fontWeight = 'normal';
           break;
 
@@ -1071,8 +1045,8 @@
           // Scene 7
           // country level, chromium facilities
           map.flyTo({
-            center: [-114.92164, 40.1301],
-            zoom: 3.789,
+            center: [-112.275833, 39.504698],
+            zoom: 3.6,
             pitch: 0,
             bearing: 0,
             speed: 0.25
@@ -1086,8 +1060,8 @@
           // Scene 8
           // country level, ethylene oxide facilitiies
           map.flyTo({
-            center: [-114.92164, 40.1301],
-            zoom: 3.789,
+            center: [-112.275833, 39.504698],
+            zoom: 3.6,
             pitch: 0,
             bearing: 0,
             speed: 0.25
@@ -1210,6 +1184,7 @@
           map.setLayoutProperty('tri-layer', 'visibility', 'visible');
           map.setFilter('tri-layer', ['==', 'FACILITY NAME', 'FORMOSA PLASTICS CORP TEXAS']);
           map.setPaintProperty('tri-layer', 'circle-radius', 8);
+          map.setPaintProperty('tri-layer', 'circle-opacity', 0.9)
           break;
 
         case 27:
@@ -1227,14 +1202,15 @@
           map.setLayoutProperty('tri-layer', 'visibility', 'visible');
           map.setFilter('tri-layer', ['==', 'FACILITY NAME', 'FORMOSA PLASTICS CORP TEXAS']);
           map.setPaintProperty('tri-layer', 'circle-radius', 8);
+          map.setPaintProperty('tri-layer', 'circle-opacity', 0.9)
           break;
 
         case 28:
           // Scene 10
           // Country level, parent companies with dropdown selection menu
           map.flyTo({
-            center: [-114.92164, 40.1301],
-            zoom: 3.789,
+            center: [-112.275833, 39.504698],
+            zoom: 3.6,
             pitch: 0,
             bearing: 0
           });
@@ -1242,6 +1218,7 @@
           allMarkers.forEach(item => item.remove());
           map.setLayoutProperty('parent-co-layer', 'visibility', 'visible');
           map.setPaintProperty('tri-layer', 'circle-radius', 4)
+          map.setPaintProperty('tri-layer', 'circle-opacity', 0.65)
           map.setFilter('parent-co-layer', null);
           $('#company-header').text('Parent Company')
           $('#company-details').text('Industry')
@@ -1255,8 +1232,8 @@
           // Scene 11
           // Country level, all TRI facilities, conclusion
           map.flyTo({
-            center: [-114.92164, 40.1301],
-            zoom: 3.789,
+            center: [-112.275833, 39.504698],
+            zoom: 3.6,
             pitch: 0,
             bearing: 0,
             speed: 0.5
@@ -1277,8 +1254,8 @@
           // Scene 12
           // Epilogue introduction, all TRI facilities
           map.flyTo({
-            center: [-114.92164, 40.1301],
-            zoom: 3.789,
+            center: [-112.275833, 39.504698],
+            zoom: 3.6,
             pitch: 0,
             bearing: 0,
             speed: 0.5
@@ -1316,10 +1293,10 @@
           // Scene 13a
           // Zoom to Freedom Industries facility, location of 2014 chemical spill
           map.flyTo({
-            center: [-81.6713, 38.3618],
-            zoom: 10.78,
-            pitch: 0,
-            bearing: 0,
+            center: [-81.666488, 38.359746],
+            zoom: 12.115,
+            pitch: 26.5,
+            bearing: -7.999,
             speed: 0.25
           });
           allLayers.forEach(item => map.setLayoutProperty(item, 'visibility', 'none'));
@@ -1366,8 +1343,8 @@
           // Scene 14
           // country level, facilities within one mile of a river
           map.flyTo({
-            center: [-114.92164, 40.1301],
-            zoom: 3.789,
+            center: [-112.275833, 39.504698],
+            zoom: 3.6,
             pitch: 0,
             bearing: 0,
             speed: 0.25
@@ -1412,8 +1389,8 @@
     var map = new mapboxgl.Map({
       container: 'map', // container id
       style: 'mapbox://styles/eileengrady/ck9vlhb4417hl1iqmcr1eoyr4', // stylesheet location
-      center: [-114.92164, 40.1301], // starting position [lng, lat]
-      zoom: 3.789, // starting zoom
+      center: [-112.275833, 39.504698], // starting position [lng, lat]
+      zoom: 3.6, // starting zoom
       scrollZoom: false
     });
 
@@ -1620,25 +1597,6 @@
         }
       });
 
-      // add source and layer for US River layer
-      // map.addSource('all-rivers-source', {
-      //   type: 'geojson',
-      //   data: 'data/map-data/us-rivers.geojson'
-      // });
-
-      // map.addLayer({
-      //   'id': 'all-rivers-layer',
-      //   'type': 'line',
-      //   'source': 'all-rivers-source',
-      //   'layout': {
-      //     'visibility': 'none'
-      //   },
-      //   'paint': {
-      //     'line-color': '#79a7ac',
-      //     'line-width': .5
-      //   }
-      // });
-
       // add source and layer for parent companies
       map.addSource('parent-co-source', {
         type: 'geojson',
@@ -1725,7 +1683,7 @@
           .attr('height', function (d) {
             return height - padding.bottom - yScale(d.TOTAL_RELEASE);
           })
-          .attr('fill', (d => d3.select('#total-slider').node().value == d.YEAR ? 'firebrick' : 'teal'));
+          // .attr('fill', (d => d3.select('#total-slider').node().value == d.YEAR ? 'firebrick' : 'teal'));
           
           var formatValue = d3.format('0.2s');
 
@@ -1792,6 +1750,13 @@
       '2017',
       '2018'
     ];
+
+    document
+      .getElementById('total-slider')
+      .addEventListener('input', function (e) {
+        var year = parseInt(e.target.value, 10);
+        filterTotalRelease(year);
+      });
 
      // declare function to filter facilities by year by time slider
      function filterTotalRelease(totalYear) {
