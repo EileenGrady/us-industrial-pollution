@@ -35,7 +35,7 @@
 #scroll-icon a {
   position: absolute;
   bottom: 20px;
-  margin-left: 50%;
+  margin-left: 47%;
   z-index: 2;
   display: inline-block;
   -webkit-transform: translate(0, -50%);
@@ -51,7 +51,7 @@
 #scroll-icon a span {
   position: absolute;
   top: 0;
-  left: 50%;
+  left: 47%;
   width: 46px;
   height: 46px;
   margin-left: -23px;
@@ -63,7 +63,7 @@
 #scroll-icon a span::after {
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 47%;
   content: '';
   width: 16px;
   height: 16px;
@@ -243,16 +243,6 @@ article {
 
   #year-chart {
     width: 100%;
-  }
-
-  #donut-chart {
-    border: 2px solid #282828;
-    width: 100%;
-    background-color: #2e2e2e;
-  }
-
-  .arc {
-    z-index: 100
   }
   
   .bar {
