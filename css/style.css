@@ -259,27 +259,27 @@ article {
   }
 
   text {
-    font-size: 12px;
+    font-size: 14px;
     font-family: 'Bitter', serif;
     fill: #3E3F3A;
     opacity: 0.9;
   }
 
   text.bar-chart-label {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   text.legend-label {
-    font-size: 0.8em;
+    font-size: 1em;
   }
 
   text.legend-title {
     fill: #3E3F3A;
-    font-size: .9em;
+    font-size: 1.2em;
   }
 
   #total-slider {
-    width: 490px;
+    width: 560px;
   }
 
   #sliderdiv{

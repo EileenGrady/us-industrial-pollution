@@ -296,7 +296,7 @@
           
           <!-- graduated circle legend -->
           <div class='circle-legend'>
-            <svg width='250' height='160'> 
+            <svg width='255' height='160'> 
               <circle fill='#cadb75' cx='65' cy='95' r='60' stroke='#2f2d2d' stroke-width='.5' /> 
               <circle fill='#cadb75' cx='65' cy='125' r='30' stroke='#2f2d2d' stroke-width='.5' /> 
               <circle fill='#cadb75' cx='65' cy='140' r='15' stroke='#2f2d2d' stroke-width='.5' /> 
@@ -306,7 +306,7 @@
               <text class ='legend-label' x='152' y='38' class='small'>470 million</text>
               <text class ='legend-label' x='152' y='98' class='small'>128 million</text>
               <text class ='legend-label' x='152' y='128' class='small'>39 million</text>
-              <text class ='legend-title' x='14' y='11'>Total pounds released annually</text>
+              <text class ='legend-title' x='0' y='15'>Total pounds released annually</text>
             </svg>
           </div>
           <div id='release-note'>
@@ -342,14 +342,14 @@
           <div class='chemical-legend'>
             <svg width='600' height='175'> 
               <circle fill='#66C5CC' cx='75' cy='110' r='60' stroke='#2f2d2d' stroke-width='.5' /> 
-              <circle fill='#66C5CC' cx='75' cy='141' r='30' stroke='#2f2d2d' stroke-width='.5' /> 
-              <circle fill='#66C5CC' cx='75' cy='156' r='15' stroke='#2f2d2d' stroke-width='.5' /> 
+              <circle fill='#66C5CC' cx='75' cy='140' r='30' stroke='#2f2d2d' stroke-width='.5' /> 
+              <circle fill='#66C5CC' cx='75' cy='155' r='15' stroke='#2f2d2d' stroke-width='.5' /> 
               <line x1='75' y1='50' x2='175' y2='50' stroke='#2f2d2d' stroke-width='.5' stroke-dasharray='4,4' />
-              <line x1='75' y1='111' x2='175' y2='111' stroke='#2f2d2d' stroke-width='.5' stroke-dasharray='4,4' />
-              <line x1='75' y1='142' x2='175' y2='142' stroke='#2f2d2d' stroke-width='.5' stroke-dasharray='4,4' />
+              <line x1='75' y1='110' x2='175' y2='110' stroke='#2f2d2d' stroke-width='.5' stroke-dasharray='4,4' />
+              <line x1='75' y1='140' x2='175' y2='140' stroke='#2f2d2d' stroke-width='.5' stroke-dasharray='4,4' />
               <text class ='legend-label' x='177' y='53'>3.5 million pounds</text>
-              <text class ='legend-label' x='177' y='115'>778,000 pounds</text>
-              <text class ='legend-label' x='177' y='147'>276,000 pounds</text>
+              <text class ='legend-label' x='177' y='114'>778,000 pounds</text>
+              <text class ='legend-label' x='177' y='145'>276,000 pounds</text>
               <text class ='legend-title' x='0' y='20'>
                 Chromium/Chromium Compunds Released in 2018
               </text>
@@ -1637,7 +1637,7 @@
     // declare function that draws d3 chart for yearly release totals
     function drawYearChart() {
 
-      var width = 575,
+      var width = 650,
           height = 250,
           padding =  {top:0, right: 5, bottom: 35, left: 40}
 
@@ -1698,7 +1698,7 @@
             .attr('transform', 'translate(0,' + (height - padding.bottom) + ')')
             .call(xAxis)
             .selectAll('text')
-            .attr('transform', 'rotate(45)')
+            .attr('transform', 'rotate(55)')
             .attr('dy', '.55em')
             .style('text-anchor', 'start');
         
