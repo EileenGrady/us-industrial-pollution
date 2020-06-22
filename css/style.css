@@ -140,6 +140,10 @@ h4 {
   font-size: 2.5em;
 }
 
+a {
+  color:#287274;
+}
+
 a:hover {
   color:#0d585f;
   font-style: underline;
