@@ -132,11 +132,12 @@ h2 {
 
 h3 {
   font-family: 'Fjalla One', sans-serif;
-  font-size: 1.2em;
+  font-size: 2em;
 }
 
-a {
-  color:#287274;
+h4 {
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 1.8em;
 }
 
 a:hover {
