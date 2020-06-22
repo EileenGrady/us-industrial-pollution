@@ -196,8 +196,8 @@ article {
     position: relative;
     margin: 0 1rem 40rem auto;
     padding: 1.2rem;
-    max-width: 45rem;
-    font-size: 1rem;
+    max-width: 55rem;
+    /* font-size: 1rem; */
     background-color: #f3f3f3;
     border: 2px solid #282828;
     opacity: .95;
